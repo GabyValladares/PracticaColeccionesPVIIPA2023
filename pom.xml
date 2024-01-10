@@ -12,8 +12,10 @@
         <exec.mainClass>com.mycompany.practicacolecciones.PracticaColecciones</exec.mainClass>
     </properties>
     <dependencies>
-        
-        
-        
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE160</version>
+        </dependency>
     </dependencies>
 </project>
