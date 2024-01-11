@@ -4,6 +4,14 @@
  */
 package Listas;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Arrays;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -26,22 +34,146 @@ public class Ejercicio1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtDimension = new javax.swing.JTextField();
+        txtPalabra = new javax.swing.JTextField();
+        btnLista = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Arrays Ejemplo");
+
+        jLabel2.setText("Ingrese la DImension:");
+
+        jLabel3.setText("Ingrese dos palabras Separadas por espacio:");
+
+        txtDimension.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDimensionActionPerformed(evt);
+            }
+        });
+
+        txtPalabra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPalabraActionPerformed(evt);
+            }
+        });
+
+        btnLista.setText("Ver Lista");
+        btnLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDimension, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(txtPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(120, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(155, 155, 155))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1)
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDimension, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(btnLista)
+                .addGap(37, 37, 37))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtDimensionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDimensionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDimensionActionPerformed
+
+    
+     private String[] miArray;  // Declarar el array como una variable de instancia
+
+    private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
+   // Obtener la dimensión del array desde el campo de texto
+        int n = Integer.parseInt(txtDimension.getText());
+
+        // Obtener la oración desde el campo de texto
+        String oracion = txtPalabra.getText();
+        String[] palabras = oracion.split(" ");
+
+         // Verificar que haya exactamente dos palabras en la oración
+    if (palabras.length != 2) {
+            mostrarVentanaError("La oración debe contener exactamente dos palabras separadas por espacio.");
+            return; // Salir del método si hay un error
+        }
+
+
+        // Crear el array con el tamaño especificado
+        miArray = new String[n];
+
+        // Llenar el array intercalando las palabras
+        for (int i = 0; i < n; i++) {
+            miArray[i] = palabras[i % 2];
+        }
+
+        // Mostrar el array resultante en un JOptionPane
+        JOptionPane.showMessageDialog(this, Arrays.toString(miArray), "Resultado", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnListaActionPerformed
+
+    
+      private void mostrarVentanaError(String mensaje) {
+        try {
+            // Cambia "ruta_de_tu_imagen.jpg" con la ruta de tu imagen local
+            String rutaImagenLocal = "C:\\Users\\floow\\OneDrive\\Escritorio\\git java\\PracticaColeccionesPVIIPA2023\\src\\main\\java\\Listas\\Icons\\st,small,507x507-pad,600x600,f8f8f8.jpg";
+
+            // Crear un ImageIcon con la imagen local
+            ImageIcon icono = new ImageIcon(new URL("file:///" + rutaImagenLocal));
+
+            // Mostrar el mensaje de error en un JOptionPane estándar con la imagen
+            JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE, icono);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
+    private void txtPalabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPalabraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPalabraActionPerformed
+
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -78,5 +210,11 @@ public class Ejercicio1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLista;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField txtDimension;
+    private javax.swing.JTextField txtPalabra;
     // End of variables declaration//GEN-END:variables
 }
