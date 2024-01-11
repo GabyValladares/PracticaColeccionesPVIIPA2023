@@ -183,7 +183,7 @@ public class Ejercicio1 extends javax.swing.JFrame {
             for (int i = 0; i < tamanio; i++) {
                 resultado.append(String.format("%4d", i + 1));
                 if (i < tamanio - 1) {
-                    resultado.append("           ");
+                    resultado.append("  ");
                 }
             }
 
@@ -201,7 +201,7 @@ public class Ejercicio1 extends javax.swing.JFrame {
         }
     } catch (NumberFormatException ex) {
         // Manejar excepción si el usuario ingresa un número no válido
-        txtError.setText("Error: Ingresa un número válido en el campo Tamaño.");
+        txtError.setText("Error: Ingresa un número válido.");
         txtResultado.setText("");
     }
     }//GEN-LAST:event_btnResultadoActionPerformed
