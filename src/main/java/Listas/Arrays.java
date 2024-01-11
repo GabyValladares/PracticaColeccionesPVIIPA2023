@@ -38,6 +38,7 @@ public class Arrays extends javax.swing.JFrame {
         btnImprimir = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtA = new javax.swing.JTextArea();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,12 +60,19 @@ public class Arrays extends javax.swing.JFrame {
         txtA.setRows(5);
         jScrollPane2.setViewportView(txtA);
 
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -79,7 +87,9 @@ public class Arrays extends javax.swing.JFrame {
                             .addComponent(jScrollPane2)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(191, 191, 191)
-                        .addComponent(btnImprimir)))
+                        .addComponent(btnImprimir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEliminar)))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -96,7 +106,9 @@ public class Arrays extends javax.swing.JFrame {
                 .addGap(91, 91, 91)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(73, 73, 73)
-                .addComponent(btnImprimir)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnImprimir)
+                    .addComponent(btnEliminar))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -106,33 +118,59 @@ public class Arrays extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-           try {
-        int numero = Integer.parseInt(txtTamanio.getText());
-        String oracion = txtOracion.getText();
-        String[] palabras = oracion.split("\\s+");
-        
-        if (numero > palabras.length / 2) {
-            System.out.println("El número es demasiado grande");
-            return;
-        }
-        
-        List<String> listaCombinada = new ArrayList<>();
-        for (int i = 0; i < numero * 2; i++) {
-            if (i % 2 == 0) {
-                //  pares
-                listaCombinada.add(palabras[i / 2]);
-            } else {
-                // impares
-                listaCombinada.add(palabras[(i - 1) / 2 + numero]);
-            }
-        }
-        txtA.setText("Lista combinada: " + listaCombinada);
-    } catch (NumberFormatException e) {
-        System.out.println("ingresa un número entero");
-    }
-       
+
+        array();
     }//GEN-LAST:event_btnImprimirActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+       txtOracion.setText("");
+       txtTamanio.setText("");
+       txtA.setText("");
+        
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    
+    
+    
+    public void array () {
+      try {
+            
+    int tamanio = Integer.parseInt(txtTamanio.getText());
+    
+    String oracion = txtOracion.getText();
+    
+    String cadena = " ";
+
+    String[] lista = new String[tamanio];
+    
+    String[] oraciones = oracion.split(" ");
+
+    if (oraciones.length == 2) {
+        String p1 = oraciones[0];
+        String p2 = oraciones[1];
+
+        for (int i = 0; i < lista.length; i++) {
+
+            if (i % 2 == 0) {
+                lista[i] = p2;
+            } else {
+                lista[i] = p1;
+            }
+
+            cadena = cadena + lista[i] + "\n";
+        }
+
+        txtA.setText("Lista combinada: "+ "\n"+ cadena);
+    } else {
+        System.out.println("necesitas minimo 2 palabras ");
+    }
+} catch (NumberFormatException e) {
+    System.out.println("Ingresa un número entero");
+}
+      
+}
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -169,6 +207,7 @@ public class Arrays extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
