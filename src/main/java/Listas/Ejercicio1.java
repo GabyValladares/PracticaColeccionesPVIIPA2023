@@ -26,21 +26,113 @@ public class Ejercicio1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTitulo = new javax.swing.JLabel();
+        lblTamanio = new javax.swing.JLabel();
+        lblPalabra = new javax.swing.JLabel();
+        txtPalabra = new javax.swing.JTextField();
+        btnGenerar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAResultado = new javax.swing.JTextArea();
+        txtTamanio = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblTitulo.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(0, 204, 102));
+        lblTitulo.setText("Practica colección con Arrays");
+
+        lblTamanio.setForeground(new java.awt.Color(0, 0, 0));
+        lblTamanio.setText("Ingrese el tamaño:");
+
+        lblPalabra.setForeground(new java.awt.Color(0, 0, 0));
+        lblPalabra.setText("Ingrse alguna palabra:");
+
+        txtPalabra.setBackground(new java.awt.Color(204, 255, 204));
+        txtPalabra.setForeground(new java.awt.Color(0, 0, 0));
+
+        btnGenerar.setBackground(new java.awt.Color(204, 102, 0));
+        btnGenerar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGenerar.setText("Generar");
+        btnGenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarActionPerformed(evt);
+            }
+        });
+
+        txtAResultado.setBackground(new java.awt.Color(204, 255, 204));
+        txtAResultado.setColumns(20);
+        txtAResultado.setForeground(new java.awt.Color(0, 0, 0));
+        txtAResultado.setRows(5);
+        jScrollPane1.setViewportView(txtAResultado);
+
+        txtTamanio.setBackground(new java.awt.Color(204, 255, 204));
+        txtTamanio.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTamanio)
+                    .addComponent(lblPalabra))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTamanio, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(75, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblTitulo)
+                        .addGap(118, 118, 118))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(lblTitulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblTamanio)
+                    .addComponent(txtTamanio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPalabra)
+                    .addComponent(txtPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnGenerar)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
+        // TODO add your handling code here:
+        int tamanio = Integer.parseInt(txtTamanio.getText());
+        
+        String[] palabras = txtPalabra.getText().split(" ");
+        String[] listaPalabras = new String[tamanio];
+        
+        for (int i = 0; i < listaPalabras.length; i++) {
+            if (i % 2 == 0) {
+                listaPalabras[i] = palabras[0];
+            } else {
+                listaPalabras[i] = palabras[1];
+            }
+            txtAResultado.append(listaPalabras[i] + " ");
+        }
+
+    }//GEN-LAST:event_btnGenerarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +170,13 @@ public class Ejercicio1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGenerar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblPalabra;
+    private javax.swing.JLabel lblTamanio;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JTextArea txtAResultado;
+    private javax.swing.JTextField txtPalabra;
+    private javax.swing.JTextField txtTamanio;
     // End of variables declaration//GEN-END:variables
 }
