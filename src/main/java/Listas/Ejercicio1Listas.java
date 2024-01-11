@@ -120,7 +120,7 @@ public class Ejercicio1Listas extends javax.swing.JFrame {
         String[] lista = new String[tamanio];
         String[] palabras = oracion.split(" ");
 
-        if (palabras.length >= 2) {
+        if (palabras.length == 2) {
             String palabra1 = palabras[0];
             String palabra2 = palabras[1];
 
@@ -137,7 +137,7 @@ public class Ejercicio1Listas extends javax.swing.JFrame {
 
             txtSalida.setText(cadena);
         } else {
-            System.out.println("Se necesitan al menos 2 palabras en la oración.");
+            System.out.println("Se necesitan solo 2 palabras en la oración.");
         }
 
 
