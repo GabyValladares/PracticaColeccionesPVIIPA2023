@@ -4,6 +4,8 @@
  */
 package Listas;
 
+import java.awt.Color;
+
 /**
  *
  * @author Usuario
@@ -26,21 +28,156 @@ public class Ejercicio1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTamanio = new javax.swing.JLabel();
+        txtTamanio = new javax.swing.JTextField();
+        txtPalabra = new javax.swing.JTextField();
+        btnOK = new javax.swing.JButton();
+        lblCadena = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtArea = new javax.swing.JTextArea();
+        titulo1 = new javax.swing.JLabel();
+        titulo2 = new javax.swing.JLabel();
+        titulo3 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 204, 255));
+
+        lblTamanio.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblTamanio.setForeground(new java.awt.Color(102, 0, 102));
+        lblTamanio.setText("Ingresar tamaño:");
+
+        txtTamanio.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        txtTamanio.setForeground(new java.awt.Color(255, 51, 0));
+
+        txtPalabra.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        txtPalabra.setForeground(new java.awt.Color(255, 51, 0));
+
+        btnOK.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
+        btnOK.setForeground(new java.awt.Color(51, 204, 0));
+        btnOK.setText("OK");
+        btnOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOKActionPerformed(evt);
+            }
+        });
+
+        lblCadena.setBackground(new java.awt.Color(255, 204, 204));
+        lblCadena.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        lblCadena.setForeground(new java.awt.Color(102, 0, 102));
+        lblCadena.setText("Ingresar frase: ");
+
+        txtArea.setColumns(20);
+        txtArea.setRows(5);
+        jScrollPane1.setViewportView(txtArea);
+
+        titulo1.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
+        titulo1.setForeground(new java.awt.Color(153, 0, 153));
+        titulo1.setText("Lista");
+
+        titulo2.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
+        titulo2.setForeground(new java.awt.Color(255, 102, 0));
+        titulo2.setText("nombres");
+
+        titulo3.setFont(new java.awt.Font("Berlin Sans FB", 0, 48)); // NOI18N
+        titulo3.setText(" /");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTamanio)
+                            .addComponent(lblCadena)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(btnOK)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(96, 96, 96))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtTamanio)
+                            .addComponent(txtPalabra, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
+                        .addGap(21, 21, 21))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(144, 144, 144)
+                .addComponent(titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(titulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(titulo2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(titulo1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(titulo3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(titulo2)))
+                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTamanio)
+                    .addComponent(txtTamanio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCadena)
+                    .addComponent(txtPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(btnOK)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
+        // TODO add your handling code here:
+        int tamanio = Integer.parseInt(txtTamanio.getText());
+        String palabra  = txtPalabra.getText();
+        String [] listaPalabras = new String[tamanio];
+        
+        String par = ""; 
+        String impar = "";
+        
+        String[] palabras = palabra.split(" ");
+        if(palabras.length > 0){
+           impar = palabras[0];
+        } 
+        if (palabras.length > 1){
+           par = palabras[1];  
+        }
+        
+        
+        for (int i = 0; i < listaPalabras.length; i++) {
+            if (i%2 != 0){
+                listaPalabras[i]= impar;
+            }else{
+                listaPalabras[i]= par;
+                
+            }
+            
+            txtArea.append(listaPalabras[i]+"\n");
+            txtArea.setForeground(Color.ORANGE);
+        }
+    }//GEN-LAST:event_btnOKActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +215,15 @@ public class Ejercicio1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnOK;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCadena;
+    private javax.swing.JLabel lblTamanio;
+    private javax.swing.JLabel titulo1;
+    private javax.swing.JLabel titulo2;
+    private javax.swing.JLabel titulo3;
+    private javax.swing.JTextArea txtArea;
+    private javax.swing.JTextField txtPalabra;
+    private javax.swing.JTextField txtTamanio;
     // End of variables declaration//GEN-END:variables
 }
