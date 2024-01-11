@@ -42,7 +42,7 @@ public class EjemploArray extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("PILAS");
+        jLabel1.setText("Array");
 
         jLabel2.setText("ingresar dimension: ");
 
