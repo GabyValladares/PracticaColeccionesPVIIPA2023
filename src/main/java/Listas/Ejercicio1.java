@@ -26,21 +26,118 @@ public class Ejercicio1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTamanio = new javax.swing.JLabel();
+        txtTamanio = new javax.swing.JTextField();
+        lblPalabra = new javax.swing.JLabel();
+        txtPalabra = new javax.swing.JTextField();
+        btnGenerarLista = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAResultado = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblTamanio.setText("Ingrese tamaño");
+
+        txtTamanio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTamanioActionPerformed(evt);
+            }
+        });
+
+        lblPalabra.setText("Ingrese palabra:");
+
+        txtPalabra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPalabraActionPerformed(evt);
+            }
+        });
+
+        btnGenerarLista.setText("Generar");
+        btnGenerarLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarListaActionPerformed(evt);
+            }
+        });
+
+        txtAResultado.setColumns(20);
+        txtAResultado.setRows(5);
+        jScrollPane1.setViewportView(txtAResultado);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(btnGenerarLista))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblPalabra)
+                                .addGap(44, 44, 44)
+                                .addComponent(txtPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblTamanio)
+                                .addGap(44, 44, 44)
+                                .addComponent(txtTamanio, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTamanio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTamanio))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPalabra))
+                .addGap(44, 44, 44)
+                .addComponent(btnGenerarLista)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtTamanioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTamanioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTamanioActionPerformed
+
+    private void txtPalabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPalabraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPalabraActionPerformed
+
+    private void btnGenerarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarListaActionPerformed
+        // TODO add your handling code here:
+        int tamanio=Integer.parseInt(txtTamanio.getText());
+        String oracion= txtPalabra.getText();
+        String [] palabras= oracion.split(" ");
+        String [] listaPalabras=new String[tamanio];
+        if (palabras.length >= 2) {
+            for (int i = 0; i < tamanio; i++){
+                if (i % 2 == 0){
+                     listaPalabras[i] = palabras[0];
+                } else{
+                    listaPalabras[i] = palabras[1];
+                }
+            }
+            for (String palabra : listaPalabras){
+                txtAResultado.append(palabra + " ");
+            }
+        } else {
+            txtAResultado.setText("Ingrese al menos dos palabras en la oración.");
+        }
+    }//GEN-LAST:event_btnGenerarListaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +175,12 @@ public class Ejercicio1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGenerarLista;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblPalabra;
+    private javax.swing.JLabel lblTamanio;
+    private javax.swing.JTextArea txtAResultado;
+    private javax.swing.JTextField txtPalabra;
+    private javax.swing.JTextField txtTamanio;
     // End of variables declaration//GEN-END:variables
 }
