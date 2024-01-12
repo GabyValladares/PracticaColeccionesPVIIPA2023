@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Listas;
+package DIU;
 
 /**
  *
  * @author Usuario
  */
-public class Ejercicio1 extends javax.swing.JFrame {
+public class Menu extends javax.swing.JFrame {
 
     /**
-     * Creates new form Ejercicio1
+     * Creates new form Menu
      */
-    public Ejercicio1() {
+    public Menu() {
         initComponents();
     }
 
@@ -26,47 +26,15 @@ public class Ejercicio1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuBar3 = new javax.swing.JMenuBar();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuListas = new javax.swing.JMenu();
-        opLEstaticas = new javax.swing.JMenuItem();
+        opLEstatico = new javax.swing.JMenuItem();
         opLDinamicas = new javax.swing.JMenuItem();
+        menuPilas = new javax.swing.JMenu();
+        menuArboles = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        mnListas = new javax.swing.JMenu();
-
-        jMenuItem1.setText("jMenuItem1");
-
-        jMenu3.setText("jMenu3");
-
-        jMenuItem2.setText("jMenuItem2");
-
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
-
-        jMenu4.setText("File");
-        jMenuBar2.add(jMenu4);
-
-        jMenu5.setText("Edit");
-        jMenuBar2.add(jMenu5);
-
-        jMenuItem3.setText("jMenuItem3");
-
-        jMenu7.setText("File");
-        jMenuBar3.add(jMenu7);
-
-        jMenu8.setText("Edit");
-        jMenuBar3.add(jMenu8);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,40 +42,41 @@ public class Ejercicio1 extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1299, Short.MAX_VALUE)
+            .addGap(0, 1387, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 531, Short.MAX_VALUE)
+            .addGap(0, 564, Short.MAX_VALUE)
         );
 
         menuListas.setText("Listas");
 
-        opLEstaticas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        opLEstaticas.setText("Estáticas");
-        opLEstaticas.addActionListener(new java.awt.event.ActionListener() {
+        opLEstatico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        opLEstatico.setText("Estáticas");
+        opLEstatico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opLEstaticasActionPerformed(evt);
+                opLEstaticoActionPerformed(evt);
             }
         });
-        menuListas.add(opLEstaticas);
+        menuListas.add(opLEstatico);
 
         opLDinamicas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         opLDinamicas.setText("Dinámicas");
-        opLDinamicas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opLDinamicasActionPerformed(evt);
-            }
-        });
         menuListas.add(opLDinamicas);
 
         jMenuBar1.add(menuListas);
 
-        jMenu2.setText("Pilas");
-        jMenuBar1.add(jMenu2);
+        menuPilas.setText("Pilas");
+        jMenuBar1.add(menuPilas);
 
-        mnListas.setText("Colas");
-        jMenuBar1.add(mnListas);
+        menuArboles.setText("Árboles");
+        jMenuBar1.add(menuArboles);
+
+        jMenu1.setText("Colas");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Ficha Vehicular");
+        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -115,31 +84,27 @@ public class Ejercicio1 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 69, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void opLEstaticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLEstaticasActionPerformed
+    private void opLEstaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLEstaticoActionPerformed
         // TODO add your handling code here:
-        ListasEstaticas le=new ListasEstaticas();
-        escritorio.add(le);
-        le.show();
-    }//GEN-LAST:event_opLEstaticasActionPerformed
-
-    private void opLDinamicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicasActionPerformed
-        // TODO add your handling code here:
-        ListasDinamicas ld=new ListasDinamicas();
-        escritorio.add(ld);
-        ld.show();
-    }//GEN-LAST:event_opLDinamicasActionPerformed
+        ListasEstaticas ventanaLE=new ListasEstaticas();
+        escritorio.add(ventanaLE);
+        ventanaLE.show();
+    }//GEN-LAST:event_opLEstaticoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,42 +123,33 @@ public class Ejercicio1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ejercicio1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ejercicio1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ejercicio1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ejercicio1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ejercicio1().setVisible(true);
+                new Menu().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuListas;
-    private javax.swing.JMenu mnListas;
+    private javax.swing.JMenu menuPilas;
     private javax.swing.JMenuItem opLDinamicas;
-    private javax.swing.JMenuItem opLEstaticas;
+    private javax.swing.JMenuItem opLEstatico;
     // End of variables declaration//GEN-END:variables
 }
