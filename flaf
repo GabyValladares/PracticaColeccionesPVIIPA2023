@@ -1,0 +1,49 @@
+[33mcommit 47253a342338fb84604e594035db566b810deb81[m[33m ([m[1;36mHEAD -> [m[1;32mInty_Simbaña[m[33m)[m
+Merge: 78f2855 d02d213
+Author: IntyST <inty.simbana328@ist17dejulio.edu.ec>
+Date:   Fri Jan 12 15:08:50 2024 -0500
+
+    Merge branch 'Inty_Simbaña' of https://github.com/GabyValladares/PracticaColeccionesPVIIPA2023 into Inty_Simbaña
+
+[33mcommit 78f28551dc15c6a81bb3876ee1500b83c947fc08[m
+Author: IntyST <inty.simbana328@ist17dejulio.edu.ec>
+Date:   Fri Jan 12 15:06:33 2024 -0500
+
+    PRACTICA COLECCIONES - ARRAYS documeto PDF Inty Simbaña
+
+[33mcommit d02d213b8967a844e7c41913bdb46b7eab9efa57[m[33m ([m[1;31morigin/Inty_Simbaña[m[33m)[m
+Merge: a0efcd8 acdaaec
+Author: IntyST <inty.simbana328@ist17dejulio.edu.ec>
+Date:   Wed Jan 10 23:52:01 2024 -0500
+
+    Inty Simbaña: Practica colección con Arrays PDF
+
+[33mcommit acdaaec701747eef446612a9332aa158526363af[m
+Author: GABYPUSDA <gabriela2005001@gmail.com>
+Date:   Wed Jan 10 23:28:21 2024 -0500
+
+    Practica Colecciones Gaby Pusda
+
+[33mcommit 70aa7f854fe592d6f08b4bfc28eea6acdd4fa79e[m
+Author: GABYPUSDA <gabriela2005001@gmail.com>
+Date:   Wed Jan 10 23:13:51 2024 -0500
+
+    colecciones Gabriela Pusda
+
+[33mcommit a0efcd820362eb7469ebf05e43e4891f9370d63f[m
+Author: IntyST <inty.simbana328@ist17dejulio.edu.ec>
+Date:   Wed Jan 10 23:08:03 2024 -0500
+
+    Inty Simbaña: Practica colección con Arrays
+
+[33mcommit 3ec1b756ae65d1734f4f5008cba7fe327286b630[m
+Author: GabyValladares <126087266+GabyValladares@users.noreply.github.com>
+Date:   Wed Jan 10 18:02:05 2024 -0500
+
+    paquetes
+
+[33mcommit b91e514c17d7e8d9c39bb240d30f0b72e191fda5[m
+Author: GabyValladares <126087266+GabyValladares@users.noreply.github.com>
+Date:   Wed Jan 10 17:29:35 2024 -0500
+
+    Commit inicial con los paquetes por cada tipo de coleccion
