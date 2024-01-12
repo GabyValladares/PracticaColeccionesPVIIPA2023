@@ -10,7 +10,7 @@ package Listas;
  */
 public class Main {
     public static void main(String[] args) {
-        Ejercicio1 ej=new Ejercicio1();
-        ej.setVisible(true);
+//        Ejercicio1 ej=new Ejercicio1();
+//        ej.setVisible(true);
     }
 }
