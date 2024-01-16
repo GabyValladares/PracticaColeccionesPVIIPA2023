@@ -48,6 +48,7 @@ public class ejercicio1 extends javax.swing.JFrame {
 
         txta_resul.setColumns(20);
         txta_resul.setRows(5);
+        txta_resul.setEnabled(false);
         jScrollPane1.setViewportView(txta_resul);
 
         jButton1.setText("iniciar");

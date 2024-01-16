@@ -17,6 +17,12 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         initComponents();
         reporte report = new reporte();
         report.setVisible(true);
+        
+//        btnVer.addActionListener(new java.awt.event.ActionListener(){
+//        public void actionPerformed(java.awt.ActiveEvent evt){
+//            verFichaActionPerformed(evt);
+//        }
+//        });
     }
 
     /**
@@ -50,12 +56,13 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         txttipo = new javax.swing.JTextField();
         txtvalor = new javax.swing.JTextField();
         txtmultas = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        cmbMarcas = new javax.swing.JComboBox<>();
+        rbtjeep = new javax.swing.JRadioButton();
+        rbtautomovil = new javax.swing.JRadioButton();
+        rbtvitara = new javax.swing.JRadioButton();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
+        cmbColores = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -113,17 +120,19 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "toyota", "masda", "nizan", "tesla" }));
+        cmbMarcas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "toyota", "masda", "nizan", "tesla" }));
 
-        jRadioButton1.setText("jeep");
+        rbtjeep.setText("jeep");
 
-        jRadioButton2.setText("automovil");
+        rbtautomovil.setText("automovil");
 
-        jRadioButton3.setText("jRadioButton3");
+        rbtvitara.setText("vitara");
 
-        jCheckBox1.setText("jCheckBox1");
+        jCheckBox1.setText("si");
 
         jCheckBox2.setText("jCheckBox2");
+
+        cmbColores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amarillo", "Azul", "Rojo", "Verde", "Naranja", "Morado", "Blanco", "Negro", "Marron", "Gris", " " }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -162,10 +171,10 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jRadioButton2)
+                                        .addComponent(rbtautomovil)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton3))
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(rbtvitara))
+                                    .addComponent(cmbMarcas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -184,14 +193,20 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel7)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtcolor, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(53, 53, 53)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton1)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jCheckBox1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jCheckBox2)))))))
-                .addContainerGap(252, Short.MAX_VALUE))
+                                        .addGap(53, 53, 53)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(rbtjeep)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jCheckBox1)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jCheckBox2))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cmbColores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(76, 76, 76)))))))
+                .addContainerGap(298, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnVer)
@@ -224,18 +239,19 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(txtmarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmbMarcas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtcolor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtcolor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbColores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(txttipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton3))
+                            .addComponent(rbtjeep)
+                            .addComponent(rbtautomovil)
+                            .addComponent(rbtvitara))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
@@ -266,40 +282,76 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
-
-        String cedula = txtcedula.getText();
-        String nombre = txtnombre.getText();
-        String placa = txtplaca.getText();
-        String anio= txtanioehiculo.getText();
-        String marca= txtmarca.getText();
-        String color = txtcolor.getText();
-        String tipo = txttipo.getText();
-        String valor = txtvalor.getText();
-        String multas = txtmultas.getText();
-
-        // TODO add your handling code here:
-//        Ficha f=new Ficha();
+    
+    reporte reporte1 = new reporte();
+    reporte1.nombre =txtnombre.getText();
+    reporte1.cedula=txtcedula.getText();
+    reporte1.placa= txtplaca.getText();
+    reporte1.anio=txtanioehiculo.getText();
+    reporte1.color= (String) cmbColores.getSelectedItem();
+    reporte1.marca=(String) cmbMarcas.getSelectedItem();
+        if (rbtautomovil.isSelected()) {
+            reporte1.tipo_ve = "Automovil";
+        }else if(rbtjeep.isSelected()){
+            reporte1.tipo_ve = "Jeet";
+        }else if(rbtvitara.isSelected()){
+            reporte1.tipo_ve = "Vitara";
+        }
+    reporte1.valor=txtvalor.getText();
+    
+//    private void verFichaActionPerformed(java.awt.event.ActionEvent evt) {
+//    // Cerrar el InternalFrame actual (FichaVehicular)
+//    this.dispose();
+//    // Crear y mostrar el InternalFrame del Reporte
+//    reporte reporte = new reporte();
+//    principal.escritorio.add(reporte);
+//    reporte.show();
+    
+     //    TODO add your handling code here:
+//        FichaVehicular f=new FichaVehicular();
 //        f.setVisible(true);
 //        this.dispose();
+    
+    
+       
+//        String cedula = txtcedula.getText();
+//        String nombre = txtnombre.getText();
+//        String placa = txtplaca.getText();
+//        String anio= txtanioehiculo.getText();
+//        String marca= txtmarca.getText();
+//        String color = txtcolor.getText();
+//        String tipo = txttipo.getText();
+//        String valor = txtvalor.getText();
+//        String multas = txtmultas.getText();
+
+    
 
     }//GEN-LAST:event_btnVerActionPerformed
-
+//    private void verFichaActionPerformed(java.awt.event.ActionEvent evt) {
+//    // Cerrar el InternalFrame actual (FichaVehicular)
+//    this.dispose();
+//
+//    // Crear y mostrar el InternalFrame del Reporte
+//    reporte reporte = new reporte();
+//    principal.escritorio.add(reporte);
+//    reporte.show();
     private void txtplacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtplacaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtplacaActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-      rbtgroup.add(jRadioButton1);
-      rbtgroup.add(jRadioButton2);
-      rbtgroup.add(jRadioButton2);
+      rbtgroup.add(rbtjeep);
+      rbtgroup.add(rbtautomovil);
+      rbtgroup.add(rbtvitara);
     }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVer;
+    private javax.swing.JComboBox<String> cmbColores;
+    private javax.swing.JComboBox<String> cmbMarcas;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -311,10 +363,10 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton rbtautomovil;
     private javax.swing.ButtonGroup rbtgroup;
+    private javax.swing.JRadioButton rbtjeep;
+    private javax.swing.JRadioButton rbtvitara;
     private javax.swing.JTextField txtanioehiculo;
     private javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtcolor;
