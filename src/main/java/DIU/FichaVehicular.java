@@ -15,8 +15,9 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
      */
     public FichaVehicular() {
         initComponents();
-        ReportePAgar reporte = new ReportePAgar();
+        ReportePApagar reporte = new ReportePApagar();
         reporte.setVisible(false);
+        
     }
 
     /**
@@ -324,27 +325,27 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtValorActionPerformed
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
-        // TODO add your handling code here:
-        ReportePAgar ventana=new ReportePAgar();
-        ventana.cedula=txtCedula.getText();
-        ventana.nombre=txtNombres.getText();
-        ventana.placa=txtPlaca.getText();
-        ventana.costo=txtValor.getText();
-        ventana.marca=cmbMarca.getSelectedItem().toString();
-        if(rdAuto.isSelected()){
-            ventana.tipo="Automóvil";
-        }else if (rdCamioneta.isSelected()){
-            ventana.tipo="Camioneta";
-        }else if(rdVitara.isSelected()){
-            ventana.tipo="Vitara";
-        }else {
-            ventana.tipo="Jeep";
+        ReportePApagar ventana = new ReportePApagar();
+        
+        ventana.cedula = txtCedula.getText();
+        ventana.nombre = txtNombres.getText();
+        ventana.numeroPlaca = txtPlaca.getText();
+        ventana.valor = txtValor.getText();
+        ventana.marca = cmbMarca.getSelectedItem().toString();
+        if (rdAuto.isSelected()) {
+            ventana.tipo = "Automóvil";
+        } else if (rdCamioneta.isSelected()) {
+            ventana.tipo = "Camioneta";
+        } else if (rdVitara.isSelected()) {
+            ventana.tipo = "Vitara";
+        } else {
+            ventana.tipo = "Jeep";
         }
-        ventana.multa="";
-        if(chxMultasSi.isSelected()==true){
-            ventana.multa="SI";
-        }else{
-            ventana.multa="NO";
+        ventana.multa = "";
+        if (chxMultasSi.isSelected() == true) {
+            ventana.multa = "SI";
+        } else {
+            ventana.multa = "NO";
         }
         ventana.setVisible(true);
         this.dispose();

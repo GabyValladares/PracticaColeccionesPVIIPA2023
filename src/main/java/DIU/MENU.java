@@ -138,6 +138,7 @@ public class MENU extends javax.swing.JFrame {
         FichaVehicular ventFvehi = new FichaVehicular();
         jdEscritorio.add(ventFvehi);
         ventFvehi.show();
+     
     }//GEN-LAST:event_jmVerActionPerformed
 
     /**
