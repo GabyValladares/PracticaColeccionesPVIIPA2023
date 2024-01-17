@@ -34,6 +34,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         menuPilas = new javax.swing.JMenu();
         menuArboles = new javax.swing.JMenu();
         FichaVehicular = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,6 +62,21 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(menuArboles);
 
         FichaVehicular.setText("Ficha Vehicular");
+        FichaVehicular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FichaVehicularActionPerformed(evt);
+            }
+        });
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem2.setText("Ficha");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        FichaVehicular.add(jMenuItem2);
+
         jMenuBar1.add(FichaVehicular);
 
         setJMenuBar(jMenuBar1);
@@ -87,6 +103,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         Escritorio.add(ventanaLE);
         ventanaLE.show();
     }//GEN-LAST:event_opLDinamicasActionPerformed
+
+    private void FichaVehicularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FichaVehicularActionPerformed
+        // TODO add your handling code here:
+        FichaVehicular ventana =new FichaVehicular();
+        ventana.setVisible(true);
+        
+    }//GEN-LAST:event_FichaVehicularActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,6 +156,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu MenuListas;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuPilas;
     private javax.swing.JMenuItem opLDinamicas;

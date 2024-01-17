@@ -4,6 +4,8 @@
  */
 package Menu;
 
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author user
@@ -15,6 +17,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
      */
     public FichaVehicular() {
         initComponents();
+        ReporteAPagar reporte =new ReporteAPagar();
+        reporte.setVisible(false);
     }
 
     /**
@@ -31,9 +35,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         txtValor = new javax.swing.JTextField();
         lblValor1 = new javax.swing.JLabel();
         btnVer = new javax.swing.JButton();
-        chxMultasSi = new javax.swing.JCheckBox();
+        chxMultasno = new javax.swing.JCheckBox();
         txtCedula = new javax.swing.JTextField();
-        chxMultasNo = new javax.swing.JCheckBox();
         lblCedula = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
@@ -53,12 +56,13 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         RbtAutomovil = new javax.swing.JRadioButton();
         RbtCamioneta = new javax.swing.JRadioButton();
         RbtVitara = new javax.swing.JRadioButton();
+        cKbSiMultas = new javax.swing.JCheckBox();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Fcha");
+        setTitle("Ficha");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameActivated(evt);
@@ -94,23 +98,16 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             }
         });
 
-        chxMultasSi.setText("Si");
-        chxMultasSi.addActionListener(new java.awt.event.ActionListener() {
+        chxMultasno.setText("No");
+        chxMultasno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chxMultasSiActionPerformed(evt);
+                chxMultasnoActionPerformed(evt);
             }
         });
 
         txtCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCedulaActionPerformed(evt);
-            }
-        });
-
-        chxMultasNo.setText("No");
-        chxMultasNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chxMultasNoActionPerformed(evt);
             }
         });
 
@@ -183,6 +180,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
         RbtVitara.setText("Vitara");
 
+        cKbSiMultas.setText("Si");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -229,9 +228,9 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(chxMultasNo)
-                                    .addComponent(chxMultasSi)
-                                    .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(chxMultasno)
+                                    .addComponent(cKbSiMultas)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -265,7 +264,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPlaca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPlaca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -305,13 +304,13 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(chxMultasSi)
+                        .addComponent(chxMultasno)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chxMultasNo)
+                        .addComponent(cKbSiMultas)
                         .addGap(21, 21, 21))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblValor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                         .addComponent(lblValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31))))
         );
@@ -325,20 +324,39 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
         // TODO add your handling code here:
+        ReporteAPagar reporte1=new ReporteAPagar();
+        reporte1.nombre=txtNombres.getText();
+        reporte1.cedula=txtCedula.getText();
+        reporte1.marca=(String) Marcas.getSelectedItem();
+        if(RbtAutomovil.isSelected()){
+            reporte1.tipo="Automovil";
+        }else if(RbtCamioneta.isSelected()){
+            reporte1.tipo="Camioneta";
+        }else if(RbtVitara.isSelected()){
+            reporte1.tipo="Vitara";
+        }else if(RbJeep.isSelected()){
+            reporte1.tipo="Jeep";
+        }
+        reporte1.multas="";
+        if(chxMultasno.isSelected()==true){
+            reporte1.multas="SI";
+        }else{
+            reporte1.multas="NO";
+        }
+        //PantallaPrincipal pantalla = (PantallaPrincipal) SwingUtilities.getWindowAncestor(this); // Obtener el escritorio desde el formulario actual
+        //pantalla.add(reporte1);
+        reporte1.setVisible(true);
+        this.dispose();
         
     }//GEN-LAST:event_btnVerActionPerformed
 
-    private void chxMultasSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chxMultasSiActionPerformed
+    private void chxMultasnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chxMultasnoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_chxMultasSiActionPerformed
+    }//GEN-LAST:event_chxMultasnoActionPerformed
 
     private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCedulaActionPerformed
-
-    private void chxMultasNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chxMultasNoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chxMultasNoActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
@@ -389,8 +407,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVer;
-    private javax.swing.JCheckBox chxMultasNo;
-    private javax.swing.JCheckBox chxMultasSi;
+    private javax.swing.JCheckBox cKbSiMultas;
+    private javax.swing.JCheckBox chxMultasno;
     private javax.swing.JLabel lblAnioFab;
     private javax.swing.JLabel lblCedula;
     private javax.swing.JLabel lblColor;
