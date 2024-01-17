@@ -1,0 +1,5 @@
+Nombre: andres
+Cédula: 1005199482
+Marca: Suzuki
+Tipo: Automovil
+Multas: Si

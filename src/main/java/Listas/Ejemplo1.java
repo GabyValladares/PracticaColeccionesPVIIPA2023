@@ -126,30 +126,19 @@ public class Ejemplo1 extends javax.swing.JFrame {
     private void btnlistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlistaActionPerformed
         // TODO add your handling code here:
         int tamanio = Integer.parseInt(txtcadena.getText());
-
-        // Obtener la cadena de palabras ingresada por el usuario
         String Palabras = txtA.getText();
-
-        // Dividir la cadena de palabras utilizando el espacio como delimitador
         String[] palabras = Palabras.split(" ");
-
-        // Verificar si hay suficientes palabras para llenar el array
+        // Se verifica si hay suficientes palabras para llenar el array
         if (palabras.length < 2) {
-            JOptionPane.showMessageDialog(this, "Ingrese al menos dos palabras.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Ingrese dos palabras.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        // Crear un arreglo del doble de tamaño para manejar posiciones pares e impares
+        // Se crea un arreglo para manejar posiciones pares e impares
         String[] listaPalabras = new String[tamanio];
-
-        // Limpiar el contenido previo en el componente de texto
         txtlist.setText("");
-
-        // Asignar las palabras a todas las posiciones pares e impares
+        // Aki se las palabras a todas las posiciones pares e impares
         for (int i = 0; i < tamanio; i++) {
             listaPalabras[i] = palabras[i % palabras.length];
-
-            // Imprimir directamente en el componente de texto
             txtlist.append(listaPalabras[i] + " ");
         }
     }//GEN-LAST:event_btnlistaActionPerformed
