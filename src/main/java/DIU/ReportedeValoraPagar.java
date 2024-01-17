@@ -10,7 +10,7 @@ package DIU;
  */
 public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
 
-    public String nombre, cedula, placa, marca, color, valor, multas, tipo;
+    public String nombre, cedula, placa, marca, anio, valor, multas, tipo;
     
     
     /**
@@ -29,6 +29,11 @@ public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtADatos = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+
+        setTitle("Reporte Vehicular");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameActivated(evt);
@@ -47,15 +52,35 @@ public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
             }
         });
 
+        txtADatos.setColumns(20);
+        txtADatos.setRows(5);
+        jScrollPane1.setViewportView(txtADatos);
+
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jLabel1.setText("Resultado de reporte");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(jLabel1)))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
 
         pack();
@@ -64,9 +89,79 @@ public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         // TODO add your handling code here:
         
+        //Cobro de Importes
+        
+        double sueldoBasico = 435.0;
+        boolean cedulaEmpiezaEn1 = cedula.startsWith("1");
+        boolean placaContieneLetraI = placa.contains("I");
+        double renovacion = 0;
+        String datosRenov;
+        
+        if (cedulaEmpiezaEn1 && placaContieneLetraI) {
+             renovacion = 0.05 * sueldoBasico;
+
+            datosRenov = "Se debe cobrar un importe del 5% del sueldo básico $ "+renovacion+"para la renovación de placas.";
+        } else {
+            datosRenov = "No se aplican cargos para la renovación de placas.";
+        }
+        
+         //Multa por Contaminacion//
+        
+        int aniov = Integer.parseInt(anio);
+        int anosDeContaminacion = 2010 - aniov;
+        double porcentajeMulta = 0.02 * anosDeContaminacion;
+        double multaContaminacion = porcentajeMulta * sueldoBasico;
+        String datosCont;
+        datosCont = "Se debe cobrar una multa por contaminación de $ " + multaContaminacion;
+        
+        // Multas de Tipo de Vehiculo//
+        
+        double valorV = Double.parseDouble(valor);
+        double porcentajeMatriculacion = 0.0;
+        String datosTipoV;
+
+        if (marca.equalsIgnoreCase("Toyota") && tipo.equalsIgnoreCase("Jeep")) {
+            porcentajeMatriculacion = 0.08;
+        } else if (marca.equalsIgnoreCase("Toyota") && tipo.equalsIgnoreCase("Camioneta")) {
+            porcentajeMatriculacion = 0.12;
+        } else if (marca.equalsIgnoreCase("Suzuki") && tipo.equalsIgnoreCase("Vitara")) {
+            porcentajeMatriculacion = 0.10;
+        } else if (marca.equalsIgnoreCase("Suzuki") && tipo.equalsIgnoreCase("Automóvil")) {
+            porcentajeMatriculacion = 0.09;
+        }
+
+        double valorMatriculacion = porcentajeMatriculacion * valorV;
+        datosTipoV = "El valor de matriculación es de $" + valorMatriculacion;
+        
+        // Si tiene Multas//
+        double valorPagar =0;
+        String datosMultas = null;
+        if(multas.equals("Si")){
+            valorPagar = sueldoBasico*0.25;
+            datosMultas = "Por cometer multas su valor a pagar es: "+valorPagar;
+            
+        }else if(multas.equals("No")){
+            datosMultas = "Por no cometer multas su valor a pagar es: 0.00 ";
+        }
+        
+        //Total de Multas//
+        
+        double totalPagar = valorPagar + valorMatriculacion+porcentajeMatriculacion+multaContaminacion+renovacion;
+        String totalMultas;
+        totalMultas = "Su total es: "+totalPagar;
+        
+        
+        //Enviar Datos al Usuario
+        String datos = "Nombre: "+nombre+"\n"+"Cedula: "+cedula+"\n"+datosRenov+"\n"+datosCont+"\n"+datosTipoV+"\n"
+                +datosMultas+"\n"+totalMultas;
+        txtADatos.setText(datos);
     }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea txtADatos;
     // End of variables declaration//GEN-END:variables
 }
+

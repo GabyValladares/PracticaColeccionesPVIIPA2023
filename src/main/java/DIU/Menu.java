@@ -33,7 +33,7 @@ public class Menu extends javax.swing.JFrame {
         opLDinamica = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
         menuArboles = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
+        menuDeFichaVehicular = new javax.swing.JMenu();
         opFichaV = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,7 +71,7 @@ public class Menu extends javax.swing.JFrame {
         menuArboles.setText("Arboles");
         jMenuBar1.add(menuArboles);
 
-        jMenu1.setText("Ficha Vehicular");
+        menuDeFichaVehicular.setText("Ficha Vehicular");
 
         opFichaV.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         opFichaV.setText("Llenar Ficha Vehicular");
@@ -80,9 +80,9 @@ public class Menu extends javax.swing.JFrame {
                 opFichaVActionPerformed(evt);
             }
         });
-        jMenu1.add(opFichaV);
+        menuDeFichaVehicular.add(opFichaV);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(menuDeFichaVehicular);
 
         setJMenuBar(jMenuBar1);
 
@@ -114,9 +114,17 @@ public class Menu extends javax.swing.JFrame {
 
     private void opFichaVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opFichaVActionPerformed
         // TODO add your handling code here:
-        
+        FichaVehicular ventanaFV = new FichaVehicular();
+        escritorio.add(ventanaFV);
+        ventanaFV.show();
     }//GEN-LAST:event_opFichaVActionPerformed
 
+    public void ejecutarReporte(){
+        ReportedeValoraPagar reporte = new ReportedeValoraPagar();
+        escritorio.add(reporte);
+        reporte.show();
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -154,9 +162,9 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu menuArboles;
+    private javax.swing.JMenu menuDeFichaVehicular;
     private javax.swing.JMenu menuDeListas;
     private javax.swing.JMenu menuPilas;
     private javax.swing.JMenuItem opFichaV;

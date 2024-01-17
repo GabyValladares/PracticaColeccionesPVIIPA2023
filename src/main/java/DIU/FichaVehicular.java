@@ -4,6 +4,8 @@
  */
 package DIU;
 
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author USUARIO
@@ -200,14 +202,16 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_formInternalFrameActivated
 
+    @SuppressWarnings("empty-statement")
     private void btnVerFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerFichaActionPerformed
         // TODO add your handling code here:
         ReportedeValoraPagar reporte1 = new ReportedeValoraPagar();
         reporte1.nombre = txtNombreP.getText();
-        reporte1.cedula = txtNombreP.getText();
-        reporte1.placa = txtNombreP.getText();
-        reporte1.color = txtNombreP.getText();
+        reporte1.cedula = txtNumCedula.getText();
+        reporte1.placa = txtNumPlaca.getText();
+        reporte1.anio = txtAnio.getText();
         reporte1.marca = (String)CBMarca.getSelectedItem();
+        
         if(rdtAutomovil.isSelected()){
             reporte1.tipo = "Automovil";  
         }else if(rdtCamioneta.isSelected()){
@@ -216,11 +220,17 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             reporte1.tipo = "Jeep"; 
         }
         
+        
         if(CheckBoxNo.isSelected()){
             reporte1.multas = "No";
         }else if(CheckBoxYes.isSelected()){
             reporte1.multas = "Si";
         }
+        
+        Menu escritorio = (Menu) SwingUtilities.getWindowAncestor(this);;
+        escritorio.ejecutarReporte();
+        this.dispose();
+        
     }//GEN-LAST:event_btnVerFichaActionPerformed
 
 

@@ -37,7 +37,7 @@
             <Property name="text" type="java.lang.String" value="Arboles"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="menuDeFichaVehicular">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ficha Vehicular"/>
           </Properties>
