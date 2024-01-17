@@ -18,8 +18,8 @@ public class reporte extends javax.swing.JInternalFrame {
         
     }
     String nombre, cedula, placa, anio, marca, color, tipo_ve, valor;
-    String texto= "Nombre del propietario: "+nombre+"\n"+
-                  "cedula: "+cedula+"\n";
+  String texto ;//= "Nombre del propietario: "+nombre+"\n"+
+//                  "cedula: "+cedula+"\n";
     
     
     /**
@@ -33,6 +33,24 @@ public class reporte extends javax.swing.JInternalFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         txta_reporte = new javax.swing.JTextArea();
+
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         txta_reporte.setColumns(20);
         txta_reporte.setRows(5);
@@ -51,6 +69,13 @@ public class reporte extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        // TODO add your handling code here:
+       texto= "Nombre del propietario: "+nombre+"\n"+
+                  "cedula: "+cedula+"\n";
+       txta_reporte.setText(texto);
+    }//GEN-LAST:event_formInternalFrameActivated
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

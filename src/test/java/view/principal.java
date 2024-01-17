@@ -40,6 +40,7 @@ public class principal extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         menuFicha = new javax.swing.JMenu();
         opFicha = new javax.swing.JMenuItem();
+        opreporte = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,6 +103,14 @@ public class principal extends javax.swing.JFrame {
         });
         menuFicha.add(opFicha);
 
+        opreporte.setText("reporte");
+        opreporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opreporteActionPerformed(evt);
+            }
+        });
+        menuFicha.add(opreporte);
+
         jMenuBar1.add(menuFicha);
 
         setJMenuBar(jMenuBar1);
@@ -144,6 +153,12 @@ public class principal extends javax.swing.JFrame {
      
      
     }//GEN-LAST:event_opFichaActionPerformed
+
+    private void opreporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opreporteActionPerformed
+      reporte reporte = new reporte();
+     escritorio.add(reporte);
+     reporte.show();
+    }//GEN-LAST:event_opreporteActionPerformed
     
     /**
      * @param args the command line arguments
@@ -192,5 +207,6 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem opDinamica;
     private javax.swing.JMenuItem opFicha;
     private javax.swing.JMenuItem opLEstatico;
+    private javax.swing.JMenuItem opreporte;
     // End of variables declaration//GEN-END:variables
 }
