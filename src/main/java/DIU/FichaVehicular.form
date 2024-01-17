@@ -59,7 +59,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblMarca" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbxMarca" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblColor" min="-2" pref="37" max="-2" attributes="0"/>
@@ -85,11 +85,7 @@
                                   <Component id="txtVaDeVe" min="-2" pref="242" max="-2" attributes="0"/>
                                   <Component id="ckbSi" min="-2" max="-2" attributes="0"/>
                                   <Component id="ckbNo" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btnFicha" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                                      <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="btnFicha" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -145,7 +141,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblMarca" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbxMarca" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -176,10 +172,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="ckbNo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnFicha" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="btnFicha" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="71" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -247,7 +240,7 @@
         <Property name="text" type="java.lang.String" value="Posee multas?:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="cbxMarca">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -303,11 +296,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFichaActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnCancelar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cancelar"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

@@ -43,7 +43,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         lblValorVehic = new javax.swing.JLabel();
         lblTipoVe = new javax.swing.JLabel();
         lblMul = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbxMarca = new javax.swing.JComboBox<>();
         txtColor = new javax.swing.JTextField();
         rbtJeep = new javax.swing.JRadioButton();
         rbtAutomovil = new javax.swing.JRadioButton();
@@ -53,7 +53,6 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         ckbSi = new javax.swing.JCheckBox();
         ckbNo = new javax.swing.JCheckBox();
         btnFicha = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -99,7 +98,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
         lblMul.setText("Posee multas?:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toyota", "Suzuki", "Ford", "Ferrari" }));
+        cbxMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toyota", "Suzuki", "Ford", "Ferrari" }));
 
         rbtJeep.setText("Jeep");
 
@@ -119,8 +118,6 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                 btnFichaActionPerformed(evt);
             }
         });
-
-        btnCancelar.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,7 +145,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblMarca)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cbxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -168,10 +165,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                                     .addComponent(txtVaDeVe, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ckbSi)
                                     .addComponent(ckbNo)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnFicha)
-                                        .addGap(45, 45, 45)
-                                        .addComponent(btnCancelar))))
+                                    .addComponent(btnFicha)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -211,7 +205,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMarca)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblColor)
@@ -236,9 +230,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ckbNo)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFicha)
-                    .addComponent(btnCancelar))
+                .addComponent(btnFicha)
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
@@ -256,16 +248,26 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     private void btnFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFichaActionPerformed
         // TODO add your handling code here:
         Reporte reporte1 = new Reporte();
-        
+        reporte1.nombre=txtNombre.getText();
+        reporte1.cedula=txtCedula.getText();
+        reporte1.marca=(String) cbxMarca.getSelectedItem();
+        if(rbtAutomovil.isSelected()){
+            reporte1.tipo="Automovil";
+        }else if(rbtCamioneta.isSelected()){
+            reporte1.tipo="Camioneta";
+        }else if(rbtVitara.isSelected()){
+            reporte1.tipo="Vitara";
+        }else if(rbtJeep.isSelected()){
+            reporte1.tipo="Jeep";
+        }  
     }//GEN-LAST:event_btnFichaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnFicha;
+    private javax.swing.JComboBox<String> cbxMarca;
     private javax.swing.JCheckBox ckbNo;
     private javax.swing.JCheckBox ckbSi;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblFabri;
     private javax.swing.JLabel lblMarca;

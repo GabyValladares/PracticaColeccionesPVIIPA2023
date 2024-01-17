@@ -4,6 +4,8 @@
  */
 package DIU;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author tutut
@@ -26,27 +28,142 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtDimension = new javax.swing.JTextField();
+        txtCadena = new javax.swing.JTextField();
+        btnLimpiar = new javax.swing.JButton();
+        btnValidar = new javax.swing.JButton();
+        lblTitulo = new javax.swing.JLabel();
+        lblDimension = new javax.swing.JLabel();
+        lblCadena = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtarResultado = new javax.swing.JTextArea();
+
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
         setTitle("EJERCICIOS CON ARRAYS");
 
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
+        btnValidar.setText("Validar");
+        btnValidar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidarActionPerformed(evt);
+            }
+        });
+
+        lblTitulo.setText("ARRAY");
+
+        lblDimension.setText("Ingrese la dimensión:");
+
+        lblCadena.setText("Añada el texto:");
+
+        txtarResultado.setColumns(20);
+        txtarResultado.setRows(5);
+        jScrollPane1.setViewportView(txtarResultado);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 682, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblDimension)
+                                    .addComponent(lblCadena))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtDimension, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(txtCadena)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnValidar)
+                                    .addGap(37, 37, 37)
+                                    .addComponent(btnLimpiar))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(lblTitulo)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDimension)
+                    .addComponent(txtDimension, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCadena)
+                    .addComponent(txtCadena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnValidar)
+                    .addComponent(btnLimpiar))
+                .addGap(26, 26, 26))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+        txtDimension.setText(null);
+        txtCadena.setText(null);
+        txtarResultado.setText(null);
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidarActionPerformed
+        // TODO add your handling code here:
+        String dimensionTexto = txtDimension.getText();
+        if (dimensionTexto.matches("\\d+")) {
+            int dimension = Integer.parseInt(dimensionTexto);
+            String texto = txtCadena.getText();
+            String[] palabras = texto.split("\\s+");
+            String[] lista = new String[dimension];
+            for (int i = 0; i < dimension; i++) {
+                if (i % 2 == 0) {
+                    lista[i] = palabras.length > 0 ? palabras[0] : "";
+                } else {
+                    lista[i] = palabras.length > 1 ? palabras[1] : "";
+                }
+            }
+            StringBuilder resultado = new StringBuilder("Lista resultante:" + "\n");
+            for (int i = 0; i < dimension; i++) {
+                String tipoPosicion = (i % 2 == 0) ? "Par" : "Impar";
+                resultado.append("Posición ").append(i + 1).append(" (").append(tipoPosicion).append("): ").append(lista[i]).append("\n");
+            }
+            txtarResultado.setText(resultado.toString());
+        } else {
+            JOptionPane.showMessageDialog(this, "Error: Ingresa un número válido en el campo de dimensión", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnValidarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnValidar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCadena;
+    private javax.swing.JLabel lblDimension;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JTextField txtCadena;
+    private javax.swing.JTextField txtDimension;
+    private javax.swing.JTextArea txtarResultado;
     // End of variables declaration//GEN-END:variables
 }
