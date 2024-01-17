@@ -56,8 +56,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         rbtjeep = new javax.swing.JRadioButton();
         rbtautomovil = new javax.swing.JRadioButton();
         rbtvitara = new javax.swing.JRadioButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        cmbsi = new javax.swing.JCheckBox();
+        cmbno = new javax.swing.JCheckBox();
         cmbColores = new javax.swing.JComboBox<>();
 
         setClosable(true);
@@ -124,9 +124,9 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
         rbtvitara.setText("vitara");
 
-        jCheckBox1.setText("si");
+        cmbsi.setText("si");
 
-        jCheckBox2.setText("no");
+        cmbno.setText("no");
 
         cmbColores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amarillo", "Azul", "Rojo", "Verde", "Naranja", "Morado", "Blanco", "Negro", "Marron", "Gris", " " }));
 
@@ -148,9 +148,9 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jCheckBox1)
+                                        .addComponent(cmbsi)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jCheckBox2))
+                                        .addComponent(cmbno))
                                     .addComponent(txtvalor, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -240,8 +240,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2))
+                    .addComponent(cmbsi)
+                    .addComponent(cmbno))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -276,6 +276,14 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             reporte1.tipo_ve = "Vitara";
         }
     reporte1.valor=txtvalor.getText();
+    
+     if(cmbsi.isSelected()){
+            reporte1.multas="Si";
+        }else{
+            reporte1.multas="No";
+        }
+        this.dispose();
+         principal m=new principal();
     
 //    private void verFichaActionPerformed(java.awt.event.ActionEvent evt) {
 //    // Cerrar el InternalFrame actual (FichaVehicular)
@@ -328,8 +336,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnVer;
     private javax.swing.JComboBox<String> cmbColores;
     private javax.swing.JComboBox<String> cmbMarcas;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox cmbno;
+    private javax.swing.JCheckBox cmbsi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
