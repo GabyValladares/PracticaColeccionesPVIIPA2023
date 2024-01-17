@@ -35,6 +35,7 @@ public class Menu extends javax.swing.JFrame {
         menuArboles = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        menuFicha = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +77,15 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Ficha Vehicular");
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2ActionPerformed(evt);
+            }
+        });
+
+        menuFicha.setText("FichaVehicular");
+        jMenu2.add(menuFicha);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -106,6 +116,15 @@ public class Menu extends javax.swing.JFrame {
         ventanaLE.show();
     }//GEN-LAST:event_opLEstaticoActionPerformed
 
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+        // TODO add your handling code here:
+        FichaVehicular f  = new FichaVehicular();
+        escritorio.add(f);
+        f.show();
+    }//GEN-LAST:event_jMenu2ActionPerformed
+    private void ListasEstaticas(){
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -147,6 +166,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu menuArboles;
+    private javax.swing.JMenuItem menuFicha;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;
     private javax.swing.JMenuItem opLDinamicas;
