@@ -4,41 +4,68 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="menu">
+        <Menu class="javax.swing.JMenu" name="menuListas">
           <Properties>
-            <Property name="text" type="java.lang.String" value="LISTAS"/>
+            <Property name="text" type="java.lang.String" value="Listas"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="opLEstatico">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Shift+BACK_SPACE"/>
+                  <KeyStroke key="Shift+E"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Estaticas"/>
+                <Property name="text" type="java.lang.String" value="Est&#xe1;ticas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opLEstaticoActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="opldimanicas">
+            <MenuItem class="javax.swing.JMenuItem" name="opLDinamicas">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Shift+D"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Dinamicas"/>
+                <Property name="text" type="java.lang.String" value="Din&#xe1;micas"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opLDinamicasActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="menupilas">
+        <Menu class="javax.swing.JMenu" name="menuPilas">
           <Properties>
-            <Property name="text" type="java.lang.String" value="PILAS"/>
+            <Property name="text" type="java.lang.String" value="Pilas"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="arboles">
+        <Menu class="javax.swing.JMenu" name="menuArboles">
           <Properties>
-            <Property name="text" type="java.lang.String" value="ARBOLES"/>
+            <Property name="text" type="java.lang.String" value="&#xc1;rboles"/>
           </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="colas">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Colas"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="fichavehiculo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ficha Vehicular"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem1">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Shift+F"/>
+                </Property>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Llenar Ficha"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxMenuItem1ActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
@@ -67,24 +94,36 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jScrollPane1" min="-2" pref="401" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="escritorio" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jScrollPane1" min="-2" pref="262" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
+              <Component id="escritorio" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Container class="javax.swing.JDesktopPane" name="escritorio">
 
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="1387" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="564" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
     </Container>
   </SubComponents>
 </Form>
