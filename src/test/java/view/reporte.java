@@ -17,7 +17,7 @@ public class reporte extends javax.swing.JInternalFrame {
         initComponents();
         
     }
-    String nombre, cedula, placa, anio, marca, color, tipo_ve, valor;
+    String nombre, cedula, placa, anio, marca, color, tipo_ve, valor,multas;
   String texto ;//= "Nombre del propietario: "+nombre+"\n"+
 //                  "cedula: "+cedula+"\n";
     
