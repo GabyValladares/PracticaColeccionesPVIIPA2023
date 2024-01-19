@@ -15,8 +15,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
      */
     public FichaVehicular() {
         initComponents();
-        ReportePApagar reporte = new ReportePApagar();
-        reporte.setVisible(false);
+        ReportedeValoraPagar reporte = new ReportedeValoraPagar();
+        reporte.setVisible(true);
         
     }
 
@@ -331,12 +331,13 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtValorActionPerformed
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
-        ReportePApagar ventana = new ReportePApagar();
+          ReportedeValoraPagar ventana = new ReportedeValoraPagar();
+        
         
         ventana.cedula = txtCedula.getText();
         ventana.nombre = txtNombres.getText();
-        ventana.numeroPlaca = txtPlaca.getText();
-        ventana.valor = txtValor.getText();
+        ventana.placa = txtPlaca.getText();
+        ventana.valorV = txtValor.getText();
         ventana.marca = cmbMarca.getSelectedItem().toString();
         if (rdAuto.isSelected()) {
             ventana.tipo = "Automóvil";
@@ -347,15 +348,18 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         } else {
             ventana.tipo = "Jeep";
         }
-        ventana.multa = "";
+        ventana.multas = "";
         if (chxMultasSi.isSelected() == true) {
-            ventana.multa = "SI";
+            ventana.multas = "SI";
         } else {
-            ventana.multa = "NO";
+            ventana.multas = "NO";
         }
+        
+   
+        MENU.jdEscritorio.add(ventana);
         ventana.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_btnVerActionPerformed
 
     private void chxMultasSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chxMultasSiActionPerformed

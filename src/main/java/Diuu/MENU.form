@@ -58,6 +58,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jmVer">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+SPACE"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Ver"/>
               </Properties>
               <Events>
@@ -103,6 +106,9 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JDesktopPane" name="jdEscritorio">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">

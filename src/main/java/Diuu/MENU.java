@@ -17,6 +17,7 @@ public class MENU extends javax.swing.JFrame {
      */
     public MENU() {
         initComponents();
+        
     }
 
     /**
@@ -90,6 +91,7 @@ public class MENU extends javax.swing.JFrame {
             }
         });
 
+        jmVer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_SPACE, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jmVer.setText("Ver");
         jmVer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,7 +178,7 @@ public class MENU extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu FichaVehicular;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JDesktopPane jdEscritorio;
+    public static javax.swing.JDesktopPane jdEscritorio;
     private javax.swing.JMenu jmArboles;
     private javax.swing.JMenu jmColas;
     private javax.swing.JMenuItem jmDinamica;
