@@ -15,6 +15,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     /**
      * Creates new form FichaVehicular
      */
+    
     public FichaVehicular() {
         initComponents();
         ReportedeValoraPagar reporte = new ReportedeValoraPagar();
@@ -52,6 +53,10 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         CheckBoxYes = new javax.swing.JCheckBox();
         CheckBoxNo = new javax.swing.JCheckBox();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("FICHA VEHICULAR");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
@@ -71,7 +76,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             }
         });
 
-        lblNumCedula.setText("Numero de Cedula");
+        lblNumCedula.setText("Numero de Cédula:");
 
         CBMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TOYOTA", "Chevrolet", "BMW", "Ford" }));
 
@@ -81,11 +86,11 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
         rdtCamioneta.setText("Camioneta");
 
-        blbNombreP.setText("Nombre del Propietario");
+        blbNombreP.setText("Nombre del Propietario:");
 
-        lblNumPlaca.setText("Numero de Plaga");
+        lblNumPlaca.setText("Número de Placa:");
 
-        lblAnio.setText("Año de Fabricacion del Vehiculo");
+        lblAnio.setText("Año de Fabricacion del Vehículo:");
 
         lblMarca.setText("Marca del Vehiculo");
 
@@ -110,85 +115,116 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNumCedula)
-                    .addComponent(blbNombreP)
-                    .addComponent(lblNumPlaca)
-                    .addComponent(lblAnio)
-                    .addComponent(lblMarca)
-                    .addComponent(jLabel6)
-                    .addComponent(lblValor)
-                    .addComponent(lblMultas))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CheckBoxYes)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(rdtJeep)
-                        .addComponent(rdtAutomovil)
-                        .addComponent(rdtCamioneta)
-                        .addComponent(txtNumCedula)
-                        .addComponent(txtNombreP)
-                        .addComponent(txtNumPlaca)
-                        .addComponent(txtAnio)
-                        .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(CBMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CheckBoxNo))
-                .addGap(102, 102, 102))
             .addGroup(layout.createSequentialGroup()
-                .addGap(246, 246, 246)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtNombreP, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(blbNombreP)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(6, 6, 6)
+                                                .addComponent(CBMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(lblMarca)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(lblValor)
+                                        .addGap(24, 24, 24)))
+                                .addGap(43, 43, 43))
+                            .addComponent(txtNumPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(55, 55, 55)
+                                    .addComponent(txtNumCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(105, 105, 105)
+                                    .addComponent(lblNumCedula))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(105, 105, 105)
+                                    .addComponent(jLabel6)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(130, 130, 130)
+                                .addComponent(lblMultas))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(rdtJeep)
+                                                .addGap(7, 7, 7))
+                                            .addComponent(CheckBoxYes))
+                                        .addGap(60, 60, 60)
+                                        .addComponent(CheckBoxNo))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGap(138, 138, 138)
+                                        .addComponent(rdtAutomovil)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rdtCamioneta))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(lblNumPlaca)
+                        .addGap(119, 119, 119)
+                        .addComponent(lblAnio)))
+                .addContainerGap(38, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(226, 226, 226)
                 .addComponent(btnVerFicha)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(blbNombreP)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblNumPlaca)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblAnio))
-                            .addComponent(lblNumCedula))
-                        .addGap(18, 18, 18)
-                        .addComponent(lblMarca)
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel6)
-                        .addGap(73, 73, 73)
-                        .addComponent(lblValor))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtNumCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNombreP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNumPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(CBMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(rdtJeep)
-                        .addGap(18, 18, 18)
-                        .addComponent(rdtAutomovil)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rdtCamioneta)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(blbNombreP)
+                    .addComponent(lblNumCedula))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombreP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(CheckBoxYes)
-                .addGap(1, 1, 1)
-                .addComponent(lblMultas)
-                .addGap(1, 1, 1)
-                .addComponent(CheckBoxNo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNumPlaca)
+                    .addComponent(lblAnio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNumPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMarca)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(rdtJeep)
+                        .addComponent(rdtAutomovil)
+                        .addComponent(rdtCamioneta))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(CBMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblValor)
+                            .addComponent(lblMultas))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(CheckBoxYes)
+                        .addComponent(CheckBoxNo)))
+                .addGap(47, 47, 47)
                 .addComponent(btnVerFicha)
-                .addGap(45, 45, 45))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pack();
@@ -209,6 +245,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         reporte1.nombre = txtNombreP.getText();
         reporte1.cedula = txtNumCedula.getText();
         reporte1.placa = txtNumPlaca.getText();
+        reporte1.valorV = txtValor.getText();
         reporte1.anio = txtAnio.getText();
         reporte1.marca = (String)CBMarca.getSelectedItem();
         
@@ -226,14 +263,14 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         }else if(CheckBoxYes.isSelected()){
             reporte1.multas = "Si";
         }
-        
-        Menu escritorio = (Menu) SwingUtilities.getWindowAncestor(this);;
-        escritorio.ejecutarReporte();
+                
+        Menu.escritorio.add(reporte1);
+        reporte1.setVisible(true);
         this.dispose();
         
     }//GEN-LAST:event_btnVerFichaActionPerformed
-
-
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CBMarca;
     private javax.swing.JCheckBox CheckBoxNo;

@@ -177,7 +177,7 @@ public class ListaEstatica extends javax.swing.JInternalFrame {
             }
 
             txtArea.append(listaPalabras[i]+"\n");
-            txtArea.setForeground(Color.ORANGE);
+            txtArea.setForeground(Color.BLUE);
         }
     }//GEN-LAST:event_btnOKActionPerformed
 

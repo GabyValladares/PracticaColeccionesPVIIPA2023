@@ -10,7 +10,9 @@ package DIU;
  */
 public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
 
-    public String nombre, cedula, placa, marca, anio, valor, multas, tipo;
+    public String nombre, cedula, placa, marca, anio, tipo, multas, valorV;
+    public int numAnio;
+    public double valorAuto;
     
     
     /**
@@ -18,6 +20,15 @@ public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
      */
     public ReportedeValoraPagar() {
         initComponents();
+        
+        if (anio != null) {
+            numAnio = Integer.parseInt(anio);
+        }
+
+        if (valorV != null) {
+            valorAuto = Double.parseDouble(valorV);
+        }
+        
     }
 
     /**
@@ -29,10 +40,14 @@ public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtADatos = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+        txtAreaR = new javax.swing.JTextArea();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("Reporte Vehicular");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
@@ -52,12 +67,14 @@ public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
             }
         });
 
-        txtADatos.setColumns(20);
-        txtADatos.setRows(5);
-        jScrollPane1.setViewportView(txtADatos);
+        lblTitulo.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblTitulo.setText("Resultado de reporte");
 
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel1.setText("Resultado de reporte");
+        txtAreaR.setColumns(20);
+        txtAreaR.setLineWrap(true);
+        txtAreaR.setRows(5);
+        txtAreaR.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(txtAreaR);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,21 +83,21 @@ public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(111, 111, 111)
+                        .addComponent(lblTitulo))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(jLabel1)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                        .addGap(48, 48, 48)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addGap(22, 22, 22)
+                .addComponent(lblTitulo)
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
@@ -88,38 +105,37 @@ public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         // TODO add your handling code here:
-        
-        //Cobro de Importes
+        //this.Matriculacion(cedula, placa, numAnio, marca, tipo, marca, multas);  
+        String multasR = null;
+        String valorMaticula = null;
+        String validarDatos = null;
+        String multaContaminacion = null;
         
         double sueldoBasico = 435.0;
         boolean cedulaEmpiezaEn1 = cedula.startsWith("1");
         boolean placaContieneLetraI = placa.contains("I");
-        double renovacion = 0;
-        String datosRenov;
+        double Renovacion = 0;
         
         if (cedulaEmpiezaEn1 && placaContieneLetraI) {
-             renovacion = 0.05 * sueldoBasico;
+             Renovacion = 0.05 * sueldoBasico;
 
-            datosRenov = "Se debe cobrar un importe del 5% del sueldo básico $ "+renovacion+"para la renovación de placas.";
+            validarDatos = "Se debe cobrar un importe del 5% del sueldo básico ($" + Renovacion + ") para la renovación de placas.";
         } else {
-            datosRenov = "No se aplican cargos para la renovación de placas.";
+            validarDatos = "No se aplican cargos para la renovación de placas.";
         }
         
-         //Multa por Contaminacion//
+        //Multa por Contaminacion//
         
-        int aniov = Integer.parseInt(anio);
-        int anosDeContaminacion = 2010 - aniov;
+        int anosDeContaminacion = 2010 - numAnio;
         double porcentajeMulta = 0.02 * anosDeContaminacion;
-        double multaContaminacion = porcentajeMulta * sueldoBasico;
-        String datosCont;
-        datosCont = "Se debe cobrar una multa por contaminación de $ " + multaContaminacion;
+        double MultaContaminacion = porcentajeMulta * sueldoBasico;
+        multaContaminacion = "Se debe cobrar una multa por contaminación de $" + MultaContaminacion;
         
         // Multas de Tipo de Vehiculo//
         
-        double valorV = Double.parseDouble(valor);
+        
         double porcentajeMatriculacion = 0.0;
-        String datosTipoV;
-
+      if (marca != null && tipo != null) { 
         if (marca.equalsIgnoreCase("Toyota") && tipo.equalsIgnoreCase("Jeep")) {
             porcentajeMatriculacion = 0.08;
         } else if (marca.equalsIgnoreCase("Toyota") && tipo.equalsIgnoreCase("Camioneta")) {
@@ -129,39 +145,44 @@ public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
         } else if (marca.equalsIgnoreCase("Suzuki") && tipo.equalsIgnoreCase("Automóvil")) {
             porcentajeMatriculacion = 0.09;
         }
+      }
 
-        double valorMatriculacion = porcentajeMatriculacion * valorV;
-        datosTipoV = "El valor de matriculación es de $" + valorMatriculacion;
+        double valorMatriculacion = porcentajeMatriculacion * valorAuto;
+        valorMaticula = "El valor de matriculación es de $" + valorMatriculacion;
         
         // Si tiene Multas//
         double valorPagar =0;
-        String datosMultas = null;
         if(multas.equals("Si")){
             valorPagar = sueldoBasico*0.25;
-            datosMultas = "Por cometer multas su valor a pagar es: "+valorPagar;
+            multasR = "Por cometer multas su valor a pagar es: "+valorPagar;
             
         }else if(multas.equals("No")){
-            datosMultas = "Por no cometer multas su valor a pagar es: 0.00 ";
+            multasR = "Por No cometer multas su valor a pagar es: 0.00 ";
         }
         
         //Total de Multas//
-        
-        double totalPagar = valorPagar + valorMatriculacion+porcentajeMatriculacion+multaContaminacion+renovacion;
-        String totalMultas;
-        totalMultas = "Su total es: "+totalPagar;
-        
-        
+        double totalPagar = valorPagar + valorMatriculacion+porcentajeMatriculacion+MultaContaminacion+Renovacion;
+                
         //Enviar Datos al Usuario
-        String datos = "Nombre: "+nombre+"\n"+"Cedula: "+cedula+"\n"+datosRenov+"\n"+datosCont+"\n"+datosTipoV+"\n"
-                +datosMultas+"\n"+totalMultas;
-        txtADatos.setText(datos);
+        String datos = "Nombre: "+nombre+"\n"+"Cedula: "+cedula+"\n"+"Su total es: "+totalPagar
+                +"\n"+multasR+"\n"+valorMaticula+"\n"+validarDatos+"\n"+multaContaminacion;   
+         txtAreaR.setText(datos);
+        
     }//GEN-LAST:event_formInternalFrameActivated
 
-
+    //public void Matriculacion(String cedula, String placa,int anio, String marca, String tipo, String valor, String multas){
+        
+    //}
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtADatos;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JTextArea txtAreaR;
     // End of variables declaration//GEN-END:variables
+
+    
+
+ 
+ 
 }
 
