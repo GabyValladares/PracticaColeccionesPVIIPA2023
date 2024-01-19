@@ -349,11 +349,13 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
         // TODO add your handling code here:
-        Ficha ventana=new Ficha();
+        ReportedeValoraPagar ventana = new ReportedeValoraPagar();
+
+ 
         ventana.cedula=txtCedula.getText();
         ventana.nombre=txtNombres.getText();
-        ventana.numeroPlaca=txtPlaca.getText();
-        ventana.valor=txtValor.getText();
+        ventana.placa=txtPlaca.getText();
+        ventana.valorV=txtValor.getText();
         ventana.marca=cmbMarcas.getSelectedItem().toString();
         if(rdAuto.isSelected()){
             ventana.tipo="Automóvil";
@@ -364,15 +366,15 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         }else {
             ventana.tipo="Jeep";
         }
-        ventana.multa="";
+        ventana.multas="";
         if(chxMultasSi.isSelected()==true){
-            ventana.multa="SI";
+            ventana.multas="SI";
         }else{
-            ventana.multa="NO";
+            ventana.multas="NO";
         }
+        menu.jdEscritorio.add(ventana);
         ventana.setVisible(true);
         this.dispose();
-
     }//GEN-LAST:event_btnVerActionPerformed
 
     private void chxMultasSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chxMultasSiActionPerformed
