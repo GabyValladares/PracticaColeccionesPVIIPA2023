@@ -38,10 +38,11 @@
               <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="381" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="75" pref="75" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="lblTipo" min="-2" pref="160" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -50,10 +51,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="rbtVitara" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="rbtVitara" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="rbtCamioneta" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="551" max="-2" attributes="0"/>
@@ -101,6 +99,12 @@
                       <Component id="btnVer" min="-2" pref="176" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="Lblvalor" min="-2" pref="119" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="txtvalor" min="-2" pref="148" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="594" max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
       </Group>
@@ -129,7 +133,7 @@
                           <Component id="lblNombres" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                           <Component id="txtNombres" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="10" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblPlaca" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
                           <Component id="txtPlaca" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
@@ -142,7 +146,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblMarca" pref="20" max="32767" attributes="0"/>
+                              <Component id="lblMarca" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -169,7 +173,12 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Lblvalor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtvalor" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -300,6 +309,13 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Vitara"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Lblvalor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Valor de vehiculo:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtvalor">
     </Component>
   </SubComponents>
 </Form>

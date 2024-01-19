@@ -84,6 +84,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         menuFicha.setText("FichaVehicular");
+        menuFicha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFichaActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuFicha);
 
         jMenuBar1.add(jMenu2);
@@ -122,6 +127,12 @@ public class Menu extends javax.swing.JFrame {
         escritorio.add(f);
         f.show();
     }//GEN-LAST:event_jMenu2ActionPerformed
+
+    private void menuFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFichaActionPerformed
+        FichaVehicular f  = new FichaVehicular();
+        escritorio.add(f);
+        f.show();
+    }//GEN-LAST:event_menuFichaActionPerformed
     private void ListasEstaticas(){
         
     }
@@ -161,7 +172,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane escritorio;
+    public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
