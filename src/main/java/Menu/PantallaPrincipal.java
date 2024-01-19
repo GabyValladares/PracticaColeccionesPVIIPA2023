@@ -28,32 +28,32 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         Escritorio = new javax.swing.JScrollPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        MenuListas = new javax.swing.JMenu();
+        OpLdinamicas = new javax.swing.JMenu();
         opLDinamicas = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        opLdinamicas = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
         menuArboles = new javax.swing.JMenu();
         FichaVehicular = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        FcFicha = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        MenuListas.setText("Listas");
+        OpLdinamicas.setText("Listas");
 
         opLDinamicas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         opLDinamicas.setText("Estaticas");
-        opLDinamicas.addActionListener(new java.awt.event.ActionListener() {
+        OpLdinamicas.add(opLDinamicas);
+
+        opLdinamicas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        opLdinamicas.setText("Dinamicas");
+        opLdinamicas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opLDinamicasActionPerformed(evt);
+                opLdinamicasActionPerformed(evt);
             }
         });
-        MenuListas.add(opLDinamicas);
+        OpLdinamicas.add(opLdinamicas);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        jMenuItem1.setText("Dinamico");
-        MenuListas.add(jMenuItem1);
-
-        jMenuBar1.add(MenuListas);
+        jMenuBar1.add(OpLdinamicas);
 
         menuPilas.setText("Pilas");
         jMenuBar1.add(menuPilas);
@@ -62,20 +62,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(menuArboles);
 
         FichaVehicular.setText("Ficha Vehicular");
-        FichaVehicular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FichaVehicularActionPerformed(evt);
-            }
-        });
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        jMenuItem2.setText("Ficha");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        FcFicha.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        FcFicha.setText("Ficha");
+        FcFicha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                FcFichaActionPerformed(evt);
             }
         });
-        FichaVehicular.add(jMenuItem2);
+        FichaVehicular.add(FcFicha);
 
         jMenuBar1.add(FichaVehicular);
 
@@ -97,23 +92,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void opLDinamicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicasActionPerformed
+    private void FcFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FcFichaActionPerformed
+        FichaVehicular ventanaFc=new FichaVehicular();
+        Escritorio.add(ventanaFc);
+        ventanaFc.show();
+    }//GEN-LAST:event_FcFichaActionPerformed
+
+    private void opLdinamicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLdinamicasActionPerformed
         // TODO add your handling code here:
-        ListasEstaticas ventanaLE= new ListasEstaticas();
+        ListasEstaticas ventanaLE=new ListasEstaticas();
         Escritorio.add(ventanaLE);
         ventanaLE.show();
-    }//GEN-LAST:event_opLDinamicasActionPerformed
-
-    private void FichaVehicularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FichaVehicularActionPerformed
-        // TODO add your handling code here:
-        FichaVehicular ventana =new FichaVehicular();
-        ventana.setVisible(true);
-        
-    }//GEN-LAST:event_FichaVehicularActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_opLdinamicasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,13 +142,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane Escritorio;
+    private javax.swing.JMenuItem FcFicha;
     private javax.swing.JMenu FichaVehicular;
-    private javax.swing.JMenu MenuListas;
+    private javax.swing.JMenu OpLdinamicas;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuPilas;
     private javax.swing.JMenuItem opLDinamicas;
+    private javax.swing.JMenuItem opLdinamicas;
     // End of variables declaration//GEN-END:variables
 }

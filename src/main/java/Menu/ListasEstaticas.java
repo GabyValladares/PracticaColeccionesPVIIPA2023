@@ -36,7 +36,6 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
         lbDatos = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -51,11 +50,8 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
 
         BttValidar.setBackground(new java.awt.Color(204, 204, 204));
         BttValidar.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        BttValidar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/agregar48.png"))); // NOI18N
         BttValidar.setText("Validar");
         BttValidar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BttValidar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/agregar64.png"))); // NOI18N
-        BttValidar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/64.png"))); // NOI18N
         BttValidar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         BttValidar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,30 +79,20 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Sitka Banner", 3, 48)); // NOI18N
         jLabel3.setText("LISTAS");
 
-        jButton2.setBackground(new java.awt.Color(242, 242, 242));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/48.png"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/64.png"))); // NOI18N
-        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/64.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jButton2)
-                .addGap(184, 184, 184)
+                .addGap(258, 258, 258)
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel3)))
+                .addComponent(jLabel3))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -126,12 +112,12 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
                             .addComponent(TxtDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TxtTamanio, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(234, 234, 234)
-                        .addComponent(BttValidar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(118, 118, 118)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(133, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(247, 247, 247)
+                        .addComponent(BttValidar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +149,7 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         pack();
@@ -192,7 +178,6 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel LbTamaño;
     private javax.swing.JTextField TxtDatos;
     private javax.swing.JTextField TxtTamanio;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
