@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package DIU;
+package DIU.Ejercicios;
 
 /**
  *
  * @author carlo
  */
-public class ListasEstaticas extends javax.swing.JInternalFrame {
+public class Pilas1 extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form ListasEstaticas
+     * Creates new form Pilas1
      */
-    public ListasEstaticas() {
+    public Pilas1() {
         initComponents();
     }
 
@@ -27,10 +27,11 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         setClosable(true);
+        setForeground(java.awt.Color.white);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Colecciones ARRAYS");
+        setTitle("Pilas 1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

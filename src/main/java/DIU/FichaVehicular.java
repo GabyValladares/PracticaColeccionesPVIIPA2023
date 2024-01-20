@@ -15,7 +15,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
      */
     public FichaVehicular() {
         initComponents();
-        ReportePApagar reporte = new ReportePApagar();
+        ReporteA reporte = new ReporteA();
         reporte.setVisible(false);
         
     }
@@ -325,13 +325,15 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtValorActionPerformed
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
-        ReportePApagar ventana = new ReportePApagar();
+        ReporteA ventana = new ReporteA();
         
         ventana.cedula = txtCedula.getText();
         ventana.nombre = txtNombres.getText();
         ventana.numeroPlaca = txtPlaca.getText();
         ventana.valor = txtValor.getText();
         ventana.marca = cmbMarca.getSelectedItem().toString();
+        ventana.anoiFab = txtAnioFab.getText();
+        ventana.color = txtColor.getText();
         if (rdAuto.isSelected()) {
             ventana.tipo = "Automóvil";
         } else if (rdCamioneta.isSelected()) {
@@ -347,8 +349,11 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         } else {
             ventana.multa = "NO";
         }
+        this.dispose();
+        MENU.Escritorio.add(ventana);
         ventana.setVisible(true);
         this.dispose();
+        
         
     }//GEN-LAST:event_btnVerActionPerformed
 
