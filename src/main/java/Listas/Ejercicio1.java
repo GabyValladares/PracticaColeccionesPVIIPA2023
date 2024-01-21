@@ -35,6 +35,8 @@ public class Ejercicio1 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 153, 51));
+        setForeground(new java.awt.Color(255, 153, 0));
 
         txtResultado.setColumns(20);
         txtResultado.setRows(5);
