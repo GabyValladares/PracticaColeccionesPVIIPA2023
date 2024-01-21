@@ -4,6 +4,8 @@
  */
 package DIU.Ejercicios;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author carlo
@@ -26,27 +28,209 @@ public class ListasEstaticas2 extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        txtTamanioLista = new javax.swing.JTextField();
+        btnAgregarAL = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTabla2 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtPalabra = new javax.swing.JTextField();
+        lblEstadoL = new javax.swing.JLabel();
+        btnBuscarP = new javax.swing.JButton();
+        txtVecesRepP = new javax.swing.JTextField();
+        btnLimpiarT = new javax.swing.JButton();
+
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
         setTitle("Listas Estáticas 2");
 
+        jLabel1.setText("Ingrese una palabra:");
+
+        btnAgregarAL.setText("Agregar");
+        btnAgregarAL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarALActionPerformed(evt);
+            }
+        });
+
+        JTabla2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Lista Palabras"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(JTabla2);
+
+        jLabel2.setText("Veces que se repite la palabra:");
+
+        jLabel3.setText("Tamaño de lista:");
+
+        btnBuscarP.setText("Buscar Palabra");
+        btnBuscarP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarPActionPerformed(evt);
+            }
+        });
+
+        btnLimpiarT.setText("Limpiar Tabla");
+        btnLimpiarT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarTActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtTamanioLista, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(12, 12, 12))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAgregarAL)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBuscarP)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLimpiarT)
+                        .addGap(11, 11, 11))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(lblEstadoL, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(57, 57, 57))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtVecesRepP, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtTamanioLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarAL)
+                    .addComponent(btnBuscarP)
+                    .addComponent(btnLimpiarT))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblEstadoL, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtVecesRepP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 13, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    String palabrasAcumuladas = "";    
+    private void btnAgregarALActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarALActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel) JTabla2.getModel();
+        String palabra = txtPalabra.getText();
+
+        try {
+            int tamanio = Integer.parseInt(txtTamanioLista.getText());
+
+            if (tamanio > 0) {
+                palabrasAcumuladas += palabra + ",";
+
+                if (palabrasAcumuladas.split(",").length == tamanio) {
+                    lblEstadoL.setText("La lista está llena");
+
+                    String[] palabrasArray = palabrasAcumuladas.split(",");
+                    for (String palabraActual : palabrasArray) {
+                        modelo.addRow(new Object[]{palabraActual});
+                    }
+                    
+                    palabrasAcumuladas = "";
+                    txtTamanioLista.setText("");
+                    txtPalabra.setText("");
+                } else {
+                    lblEstadoL.setText("Agregada palabra: " + palabra);
+                }
+            } else {
+                lblEstadoL.setText("El tamaño de la lista debe ser mayor que 0");
+            }
+        } catch (NumberFormatException e) {
+            lblEstadoL.setText("Ingrese un número válido para el tamaño");
+        }
+        txtPalabra.setText("");
+    }//GEN-LAST:event_btnAgregarALActionPerformed
+
+    private void btnBuscarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPActionPerformed
+        String palabraBuscar = txtPalabra.getText();
+        int contRep = 0;
+
+        DefaultTableModel modelo = (DefaultTableModel) JTabla2.getModel();
+        for (int i = 0; i < modelo.getRowCount(); i++) {
+            String palabraTabla = modelo.getValueAt(i, 0).toString();
+            if (palabraBuscar.equals(palabraTabla)) {
+                contRep++;
+            }
+        }
+
+        if (contRep > 0) {
+            txtVecesRepP.setText("La palabra '" + palabraBuscar + "' se repite " + contRep + " veces.");
+        } else {
+            txtVecesRepP.setText("La palabra '" + palabraBuscar + "' no se encuentra en la tabla.");
+        }
+        txtPalabra.setText("");
+    }//GEN-LAST:event_btnBuscarPActionPerformed
+
+    private void btnLimpiarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarTActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel) JTabla2.getModel();
+        modelo.setRowCount(0);
+        lblEstadoL.setText("");
+    }//GEN-LAST:event_btnLimpiarTActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable JTabla2;
+    private javax.swing.JButton btnAgregarAL;
+    private javax.swing.JButton btnBuscarP;
+    private javax.swing.JButton btnLimpiarT;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblEstadoL;
+    private javax.swing.JTextField txtPalabra;
+    private javax.swing.JTextField txtTamanioLista;
+    private javax.swing.JTextField txtVecesRepP;
     // End of variables declaration//GEN-END:variables
 }
