@@ -40,21 +40,24 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="lblTipo" min="-2" pref="160" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="rbtJeep" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="rbtAutomovil" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="rbtVitara" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="rbtJeep" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rbtAutomovil" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="rbtVitara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rbtCamioneta" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="rbtCamioneta" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtValor" min="-2" pref="126" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="551" max="-2" attributes="0"/>
                   </Group>
@@ -101,6 +104,19 @@
                       <Component id="btnVer" min="-2" pref="176" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="SI" min="-2" pref="40" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="NO" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="604" max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
       </Group>
@@ -129,7 +145,7 @@
                           <Component id="lblNombres" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                           <Component id="txtNombres" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="10" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblPlaca" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
                           <Component id="txtPlaca" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
@@ -142,7 +158,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblMarca" pref="20" max="32767" attributes="0"/>
+                              <Component id="lblMarca" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -169,7 +185,25 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtValor" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="SI" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="NO" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -299,6 +333,28 @@
     <Component class="javax.swing.JRadioButton" name="rbtVitara">
       <Properties>
         <Property name="text" type="java.lang.String" value="Vitara"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Valor de Vehiculo:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtValor">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Posee multas:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="SI">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="SI"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="NO">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="NO"/>
       </Properties>
     </Component>
   </SubComponents>
