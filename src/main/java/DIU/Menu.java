@@ -4,7 +4,9 @@
  */
 package DIU;
 
+
 import Listas.EjemploArray;
+import Listas.EjemploArrayList;
 import Listas.ListasEstaticas;
 
 /**
@@ -35,6 +37,7 @@ public class Menu extends javax.swing.JFrame {
         opLDinamico = new javax.swing.JMenuItem();
         opLDinamicas = new javax.swing.JMenuItem();
         opLArray = new javax.swing.JMenuItem();
+        opLArrayList = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
         menuArboles = new javax.swing.JMenu();
         menuColas = new javax.swing.JMenu();
@@ -76,6 +79,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         menuListas.add(opLArray);
+
+        opLArrayList.setText("ArrayList");
+        opLArrayList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opLArrayListActionPerformed(evt);
+            }
+        });
+        menuListas.add(opLArrayList);
 
         jMenuBar1.add(menuListas);
 
@@ -143,6 +154,12 @@ public class Menu extends javax.swing.JFrame {
        
     }//GEN-LAST:event_opLArrayActionPerformed
 
+    private void opLArrayListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLArrayListActionPerformed
+        EjemploArrayList ventanaAL = new EjemploArrayList();
+        escritorio.add(ventanaAL);
+        ventanaAL.show();
+    }//GEN-LAST:event_opLArrayListActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -188,6 +205,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;
     private javax.swing.JMenuItem opLArray;
+    private javax.swing.JMenuItem opLArrayList;
     private javax.swing.JMenuItem opLDinamicas;
     private javax.swing.JMenuItem opLDinamico;
     // End of variables declaration//GEN-END:variables
