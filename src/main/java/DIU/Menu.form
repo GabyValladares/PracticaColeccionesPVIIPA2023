@@ -9,7 +9,7 @@
             <Property name="text" type="java.lang.String" value="Listas"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="opLEstatico">
+            <MenuItem class="javax.swing.JMenuItem" name="opLDinamico">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Shift+E"/>
@@ -17,7 +17,7 @@
                 <Property name="text" type="java.lang.String" value="Est&#xe1;ticas"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opLEstaticoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opLDinamicoActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="opLDinamicas">
@@ -27,6 +27,14 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Din&#xe1;micas"/>
               </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="opLArray">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Array"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opLArrayActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -53,7 +61,7 @@
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem2">
               <Properties>
                 <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="Ficha Vehiculae"/>
+                <Property name="text" type="java.lang.String" value="Ficha Vehicular"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxMenuItem2ActionPerformed"/>

@@ -4,17 +4,33 @@
  */
 package Listas;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Usuario
  */
 public class ListasEstaticas extends javax.swing.JInternalFrame {
 
+    DefaultTableModel dfm1 = new DefaultTableModel();
+    DefaultTableModel dfm2 = new DefaultTableModel();
+
     /**
      * Creates new form ListasEstaticas
      */
     public ListasEstaticas() {
         initComponents();
+        String[] titulo1 = new String[]{"LISTA 1"};
+        dfm1.setColumnIdentifiers(titulo1);
+        tblLista1.setModel(dfm1);
+
+        String[] titulo2 = new String[]{"LISTA 2"};
+        dfm2.setColumnIdentifiers(titulo2);
+        tblLista2.setModel(dfm2);
+
     }
 
     /**
@@ -26,112 +42,152 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnAEj1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        lblValor = new javax.swing.JLabel();
+        btnMostrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtAResultado = new javax.swing.JTextArea();
-        txtValor = new javax.swing.JTextField();
+        tblLista1 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblNumMayor = new javax.swing.JLabel();
+        lblNumMenor = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblLista2 = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Ejercicios con Array[]");
+        setTitle("LISTA ESTATICA");
 
-        btnAEj1.setText("Ejercicio1");
-        btnAEj1.addActionListener(new java.awt.event.ActionListener() {
+        btnMostrar.setText("MOSTRAR");
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAEj1ActionPerformed(evt);
+                btnMostrarActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("PRÁCTICA COLECCIONES");
+        tblLista1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null}
+            },
+            new String [] {
+                "Lista1"
+            }
+        ));
+        jScrollPane1.setViewportView(tblLista1);
 
-        lblValor.setText("Ingrese un valor:");
+        jLabel2.setText("numero mayor:");
 
-        txtAResultado.setColumns(20);
-        txtAResultado.setRows(5);
-        jScrollPane1.setViewportView(txtAResultado);
+        jLabel3.setText("numero menor:");
 
-        txtValor.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtValorKeyPressed(evt);
+        lblNumMayor.setText("jLabel4");
+
+        lblNumMenor.setText("jLabel5");
+
+        tblLista2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "LISTA 2"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
             }
         });
+        jScrollPane2.setViewportView(tblLista2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(191, 191, 191)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(lblValor)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtValor))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnAEj1)))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGap(153, 153, 153)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNumMenor)
+                    .addComponent(lblNumMayor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(225, 225, 225))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(409, 409, 409)
+                .addComponent(btnMostrar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblValor)
-                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(btnAEj1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(btnMostrar)
+                        .addGap(114, 114, 114)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(lblNumMayor))
+                        .addGap(57, 57, 57)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(lblNumMenor))))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAEj1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAEj1ActionPerformed
-        // TODO add your handling code here:
-//        String palabra=txtValor.getText();
-//        String[]listaPalabras=new String[5];
-//        for (int i = 0; i < listaPalabras.length; i++) {
-//            listaPalabras[i]=palabra;
-//        }
-       
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        List<Integer> numeros = Arrays.asList(19, 2, 3, 1, 6, 5, 7, 91, 0, 4);
 
-    }//GEN-LAST:event_btnAEj1ActionPerformed
+        int numeroMayor = Collections.max(numeros);
+        int numeroMenor = Collections.min(numeros);
 
-    private void txtValorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorKeyPressed
-        // TODO add your handling code here:
-        String palabra=txtValor.getText();
-        String [] listaPalabras=this.crearLista(palabra);
-         for (String listaPalabra : listaPalabras) {
-            txtAResultado.append(listaPalabra);}
-    }//GEN-LAST:event_txtValorKeyPressed
-private String[] crearLista(String palabra){
-    String[]listaPalabras=new String[5];
-        for (int i = 0; i < listaPalabras.length; i++) {
-            listaPalabras[i]=palabra;
+        for (int i = 0; i < numeros.size(); i++) {
+            dfm1.addRow(new Object[]{
+                numeros.get(i)
+            });
         }
-        return listaPalabras;
-}
+
+        lblNumMayor.setText("" + numeroMayor);
+        lblNumMenor.setText("" + numeroMenor);
+
+        for (int i = numeros.size() - 1; i >= 0; i--) {
+            dfm2.addRow(new Object[]{
+                numeros.get(i)
+            });
+        }
+
+
+    }//GEN-LAST:event_btnMostrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAEj1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnMostrar;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblValor;
-    private javax.swing.JTextArea txtAResultado;
-    private javax.swing.JTextField txtValor;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblNumMayor;
+    private javax.swing.JLabel lblNumMenor;
+    public static javax.swing.JTable tblLista1;
+    private javax.swing.JTable tblLista2;
     // End of variables declaration//GEN-END:variables
 }
