@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package DIU;
+package Diuu;
 
 /**
  *
- * @author Usuario
+ * @author Dilan Lara
  */
 public class Menu extends javax.swing.JFrame {
 
@@ -33,8 +33,8 @@ public class Menu extends javax.swing.JFrame {
         opLDinamicas = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
         menuArboles = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        menuColas = new javax.swing.JMenu();
+        menuFichaV = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,11 +43,11 @@ public class Menu extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1387, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 564, Short.MAX_VALUE)
+            .addGap(0, 543, Short.MAX_VALUE)
         );
 
         menuListas.setText("Listas");
@@ -62,7 +62,12 @@ public class Menu extends javax.swing.JFrame {
         menuListas.add(opLEstatico);
 
         opLDinamicas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        opLDinamicas.setText("Dinámicas");
+        opLDinamicas.setText("Dinamicas");
+        opLDinamicas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opLDinamicasActionPerformed(evt);
+            }
+        });
         menuListas.add(opLDinamicas);
 
         jMenuBar1.add(menuListas);
@@ -70,28 +75,23 @@ public class Menu extends javax.swing.JFrame {
         menuPilas.setText("Pilas");
         jMenuBar1.add(menuPilas);
 
-        menuArboles.setText("Árboles");
+        menuArboles.setText("Arboles");
         jMenuBar1.add(menuArboles);
 
-        jMenu1.setText("Colas");
-        jMenuBar1.add(jMenu1);
+        menuColas.setText("Colas");
+        jMenuBar1.add(menuColas);
 
-        jMenu2.setText("Ficha Vehicular");
-        jMenu2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu2ActionPerformed(evt);
-            }
-        });
+        menuFichaV.setText("Ficha Vehicular");
 
-        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.setText("Revisión");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        menuFichaV.add(jMenuItem1);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(menuFichaV);
 
         setJMenuBar(jMenuBar1);
 
@@ -99,48 +99,32 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(escritorio)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void opLEstaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLEstaticoActionPerformed
+    private void opLDinamicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicasActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_opLDinamicasActionPerformed
+
+    private void opLEstaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLEstaticoActionPerformed
         ListasEstaticas ventanaLE=new ListasEstaticas();
         escritorio.add(ventanaLE);
         ventanaLE.show();
     }//GEN-LAST:event_opLEstaticoActionPerformed
 
-    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-        // TODO add your handling code here:
-        FichaVehicular ventana=new FichaVehicular();
-        escritorio.add(ventana);
-        ventana.show();
-    }//GEN-LAST:event_jMenu2ActionPerformed
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-         FichaVehicular ventana=new FichaVehicular();
-        escritorio.add(ventana);
-        ventana.show();
-        
+        FichaVehicular ventanaFicha=new FichaVehicular();
+        escritorio.add(ventanaFicha);
+        ventanaFicha.show();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    public void ejecutarReporte(){
-        ReporteValorPagar reporte=new ReporteValorPagar();
-        escritorio.add(reporte);
-        reporte.show();
-    }
     /**
      * @param args the command line arguments
      */
@@ -177,12 +161,12 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu menuArboles;
+    private javax.swing.JMenu menuColas;
+    private javax.swing.JMenu menuFichaV;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;
     private javax.swing.JMenuItem opLDinamicas;
