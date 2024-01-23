@@ -6,7 +6,7 @@ package Listas;
 
 /**
  *
- * @author floow
+ * @author Belial
  */
 public class VentanaError extends javax.swing.JFrame {
 

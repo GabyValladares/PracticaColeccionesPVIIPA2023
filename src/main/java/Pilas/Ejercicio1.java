@@ -6,7 +6,7 @@ package Pilas;
 
 /**
  *
- * @author Usuario
+ * @author Belial
  */
 public class Ejercicio1 extends javax.swing.JFrame {
 
