@@ -24,6 +24,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Dinamicas"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opLDinamicaActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -31,6 +34,21 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Pilas"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="opCadenaInvertida">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cadena Invertida"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opCadenaInvertidaActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="opTorresHanoi">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Torres de Hanoi"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuArboles">
           <Properties>
@@ -52,6 +70,48 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opFichaVActionPerformed"/>
               </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuArrayList">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Array List"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="opConteoPalabras">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Conteo de Palabras"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opConteoPalabrasActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="opCalcularPromedios">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Calculadora de Promedios"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="opFutbol">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Equipo de Futbol"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuColas">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Colas"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="opSumaNum">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Suma de Numeros"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="opServicios">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Atencion de Servicios"/>
+              </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>

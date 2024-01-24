@@ -32,9 +32,18 @@ public class Menu extends javax.swing.JFrame {
         opStatico = new javax.swing.JMenuItem();
         opLDinamica = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
+        opCadenaInvertida = new javax.swing.JMenuItem();
+        opTorresHanoi = new javax.swing.JMenuItem();
         menuArboles = new javax.swing.JMenu();
         menuDeFichaVehicular = new javax.swing.JMenu();
         opFichaV = new javax.swing.JMenuItem();
+        menuArrayList = new javax.swing.JMenu();
+        opConteoPalabras = new javax.swing.JMenuItem();
+        opCalcularPromedios = new javax.swing.JMenuItem();
+        opFutbol = new javax.swing.JMenuItem();
+        menuColas = new javax.swing.JMenu();
+        opSumaNum = new javax.swing.JMenuItem();
+        opServicios = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,11 +70,28 @@ public class Menu extends javax.swing.JFrame {
 
         opLDinamica.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         opLDinamica.setText("Dinamicas");
+        opLDinamica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opLDinamicaActionPerformed(evt);
+            }
+        });
         menuDeListas.add(opLDinamica);
 
         jMenuBar1.add(menuDeListas);
 
         menuPilas.setText("Pilas");
+
+        opCadenaInvertida.setText("Cadena Invertida");
+        opCadenaInvertida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opCadenaInvertidaActionPerformed(evt);
+            }
+        });
+        menuPilas.add(opCadenaInvertida);
+
+        opTorresHanoi.setText("Torres de Hanoi");
+        menuPilas.add(opTorresHanoi);
+
         jMenuBar1.add(menuPilas);
 
         menuArboles.setText("Arboles");
@@ -83,6 +109,34 @@ public class Menu extends javax.swing.JFrame {
         menuDeFichaVehicular.add(opFichaV);
 
         jMenuBar1.add(menuDeFichaVehicular);
+
+        menuArrayList.setText("Array List");
+
+        opConteoPalabras.setText("Conteo de Palabras");
+        opConteoPalabras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConteoPalabrasActionPerformed(evt);
+            }
+        });
+        menuArrayList.add(opConteoPalabras);
+
+        opCalcularPromedios.setText("Calculadora de Promedios");
+        menuArrayList.add(opCalcularPromedios);
+
+        opFutbol.setText("Equipo de Futbol");
+        menuArrayList.add(opFutbol);
+
+        jMenuBar1.add(menuArrayList);
+
+        menuColas.setText("Colas");
+
+        opSumaNum.setText("Suma de Numeros");
+        menuColas.add(opSumaNum);
+
+        opServicios.setText("Atencion de Servicios");
+        menuColas.add(opServicios);
+
+        jMenuBar1.add(menuColas);
 
         setJMenuBar(jMenuBar1);
 
@@ -118,6 +172,24 @@ public class Menu extends javax.swing.JFrame {
         escritorio.add(ventanaFV);
         ventanaFV.show();
     }//GEN-LAST:event_opFichaVActionPerformed
+
+    private void opCadenaInvertidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opCadenaInvertidaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_opCadenaInvertidaActionPerformed
+
+    private void opLDinamicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicaActionPerformed
+        // TODO add your handling code here:
+        OrdenListas ventanaOL = new OrdenListas();
+        escritorio.add(ventanaOL);
+        ventanaOL.show();
+    }//GEN-LAST:event_opLDinamicaActionPerformed
+
+    private void opConteoPalabrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConteoPalabrasActionPerformed
+        // TODO add your handling code here:
+        ConteoPalabras ventanaCP = new ConteoPalabras();
+        escritorio.add(ventanaCP);
+        ventanaCP.show();
+    }//GEN-LAST:event_opConteoPalabrasActionPerformed
 
     public void ejecutarReporte(){
         ReportedeValoraPagar reporte = new ReportedeValoraPagar();
@@ -164,11 +236,20 @@ public class Menu extends javax.swing.JFrame {
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu menuArboles;
+    private javax.swing.JMenu menuArrayList;
+    private javax.swing.JMenu menuColas;
     private javax.swing.JMenu menuDeFichaVehicular;
     private javax.swing.JMenu menuDeListas;
     private javax.swing.JMenu menuPilas;
+    private javax.swing.JMenuItem opCadenaInvertida;
+    private javax.swing.JMenuItem opCalcularPromedios;
+    private javax.swing.JMenuItem opConteoPalabras;
     private javax.swing.JMenuItem opFichaV;
+    private javax.swing.JMenuItem opFutbol;
     private javax.swing.JMenuItem opLDinamica;
+    private javax.swing.JMenuItem opServicios;
     private javax.swing.JMenuItem opStatico;
+    private javax.swing.JMenuItem opSumaNum;
+    private javax.swing.JMenuItem opTorresHanoi;
     // End of variables declaration//GEN-END:variables
 }
