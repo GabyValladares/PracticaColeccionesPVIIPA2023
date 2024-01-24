@@ -9,7 +9,7 @@ package DIU;
  * @author usuario
  */
 public class ReporteValor extends javax.swing.JInternalFrame {
-public String nombre,cedula,placa,marca,color,valor,multas,tipo;
+ String nombre,cedula,placa,marca,color,valor,multas,tipo,anio;
     /**
      * Creates new form ReporteValor
      */
@@ -31,6 +31,10 @@ public String nombre,cedula,placa,marca,color,valor,multas,tipo;
         txtADatos = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 formAncestorAdded(evt);
@@ -84,16 +88,17 @@ public String nombre,cedula,placa,marca,color,valor,multas,tipo;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void txtADatosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtADatosAncestorAdded
-        // TODO add your handling code here:
-        String datos="Nombre:"+nombre+"\n"+"Cédula:"+cedula+"\n"+"Placa:"+placa+"\n"+"Marca:"+marca
-                +"\n"+"Color:"+color+"\n"+"Valor:"+valor+"\n"+"Multas:"+multas+"\n"+"Tipo:"+tipo;
-        txtADatos.setText(datos);
-    }//GEN-LAST:event_txtADatosAncestorAdded
 
     private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_formAncestorAdded
+
+    private void txtADatosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtADatosAncestorAdded
+        // TODO add your handling code here:
+        String datos="Nombre: "+nombre+"\n"+"Cédula: "+cedula+"\n"+"Placa:  "+placa+"\n"+"Marca:  "+marca+"\n"+"Año Fabricacion:"+anio
+        +"\n"+"Color:  "+color+"\n"+"Valor:  "+valor+"\n"+"Multas: "+multas+"\n"+"Tipo:   "+tipo;
+        txtADatos.setText(datos);
+    }//GEN-LAST:event_txtADatosAncestorAdded
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

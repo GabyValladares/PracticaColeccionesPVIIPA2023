@@ -318,10 +318,14 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
         // TODO add your handling code here:
-        ReporteValor reporte1=new ReporteValor();
+       ReporteValor reporte1=new ReporteValor();
         reporte1.nombre=txtNombres.getText();
         reporte1.cedula=txtCedula.getText();
         reporte1.marca=(String) cmbMarca.getSelectedItem();
+        reporte1.color=txtColor.getText();
+        reporte1.placa=txtPlaca.getText();
+        reporte1.valor=txtValor.getText();
+        reporte1.anio=txtAnioFab4.getText();
         if(btnAuto.isSelected()){
             reporte1.tipo="Automovil";
         }else if(btnjeep.isSelected()){
@@ -337,16 +341,12 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         }else{
             reporte1.multas="No";
         }
-        this.dispose();
-         Menu m=new Menu();
-         
-         
+       
+        Menu.escritorio.add(reporte1);
+         reporte1.setVisible(true);
+          this.dispose();  
     }//GEN-LAST:event_btnVerActionPerformed
- public void ejecutarReporte(){
-        ReporteValor reporte=new ReporteValor();
-        btnVer.add(reporte);
-        reporte.show();
-    }
+
     private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCedulaActionPerformed

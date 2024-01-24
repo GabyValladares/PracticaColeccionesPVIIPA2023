@@ -4,8 +4,6 @@
  */
 package DIU;
 
-import Listas.*;
-
 /**
  *
  * @author Usuario
@@ -33,6 +31,9 @@ public class Menu extends javax.swing.JFrame {
         menuListas = new javax.swing.JMenu();
         opLEstatico = new javax.swing.JMenuItem();
         opLDinamicas = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
         menuArboles = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -65,7 +66,31 @@ public class Menu extends javax.swing.JFrame {
 
         opLDinamicas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         opLDinamicas.setText("Dinámicas");
+        opLDinamicas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opLDinamicasActionPerformed(evt);
+            }
+        });
         menuListas.add(opLDinamicas);
+
+        jMenuItem2.setText("EJER_2");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        menuListas.add(jMenuItem2);
+
+        jMenuItem3.setText("EJER_3");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        menuListas.add(jMenuItem3);
+
+        jMenuItem4.setText("jMenuItem4");
+        menuListas.add(jMenuItem4);
 
         jMenuBar1.add(menuListas);
 
@@ -85,7 +110,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.setText("INGRESAR");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -138,6 +163,27 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        ListaPalabras EJER_2=new ListaPalabras();
+        escritorio.add(EJER_2);
+        EJER_2.show();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        EJERCICIO_3 EJER_3=new EJERCICIO_3();
+        escritorio.add(EJER_3);
+        EJER_3.show();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void opLDinamicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicasActionPerformed
+        // TODO add your handling code here:
+         ListaPalabras dinamic=new ListaPalabras();
+        escritorio.add(dinamic);
+        dinamic.show();
+    }//GEN-LAST:event_opLDinamicasActionPerformed
+
     public void ejecutarReporte(){
         ReporteValor reporte=new ReporteValor();
         escritorio.add(reporte);
@@ -182,11 +228,14 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane escritorio;
+    public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;

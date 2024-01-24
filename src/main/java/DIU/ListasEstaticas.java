@@ -4,6 +4,11 @@
  */
 package DIU;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author usuario
@@ -26,26 +31,252 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblistas = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtnumeros = new javax.swing.JTextField();
+        txtagregar = new javax.swing.JButton();
+        txteliminar = new javax.swing.JButton();
+        txtmenor = new javax.swing.JTextField();
+        txtmayor = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setTitle("EJERCICIOS CON ARRAYS");
 
+        tblistas.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        tblistas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "LISTA 1", "LISTA 2"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tblistas.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                tblistasAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane1.setViewportView(tblistas);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel1.setText("LISTAS ESTATICAS");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel2.setText("INGRESE UN VALOR:");
+
+        txtnumeros.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        txtnumeros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnumerosActionPerformed(evt);
+            }
+        });
+
+        txtagregar.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        txtagregar.setText("agregar");
+        txtagregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtagregarActionPerformed(evt);
+            }
+        });
+
+        txteliminar.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        txteliminar.setText("Eliminar");
+        txteliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txteliminarActionPerformed(evt);
+            }
+        });
+
+        txtmenor.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        txtmenor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtmenorActionPerformed(evt);
+            }
+        });
+
+        txtmayor.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        txtmayor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtmayorActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel3.setText("NUMERO MAYOR:");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel4.setText("NUMERO MENOR:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(215, 215, 215)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtagregar)
+                            .addComponent(jLabel2))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtnumeros, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(89, 89, 89)
+                                .addComponent(txteliminar))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtmayor)
+                            .addComponent(txtmenor, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(jLabel1)
+                .addGap(64, 64, 64)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtnumeros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtagregar)
+                    .addComponent(txteliminar))
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtmayor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtmenor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tblistasAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tblistasAncestorAdded
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_tblistasAncestorAdded
+
+    private void txtnumerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumerosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnumerosActionPerformed
+ArrayList<Integer> listaOriginal = new ArrayList<>();
+ArrayList<Integer> listaOrdenada = new ArrayList<>(listaOriginal);
+    private void txtagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtagregarActionPerformed
+        // TODO add your handling code here:
+        String numeros = txtnumeros.getText();
+        String[] numerosSplit = numeros.split(" ");
+
+        for (String numero : numerosSplit) {
+            listaOriginal.add(Integer.valueOf(numero));
+        }
+
+        // Ordenar listaOriginal y actualizar listaOrdenada
+
+        listaOrdenada = new ArrayList<>(listaOriginal);
+        Collections.sort(listaOrdenada);
+        // Resto del código para actualizar la tabla y mostrar los resultados
+        actualizarTabla(listaOriginal);
+        txtnumeros.setText("");
+    }//GEN-LAST:event_txtagregarActionPerformed
+
+    private void txteliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txteliminarActionPerformed
+        if (!listaOriginal.isEmpty()) {
+            // Eliminar el último número ingresado de listaOriginal y actualizar listaOrdenada
+            listaOriginal.remove(listaOriginal.size() - 1);
+            listaOrdenada = new ArrayList<>(listaOriginal);
+
+            // Resto del código para actualizar la tabla y mostrar los resultados
+            actualizarTabla(listaOriginal);
+        } else {
+            JOptionPane.showMessageDialog(this, "La lista está vacía", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_txteliminarActionPerformed
+private void actualizarTabla(ArrayList<Integer> listaOriginal) {
+        // Establecer el modelo de la tabla
+    DefaultTableModel modelo = new DefaultTableModel();
+    modelo.addColumn("Lista 1");
+    modelo.addColumn("Lista 2");
+
+    // Agregar filas al modelo
+    for (int i = 0; i < listaOriginal.size(); i++) {
+        modelo.addRow(new Object[]{listaOriginal.get(i), listaOrdenada.get(i)});
+    }
+
+    // Establecer el modelo en la tabla
+    tblistas.setModel(modelo);
+
+    // Actualizar los resultados en los JTextField
+    if (!listaOriginal.isEmpty()) {
+        int mayor = Collections.max(listaOriginal);
+        int menor = Collections.min(listaOriginal);
+        txtmayor.setText(String.valueOf(mayor));
+        txtmenor.setText(String.valueOf(menor));
+    } else {
+        txtmayor.setText("");
+        txtmenor.setText("");
+    }
+}
+    private void txtmenorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmenorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtmenorActionPerformed
+
+    private void txtmayorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmayorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtmayorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblistas;
+    private javax.swing.JButton txtagregar;
+    private javax.swing.JButton txteliminar;
+    private javax.swing.JTextField txtmayor;
+    private javax.swing.JTextField txtmenor;
+    private javax.swing.JTextField txtnumeros;
     // End of variables declaration//GEN-END:variables
 }
