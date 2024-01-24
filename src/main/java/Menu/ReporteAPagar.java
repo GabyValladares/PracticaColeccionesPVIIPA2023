@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package DIU;
+package Menu;
 
 /**
  *
@@ -15,6 +15,15 @@ public String nombre,cedula,placa,marca,color,valor,multas,tipo;
      */
     public ReporteAPagar() {
         initComponents();
+        lblCedula.setText(cedula);
+        lblCeduladp.setText(cedula);
+        lblNombresdp.setText(nombre);
+        lblPlacadp.setText(placa);
+        lblMarcadp.setText(marca);
+        lblTipodp.setText(tipo);
+        lblValordp.setText(valor);
+        lblMultasdp.setText(multas);
+        
         
     }
 
