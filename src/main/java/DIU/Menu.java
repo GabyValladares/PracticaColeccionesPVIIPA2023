@@ -9,6 +9,7 @@ import Listas.EjemploArray;
 import Listas.EjemploArrayList;
 import Listas.FichaJugador;
 import Listas.ListasEstaticas;
+import Pilas.StringInvertido;
 
 /**
  *
@@ -41,6 +42,7 @@ public class Menu extends javax.swing.JFrame {
         opLArrayList = new javax.swing.JMenuItem();
         opLJugador = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menuArboles = new javax.swing.JMenu();
         menuColas = new javax.swing.JMenu();
         menuFicha = new javax.swing.JMenu();
@@ -101,6 +103,15 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(menuListas);
 
         menuPilas.setText("Pilas");
+
+        jMenuItem1.setText("String invertido");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menuPilas.add(jMenuItem1);
+
         jMenuBar1.add(menuPilas);
 
         menuArboles.setText("Árboles");
@@ -176,6 +187,13 @@ public class Menu extends javax.swing.JFrame {
         ventanaJug.show();
     }//GEN-LAST:event_opLJugadorActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+      StringInvertido ventanaSinv = new StringInvertido();
+      escritorio.add(ventanaSinv);
+      ventanaSinv.show();
+      
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -215,6 +233,7 @@ public class Menu extends javax.swing.JFrame {
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuColas;
     private javax.swing.JMenu menuFicha;
