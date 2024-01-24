@@ -35,6 +35,7 @@ public class principal extends javax.swing.JFrame {
         opLEstatico = new javax.swing.JMenuItem();
         opDinamica = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -81,6 +82,14 @@ public class principal extends javax.swing.JFrame {
             }
         });
         menuListas.add(jMenuItem1);
+
+        jMenuItem2.setText("ArrayList");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        menuListas.add(jMenuItem2);
 
         jMenuBar1.add(menuListas);
 
@@ -174,6 +183,12 @@ public class principal extends javax.swing.JFrame {
      escritorio.add(lis);
      lis.show();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+     ListaProm listaprom1 = new ListaProm();
+     escritorio.add(listaprom1);
+     listaprom1.show();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -218,6 +233,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu menuFicha;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenuItem opDinamica;
