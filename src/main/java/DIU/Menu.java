@@ -7,6 +7,7 @@ package DIU;
 
 import Listas.EjemploArray;
 import Listas.EjemploArrayList;
+import Listas.FichaJugador;
 import Listas.ListasEstaticas;
 
 /**
@@ -38,6 +39,7 @@ public class Menu extends javax.swing.JFrame {
         opLDinamicas = new javax.swing.JMenuItem();
         opLArray = new javax.swing.JMenuItem();
         opLArrayList = new javax.swing.JMenuItem();
+        opLJugador = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
         menuArboles = new javax.swing.JMenu();
         menuColas = new javax.swing.JMenu();
@@ -87,6 +89,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         menuListas.add(opLArrayList);
+
+        opLJugador.setText("Jugador");
+        opLJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opLJugadorActionPerformed(evt);
+            }
+        });
+        menuListas.add(opLJugador);
 
         jMenuBar1.add(menuListas);
 
@@ -160,6 +170,12 @@ public class Menu extends javax.swing.JFrame {
         ventanaAL.show();
     }//GEN-LAST:event_opLArrayListActionPerformed
 
+    private void opLJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLJugadorActionPerformed
+        FichaJugador ventanaJug = new FichaJugador();
+        escritorio.add(ventanaJug);
+        ventanaJug.show();
+    }//GEN-LAST:event_opLJugadorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -208,5 +224,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem opLArrayList;
     private javax.swing.JMenuItem opLDinamicas;
     private javax.swing.JMenuItem opLDinamico;
+    private javax.swing.JMenuItem opLJugador;
     // End of variables declaration//GEN-END:variables
 }
