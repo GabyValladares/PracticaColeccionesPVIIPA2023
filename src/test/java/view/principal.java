@@ -34,6 +34,7 @@ public class principal extends javax.swing.JFrame {
         menuListas = new javax.swing.JMenu();
         opLEstatico = new javax.swing.JMenuItem();
         opDinamica = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -72,6 +73,14 @@ public class principal extends javax.swing.JFrame {
             }
         });
         menuListas.add(opDinamica);
+
+        jMenuItem1.setText("Lista palabras");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menuListas.add(jMenuItem1);
 
         jMenuBar1.add(menuListas);
 
@@ -136,9 +145,9 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_opDinamicaActionPerformed
 
     private void opLEstaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLEstaticoActionPerformed
-       ListasEstaticas ventanaLE = new ListasEstaticas();
-    escritorio.add(ventanaLE);
-    ventanaLE.show();
+    Listainversa ventanaLI = new Listainversa();
+    escritorio.add(ventanaLI);
+    ventanaLI.show();
     }//GEN-LAST:event_opLEstaticoActionPerformed
 
     private void menuFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFichaActionPerformed
@@ -159,6 +168,12 @@ public class principal extends javax.swing.JFrame {
      escritorio.add(reporte);
      reporte.show();
     }//GEN-LAST:event_opreporteActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+      ListaPalabras lis = new ListaPalabras();
+     escritorio.add(lis);
+     lis.show();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -196,12 +211,13 @@ public class principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane escritorio;
+    public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu menuFicha;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenuItem opDinamica;

@@ -54,6 +54,7 @@ public class reporte extends javax.swing.JInternalFrame {
 
         txta_reporte.setColumns(20);
         txta_reporte.setRows(5);
+        txta_reporte.setEnabled(false);
         jScrollPane1.setViewportView(txta_reporte);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -72,8 +73,16 @@ public class reporte extends javax.swing.JInternalFrame {
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         // TODO add your handling code here:
-       texto= "Nombre del propietario: "+nombre+"\n"+
-                  "cedula: "+cedula+"\n";
+       texto= 
+               "Nombre del propietario: "+nombre+"\n"+
+               "cedula: "+cedula+"\n"+
+               "Placa: "+placa+"\n"+
+               "Año: "+anio+"\n"+
+               "Marca: "+marca+"\n"+
+               "Color: "+color+"\n"+
+               "Tipo de Vehiculo: "+tipo_ve+"\n"+
+               "Valor: "+valor+"\n"+
+               "Multas: "+multas+"\n";
        txta_reporte.setText(texto);
     }//GEN-LAST:event_formInternalFrameActivated
     

@@ -283,7 +283,9 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             reporte1.multas="No";
         }
         this.dispose();
-         principal m=new principal();
+         //principal m=new principal();
+         principal.escritorio.add(reporte1);
+         reporte1.setVisible(true);
     
 //    private void verFichaActionPerformed(java.awt.event.ActionEvent evt) {
 //    // Cerrar el InternalFrame actual (FichaVehicular)
@@ -318,9 +320,10 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 //    this.dispose();
 //
 //    // Crear y mostrar el InternalFrame del Reporte
-//    reporte reporte = new reporte();
-//    principal.escritorio.add(reporte);
-//    reporte.show();
+//  reporte reporte = new reporte();
+//  principal.escritorio.add(reporte1);
+//  m.escritorio.add(reporte1);
+//  reporte.show();
     private void txtplacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtplacaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtplacaActionPerformed
@@ -333,7 +336,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnVer;
+    public static javax.swing.JButton btnVer;
     private javax.swing.JComboBox<String> cmbColores;
     private javax.swing.JComboBox<String> cmbMarcas;
     private javax.swing.JCheckBox cmbno;
