@@ -9,8 +9,11 @@ package Listas;
  * @author Usuario
  */
 public class Main {
+
     public static void main(String[] args) {
 //        Ejercicio1 ej=new Ejercicio1();
 //        ej.setVisible(true);
+        ListasDinamicas lD = new ListasDinamicas();
+        lD.setVisible(true);
     }
 }

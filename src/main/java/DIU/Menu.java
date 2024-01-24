@@ -4,6 +4,8 @@
  */
 package DIU;
 
+import java.awt.Component;
+
 /**
  *
  * @author Usuario
@@ -43,11 +45,11 @@ public class Menu extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1387, Short.MAX_VALUE)
+            .addGap(0, 1438, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 564, Short.MAX_VALUE)
+            .addGap(0, 829, Short.MAX_VALUE)
         );
 
         menuListas.setText("Listas");
@@ -76,14 +78,14 @@ public class Menu extends javax.swing.JFrame {
         jMenu1.setText("Colas");
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Ficha Vehicular");
+        jMenu2.setText("Matriculación");
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu2ActionPerformed(evt);
             }
         });
 
-        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.setText("Ficha Vehicular");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -130,15 +132,15 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
+       
          FichaVehicular ventana=new FichaVehicular();
         escritorio.add(ventana);
         ventana.show();
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    public void ejecutarReporte(){
-        ReporteValorPagar reporte=new ReporteValorPagar();
-        escritorio.add(reporte);
+    public void ejecutarReporte(ReporteValorPagar reporte){
+       escritorio.add(reporte);
         reporte.show();
     }
     /**
@@ -177,7 +179,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane escritorio;
+    public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

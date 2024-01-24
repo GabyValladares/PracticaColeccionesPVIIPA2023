@@ -115,9 +115,7 @@ public class ListasDinamicas extends javax.swing.JInternalFrame {
 
     private void btnAEj1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAEj1ActionPerformed
         // TODO add your handling code here:
-        for (int i = 0; i < listaCadenas.size(); i++) {
-            txtAResultado.append(listaCadenas.get(i));
-        }
+        listaCadenas.add(txtValor.getText());
        
     }//GEN-LAST:event_btnAEj1ActionPerformed
 
