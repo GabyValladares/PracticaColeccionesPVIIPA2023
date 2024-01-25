@@ -19,6 +19,7 @@ public class FichaJugador extends javax.swing.JInternalFrame {
     DefaultTableModel dfm = new DefaultTableModel();
     DefaultTableModel dfmJuveniles = new DefaultTableModel();
     DefaultTableModel dfmSeniors = new DefaultTableModel();
+    
     ArrayList<Jugador> listaJugadores = new ArrayList();
     ArrayList<Jugador> listaJugadoresJuveniles = new ArrayList();
     ArrayList<Jugador> listaJugadoresSeniors = new ArrayList();

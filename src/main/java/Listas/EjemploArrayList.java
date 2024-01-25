@@ -58,6 +58,7 @@ public class EjemploArrayList extends javax.swing.JInternalFrame {
         for (int i = 0; i < listaNumeros1.size(); i++) {
 
             int n1 = listaNumeros1.get(i);
+            
             if (n1 > promedio) {
                 listaNumeros2.add(0, n1);
             }
