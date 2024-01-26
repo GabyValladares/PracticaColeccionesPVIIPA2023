@@ -4,6 +4,10 @@
  */
 package DIU;
 
+import DIU.Modelo.Automovil;
+import DIU.Modelo.Persona;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author carlo
@@ -28,10 +32,14 @@ public class ReporteA extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtDatos = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtablaRep = new javax.swing.JTable();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+        setTitle("Reporte Ficha Vehícular");
         addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 formAncestorAdded(evt);
@@ -48,43 +56,44 @@ public class ReporteA extends javax.swing.JInternalFrame {
         lblNombre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblNombre.setText("                          REPORTE DE FICHA");
 
-        txtDatos.setColumns(20);
-        txtDatos.setRows(5);
-        jScrollPane1.setViewportView(txtDatos);
+        jtablaRep.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        jLabel1.setText("DATOS:");
+            },
+            new String [] {
+                "N°", "Nombre", "Cédula", "Placa", "Año de fab", "Marca vehículo", "Color", "Tipo", "Valor", "Multas"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jtablaRep);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane2))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(232, Short.MAX_VALUE)
+                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(226, 226, 226))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                        .addContainerGap())))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -104,29 +113,33 @@ public class ReporteA extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    String cedula, nombre, numeroPlaca,anoiFab,color, marca, multa, tipo, valor;
-    private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
-        // TODO add your handling code here:
-        String informacion = "Cédula: " + cedula + "\n" +
-                         "Nombres: " + nombre + "\n" +
-                         "Placa: " + numeroPlaca + "\n" +
-                         "Año de fabricación: " + anoiFab + "\n" +
-                         "Color: " + color + "\n" +
-                         "Marca: " + marca + "\n" +
-                         "Tipo: " + tipo + "\n" +
-                         "Costo: " + valor + "\n" +
-                         "Multa: " + multa;
-    
+    public void mostrarDatos(Automovil auto, Persona persona) {
+        DefaultTableModel modelo = (DefaultTableModel) jtablaRep.getModel();
+        Object[] fila = new Object[10];
 
-    txtDatos.setText(informacion); 
+        fila[0] = modelo.getRowCount() + 1;
+        fila[1] = persona.getNombre();
+        fila[2] = persona.getCedula();
+        fila[3] = auto.getPlaca();
+        fila[4] = auto.getAnoFabricacion();
+        fila[5] = auto.getMarca();
+        fila[6] = auto.getColor();
+        fila[7] = auto.getTipo();
+        fila[8] = auto.getValor();
+        fila[9] = auto.getMultas();
+
+        modelo.addRow(fila);
+    }
+    private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
+        
+        
     }//GEN-LAST:event_formAncestorAdded
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jtablaRep;
     public static javax.swing.JLabel lblNombre;
-    private javax.swing.JTextArea txtDatos;
     // End of variables declaration//GEN-END:variables
 }

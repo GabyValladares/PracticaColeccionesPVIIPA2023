@@ -4,6 +4,7 @@
  */
 package DIU;
 
+import DIU.vista.PracticaArraylist;
 import DIU.Ejercicios.Colas1;
 import DIU.Ejercicios.Colas2;
 import DIU.Ejercicios.EArraylist1;
@@ -43,6 +44,7 @@ public class MENU extends javax.swing.JFrame {
         jmEstatica2 = new javax.swing.JMenuItem();
         jmArraylist = new javax.swing.JMenuItem();
         jMArraylist2 = new javax.swing.JMenuItem();
+        jMPracticaArrayClase = new javax.swing.JMenuItem();
         jmPilas = new javax.swing.JMenu();
         jMpilas1 = new javax.swing.JMenuItem();
         jMpilas2 = new javax.swing.JMenuItem();
@@ -110,6 +112,14 @@ public class MENU extends javax.swing.JFrame {
             }
         });
         jmListas.add(jMArraylist2);
+
+        jMPracticaArrayClase.setText("Dinámicas PRACTICA");
+        jMPracticaArrayClase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMPracticaArrayClaseActionPerformed(evt);
+            }
+        });
+        jmListas.add(jMPracticaArrayClase);
 
         jMenuBar1.add(jmListas);
 
@@ -260,6 +270,12 @@ public class MENU extends javax.swing.JFrame {
         ventanaArr.show();
     }//GEN-LAST:event_jMArraylist2ActionPerformed
 
+    private void jMPracticaArrayClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMPracticaArrayClaseActionPerformed
+        PracticaArraylist ventanaArr = new PracticaArraylist();
+        Escritorio.add(ventanaArr);
+        ventanaArr.show();
+    }//GEN-LAST:event_jMPracticaArrayClaseActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -300,6 +316,7 @@ public class MENU extends javax.swing.JFrame {
     public static javax.swing.JDesktopPane Escritorio;
     private javax.swing.JMenu FichaVehicular;
     private javax.swing.JMenuItem jMArraylist2;
+    private javax.swing.JMenuItem jMPracticaArrayClase;
     private javax.swing.JMenuItem jMcolas1;
     private javax.swing.JMenuItem jMcolas2;
     private javax.swing.JMenuBar jMenuBar1;

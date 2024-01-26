@@ -4,6 +4,9 @@
  */
 package DIU;
 
+import DIU.Modelo.Automovil;
+import DIU.Modelo.Persona;
+
 /**
  *
  * @author carlo
@@ -326,29 +329,34 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
         ReporteA ventana = new ReporteA();
+        Automovil auto = new Automovil();
+        Persona per = new Persona();
         
-        ventana.cedula = txtCedula.getText();
-        ventana.nombre = txtNombres.getText();
-        ventana.numeroPlaca = txtPlaca.getText();
-        ventana.valor = txtValor.getText();
-        ventana.marca = cmbMarca.getSelectedItem().toString();
-        ventana.anoiFab = txtAnioFab.getText();
-        ventana.color = txtColor.getText();
+        per.setCedula(txtCedula.getText());
+        per.setNombre(txtNombres.getText());
+        auto.setPlaca(txtPlaca.getText());
+        auto.setValor(txtValor.getText());
+        auto.setMarca(cmbMarca.getSelectedItem().toString());
+        auto.setAnoFabricacion(txtAnioFab.getText());
+        auto.setColor(txtColor.getText());
         if (rdAuto.isSelected()) {
-            ventana.tipo = "Automóvil";
+            auto.setTipo("Automóvil");
         } else if (rdCamioneta.isSelected()) {
-            ventana.tipo = "Camioneta";
+            auto.setTipo("Camioneta");
         } else if (rdVitara.isSelected()) {
-            ventana.tipo = "Vitara";
+            auto.setTipo("Vitara");
         } else {
-            ventana.tipo = "Jeep";
+            auto.setTipo("Jeep");
+            
         }
-        ventana.multa = "";
+        auto.setMultas("");
         if (chxMultasSi.isSelected() == true) {
-            ventana.multa = "SI";
+            auto.setMultas("SI");
         } else {
-            ventana.multa = "NO";
+            auto.setMultas("NO");
         }
+        
+        ventana.mostrarDatos(auto,per);
         this.dispose();
         MENU.Escritorio.add(ventana);
         ventana.setVisible(true);
