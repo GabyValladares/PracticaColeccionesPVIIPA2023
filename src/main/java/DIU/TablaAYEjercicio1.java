@@ -121,7 +121,7 @@ public class TablaAYEjercicio1 extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     List<Integer> listaNumeros=new ArrayList<Integer>();
     DefaultTableModel tbla=new DefaultTableModel();
     String concatNumeros="";
@@ -141,16 +141,6 @@ public class TablaAYEjercicio1 extends javax.swing.JInternalFrame {
         }
         int suma = calcularSuma(numeros);
         return (double) suma / numeros.size();
-    }
-    
-    private static int contarMayoresQuePromedio(List<Integer> numeros, double promedio) {
-        int contador = 0;
-        for (int num : numeros) {
-            if (num > promedio) {
-                contador++;
-            }
-        }
-        return contador;
     }
     
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated

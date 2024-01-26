@@ -35,6 +35,8 @@ public class AYEjercicio1 extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         txtNumeros = new javax.swing.JTextField();
 
+        setClosable(true);
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Array de números");
 
@@ -58,7 +60,7 @@ public class AYEjercicio1 extends javax.swing.JInternalFrame {
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(txtNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -69,23 +71,26 @@ public class AYEjercicio1 extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-  
-    TablaAYEjercicio1 ventanaArray=new TablaAYEjercicio1();
-    
+
+    TablaAYEjercicio1 ventanaArray = new TablaAYEjercicio1();
+
     private void txtNumerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumerosActionPerformed
-        int numeroActual=Integer.parseInt(txtNumeros.getText());
-        if(numeroActual!=-99){
-            ventanaArray.listaNumeros.add(numeroActual);
-            txtNumeros.setText("");
-        }else{
-            Menu.escritorio.add(ventanaArray);
-            ventanaArray.setVisible(true);
+        if (!txtNumeros.getText().isEmpty()) {
+            int numeroActual = Integer.parseInt(txtNumeros.getText());
+            if (numeroActual != -99) {
+                ventanaArray.listaNumeros.add(numeroActual);
+                txtNumeros.setText("");
+            } else {
+                Menu.escritorio.add(ventanaArray);
+                ventanaArray.setVisible(true);
+            }
         }
+
     }//GEN-LAST:event_txtNumerosActionPerformed
 
 

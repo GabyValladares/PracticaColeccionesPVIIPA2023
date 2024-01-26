@@ -16,6 +16,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     public FichaVehicular() {
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -96,12 +97,6 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
         lblValor.setText("Valor del Vehículo:");
 
-        txtValor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtValorActionPerformed(evt);
-            }
-        });
-
         lblValor1.setText("¿Posee Multas?");
 
         btnVer.setText("Ver Ficha");
@@ -118,12 +113,6 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             }
         });
 
-        txtCedula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCedulaActionPerformed(evt);
-            }
-        });
-
         chxMultasNo.setText("No");
         chxMultasNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,39 +124,15 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
         lblTitulo.setText("REGISTRO DE DATOS PARA CONOCER EL PAGO A REALIZAR");
 
-        txtNombres.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombresActionPerformed(evt);
-            }
-        });
-
         lblNombres.setText("Nombres Completos :");
 
         lblPlaca.setText("Número de Placa:");
 
-        txtPlaca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPlacaActionPerformed(evt);
-            }
-        });
-
         lblAnioFab.setText("Año Fabricación:");
-
-        txtAnioFab.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAnioFabActionPerformed(evt);
-            }
-        });
 
         lblMarca.setText("Marca del Vehículo:");
 
         lblColor.setText("Color del Vehículo:");
-
-        txtColor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtColorActionPerformed(evt);
-            }
-        });
 
         cbxMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toyota", "Suzuki", "Kia", "Skoda" }));
 
@@ -238,12 +203,12 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 54, Short.MAX_VALUE))
+                        .addGap(0, 192, Short.MAX_VALUE))
                     .addComponent(reporteFicha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap(244, Short.MAX_VALUE)
+                    .addContainerGap(382, Short.MAX_VALUE)
                     .addComponent(lblTitulo)
                     .addGap(218, 218, 218)))
         );
@@ -323,34 +288,36 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbtAutoActionPerformed
 
-    private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtValorActionPerformed
-
+    PersonaReport person = new PersonaReport();
+    Reporte ventana = new Reporte();
+    Carro carro1 = new Carro();
+    
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
-        // TODO add your handling code here:
-        Reporte ventana=new Reporte();
-        ventana.cedula=txtCedula.getText();
-        ventana.nombre=txtNombres.getText();
-        ventana.numeroPlaca=txtPlaca.getText();
-        ventana.valor=txtValor.getText();
-        ventana.marca=cbxMarca.getSelectedItem().toString();
-        ventana.anio=txtAnioFab.getText();
-        ventana.colorCar=txtColor.getText();
-        if(rbtAuto.isSelected()){
-            ventana.tipo="Automóvil";
-        }else if (rbtCamioneta.isSelected()){
-            ventana.tipo="Camioneta";
-        }else if(rbtVitara.isSelected()){
-            ventana.tipo="Vitara";
-        }else {
-            ventana.tipo="Jeep";
+        
+        ventana.transicionCarro(carro1);
+        ventana.transicionPersona(person);
+        person.setCédula(txtCedula.getText());
+        person.setNombre(txtNombres.getText());
+        carro1.setPlaca(txtPlaca.getText());
+        carro1.setValor(txtValor.getText());
+        carro1.setMarca(cbxMarca.getSelectedItem().toString());
+        carro1.setAnioFab(txtAnioFab.getText());
+        carro1.setColor(txtColor.getText());
+        carro1.setMulta("");
+        if (rbtAuto.isSelected()) {
+            carro1.setTipo("Automóvil");
+        } else if (rbtCamioneta.isSelected()) {
+            carro1.setTipo("Camioneta");
+        } else if (rbtVitara.isSelected()) {
+            carro1.setTipo("Vitara");
+        } else {
+            carro1.setTipo("Jeep");
         }
-        ventana.multa="";
-        if(chxMultasSi.isSelected()==true){
-            ventana.multa="SI";
-        }else{
-            ventana.multa="NO";
+        
+        if (chxMultasSi.isSelected() == true) {
+            carro1.setMulta("SI");
+        } else {
+            carro1.setMulta("NO");
         }
         Menu.escritorio.add(ventana);
         ventana.setVisible(true);
@@ -361,29 +328,9 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_chxMultasSiActionPerformed
 
-    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCedulaActionPerformed
-
     private void chxMultasNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chxMultasNoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chxMultasNoActionPerformed
-
-    private void txtNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombresActionPerformed
-
-    private void txtPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlacaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPlacaActionPerformed
-
-    private void txtAnioFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioFabActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAnioFabActionPerformed
-
-    private void txtColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtColorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtColorActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         rbtGrupo.add(rbtAuto);

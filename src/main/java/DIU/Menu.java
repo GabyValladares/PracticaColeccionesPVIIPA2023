@@ -4,6 +4,9 @@
  */
 package DIU;
 
+import DIU.vista.LDTable;
+import DIU.vista.ListasDinamicas;
+
 /**
  *
  * @author oli
@@ -31,6 +34,8 @@ public class Menu extends javax.swing.JFrame {
         menuListas = new javax.swing.JMenu();
         opLEstatico = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        opDinamicaTable = new javax.swing.JMenuItem();
         memuArray = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
@@ -72,6 +77,22 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         menuListas.add(jMenuItem3);
+
+        jMenuItem6.setText("Dinámicas");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        menuListas.add(jMenuItem6);
+
+        opDinamicaTable.setText("Tables");
+        opDinamicaTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opDinamicaTableActionPerformed(evt);
+            }
+        });
+        menuListas.add(opDinamicaTable);
 
         jMenuBar1.add(menuListas);
 
@@ -178,6 +199,18 @@ public class Menu extends javax.swing.JFrame {
         ventanaCEjercicio1.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        ListasDinamicas ventanaListasDinamicas=new ListasDinamicas();
+        escritorio.add(ventanaListasDinamicas);
+        ventanaListasDinamicas.show();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void opDinamicaTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDinamicaTableActionPerformed
+        LDTable ventanaDTable=new LDTable();
+        escritorio.add(ventanaDTable);
+        ventanaDTable.show();
+    }//GEN-LAST:event_opDinamicaTableActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -221,12 +254,14 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenu memuArray;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuColas;
     private javax.swing.JMenu menuFichaV;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;
+    private javax.swing.JMenuItem opDinamicaTable;
     private javax.swing.JMenuItem opLEstatico;
     // End of variables declaration//GEN-END:variables
 }

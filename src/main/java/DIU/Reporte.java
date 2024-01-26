@@ -5,6 +5,7 @@
 package DIU;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -12,13 +13,12 @@ import javax.swing.JOptionPane;
  */
 public class Reporte extends javax.swing.JInternalFrame {
 
-    public String nombre, cedula, marca, tipo, numeroPlaca, valor, multa, anio, colorCar;
-
     /**
      * Creates new form Reporte
      */
     public Reporte() {
         initComponents();
+        setModelo();
     }
 
     /**
@@ -30,35 +30,21 @@ public class Reporte extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
-        lblAnio = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        lblColor = new javax.swing.JLabel();
-        lblTipo = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        lblPlaca = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        lblMarca = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        lblMulta = new javax.swing.JLabel();
         lblValorContaminación = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        lblValorVehivulo = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        lblCedula1 = new javax.swing.JLabel();
         lblValorMatricula = new javax.swing.JLabel();
         lblValorMultas = new javax.swing.JLabel();
         lblValorTipo = new javax.swing.JLabel();
         lblValorTotal = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblPersona = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblCarro = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -82,27 +68,6 @@ public class Reporte extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel1.setText("Nombre:");
-
-        jLabel2.setText("Año:");
-
-        jLabel3.setText("Color:");
-
-        jLabel4.setText("Tipo:");
-
-        jLabel5.setText("Placa:");
-
-        jLabel6.setText("Marca:");
-
-        jLabel7.setText("Multa:");
-
-        jLabel9.setText("Cédula:");
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel10.setText("Valor del vehículo:");
-        jLabel10.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setText("Reporte del vehículo");
 
@@ -118,6 +83,32 @@ public class Reporte extends javax.swing.JInternalFrame {
         jLabel15.setText("Precio total de Matriculación:");
         jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        tblPersona.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblPersona);
+
+        tblCarro.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblCarro);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,56 +116,45 @@ public class Reporte extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel10))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel1)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addComponent(jLabel9))))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                            .addComponent(lblAnio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblColor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblTipo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblPlaca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblMarca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblMulta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblValorVehivulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCedula1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(49, 49, 49)
+                        .addGap(86, 86, 86)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(125, 125, 125)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel13)
                             .addComponent(jLabel11)
                             .addComponent(jLabel8)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(18, 18, 18)
+                            .addComponent(jLabel14))
+                        .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblValorContaminación, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblValorTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblValorMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblValorMultas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(115, 115, 115)
-                        .addComponent(jLabel12)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                        .addComponent(jLabel12)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17)))
+                .addGap(109, 109, 109))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 811, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -191,83 +171,79 @@ public class Reporte extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel14)
-                            .addComponent(lblValorTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel12)
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9)
-                            .addComponent(lblCedula1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblColor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))))
+                            .addComponent(lblValorTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addComponent(lblPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblValorTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblMulta, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblValorVehivulo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addContainerGap(109, Short.MAX_VALUE))
+                        .addGap(29, 29, 29)
+                        .addComponent(lblValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private PersonaReport person1;
+    private Carro car1;
+    DefaultTableModel modeloPersona=new DefaultTableModel();
+    DefaultTableModel modeloCarro=new DefaultTableModel();
+
+    public void transicionPersona(PersonaReport per) {
+        this.person1 = per;
+    }
+    
+    public void transicionCarro(Carro car){
+        this.car1=car;
+    }
+
+    public void setModelo(){
+        String[] cabeceraPersona={"Cédula","Nombre"};
+        String[] cabeceraCarro={"Marca","Año","Placa","Tipo","Color","Multas","Valor"};
+        modeloPersona.setColumnIdentifiers(cabeceraPersona);
+        modeloCarro.setColumnIdentifiers(cabeceraCarro);
+        tblPersona.setModel(modeloPersona);
+    }
+    
+    public void setFila(){
+        Object[] informacionPersona=new Object[modeloPersona.getColumnCount()];
+        Object[] informacionCarro=new Object[modeloCarro.getColumnCount()];
+        modeloPersona.setRowCount(0);
+        modeloCarro.setRowCount(0);
+        informacionPersona[0]=person1.getCédula();
+        informacionPersona[1]=person1.getNombre();
+        informacionCarro[0]=car1.getMarca();
+        informacionCarro[1]=car1.getAnioFab();
+        informacionCarro[2]=car1.getPlaca();
+        informacionCarro[3]=car1.getTipo();
+        informacionCarro[4]=car1.getColor();
+        informacionCarro[5]=car1.getMulta();
+        informacionCarro[6]=car1.getValor();
+        modeloPersona.addRow(informacionPersona);
+        modeloCarro.addRow(informacionCarro);
+        tblPersona.setModel(modeloPersona);
+        tblCarro.setModel(modeloCarro);
+    }
+    
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        lblAnio.setText(anio);
-        lblNombre.setText(nombre);
-        lblValorContaminación.setText(cedula);
-        lblColor.setText(colorCar);
-        lblTipo.setText(tipo);
-        lblMarca.setText(marca);
-        lblPlaca.setText(numeroPlaca);
-        lblMulta.setText(multa);
-        lblValorVehivulo.setText(valor);
+        setFila();
         double matriculaTotal = 0.00;
-        int anioInt = Integer.parseInt(anio);
-        double valorVehiculo = Double.parseDouble(valor);
+        int anioInt = Integer.parseInt(car1.getAnioFab());
+        double valorVehiculo = Double.parseDouble(car1.getValor());
         double marcaTipoValor = 0;
         int sueldoBasico = 435;
         double inicialesValor = 0.00;
         double multasValor = 0.00;
         double cantidadMultaContaminacion = 0;
 
-        if (cedula.charAt(0) == '1' && numeroPlaca.charAt(0) == 'I' || numeroPlaca.charAt(0) == 'i') {
+        if (person1.Cédula.charAt(0) == '1' && car1.getPlaca().charAt(0) == 'I' || car1.getPlaca().charAt(0) == 'i') {
             inicialesValor = sueldoBasico * 0.05;
             matriculaTotal = inicialesValor;
         }
-        if (multa.equalsIgnoreCase("si")) {
+        if (car1.getMulta().equalsIgnoreCase("si")) {
             multasValor = sueldoBasico * 0.25;
             matriculaTotal = matriculaTotal + multasValor;
         }
@@ -277,16 +253,16 @@ public class Reporte extends javax.swing.JInternalFrame {
             cantidadMultaContaminacion = 435 * porcentajeAnio;
             matriculaTotal = matriculaTotal + cantidadMultaContaminacion;
         }
-        if (marca.equalsIgnoreCase("Toyota")) {
-            if (tipo.equalsIgnoreCase("Jeep")) {
+        if (car1.getMarca().equalsIgnoreCase("Toyota")) {
+            if (car1.getTipo().equalsIgnoreCase("Jeep")) {
                 marcaTipoValor = valorVehiculo * 0.08;
-            } else if (tipo.equalsIgnoreCase("Camioneta")) {
+            } else if (car1.getTipo().equalsIgnoreCase("Camioneta")) {
                 marcaTipoValor = valorVehiculo * 0.12;
             }
-        } else if (marca.equalsIgnoreCase("Suzuki")) {
-            if (tipo.equalsIgnoreCase("Vitara")) {
+        } else if (car1.getMarca().equalsIgnoreCase("Suzuki")) {
+            if (car1.getTipo().equalsIgnoreCase("Vitara")) {
                 marcaTipoValor = valorVehiculo * 0.1;
-            } else if (tipo.equalsIgnoreCase("automovil")) {
+            } else if (car1.getTipo().equalsIgnoreCase("automovil")) {
                 marcaTipoValor = valorVehiculo * 0.09;
             }
         }
@@ -302,34 +278,20 @@ public class Reporte extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel lblAnio;
-    private javax.swing.JLabel lblCedula1;
-    private javax.swing.JLabel lblColor;
-    private javax.swing.JLabel lblMarca;
-    private javax.swing.JLabel lblMulta;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblPlaca;
-    private javax.swing.JLabel lblTipo;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblValorContaminación;
     private javax.swing.JLabel lblValorMatricula;
     private javax.swing.JLabel lblValorMultas;
     private javax.swing.JLabel lblValorTipo;
     private javax.swing.JLabel lblValorTotal;
-    private javax.swing.JLabel lblValorVehivulo;
+    private javax.swing.JTable tblCarro;
+    private javax.swing.JTable tblPersona;
     // End of variables declaration//GEN-END:variables
 }
