@@ -4,18 +4,21 @@
  */
 package DIU;
 
+
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author usuario
  */
 public class ReporteValor extends javax.swing.JInternalFrame {
- String nombre,cedula,placa,marca,color,valor,multas,tipo,anio;
+ String nombre,cedula,placa,marca,color,valor,multas,tipo,anio,valorPagar;
     /**
      * Creates new form ReporteValor
      */
     public ReporteValor() {
         initComponents();
-        
+        modeloTabla();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,6 +33,8 @@ public class ReporteValor extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtADatos = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaDatos = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -62,6 +67,28 @@ public class ReporteValor extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel1.setText("REPORTE VEHICULAR ");
 
+        tablaDatos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "N°", "Nombre completo", "Cedula", "Placa", "Año Fabricacion", "Marca vehiculo", "color vehiculo", "tipo vhiculo", "valor vehiculo", "multas"
+            }
+        ));
+        tablaDatos.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                tablaDatosAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane2.setViewportView(tablaDatos);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,12 +96,15 @@ public class ReporteValor extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(274, 274, 274)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(186, Short.MAX_VALUE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 913, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,28 +112,45 @@ public class ReporteValor extends javax.swing.JInternalFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+DefaultTableModel modelo = new DefaultTableModel();
+    public void modeloTabla(){
+    String[] tablaficha={"N°","Nombres","Cedula","Placa","Año Fabricacion","Marca","Color","Tipo","Valor","Multas"};
+    modelo.setColumnIdentifiers(tablaficha);
+    tablaDatos.setModel(modelo);
+    }
     private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_formAncestorAdded
 
     private void txtADatosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtADatosAncestorAdded
         // TODO add your handling code here:
-        String datos="Nombre: "+nombre+"\n"+"Cédula: "+cedula+"\n"+"Placa:  "+placa+"\n"+"Marca:  "+marca+"\n"+"Año Fabricacion:"+anio
-        +"\n"+"Color:  "+color+"\n"+"Valor:  "+valor+"\n"+"Multas: "+multas+"\n"+"Tipo:   "+tipo;
-        txtADatos.setText(datos);
+           String datos="Nombre:"+nombre+"\n"+"Cédula:"+cedula+"\n"+"Placa:"+placa+"\n"+"Marca:"+marca+"\n"+"Año fabricacion:"+anio
+        +"\n"+"Color:"+color+"\n"+"Valor:"+valor+"\n"+"Multas:"+multas+"\n"+"Tipo:"+tipo+"\n"+"Valor a pagar:"+valorPagar;
+    txtADatos.setText(datos);
+
+    // Actualiza la tabla con la nueva información
+    int fila = modelo.getRowCount()+1;
+    modelo.addRow(new Object[]{fila,nombre,cedula,placa,anio,marca,color,tipo,valor,multas});
     }//GEN-LAST:event_txtADatosAncestorAdded
+
+    private void tablaDatosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tablaDatosAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tablaDatosAncestorAdded
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tablaDatos;
     private javax.swing.JTextArea txtADatos;
     // End of variables declaration//GEN-END:variables
 }

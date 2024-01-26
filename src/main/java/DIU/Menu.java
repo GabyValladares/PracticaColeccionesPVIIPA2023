@@ -34,6 +34,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
         menuArboles = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -91,6 +92,14 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuItem4.setText("jMenuItem4");
         menuListas.add(jMenuItem4);
+
+        jMenuItem5.setText("Dinamicas_2");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        menuListas.add(jMenuItem5);
 
         jMenuBar1.add(menuListas);
 
@@ -184,6 +193,13 @@ public class Menu extends javax.swing.JFrame {
         dinamic.show();
     }//GEN-LAST:event_opLDinamicasActionPerformed
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        ListasDinamicas LD= new ListasDinamicas();
+        escritorio.add(LD);
+        LD.show();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
     public void ejecutarReporte(){
         ReporteValor reporte=new ReporteValor();
         escritorio.add(reporte);
@@ -236,6 +252,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;

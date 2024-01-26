@@ -4,6 +4,7 @@
  */
 package DIU;
 
+
 /**
  *
  * @author usuario
@@ -344,7 +345,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
        
         Menu.escritorio.add(reporte1);
          reporte1.setVisible(true);
-          this.dispose();  
+          this.dispose();
+        
     }//GEN-LAST:event_btnVerActionPerformed
 
     private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
