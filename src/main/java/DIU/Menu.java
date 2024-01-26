@@ -31,6 +31,8 @@ public class Menu extends javax.swing.JFrame {
         menuListas = new javax.swing.JMenu();
         opLEstatico = new javax.swing.JMenuItem();
         opLDinamicas = new javax.swing.JMenuItem();
+        Listadinamica = new javax.swing.JMenuItem();
+        dltg = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
         menuArboles = new javax.swing.JMenu();
         colas = new javax.swing.JMenu();
@@ -43,11 +45,11 @@ public class Menu extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1387, Short.MAX_VALUE)
+            .addGap(0, 1327, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 564, Short.MAX_VALUE)
+            .addGap(0, 544, Short.MAX_VALUE)
         );
 
         menuListas.setText("Listas");
@@ -69,6 +71,22 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         menuListas.add(opLDinamicas);
+
+        Listadinamica.setText("Array List");
+        Listadinamica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListadinamicaActionPerformed(evt);
+            }
+        });
+        menuListas.add(Listadinamica);
+
+        dltg.setText("LDT");
+        dltg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dltgActionPerformed(evt);
+            }
+        });
+        menuListas.add(dltg);
 
         jMenuBar1.add(menuListas);
 
@@ -101,16 +119,14 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -121,6 +137,7 @@ public class Menu extends javax.swing.JFrame {
         ListasEstaticas ventanaLE=new ListasEstaticas();
         escritorio.add(ventanaLE);
         ventanaLE.show();
+        
     }//GEN-LAST:event_opLEstaticoActionPerformed
 
     private void opLDinamicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicasActionPerformed
@@ -134,7 +151,33 @@ public class Menu extends javax.swing.JFrame {
         escritorio.add(ventanaLE);
         ventanaLE.show();
         
+        
     }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
+
+    private void ListadinamicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListadinamicaActionPerformed
+        // TODO add your handling code here:
+             
+        ListaDinamica ventanaLE=new ListaDinamica();
+        escritorio.add(ventanaLE);
+        ventanaLE.show();
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_ListadinamicaActionPerformed
+
+    private void dltgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dltgActionPerformed
+        // TODO add your handling code here:
+       
+            LDTable ventanaLE=new  LDTable();
+        escritorio.add(ventanaLE);
+        ventanaLE.show();
+        
+        
+        
+    }//GEN-LAST:event_dltgActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,8 +216,10 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Listadinamica;
     private javax.swing.JMenu colas;
-    private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JMenuItem dltg;
+    public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu fichavehiculo;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JMenuBar jMenuBar1;

@@ -4,6 +4,8 @@
  */
 package DIU;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -26,27 +28,133 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnguardar = new javax.swing.JButton();
+        txtdimencion = new javax.swing.JTextField();
+        txtoracion = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtresultado = new javax.swing.JTextArea();
+        lbldimencion = new javax.swing.JLabel();
+        lbloracion = new javax.swing.JLabel();
+
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
         setTitle("EJERCICIOS CON ARRAYS []");
 
+        btnguardar.setText("GUARDAR");
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguardarActionPerformed(evt);
+            }
+        });
+
+        txtresultado.setColumns(20);
+        txtresultado.setRows(5);
+        jScrollPane1.setViewportView(txtresultado);
+
+        lbldimencion.setText("INGRESAR DIMENCION:");
+
+        lbloracion.setText("INGRESAR LA ORACION:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 738, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(32, 32, 32)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(lbloracion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbldimencion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtoracion, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
+                                .addComponent(txtdimencion))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(306, 306, 306)
+                        .addComponent(btnguardar)))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 492, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtdimencion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbldimencion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtoracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(lbloracion, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(btnguardar)
+                .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
+        // TODO add your handling code here:
+
+        String oracion=txtoracion.getText();
+        int dimencion = Integer.parseInt(txtdimencion.getText());
+
+        if (oracion.length() > dimencion) {
+
+            JOptionPane.showMessageDialog(this, "LA ORACION ES MAS EXTENSA QUE LA DIMENCION QUE SE INGRESO", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+        }
+
+        String[] palabras = oracion.split(" ");
+
+        // Crear un array y asignar las palabras a posiciones
+
+        String[] Array = new String[dimencion];
+
+        for (int i = 0; i < dimencion; i++) {
+
+            int indicePalabra = i * 2;
+
+            if (indicePalabra < palabras.length) {
+
+                Array[i] = palabras[indicePalabra];
+
+            } else {
+
+                Array[i] = "";
+
+            }
+
+        }
+        // Construir una cadena para mostrar la lista resultante
+        StringBuilder resultado = new StringBuilder("Lista resultante: ");
+
+        for (String palabra : Array) {
+
+            resultado.append(palabra).append(" ");
+
+        }
+        txtresultado.setText(resultado.toString());
+
+    }//GEN-LAST:event_btnguardarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnguardar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbldimencion;
+    private javax.swing.JLabel lbloracion;
+    private javax.swing.JTextField txtdimencion;
+    private javax.swing.JTextField txtoracion;
+    private javax.swing.JTextArea txtresultado;
     // End of variables declaration//GEN-END:variables
 }
