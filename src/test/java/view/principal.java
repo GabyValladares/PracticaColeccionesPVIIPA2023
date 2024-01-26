@@ -4,6 +4,7 @@
  */
 package view;
 
+import view.vistas.ListaDinamica;
 import javax.swing.event.InternalFrameAdapter;
 import javax.swing.event.InternalFrameEvent;
 
@@ -36,6 +37,7 @@ public class principal extends javax.swing.JFrame {
         opDinamica = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -90,6 +92,14 @@ public class principal extends javax.swing.JFrame {
             }
         });
         menuListas.add(jMenuItem2);
+
+        jMenuItem4.setText("ListaDInamica con table");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        menuListas.add(jMenuItem4);
 
         jMenuBar1.add(menuListas);
 
@@ -153,7 +163,7 @@ public class principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void opDinamicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDinamicaActionPerformed
-    ListasEstaticas ventanaLE = new ListasEstaticas();
+    ListaDinamica ventanaLE = new ListaDinamica();
     escritorio.add(ventanaLE);
     ventanaLE.show();
     }//GEN-LAST:event_opDinamicaActionPerformed
@@ -200,6 +210,12 @@ public class principal extends javax.swing.JFrame {
      escritorio.add(cad);
      cad.show();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    ListaDT cad = new ListaDT();
+     escritorio.add(cad);
+     cad.show();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -245,6 +261,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenu menuFicha;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenuItem opDinamica;
