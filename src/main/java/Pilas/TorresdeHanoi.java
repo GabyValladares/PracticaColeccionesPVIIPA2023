@@ -14,15 +14,18 @@ import javax.swing.table.DefaultTableModel;
 public class TorresdeHanoi extends javax.swing.JInternalFrame {
 
     DefaultTableModel dfm = new DefaultTableModel();
-
-    private final int n1 = 1;
-    private final int n2 = 2;
-    private final int n3 = 3;
-    int cont = 0;
+    DefaultTableModel dfm2 = new DefaultTableModel();
+    DefaultTableModel dfm3 = new DefaultTableModel();
 
     Stack<Integer> torre1 = new Stack<>();
     Stack<Integer> torre2 = new Stack<>();
     Stack<Integer> torre3 = new Stack<>();
+
+    private final int n1 = 30;
+    private final int n2 = 20;
+    private final int n3 = 10;
+
+    int cont = 0;
 
     /**
      * Creates new form TorresdeHanoi
@@ -30,16 +33,54 @@ public class TorresdeHanoi extends javax.swing.JInternalFrame {
     public TorresdeHanoi() {
         initComponents();
         dfm.addColumn("TORRE 1");
-        dfm.addColumn("TORRE 2");
-        dfm.addColumn("TORRE 3");
-        tbTorres.setModel(dfm);
+        dfm2.addColumn("TORRE 2");
+        dfm3.addColumn("TORRE 3");
 
-        torre1.push(n1);
-        torre1.push(n2);
-        torre1.push(n3);
+        tbTorre1.setModel(dfm);
+        tbTorre2.setModel(dfm2);
+        tbTorres3.setModel(dfm3);
+
     }
 
-    public void llenarTorre1() {
+    private void imprimirTorres() {
+        for (Integer inte : torre1) {
+
+            dfm.addRow(new Object[]{inte});
+
+        }
+
+        for (Integer integer : torre2) {
+
+            dfm2.addRow(new Object[]{integer});
+
+        }
+
+        for (Integer integer : torre3) {
+
+            dfm3.addRow(new Object[]{integer});
+        }
+
+    }
+
+    private void limpiarTabla() {
+
+        int filas = dfm.getRowCount();
+        for (int i = 0; i < filas; i++) {
+            dfm.removeRow(0);
+
+        }
+
+        int filas2 = dfm2.getRowCount();
+        for (int i = 0; i < filas2; i++) {
+            dfm2.removeRow(0);
+
+        }
+
+        int filas3 = dfm3.getRowCount();
+        for (int i = 0; i < filas3; i++) {
+            dfm3.removeRow(0);
+
+        }
 
     }
 
@@ -55,8 +96,14 @@ public class TorresdeHanoi extends javax.swing.JInternalFrame {
         btnMover = new javax.swing.JButton();
         btnIniciar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbTorres = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        tbTorre2 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbTorre1 = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbTorres3 = new javax.swing.JTable();
+        lblMensaje = new javax.swing.JLabel();
+
+        setTitle("JUEGO TORRES DE HONAI");
 
         btnMover.setText("mover");
         btnMover.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +119,7 @@ public class TorresdeHanoi extends javax.swing.JInternalFrame {
             }
         });
 
-        tbTorres.setModel(new javax.swing.table.DefaultTableModel(
+        tbTorre2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -83,108 +130,148 @@ public class TorresdeHanoi extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tbTorres);
+        jScrollPane1.setViewportView(tbTorre2);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        tbTorre1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        });
+        ));
+        jScrollPane2.setViewportView(tbTorre1);
+
+        tbTorres3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tbTorres3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnIniciar)
+                        .addGap(53, 53, 53)
+                        .addComponent(btnMover)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(btnIniciar)
-                        .addGap(69, 69, 69)
-                        .addComponent(btnMover)
-                        .addGap(83, 83, 83)
-                        .addComponent(jButton1))
+                        .addGap(61, 61, 61)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(164, Short.MAX_VALUE))
+                        .addGap(73, 73, 73)
+                        .addComponent(lblMensaje)))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addContainerGap(81, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnMover)
-                            .addComponent(btnIniciar))
-                        .addGap(48, 48, 48))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(57, 57, 57))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnIniciar)
+                    .addComponent(btnMover)
+                    .addComponent(lblMensaje))
+                .addGap(58, 58, 58))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoverActionPerformed
-        this.limpiarTabla();
-        torre2.push(torre1.pop());
 
-        imrpimirTorres();
+        cont++;
+
+        if (cont == 1) {
+            torre3.push(torre1.pop());
+            limpiarTabla();
+            imprimirTorres();
+
+        }
+        if (cont == 2) {
+            torre2.push(torre1.pop());
+            limpiarTabla();
+            imprimirTorres();
+        }
+        if (cont == 3) {
+            torre2.push(torre3.pop());
+            limpiarTabla();
+            imprimirTorres();
+        }
+        if (cont == 4) {
+            torre3.push(torre1.pop());
+            limpiarTabla();
+            imprimirTorres();
+        }
+        if (cont == 5) {
+            torre1.push(torre2.pop());
+            limpiarTabla();
+            imprimirTorres();
+        }
+        if (cont == 6) {
+            torre3.push(torre2.pop());
+            limpiarTabla();
+            imprimirTorres();
+        }
+        if (cont == 7) {
+            torre3.push(torre1.pop());
+            limpiarTabla();
+            imprimirTorres();
+            lblMensaje.setText("FIN DEL JUEGO");
+        }
 
 
     }//GEN-LAST:event_btnMoverActionPerformed
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-        this.imrpimirTorres();
+        torre1.push(n1);
+        torre1.push(n2);
+        torre1.push(n3);
+        this.imprimirTorres();
     }//GEN-LAST:event_btnIniciarActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        limpiarTabla();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciar;
     private javax.swing.JButton btnMover;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbTorres;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblMensaje;
+    private javax.swing.JTable tbTorre1;
+    private javax.swing.JTable tbTorre2;
+    private javax.swing.JTable tbTorres3;
     // End of variables declaration//GEN-END:variables
 
-    private void imrpimirTorres() {
+    private void iniciarJuego() {
 
-        for (Integer inte : torre1) {
-
-            dfm.addRow(new Object[]{inte});
-
-        }
-        for (Integer integer : torre2) {
-            if (integer != null) {
-                dfm.addRow(new Object[]{null, integer});
-
-            }
-        }
-
-        for (Integer integer : torre3) {
-            if (integer != null) {
-                dfm.addRow(new Object[]{null, null, integer});
-            }
-        
-    }
-
-}
-
-private void limpiarTabla() {
-
-        int filas = dfm.getRowCount();
-        for (int i = 0; i < filas; i++) {
-            dfm.removeRow(0);
+        for (int i = 0; i < 3; i++) {
+            torre3.pop();
 
         }
     }
+
 }
