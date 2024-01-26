@@ -4,22 +4,38 @@
  */
 package DIU;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author USUARIO
  */
 public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
 
-    public String nombre, cedula, placa, marca, anio, tipo, multas, valorV;
+    public String nombre, cedula, placa, marca, anio, tipo, multas, valorV, color;
     public int numAnio;
     public double valorAuto;
     
+    DefaultTableModel modelo = new DefaultTableModel();
+    
+    public void modeloTabla(){
+    String[] tabla1={"N°","Nombres","Cedula","Placa","Año Fabricacion","Marca","Color","Tipo","Valor","Multas"};
+    modelo.setColumnIdentifiers(tabla1);
+    jTable1.setModel(modelo);
+    }
     
     /**
      * Creates new form ReportedeValoraPagar
      */
     public ReportedeValoraPagar() {
+        //String identficadores [] = {"Lista","Conteo"};
+        
+        //tablaR.setColumnIdentifiers(identficadores);
+        //jTable1.setModel(tablaR);
+        
         initComponents();
+        
+        
         
         if (anio != null) {
             numAnio = Integer.parseInt(anio);
@@ -43,6 +59,8 @@ public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
         lblTitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaR = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -76,6 +94,19 @@ public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
         txtAreaR.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtAreaR);
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -87,8 +118,11 @@ public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
                         .addComponent(lblTitulo))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(383, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,7 +131,9 @@ public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
                 .addComponent(lblTitulo)
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(256, 256, 256))
         );
 
         pack();
@@ -105,7 +141,6 @@ public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         // TODO add your handling code here:
-        //this.Matriculacion(cedula, placa, numAnio, marca, tipo, marca, multas);  
         String multasR = null;
         String valorMaticula = null;
         String validarDatos = null;
@@ -167,6 +202,9 @@ public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
         String datos = "Nombre: "+nombre+"\n"+"Cedula: "+cedula+"\n"+"Su total es: "+totalPagar
                 +"\n"+multasR+"\n"+valorMaticula+"\n"+validarDatos+"\n"+multaContaminacion;   
          txtAreaR.setText(datos);
+         
+         int fila = modelo.getRowCount()+1;
+    modelo.addRow(new Object[]{fila,nombre,cedula,placa,anio,marca,color,tipo,valorV,multas});
         
     }//GEN-LAST:event_formInternalFrameActivated
 
@@ -176,6 +214,8 @@ public class ReportedeValoraPagar extends javax.swing.JInternalFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextArea txtAreaR;
     // End of variables declaration//GEN-END:variables

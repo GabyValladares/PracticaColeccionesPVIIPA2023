@@ -5,6 +5,7 @@
 package DIU;
 
 import java.util.Arrays;
+import java.util.Collections;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -36,58 +37,18 @@ public class OrdenListas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        rdtNumM = new javax.swing.JRadioButton();
-        rdtOrden = new javax.swing.JRadioButton();
-        rdtNumm = new javax.swing.JRadioButton();
         lblResultado = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jButton1.setText("jButton1");
+        btnOrdenLista = new javax.swing.JButton();
+        btnNumMayor = new javax.swing.JButton();
+        btnNumMenor = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
         setAutoscrolls(true);
-
-        rdtNumM.setText("Numero Mayor");
-        rdtNumM.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdtNumMActionPerformed(evt);
-            }
-        });
-
-        rdtOrden.setText("Ordenar la Lista");
-        rdtOrden.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdtOrdenActionPerformed(evt);
-            }
-        });
-
-        rdtNumm.setText("Numero Menor");
-        rdtNumm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdtNummActionPerformed(evt);
-            }
-        });
 
         lblResultado.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -110,27 +71,46 @@ public class OrdenListas extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
+        btnOrdenLista.setText("Ordenar Lista");
+        btnOrdenLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrdenListaActionPerformed(evt);
+            }
+        });
+
+        btnNumMayor.setText("Numero Mayor");
+        btnNumMayor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNumMayorActionPerformed(evt);
+            }
+        });
+
+        btnNumMenor.setText("Numero Menor");
+        btnNumMenor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNumMenorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(rdtOrden)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(50, 50, 50)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnNumMenor)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnOrdenLista, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnNumMayor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(rdtNumM)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                        .addComponent(rdtNumm)
-                        .addGap(177, 177, 177))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(44, 44, 44)
+                        .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,45 +120,38 @@ public class OrdenListas extends javax.swing.JInternalFrame {
                         .addGap(30, 30, 30)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(rdtOrden)))
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rdtNumM)
-                    .addComponent(rdtNumm))
-                .addGap(30, 30, 30)
+                        .addGap(117, 117, 117)
+                        .addComponent(btnOrdenLista)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnNumMayor)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnNumMenor)))
+                .addGap(18, 18, 18)
                 .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rdtNumMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdtNumMActionPerformed
+    private void btnOrdenListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenListaActionPerformed
+        // TODO add your handling code here:
+        obtenerLista1();
+        obtenerLista2();
+    }//GEN-LAST:event_btnOrdenListaActionPerformed
+
+    private void btnNumMayorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNumMayorActionPerformed
         // TODO add your handling code here:
         int mayor = obtenerNumMayor();
         lblResultado.setText("El número mayor es: "+mayor);
-    }//GEN-LAST:event_rdtNumMActionPerformed
+    }//GEN-LAST:event_btnNumMayorActionPerformed
 
-    private void rdtNummActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdtNummActionPerformed
+    private void btnNumMenorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNumMenorActionPerformed
         // TODO add your handling code here:
         int menor = obtenerNumMenor();
         lblResultado.setText("El número menor es: "+menor);
-    }//GEN-LAST:event_rdtNummActionPerformed
-
-    private void rdtOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdtOrdenActionPerformed
-        // TODO add your handling code here:
-        lista2 = Arrays.copyOf(lista1, lista1.length);
-    for (int i = 0; i < lista1.length / 2; i++) {
-        int temp = lista2[i];
-        lista2[i] = lista2[lista1.length - 1 - i];
-        lista2[lista1.length - 1 - i] = temp;
-    }
-
-    ImprimirListas();
-        
-    }//GEN-LAST:event_rdtOrdenActionPerformed
-
+    }//GEN-LAST:event_btnNumMenorActionPerformed
+ 
  private int obtenerNumMayor(){
      int mayor = lista1[0];
     for (int i = 1; i < lista1.length; i++) {
@@ -198,33 +171,31 @@ public class OrdenListas extends javax.swing.JInternalFrame {
     }
      return menor;
  }
-    
- private void ImprimirListas() {
+     
+ private void obtenerLista1(){
+     
+  for (Object valor : lista1){
+        tablaO.addRow(new Object[]{valor}); 
+     }
+     
+ }
 
-    int rowCount = tablaO.getRowCount();
-
-    for (int i = 0; i < lista1.length && i < rowCount; i++) {
-        tablaO.setValueAt(lista1[i], i, 0);
+ private void obtenerLista2(){
+     //tablaO.setRowCount(0);
+     for (int i = lista1.length - 1; i >= 0; i--) {
+        tablaO.addRow(new Object[]{lista1[i], null});
+        tablaO.setValueAt(lista1[i], lista1.length - 1 - i, 1);
     }
-
-    for (int i = 0; i < lista2.length && i < rowCount; i++) {
-        tablaO.setValueAt(lista2[i], i, 1);
-    }
-    
-}
-
+  
+ }
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton btnNumMayor;
+    private javax.swing.JButton btnNumMenor;
+    private javax.swing.JButton btnOrdenLista;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblResultado;
-    private javax.swing.JRadioButton rdtNumM;
-    private javax.swing.JRadioButton rdtNumm;
-    private javax.swing.JRadioButton rdtOrden;
     // End of variables declaration//GEN-END:variables
 }

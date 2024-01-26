@@ -4,6 +4,8 @@
  */
 package DIU;
 
+import DIU.vistas.LDTabla;
+
 /**
  *
  * @author USUARIO
@@ -31,6 +33,7 @@ public class Menu extends javax.swing.JFrame {
         menuDeListas = new javax.swing.JMenu();
         opStatico = new javax.swing.JMenuItem();
         opLDinamica = new javax.swing.JMenuItem();
+        oplTabla = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
         opCadenaInvertida = new javax.swing.JMenuItem();
         opTorresHanoi = new javax.swing.JMenuItem();
@@ -76,6 +79,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         menuDeListas.add(opLDinamica);
+
+        oplTabla.setText("Lista con Tablas");
+        oplTabla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oplTablaActionPerformed(evt);
+            }
+        });
+        menuDeListas.add(oplTabla);
 
         jMenuBar1.add(menuDeListas);
 
@@ -191,6 +202,14 @@ public class Menu extends javax.swing.JFrame {
         ventanaCP.show();
     }//GEN-LAST:event_opConteoPalabrasActionPerformed
 
+    private void oplTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oplTablaActionPerformed
+        // TODO add your handling code here:
+        LDTabla tabla = new LDTabla();
+        escritorio.add(tabla);
+        tabla.show();
+        
+    }//GEN-LAST:event_oplTablaActionPerformed
+
     public void ejecutarReporte(){
         ReportedeValoraPagar reporte = new ReportedeValoraPagar();
         escritorio.add(reporte);
@@ -251,5 +270,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem opStatico;
     private javax.swing.JMenuItem opSumaNum;
     private javax.swing.JMenuItem opTorresHanoi;
+    private javax.swing.JMenuItem oplTabla;
     // End of variables declaration//GEN-END:variables
 }
