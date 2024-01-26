@@ -31,11 +31,15 @@ public class Menu extends javax.swing.JFrame {
         menuListas = new javax.swing.JMenu();
         opLEstatico = new javax.swing.JMenuItem();
         opLDinamicas = new javax.swing.JMenuItem();
+        MenuItemManejo = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
         menuArboles = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        E2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,7 +67,21 @@ public class Menu extends javax.swing.JFrame {
 
         opLDinamicas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         opLDinamicas.setText("Dinámicas");
+        opLDinamicas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opLDinamicasActionPerformed(evt);
+            }
+        });
         menuListas.add(opLDinamicas);
+
+        MenuItemManejo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        MenuItemManejo.setText("Manejo de table ");
+        MenuItemManejo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemManejoActionPerformed(evt);
+            }
+        });
+        menuListas.add(MenuItemManejo);
 
         jMenuBar1.add(menuListas);
 
@@ -92,6 +110,28 @@ public class Menu extends javax.swing.JFrame {
         jMenu2.add(jMenuItem1);
 
         jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("EJERCICIOS");
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem2.setText("EJercicio1");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem2);
+
+        E2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        E2.setText("Ejercicio2");
+        E2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                E2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(E2);
+
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -132,12 +172,42 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
          FichaVehicular ventana=new FichaVehicular();
         escritorio.add(ventana);
-        ventana.show();
+         ventana.show();
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        Ejercicio1 E1= new Ejercicio1();
+        escritorio.add(E1);
+        E1.show(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void E2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E2ActionPerformed
+        // TODO add your handling code here:
+         Ejercicio2 E2= new Ejercicio2();
+        escritorio.add(E2);
+        E2.show(true);
+    }//GEN-LAST:event_E2ActionPerformed
+
+    private void opLDinamicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicasActionPerformed
+        // TODO add your handling code here:
+        ListasDinamicas LD=new ListasDinamicas();
+        escritorio.add(LD);
+        LD.show(true);
+        
+    }//GEN-LAST:event_opLDinamicasActionPerformed
+
+    private void MenuItemManejoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemManejoActionPerformed
+        // TODO add your handling code here:
+        ListasDinamicas2 LD2=new ListasDinamicas2();
+        escritorio.add(LD2);
+        LD2.show(true);
+        
+    }//GEN-LAST:event_MenuItemManejoActionPerformed
+
     public void ejecutarReporte(){
-        ReporteValorPagar reporte=new ReporteValorPagar();
+        ReporteValorPa reporte=new ReporteValorPa();
         escritorio.add(reporte);
         reporte.show();
     }
@@ -177,11 +247,15 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JMenuItem E2;
+    private javax.swing.JMenuItem MenuItemManejo;
+    public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;
