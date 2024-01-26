@@ -5,6 +5,8 @@
 package DIU;
 
 
+import DIU.Modelo.Auto;
+import DIU.Modelo.Persona1;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -126,6 +128,22 @@ DefaultTableModel modelo = new DefaultTableModel();
     modelo.setColumnIdentifiers(tablaficha);
     tablaDatos.setModel(modelo);
     }
+    public void mostrarDatos(Auto auto,Persona1 persona){
+        Object[] fila = new Object[10];
+
+    fila[0] = modelo.getRowCount() + 1;
+    fila[1] = persona.getNombre();
+    fila[2] = persona.getCedula();
+    fila[3] = auto.getPlaca();
+    fila[4] = auto.getAnioFa();  
+    fila[5] = auto.getMarca();
+    fila[6] = auto.getColor();
+    fila[7] = auto.getTipo();
+    fila[8] = auto.getValor();
+    fila[9] = auto.getMultas();
+
+    modelo.addRow(fila);
+    }
     private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_formAncestorAdded
@@ -135,10 +153,6 @@ DefaultTableModel modelo = new DefaultTableModel();
            String datos="Nombre:"+nombre+"\n"+"Cédula:"+cedula+"\n"+"Placa:"+placa+"\n"+"Marca:"+marca+"\n"+"Año fabricacion:"+anio
         +"\n"+"Color:"+color+"\n"+"Valor:"+valor+"\n"+"Multas:"+multas+"\n"+"Tipo:"+tipo+"\n"+"Valor a pagar:"+valorPagar;
     txtADatos.setText(datos);
-
-    // Actualiza la tabla con la nueva información
-    int fila = modelo.getRowCount()+1;
-    modelo.addRow(new Object[]{fila,nombre,cedula,placa,anio,marca,color,tipo,valor,multas});
     }//GEN-LAST:event_txtADatosAncestorAdded
 
     private void tablaDatosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tablaDatosAncestorAdded

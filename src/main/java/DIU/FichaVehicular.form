@@ -5,6 +5,11 @@
     <Component class="javax.swing.ButtonGroup" name="btnGRUPO">
     </Component>
   </NonVisualComponents>
+  <Properties>
+    <Property name="closable" type="boolean" value="true"/>
+    <Property name="iconifiable" type="boolean" value="true"/>
+    <Property name="maximizable" type="boolean" value="true"/>
+  </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
   </SyntheticProperties>
@@ -44,6 +49,11 @@
               </Group>
               <EmptySpace min="216" pref="260" max="32767" attributes="0"/>
           </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="txtvalorP" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+          </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
@@ -71,7 +81,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblAnioFab" min="-2" pref="160" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtAnioFab4" min="-2" pref="205" max="-2" attributes="0"/>
+                                      <Component id="txtAnioFab" min="-2" pref="205" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -132,7 +142,9 @@
                   <Component id="btnCamioneta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAuto" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+              <Component id="txtvalorP" min="-2" pref="3" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Component id="btnmultas1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -162,7 +174,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lblAnioFab" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Component id="txtAnioFab4" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Component id="txtAnioFab" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -310,9 +322,9 @@
         <Property name="text" type="java.lang.String" value="A&#xf1;o Fabricaci&#xf3;n:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtAnioFab4">
+    <Component class="javax.swing.JTextField" name="txtAnioFab">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAnioFab4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAnioFabActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -376,6 +388,8 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Vitara"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtvalorP">
     </Component>
   </SubComponents>
 </Form>

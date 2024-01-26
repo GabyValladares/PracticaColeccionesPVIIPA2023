@@ -4,6 +4,9 @@
  */
 package DIU;
 
+import DIU.Modelo.Auto;
+import DIU.Modelo.Persona1;
+
 
 /**
  *
@@ -46,7 +49,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         btnmultas1 = new javax.swing.JCheckBox();
         btnCancelar = new javax.swing.JButton();
         lblAnioFab = new javax.swing.JLabel();
-        txtAnioFab4 = new javax.swing.JTextField();
+        txtAnioFab = new javax.swing.JTextField();
         lblMarca = new javax.swing.JLabel();
         lblColor = new javax.swing.JLabel();
         txtColor = new javax.swing.JTextField();
@@ -55,7 +58,11 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         btnjeep = new javax.swing.JRadioButton();
         btnAuto = new javax.swing.JRadioButton();
         btnVitara = new javax.swing.JRadioButton();
+        txtvalorP = new javax.swing.JTextField();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameActivated(evt);
@@ -142,9 +149,9 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
         lblAnioFab.setText("Año Fabricación:");
 
-        txtAnioFab4.addActionListener(new java.awt.event.ActionListener() {
+        txtAnioFab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAnioFab4ActionPerformed(evt);
+                txtAnioFabActionPerformed(evt);
             }
         });
 
@@ -195,6 +202,10 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                             .addComponent(btnVitara)
                             .addComponent(btnCamioneta))))
                 .addGap(216, 260, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtvalorP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(60, 60, 60)
@@ -218,7 +229,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtAnioFab4, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -259,7 +270,9 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCamioneta)
                     .addComponent(btnAuto))
-                .addGap(118, 118, 118)
+                .addGap(94, 94, 94)
+                .addComponent(txtvalorP, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
                 .addComponent(btnmultas1)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,7 +298,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(lblAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtAnioFab4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(lblMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -319,34 +332,36 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
         // TODO add your handling code here:
-       ReporteValor reporte1=new ReporteValor();
-        reporte1.nombre=txtNombres.getText();
-        reporte1.cedula=txtCedula.getText();
-        reporte1.marca=(String) cmbMarca.getSelectedItem();
-        reporte1.color=txtColor.getText();
-        reporte1.placa=txtPlaca.getText();
-        reporte1.valor=txtValor.getText();
-        reporte1.anio=txtAnioFab4.getText();
-        if(btnAuto.isSelected()){
-            reporte1.tipo="Automovil";
-        }else if(btnjeep.isSelected()){
-            reporte1.tipo="Jeep";
-        }else if(btnCamioneta.isSelected()){
-            reporte1.tipo="Camioneta";
-        }else if(btnVitara.isSelected()){
-            reporte1.tipo="Vitara";
+        double valorPagar=0;
+        ReporteValor reporte1 = new ReporteValor();
+         Persona1 persona= new Persona1();
+         Auto auto=new Auto();
+        persona.setNombre(txtNombres.getText());
+        persona.setCedula(txtCedula.getText());
+        auto.setMarca((String) cmbMarca.getSelectedItem()); 
+        auto.setColor(txtColor.getText());
+        auto.setPlaca(txtPlaca.getText());
+        auto.setValor(txtValor.getText()); 
+        auto.setAnioFa(txtAnioFab.getText());
+        if (btnAuto.isSelected()) {
+            auto.setTipo("Automovil");
+        } else if (btnjeep.isSelected()) {
+            auto.setTipo("Jeep"); 
+        } else if (btnCamioneta.isSelected()) {
+            auto.setTipo("Camioneta"); 
+        } else if (btnVitara.isSelected()) {
+            auto.setTipo("Vitara"); 
         }
-        
-        if(btnmultas.isSelected()){
-            reporte1.multas="Si";
-        }else{
-            reporte1.multas="No";
+
+        if (btnmultas.isSelected()) {
+            auto.setMultas("Si"); 
+        } else {
+            auto.setMultas("No"); 
         }
-       
+        reporte1.mostrarDatos(auto,persona);
         Menu.escritorio.add(reporte1);
-         reporte1.setVisible(true);
-          this.dispose();
-        
+        reporte1.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnVerActionPerformed
 
     private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
@@ -377,9 +392,9 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void txtAnioFab4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioFab4ActionPerformed
+    private void txtAnioFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioFabActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAnioFab4ActionPerformed
+    }//GEN-LAST:event_txtAnioFabActionPerformed
 
     private void txtColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtColorActionPerformed
         // TODO add your handling code here:
@@ -423,11 +438,12 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblValor;
     private javax.swing.JLabel lblValor1;
-    public static javax.swing.JTextField txtAnioFab4;
+    public static javax.swing.JTextField txtAnioFab;
     public static javax.swing.JTextField txtCedula;
     public static javax.swing.JTextField txtColor;
     public static javax.swing.JTextField txtNombres;
     public static javax.swing.JTextField txtPlaca;
     public static javax.swing.JTextField txtValor;
+    private javax.swing.JTextField txtvalorP;
     // End of variables declaration//GEN-END:variables
 }
