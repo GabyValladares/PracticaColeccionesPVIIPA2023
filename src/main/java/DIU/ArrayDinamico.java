@@ -46,6 +46,17 @@ public class ArrayDinamico extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Ingresar Numeros: ");
 
+        txtNumeros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNumerosMouseClicked(evt);
+            }
+        });
+        txtNumeros.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNumerosKeyPressed(evt);
+            }
+        });
+
         btnAceptar.setText("Guardar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +103,7 @@ public class ArrayDinamico extends javax.swing.JInternalFrame {
     public void agregarNumeros(int numero) {
         while (numero != (-99)) {
             numeros.add(numero);
+            
             break;
         }
     }
@@ -103,17 +115,17 @@ public class ArrayDinamico extends javax.swing.JInternalFrame {
         }
         return suma;
     }
-    
-    public double promedio(){
-    double promedio = 0;
-    int sumar= this.suma();
-    promedio = sumar/ numeros.size();
-    return promedio;
+
+    public double promedio() {
+        double promedio = 0;
+        int sumar = this.suma();
+        promedio = sumar / numeros.size();
+        return promedio;
     }
 
     public int mayorPromedio() {
         int cantidad = 0;
-        double promedios=this.promedio();
+        double promedios = this.promedio();
         for (int numero : numeros) {
             if (numero < promedios) {
                 cantidad++;
@@ -124,24 +136,34 @@ public class ArrayDinamico extends javax.swing.JInternalFrame {
 
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        
+
+
+    }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void txtNumerosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumerosKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumerosKeyPressed
+
+    private void txtNumerosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNumerosMouseClicked
         TablaDinamico td = new TablaDinamico();
         int numero = Integer.parseInt(txtNumeros.getText());
         this.agregarNumeros(numero);
+        txtNumeros.setText("");
         System.out.println(numeros);
         if (numero == (-99) && !numeros.isEmpty()) {
             System.out.println(numeros);
-            td.numeros1=numeros;
+            td.numeros1 = numeros;
             td.columnas();
-            td.suma=this.suma();
+            td.suma = this.suma();
             td.promedio = this.promedio();
-            td.cantidad= this.mayorPromedio();
+            td.cantidad = this.mayorPromedio();
             td.agregarNumeros();
             this.dispose();
             MenuI.Escritorio.add(td);
             td.setVisible(true);
         }
-    }//GEN-LAST:event_btnAceptarActionPerformed
+
+    }//GEN-LAST:event_txtNumerosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

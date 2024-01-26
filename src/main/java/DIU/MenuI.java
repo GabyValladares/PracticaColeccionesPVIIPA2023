@@ -38,6 +38,8 @@ public class MenuI extends javax.swing.JFrame {
         MenuListas = new javax.swing.JMenu();
         opLDinamicas = new javax.swing.JMenuItem();
         opLDinamicas2 = new javax.swing.JMenuItem();
+        opLDinamicas3Clase = new javax.swing.JMenuItem();
+        opDTable = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
         opLPilas1 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
@@ -79,6 +81,11 @@ public class MenuI extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         MenuListas.setText("Listas Dinamicas");
+        MenuListas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuListasActionPerformed(evt);
+            }
+        });
 
         opLDinamicas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         opLDinamicas.setText("Dinamicas 1");
@@ -97,6 +104,24 @@ public class MenuI extends javax.swing.JFrame {
             }
         });
         MenuListas.add(opLDinamicas2);
+
+        opLDinamicas3Clase.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        opLDinamicas3Clase.setText("Dinamicas Clase 1");
+        opLDinamicas3Clase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opLDinamicas3ClaseActionPerformed(evt);
+            }
+        });
+        MenuListas.add(opLDinamicas3Clase);
+
+        opDTable.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        opDTable.setText("Listas con Table");
+        opDTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opDTableActionPerformed(evt);
+            }
+        });
+        MenuListas.add(opDTable);
 
         jMenuBar1.add(MenuListas);
 
@@ -190,6 +215,23 @@ public class MenuI extends javax.swing.JFrame {
         ad.show();
     }//GEN-LAST:event_opLDinamicas2ActionPerformed
 
+    private void MenuListasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuListasActionPerformed
+        
+    
+    }//GEN-LAST:event_MenuListasActionPerformed
+
+    private void opLDinamicas3ClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicas3ClaseActionPerformed
+        ListasDinamicaClase ldc= new ListasDinamicaClase();
+        Escritorio.add(ldc);
+        ldc.show();
+    }//GEN-LAST:event_opLDinamicas3ClaseActionPerformed
+
+    private void opDTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDTableActionPerformed
+        ListasDinamicasTable ldt=new ListasDinamicasTable();
+        Escritorio.add(ldt);
+        ldt.show();
+    }//GEN-LAST:event_opDTableActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -232,8 +274,10 @@ public class MenuI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu menuPilas;
+    private javax.swing.JMenuItem opDTable;
     private javax.swing.JMenuItem opLDinamicas;
     private javax.swing.JMenuItem opLDinamicas2;
+    private javax.swing.JMenuItem opLDinamicas3Clase;
     private javax.swing.JMenuItem opLEstatica1;
     private javax.swing.JMenuItem opLEstatica2;
     private javax.swing.JMenuItem opLFichaVehicular;

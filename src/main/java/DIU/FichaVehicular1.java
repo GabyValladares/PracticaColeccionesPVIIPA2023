@@ -4,18 +4,21 @@
  */
 package DIU;
 
+import DIU.Modelo.Persona;
+import DIU.Modelo.Vehiculo;
+
 /**
  *
  * @author kevin
  */
 public class FichaVehicular1 extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form FichaVehicular1
-     */
+    Persona p = new Persona();
+    Vehiculo vh = new Vehiculo();
+    
     public FichaVehicular1() {
         initComponents();
-        ReporteValorPagar reportar = new ReporteValorPagar();
+        ReporteValorPagarTabla reportar = new ReporteValorPagarTabla();
         reportar.setVisible(true);
     }
 
@@ -38,7 +41,7 @@ public class FichaVehicular1 extends javax.swing.JInternalFrame {
         lblValor = new javax.swing.JLabel();
         txtValor = new javax.swing.JTextField();
         lblValor1 = new javax.swing.JLabel();
-        btnVer = new javax.swing.JButton();
+        btnVerT = new javax.swing.JButton();
         chxMultasSi = new javax.swing.JCheckBox();
         txtCedula = new javax.swing.JTextField();
         chxMultasNo = new javax.swing.JCheckBox();
@@ -53,6 +56,7 @@ public class FichaVehicular1 extends javax.swing.JInternalFrame {
         lblMarca = new javax.swing.JLabel();
         lblColor = new javax.swing.JLabel();
         txtColor = new javax.swing.JTextField();
+        btnVerF = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -109,10 +113,10 @@ public class FichaVehicular1 extends javax.swing.JInternalFrame {
 
         lblValor1.setText("¿Posee Multas?");
 
-        btnVer.setText("Ver Ficha");
-        btnVer.addActionListener(new java.awt.event.ActionListener() {
+        btnVerT.setText("Ver Tabla");
+        btnVerT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerActionPerformed(evt);
+                btnVerTActionPerformed(evt);
             }
         });
 
@@ -174,6 +178,13 @@ public class FichaVehicular1 extends javax.swing.JInternalFrame {
             }
         });
 
+        btnVerF.setText("Ver Ficha");
+        btnVerF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerFActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -204,6 +215,13 @@ public class FichaVehicular1 extends javax.swing.JInternalFrame {
                                     .addComponent(rdbJeep))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnVerT)
+                        .addGap(21, 21, 21))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -232,14 +250,9 @@ public class FichaVehicular1 extends javax.swing.JInternalFrame {
                                 .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(26, 26, 26)
                                 .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVer)
-                        .addGap(21, 21, 21))))
+                        .addComponent(btnVerF)
+                        .addGap(26, 26, 26))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,42 +276,45 @@ public class FichaVehicular1 extends javax.swing.JInternalFrame {
                     .addComponent(lblAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cmbMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmbMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnVerT))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(rdbJeep)
+                                    .addComponent(rdbAuto))
+                                .addGap(13, 13, 13)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(rdbCamioneta)
+                                    .addComponent(rdbVitara)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(lblTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnVer))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rdbJeep)
-                            .addComponent(rdbAuto))
-                        .addGap(13, 13, 13)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rdbCamioneta)
-                            .addComponent(rdbVitara)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(lblTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblValor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(chxMultasSi)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chxMultasNo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)))
+                            .addComponent(lblValor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(chxMultasSi)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(chxMultasNo))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10))))
+                    .addComponent(btnVerF))
                 .addGap(35, 35, 35))
         );
 
@@ -354,8 +370,8 @@ private double calcularImporte(String cedula, String placa) {
 
     }//GEN-LAST:event_txtValorActionPerformed
 
-    private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
-        ReporteValorPagar ventana = new ReporteValorPagar();
+    private void btnVerTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTActionPerformed
+        ReporteValorPagarTabla ventana = new ReporteValorPagarTabla();
 
         ventana.cedula = txtCedula.getText();
         ventana.nombre = txtNombres.getText();
@@ -406,7 +422,7 @@ private double calcularImporte(String cedula, String placa) {
         ventana.setVisible(true);
 
 
-    }//GEN-LAST:event_btnVerActionPerformed
+    }//GEN-LAST:event_btnVerTActionPerformed
 
     private void chxMultasSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chxMultasSiActionPerformed
         // TODO add your handling code here:
@@ -443,9 +459,62 @@ private double calcularImporte(String cedula, String placa) {
         rdbGrupo.add(rdbCamioneta);
     }//GEN-LAST:event_formInternalFrameActivated
 
+    private void btnVerFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerFActionPerformed
+        ReporteValorPagar ventana = new ReporteValorPagar();
+
+        ventana.cedula = txtCedula.getText();
+        ventana.nombre = txtNombres.getText();
+        ventana.placas = txtPlaca.getText();
+        ventana.valor = txtValor.getText();
+        ventana.anio = txtAnioFab.getText();
+        ventana.color = txtColor.getText();
+        ventana.marca = cmbMarca.getSelectedItem().toString();
+        if (rdbAuto.isSelected()) {
+            ventana.tipo = "Automóvil";
+        } else if (rdbCamioneta.isSelected()) {
+            ventana.tipo = "Camioneta";
+        } else if (rdbVitara.isSelected()) {
+            ventana.tipo = "Vitara";
+        } else {
+            ventana.tipo = "Jeep";
+        }
+
+        ventana.multas = "";
+
+        if (chxMultasSi.isSelected()
+                == true) {
+            ventana.multas = "SI";
+        } else {
+            ventana.multas = "NO";
+        }
+        
+        double importe = this.calcularImporte(ventana.cedula, ventana.placas);
+        ventana.ImporteP = Double.toString(importe);
+        
+        int anioF = Integer.parseInt(ventana.anio);
+        double contaminacion = this.multaContaminacion(anioF);
+        ventana.mulContaminacion = Double.toString(contaminacion);
+
+        double valorV = Double.parseDouble(ventana.valor);
+        double valorMatri = this.valorMatriculacion(ventana.marca, ventana.tipo, valorV);
+        ventana.valorM = Double.toString(valorMatri);
+        
+        double calcular = this.calcularMultaDeMulta(ventana.multas);
+        ventana.calcularMM = Double.toString(calcular);
+        
+        double total = calcular + valorMatri + contaminacion + importe;
+        ventana.totalT = Double.toString(total);
+        
+        
+        this.dispose();
+        MenuI.Escritorio.add(ventana);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_btnVerFActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnVer;
+    private javax.swing.JButton btnVerF;
+    private javax.swing.JButton btnVerT;
     private javax.swing.JCheckBox chxMultasNo;
     private javax.swing.JCheckBox chxMultasSi;
     private javax.swing.JComboBox<String> cmbMarca;

@@ -148,10 +148,12 @@ public class IngresarNumeros extends javax.swing.JInternalFrame {
         AnalisisNumeros an1 = new AnalisisNumeros();
         an1.numeros1 = numeros;
         an1.ingresarNumero();
+        an1.minMax();
         this.dispose();
         MenuI.Escritorio.add(an1);
         an1.setVisible(true);
         System.out.println(Arrays.toString(an1.numeros1));
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
