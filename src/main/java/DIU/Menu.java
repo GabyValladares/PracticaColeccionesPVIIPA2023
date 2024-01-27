@@ -4,6 +4,10 @@
  */
 package DIU;
 
+import DIU.vistas.ListaDinamica;
+import DIU.vistas.LDTable;
+import DIU.vistas.TablaVehiculo;
+
 /**
  *
  * @author Usuario
@@ -38,6 +42,7 @@ public class Menu extends javax.swing.JFrame {
         colas = new javax.swing.JMenu();
         fichavehiculo = new javax.swing.JMenu();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        tblVehiculo = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,6 +116,15 @@ public class Menu extends javax.swing.JFrame {
         });
         fichavehiculo.add(jCheckBoxMenuItem1);
 
+        tblVehiculo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        tblVehiculo.setText("Tabla Vehiculo");
+        tblVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tblVehiculoActionPerformed(evt);
+            }
+        });
+        fichavehiculo.add(tblVehiculo);
+
         jMenuBar1.add(fichavehiculo);
 
         setJMenuBar(jMenuBar1);
@@ -179,6 +193,13 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_dltgActionPerformed
 
+    private void tblVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tblVehiculoActionPerformed
+        // TODO add your handling code here:
+         TablaVehiculo ventanaLE=new TablaVehiculo();
+               escritorio.add(ventanaLE);
+        ventanaLE.show();
+    }//GEN-LAST:event_tblVehiculoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -228,5 +249,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu menuPilas;
     private javax.swing.JMenuItem opLDinamicas;
     private javax.swing.JMenuItem opLEstatico;
+    private javax.swing.JMenuItem tblVehiculo;
     // End of variables declaration//GEN-END:variables
 }

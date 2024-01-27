@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package DIU;
+package DIU.vistas;
 
+import DIUmodelo.PersonaLD;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.DefaultTableModel;
@@ -13,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  * @author HP
  */
 public class LDTable extends javax.swing.JInternalFrame {
-ArrayList<Persona >listanombres = new ArrayList();
+ArrayList<PersonaLD >listanombres = new ArrayList();
     DefaultTableModel modelo=new DefaultTableModel();
     
     /**
@@ -22,7 +23,7 @@ ArrayList<Persona >listanombres = new ArrayList();
     public LDTable() {
         initComponents();
         setModelo();
-    }
+    }                                                                                                                                                                                                                                                                   
     public void setModelo(){
         String[] cabeceras={"Nro","Nombres"};
     modelo.setColumnIdentifiers(cabeceras);
@@ -33,7 +34,7 @@ ArrayList<Persona >listanombres = new ArrayList();
     
     public void llenarTable(){
         String nombre=txtnombre.getText();
-        Persona persona=new Persona(nombre);
+        PersonaLD persona=new PersonaLD(nombre);
         listanombres.add(persona);
     }
     
@@ -41,7 +42,7 @@ ArrayList<Persona >listanombres = new ArrayList();
         Object[]informacion=new Object [modelo.getColumnCount()];
                 int contador=1;
                 modelo.setRowCount(1);
-        for(Persona persona:listanombres){
+        for(PersonaLD persona:listanombres){
             informacion[0]=contador;
             informacion[1]=persona.getNombre();
             contador++;
@@ -138,7 +139,7 @@ ArrayList<Persona >listanombres = new ArrayList();
         // TODO add your handling code here:
         String nombres=txtnombre.getText();
 
-        Persona personas =new Persona(nombres);
+        PersonaLD personas =new PersonaLD(nombres);
 
         listanombres.add(personas);
         

@@ -4,6 +4,9 @@
  */
 package DIU;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,11 +33,11 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
 
         btnguardar = new javax.swing.JButton();
         txtdimencion = new javax.swing.JTextField();
-        txtoracion = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtresultado = new javax.swing.JTextArea();
         lbldimencion = new javax.swing.JLabel();
-        lbloracion = new javax.swing.JLabel();
+        txtdimencion1 = new javax.swing.JTextField();
+        lbldimencion1 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -53,9 +56,9 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
         txtresultado.setRows(5);
         jScrollPane1.setViewportView(txtresultado);
 
-        lbldimencion.setText("INGRESAR DIMENCION:");
+        lbldimencion.setText("listta 1");
 
-        lbloracion.setText("INGRESAR LA ORACION:");
+        lbldimencion1.setText("listta 2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -63,17 +66,18 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(32, 32, 32)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(lbloracion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lbldimencion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtoracion, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
-                                .addComponent(txtdimencion))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbldimencion, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtdimencion, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbldimencion1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtdimencion1, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(306, 306, 306)
                         .addComponent(btnguardar)))
@@ -83,16 +87,14 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(95, 95, 95)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtdimencion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbldimencion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtoracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lbloracion, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtdimencion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbldimencion1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(btnguardar)
@@ -103,47 +105,57 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-        // TODO add your handling code here:
-
-        String oracion=txtoracion.getText();
+  // Obtener dimensiones desde campos de texto (asumo que son campos de texto)
         int dimencion = Integer.parseInt(txtdimencion.getText());
+        int dimencion1 = Integer.parseInt(txtdimencion1.getText());
 
-        if (oracion.length() > dimencion) {
+        // 1. Ingresar un listado de 10 números
+        List<Integer> numeros = ingresarNumeros(dimencion, dimencion1);
 
-            JOptionPane.showMessageDialog(this, "LA ORACION ES MAS EXTENSA QUE LA DIMENCION QUE SE INGRESO", "ERROR", JOptionPane.ERROR_MESSAGE);
+        // 2. Encontrar el mayor y el menor
+        int mayor = Collections.max(numeros);
+        int menor = Collections.min(numeros);
 
-        }
+        txtresultado.setText("Número Mayor: " + mayor);
+        txtresultado.append("\nNúmero Menor: " + menor); // Cambiado a append
 
-        String[] palabras = oracion.split(" ");
+        // 3. Crear una segunda lista con los valores en una tabla
+        List<List<Integer>> tabla = crearTabla(numeros);
 
-        // Crear un array y asignar las palabras a posiciones
-
-        String[] Array = new String[dimencion];
-
-        for (int i = 0; i < dimencion; i++) {
-
-            int indicePalabra = i * 2;
-
-            if (indicePalabra < palabras.length) {
-
-                Array[i] = palabras[indicePalabra];
-
-            } else {
-
-                Array[i] = "";
-
+        // Imprimir la lista en una tabla
+        for (List<Integer> fila : tabla) {
+            StringBuilder filaTexto = new StringBuilder();
+            for (Integer valor : fila) {
+                filaTexto.append(valor).append("\t");
             }
-
+            txtresultado.append("\n" + filaTexto.toString()); // Cambiado a append
         }
-        // Construir una cadena para mostrar la lista resultante
-        StringBuilder resultado = new StringBuilder("Lista resultante: ");
+    }
 
-        for (String palabra : Array) {
-
-            resultado.append(palabra).append(" ");
-
+    private static List<Integer> ingresarNumeros(int dimencion, int dimencion1) {
+        // Código para ingresar números según las dimensiones proporcionadas
+        // Aquí un ejemplo simple:
+        List<Integer> numeros = new ArrayList<>();
+        for (int i = 0; i < dimencion * dimencion1; i++) {
+            // Simplemente agregar el número a la lista (puedes usar un scanner para la entrada de usuario)
+            numeros.add(i + 1);
         }
-        txtresultado.setText(resultado.toString());
+        return numeros;
+    }
+
+    private static List<List<Integer>> crearTabla(List<Integer> numeros) {
+        // Código para crear la segunda lista con los valores en una tabla
+        List<List<Integer>> tabla = new ArrayList<>();
+        int filaActual = 0;
+        for (int i = 0; i < numeros.size(); i++) {
+            if (i % 5 == 0) {
+                tabla.add(new ArrayList<>());
+                filaActual++;
+            }
+            tabla.get(filaActual - 1).add(numeros.get(i));
+        }
+        return tabla;
+    
 
     }//GEN-LAST:event_btnguardarActionPerformed
 
@@ -152,9 +164,9 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnguardar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbldimencion;
-    private javax.swing.JLabel lbloracion;
+    private javax.swing.JLabel lbldimencion1;
     private javax.swing.JTextField txtdimencion;
-    private javax.swing.JTextField txtoracion;
+    private javax.swing.JTextField txtdimencion1;
     private javax.swing.JTextArea txtresultado;
     // End of variables declaration//GEN-END:variables
 }

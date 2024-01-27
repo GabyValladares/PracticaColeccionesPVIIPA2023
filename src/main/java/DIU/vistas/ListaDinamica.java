@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package DIU;
+package DIU.vistas;
 
+import DIUmodelo.PersonaLD;
 import java.util.ArrayList;
 
 /**
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  * @author HP
  */
 public class ListaDinamica extends javax.swing.JInternalFrame {
-    ArrayList<Persona >listanombres = new ArrayList();
+    ArrayList<PersonaLD >listanombres = new ArrayList();
     
     /**
      * Creates new form ListaDianmica
@@ -96,12 +97,12 @@ public class ListaDinamica extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
    String nombres=txtnombre.getText();
    
-   Persona personas =new Persona(nombres);
+   PersonaLD personas =new PersonaLD(nombres);
    
    listanombres.add(personas);
    txtnombre.setText(""); 
    txtresultado.setText("");
-   for(Persona listanombres : listanombres){
+   for(PersonaLD listanombres : listanombres){
        txtresultado.append(listanombres.getNombre()+"\n");  }
        
    

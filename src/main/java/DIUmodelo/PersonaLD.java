@@ -2,28 +2,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package DIU;
+package DIUmodelo;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author Usuario
+ * @author HP
  */
-public class Persona {
-    private String nombre;
+public class PersonaLD {
+   private String nombre;
     private int cedula;
-    private ArrayList<Vehiculo> listaVehiculos;
-    public Persona() {
+    private  ArrayList<VehiculoLD> listaVehiculos;
+
+    public PersonaLD() {
     }
 
-    public Persona(String nombre, int cedula, ArrayList<Vehiculo> listaVehiculos) {
+    public PersonaLD(String nombre) {
+        this.nombre = nombre;
+        
+    }
+    public PersonaLD(String nombre, int cedula) {
+        this.nombre = nombre;
+        this.cedula = cedula;
+    }
+
+    public PersonaLD(String nombre, int cedula, ArrayList<VehiculoLD> listaVehiculos) {
         this.nombre = nombre;
         this.cedula = cedula;
         this.listaVehiculos = listaVehiculos;
     }
+     
+   
 
-       public String getNombre() {
+    public String getNombre() {
         return nombre;
     }
 
@@ -39,14 +51,13 @@ public class Persona {
         this.cedula = cedula;
     }
 
-    public ArrayList<Vehiculo> getListaVehiculos() {
+    public ArrayList<VehiculoLD> getListaVehiculos() {
         return listaVehiculos;
     }
 
-    public void setListaVehiculos(ArrayList<Vehiculo> listaVehiculos) {
+    public void setListaVehiculos(ArrayList<VehiculoLD> listaVehiculos) {
         this.listaVehiculos = listaVehiculos;
     }
-    
     
     
 }
