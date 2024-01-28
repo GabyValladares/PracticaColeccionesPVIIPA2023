@@ -4,7 +4,7 @@
  */
 package DIU;
 
-import clases.Ficha;
+
 
 /**
  *
@@ -301,8 +301,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
         // TODO add your handling code here:
         
-     Ficha ventana = new Ficha ();
-        ventana.setVisible(true);
+     //Ficha ventana = new Ficha();
+       // ventana.setVisible(true);
              
         /*ventana.cedula=txtCedula.getText();
         ventana.nombre=txtNombres.getText();
