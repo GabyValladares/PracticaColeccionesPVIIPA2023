@@ -5,6 +5,7 @@
 package DIU;
 
 import Listas.Ejercicio_1;
+import Listas.Ejercicio_2;
 
 /**
  *
@@ -34,6 +35,7 @@ public class Menu extends javax.swing.JFrame {
         opLEstatico = new javax.swing.JMenuItem();
         opLDinamicas = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
         menuArboles = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -81,6 +83,15 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         menuListas.add(jMenuItem1);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem2.setText("Listas Eje 2");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        menuListas.add(jMenuItem2);
 
         jMenuBar1.add(menuListas);
 
@@ -148,6 +159,13 @@ public class Menu extends javax.swing.JFrame {
         eje.show();  
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        Ejercicio_2 eje2 = new Ejercicio_2();
+        escritorio.add(eje2);
+        eje2.show();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -190,6 +208,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;
