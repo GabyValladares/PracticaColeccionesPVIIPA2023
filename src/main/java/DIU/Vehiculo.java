@@ -8,7 +8,7 @@ import java.util.Date;
 
 /**
  *
- * @author Usuario
+ *  @author HP
  */
 public class Vehiculo {
     private String placa,marca,color,tipo,multas;

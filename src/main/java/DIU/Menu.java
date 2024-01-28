@@ -4,13 +4,14 @@
  */
 package DIU;
 
+import DIU.vistas.Array;
+import DIU.vistas.ContadorPalabras;
 import DIU.vistas.ListaDinamica;
 import DIU.vistas.LDTable;
-import DIU.vistas.TablaVehiculo;
 
 /**
  *
- * @author Usuario
+ *  @author HP
  */
 public class Menu extends javax.swing.JFrame {
 
@@ -37,12 +38,14 @@ public class Menu extends javax.swing.JFrame {
         opLDinamicas = new javax.swing.JMenuItem();
         Listadinamica = new javax.swing.JMenuItem();
         dltg = new javax.swing.JMenuItem();
+        palabras = new javax.swing.JMenuItem();
+        array = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
         menuArboles = new javax.swing.JMenu();
         colas = new javax.swing.JMenu();
         fichavehiculo = new javax.swing.JMenu();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        tblVehiculo = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,6 +80,7 @@ public class Menu extends javax.swing.JFrame {
         });
         menuListas.add(opLDinamicas);
 
+        Listadinamica.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         Listadinamica.setText("Array List");
         Listadinamica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +89,7 @@ public class Menu extends javax.swing.JFrame {
         });
         menuListas.add(Listadinamica);
 
+        dltg.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         dltg.setText("LDT");
         dltg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +97,33 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         menuListas.add(dltg);
+
+        palabras.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        palabras.setText("Contar Palabras");
+        palabras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                palabrasActionPerformed(evt);
+            }
+        });
+        menuListas.add(palabras);
+
+        array.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        array.setText("Array");
+        array.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                arrayActionPerformed(evt);
+            }
+        });
+        menuListas.add(array);
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem1.setText("Jugadores");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menuListas.add(jMenuItem1);
 
         jMenuBar1.add(menuListas);
 
@@ -116,15 +148,6 @@ public class Menu extends javax.swing.JFrame {
         });
         fichavehiculo.add(jCheckBoxMenuItem1);
 
-        tblVehiculo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        tblVehiculo.setText("Tabla Vehiculo");
-        tblVehiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tblVehiculoActionPerformed(evt);
-            }
-        });
-        fichavehiculo.add(tblVehiculo);
-
         jMenuBar1.add(fichavehiculo);
 
         setJMenuBar(jMenuBar1);
@@ -140,7 +163,7 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -159,12 +182,17 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_opLDinamicasActionPerformed
 
     private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
+
+
+
         // TODO add your handling code here:
         
         FichaVehicular ventanaLE=new  FichaVehicular();
         escritorio.add(ventanaLE);
         ventanaLE.show();
         
+        
+          
         
     }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
 
@@ -193,12 +221,27 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_dltgActionPerformed
 
-    private void tblVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tblVehiculoActionPerformed
-        // TODO add your handling code here:
-         TablaVehiculo ventanaLE=new TablaVehiculo();
-               escritorio.add(ventanaLE);
+    private void palabrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_palabrasActionPerformed
+
+        ContadorPalabras ventanaLE=new  ContadorPalabras();
+        escritorio.add(ventanaLE);
         ventanaLE.show();
-    }//GEN-LAST:event_tblVehiculoActionPerformed
+       
+
+    }//GEN-LAST:event_palabrasActionPerformed
+
+    private void arrayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arrayActionPerformed
+        // TODO add your handling code here:
+          Array ventanaLE=new  Array();
+        escritorio.add(ventanaLE);
+        ventanaLE.show();
+        
+        
+    }//GEN-LAST:event_arrayActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,17 +281,19 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Listadinamica;
+    private javax.swing.JMenuItem array;
     private javax.swing.JMenu colas;
     private javax.swing.JMenuItem dltg;
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu fichavehiculo;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;
     private javax.swing.JMenuItem opLDinamicas;
     private javax.swing.JMenuItem opLEstatico;
-    private javax.swing.JMenuItem tblVehiculo;
+    private javax.swing.JMenuItem palabras;
     // End of variables declaration//GEN-END:variables
 }

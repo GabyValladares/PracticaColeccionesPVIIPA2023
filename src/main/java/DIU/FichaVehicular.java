@@ -10,7 +10,7 @@ import DIU.vistas.TablaVehiculo;
 
 /**
  *
- * @author Usuario
+ *  @author HP
  */
 public class FichaVehicular extends javax.swing.JInternalFrame {
 

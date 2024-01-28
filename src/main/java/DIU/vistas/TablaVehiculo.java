@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Usuario
+ *  @author HP
  */
 public class TablaVehiculo extends javax.swing.JInternalFrame {
     public String nombre,cedula,placa,marca,color,valor,multas,tipo,añoFabricacion;

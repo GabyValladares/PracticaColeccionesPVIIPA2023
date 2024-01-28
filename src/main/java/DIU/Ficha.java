@@ -6,7 +6,7 @@ package DIU;
 
 /**
  *
- * @author Usuario
+ *  @author HP
  */
 public class Ficha extends javax.swing.JFrame {
 
