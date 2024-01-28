@@ -4,6 +4,10 @@
  */
 package DIU;
 
+import DIU.EjerciciosFichaVehicular.FichaVehicular;
+import DIU.vista.LDTable;
+import DIU.vista.ListasDinamicas;
+
 /**
  *
  * @author Usuario
@@ -31,11 +35,13 @@ public class Menu extends javax.swing.JFrame {
         menuListas = new javax.swing.JMenu();
         opLEstatico = new javax.swing.JMenuItem();
         opLDinamicas = new javax.swing.JMenuItem();
+        opDTable = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
         menuArboles = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        opFichaVehicular = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,7 +69,20 @@ public class Menu extends javax.swing.JFrame {
 
         opLDinamicas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         opLDinamicas.setText("Dinámicas");
+        opLDinamicas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opLDinamicasActionPerformed(evt);
+            }
+        });
         menuListas.add(opLDinamicas);
+
+        opDTable.setText("Listas / Table");
+        opDTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opDTableActionPerformed(evt);
+            }
+        });
+        menuListas.add(opDTable);
 
         jMenuBar1.add(menuListas);
 
@@ -74,21 +93,23 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(menuArboles);
 
         jMenu1.setText("Colas");
+
+        jMenuItem1.setText("jMenuItem1");
+        jMenu1.add(jMenuItem1);
+
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Ficha Vehicular");
+        jMenu3.setText("Ficha Vehicular");
 
-        jCheckBoxMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("Llenar Ficha");
-        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        opFichaVehicular.setText("FichaVehicular");
+        opFichaVehicular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem1ActionPerformed(evt);
+                opFichaVehicularActionPerformed(evt);
             }
         });
-        jMenu2.add(jCheckBoxMenuItem1);
+        jMenu3.add(opFichaVehicular);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -113,17 +134,26 @@ public class Menu extends javax.swing.JFrame {
 
     private void opLEstaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLEstaticoActionPerformed
         // TODO add your handling code here:
-        ListasEstaticas ventanaLE=new ListasEstaticas();
-        escritorio.add(ventanaLE);
-        ventanaLE.show();
+
     }//GEN-LAST:event_opLEstaticoActionPerformed
 
-    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
-        // TODO add your handling code here:
+    private void opFichaVehicularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opFichaVehicularActionPerformed
         FichaVehicular ventanaLE=new FichaVehicular();
         escritorio.add(ventanaLE);
         ventanaLE.show();
-    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
+    }//GEN-LAST:event_opFichaVehicularActionPerformed
+
+    private void opLDinamicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicasActionPerformed
+        ListasDinamicas ld=new ListasDinamicas();
+        escritorio.add(ld);
+        ld.show();
+    }//GEN-LAST:event_opLDinamicasActionPerformed
+
+    private void opDTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDTableActionPerformed
+        LDTable ldtable=new LDTable();
+        escritorio.add(ldtable);
+        ldtable.show();
+    }//GEN-LAST:event_opDTableActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,13 +192,15 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane escritorio;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;
+    private javax.swing.JMenuItem opDTable;
+    private javax.swing.JMenuItem opFichaVehicular;
     private javax.swing.JMenuItem opLDinamicas;
     private javax.swing.JMenuItem opLEstatico;
     // End of variables declaration//GEN-END:variables
