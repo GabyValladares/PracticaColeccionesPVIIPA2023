@@ -1,8 +1,10 @@
 package DIU.Modelo;
 
+import java.util.Date;
+
 public class Automovil {
     private String placa;
-    private String anoFabricacion;
+    private Date anoFabricacion;
     private String marca;
     private String color;
     private String tipo;
@@ -11,8 +13,8 @@ public class Automovil {
 
     public Automovil() {
     }
-    
-    public Automovil(String placa, String anoFabricacion, String marca, String color, String tipo, String valor, String multas) {
+
+    public Automovil(String placa, Date anoFabricacion, String marca, String color, String tipo, String valor, String multas) {
         this.placa = placa;
         this.anoFabricacion = anoFabricacion;
         this.marca = marca;
@@ -21,6 +23,8 @@ public class Automovil {
         this.valor = valor;
         this.multas = multas;
     }
+    
+   
 
     public String getPlaca() {
         return placa;
@@ -30,13 +34,14 @@ public class Automovil {
         this.placa = placa;
     }
 
-    public String getAnoFabricacion() {
+    public Date getAnoFabricacion() {
         return anoFabricacion;
     }
 
-    public void setAnoFabricacion(String anoFabricacion) {
+    public void setAnoFabricacion(Date anoFabricacion) {
         this.anoFabricacion = anoFabricacion;
     }
+
 
     public String getMarca() {
         return marca;

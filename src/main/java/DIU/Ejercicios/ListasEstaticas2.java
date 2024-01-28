@@ -29,17 +29,18 @@ public class ListasEstaticas2 extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtTamanioLista = new javax.swing.JTextField();
+        txtTamanioLista1 = new javax.swing.JTextField();
         btnAgregarAL = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        JTabla2 = new javax.swing.JTable();
+        tblListaPala = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtPalabra = new javax.swing.JTextField();
+        txtPalabra1 = new javax.swing.JTextField();
         lblEstadoL = new javax.swing.JLabel();
         btnBuscarP = new javax.swing.JButton();
         txtVecesRepP = new javax.swing.JTextField();
-        btnLimpiarT = new javax.swing.JButton();
+        btnLimpiarTLis = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -47,7 +48,7 @@ public class ListasEstaticas2 extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Listas Estáticas 2");
 
-        jLabel1.setText("Ingrese una palabra:");
+        jLabel1.setText("Ingrese palabras separadas por coma.");
 
         btnAgregarAL.setText("Agregar");
         btnAgregarAL.addActionListener(new java.awt.event.ActionListener() {
@@ -56,7 +57,7 @@ public class ListasEstaticas2 extends javax.swing.JInternalFrame {
             }
         });
 
-        JTabla2.setModel(new javax.swing.table.DefaultTableModel(
+        tblListaPala.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -72,7 +73,7 @@ public class ListasEstaticas2 extends javax.swing.JInternalFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(JTabla2);
+        jScrollPane1.setViewportView(tblListaPala);
 
         jLabel2.setText("Veces que se repite la palabra:");
 
@@ -85,103 +86,123 @@ public class ListasEstaticas2 extends javax.swing.JInternalFrame {
             }
         });
 
-        btnLimpiarT.setText("Limpiar Tabla");
-        btnLimpiarT.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpiarTLis.setText("Limpiar Tabla");
+        btnLimpiarTLis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarTActionPerformed(evt);
+                btnLimpiarTLisActionPerformed(evt);
             }
         });
+
+        jLabel4.setText("La cantidad de palabras debe ser igual al tamanio de la lista. Utilizar el mismo txt para buscar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtTamanioLista, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(12, 12, 12))
+                                .addComponent(txtTamanioLista1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(74, 74, 74))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAgregarAL)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBuscarP)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnLimpiarT)
-                        .addGap(11, 11, 11))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(lblEstadoL, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(57, 57, 57))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtVecesRepP, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(txtVecesRepP, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(txtPalabra1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(75, 75, 75)
+                                        .addComponent(lblEstadoL, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnAgregarAL)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnBuscarP)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnLimpiarTLis))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(79, 79, 79)
+                                .addComponent(jLabel2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtTamanioLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregarAL)
-                    .addComponent(btnBuscarP)
-                    .addComponent(btnLimpiarT))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblEstadoL, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtVecesRepP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtTamanioLista1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(txtPalabra1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAgregarAL)
+                            .addComponent(btnBuscarP)
+                            .addComponent(btnLimpiarTLis))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblEstadoL, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtVecesRepP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     String palabrasAcumuladas = "";    
     private void btnAgregarALActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarALActionPerformed
-        DefaultTableModel modelo = (DefaultTableModel) JTabla2.getModel();
-        String palabra = txtPalabra.getText();
+        DefaultTableModel modelo = (DefaultTableModel) tblListaPala.getModel();
+        String palabra = txtPalabra1.getText();
 
         try {
-            int tamanio = Integer.parseInt(txtTamanioLista.getText());
+            int tamanio = Integer.parseInt(txtTamanioLista1.getText());
 
             if (tamanio > 0) {
-                palabrasAcumuladas += palabra + ",";
+                if (!palabrasAcumuladas.contains(palabra)) {
+                    palabrasAcumuladas += palabra + ",";
 
-                if (palabrasAcumuladas.split(",").length == tamanio) {
-                    lblEstadoL.setText("La lista está llena");
+                    if (palabrasAcumuladas.split(",").length == tamanio) {
+                        lblEstadoL.setText("La lista está llena");
 
-                    String[] palabrasArray = palabrasAcumuladas.split(",");
-                    for (String palabraActual : palabrasArray) {
-                        modelo.addRow(new Object[]{palabraActual});
+                        String[] palabrasArray = palabrasAcumuladas.split(",");
+                        for (String palabraActual : palabrasArray) {
+                            modelo.addRow(new Object[]{palabraActual});
+                        }
+
+                        palabrasAcumuladas = "";
+                        txtTamanioLista1.setText("");
+                        txtPalabra1.setText("");
+                    } else {
+                        lblEstadoL.setText("Agregada palabra: " + palabra);
                     }
-                    
-                    palabrasAcumuladas = "";
-                    txtTamanioLista.setText("");
-                    txtPalabra.setText("");
                 } else {
-                    lblEstadoL.setText("Agregada palabra: " + palabra);
+                    lblEstadoL.setText("La palabra '" + palabra + "' ya está en la lista");
                 }
             } else {
                 lblEstadoL.setText("El tamaño de la lista debe ser mayor que 0");
@@ -189,14 +210,14 @@ public class ListasEstaticas2 extends javax.swing.JInternalFrame {
         } catch (NumberFormatException e) {
             lblEstadoL.setText("Ingrese un número válido para el tamaño");
         }
-        txtPalabra.setText("");
+        txtPalabra1.setText("");
     }//GEN-LAST:event_btnAgregarALActionPerformed
 
     private void btnBuscarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPActionPerformed
-        String palabraBuscar = txtPalabra.getText();
+        String palabraBuscar = txtPalabra1.getText();
         int contRep = 0;
 
-        DefaultTableModel modelo = (DefaultTableModel) JTabla2.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tblListaPala.getModel();
         for (int i = 0; i < modelo.getRowCount(); i++) {
             String palabraTabla = modelo.getValueAt(i, 0).toString();
             if (palabraBuscar.equals(palabraTabla)) {
@@ -209,28 +230,29 @@ public class ListasEstaticas2 extends javax.swing.JInternalFrame {
         } else {
             txtVecesRepP.setText("La palabra '" + palabraBuscar + "' no se encuentra en la tabla.");
         }
-        txtPalabra.setText("");
+        txtPalabra1.setText("");
     }//GEN-LAST:event_btnBuscarPActionPerformed
 
-    private void btnLimpiarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarTActionPerformed
-        DefaultTableModel modelo = (DefaultTableModel) JTabla2.getModel();
+    private void btnLimpiarTLisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarTLisActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel) tblListaPala.getModel();
         modelo.setRowCount(0);
         lblEstadoL.setText("");
-    }//GEN-LAST:event_btnLimpiarTActionPerformed
+    }//GEN-LAST:event_btnLimpiarTLisActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable JTabla2;
     private javax.swing.JButton btnAgregarAL;
     private javax.swing.JButton btnBuscarP;
-    private javax.swing.JButton btnLimpiarT;
+    private javax.swing.JButton btnLimpiarTLis;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEstadoL;
-    private javax.swing.JTextField txtPalabra;
-    private javax.swing.JTextField txtTamanioLista;
+    private javax.swing.JTable tblListaPala;
+    private javax.swing.JTextField txtPalabra1;
+    private javax.swing.JTextField txtTamanioLista1;
     private javax.swing.JTextField txtVecesRepP;
     // End of variables declaration//GEN-END:variables
 }
