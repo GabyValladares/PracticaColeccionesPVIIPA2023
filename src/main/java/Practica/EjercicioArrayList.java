@@ -88,11 +88,13 @@ public class EjercicioArrayList extends javax.swing.JInternalFrame {
         
         String nombres= txtNombres.getText();
         //INSTANCIAR PERSONA
-        Persona persona= new Persona(nombres);
+        Persona persona= new Persona(nombres,0);
         listaNombres.add(persona);
         
         txtNombres.setText("");
         txResultado.setText("");
+        
+        
         
         for (Persona nombre : listaNombres) {
             txResultado.append(nombre.getNombre()+"\n");

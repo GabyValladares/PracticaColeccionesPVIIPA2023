@@ -34,7 +34,7 @@ public class ListaDconTablas extends javax.swing.JInternalFrame {
 
     public void llenarTabla() {
         String nombres = txtNombre.getText();
-        Persona per = new Persona(nombres);
+        Persona per = new Persona(nombres,0);
         listaNombres.add(per);
     }
     
@@ -137,7 +137,7 @@ public class ListaDconTablas extends javax.swing.JInternalFrame {
 
         String nombres = txtNombre.getText();
         //INSTANCIAR PERSONA
-        Persona persona = new Persona(nombres);
+        Persona persona = new Persona(nombres,0);
         listaNombres.add(persona);
 
         //   txtNombres.setText("");

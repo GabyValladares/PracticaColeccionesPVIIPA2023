@@ -36,37 +36,28 @@ public class EjemploArrayList extends javax.swing.JInternalFrame {
         tblDatos2.setModel(dfm2);
     }
 
-    public void imprimir1() {
+    public void comprobarNumero() {
         int num = Integer.parseInt(txtNumero.getText());
+
         if (num != -99) {
             JOptionPane.showMessageDialog(rootPane, "numero guardado correctamente");
             listaNumeros1.add(0, num);
-
         } else {
-            for (int i = 0; i < listaNumeros1.size(); i++) {
-                dfm1.addRow(new Object[]{
-                    listaNumeros1.get(i)
-                });
-
-            }
-
+            sumaYpromedio();
+            this.crearLista2();
+            this.imprimirTabla();
         }
 
     }
 
-    public void imprimir2() {
+    public void crearLista2() {
         for (int i = 0; i < listaNumeros1.size(); i++) {
 
             int n1 = listaNumeros1.get(i);
-            
+
             if (n1 > promedio) {
                 listaNumeros2.add(0, n1);
             }
-        }
-        for (int i = 0; i < listaNumeros2.size(); i++) {
-            dfm2.addRow(new Object[]{
-                listaNumeros2.get(i)
-            });
         }
 
     }
@@ -82,6 +73,21 @@ public class EjemploArrayList extends javax.swing.JInternalFrame {
         promedio = (double) suma / listaNumeros1.size();
 
         lblPromedio.setText("" + promedio);
+    }
+
+    public void imprimirTabla() {
+        for (int i = 0; i < listaNumeros2.size(); i++) {
+            dfm2.addRow(new Object[]{
+                listaNumeros2.get(i)
+            });
+
+        }
+        for (int i = 0; i < listaNumeros1.size(); i++) {
+            dfm1.addRow(new Object[]{
+                listaNumeros1.get(i)
+            });
+
+        }
     }
 
     /**
@@ -104,7 +110,6 @@ public class EjemploArrayList extends javax.swing.JInternalFrame {
         tblDatos2 = new javax.swing.JTable();
         lblSuma = new javax.swing.JLabel();
         lblPromedio = new javax.swing.JLabel();
-        btnCalcular = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -154,13 +159,6 @@ public class EjemploArrayList extends javax.swing.JInternalFrame {
 
         lblPromedio.setText("jLabel4");
 
-        btnCalcular.setText("calcular promedio");
-        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCalcularActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -171,21 +169,16 @@ public class EjemploArrayList extends javax.swing.JInternalFrame {
                         .addGap(67, 67, 67)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblSuma))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblPromedio)))
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnCalcular)
-                                .addGap(30, 30, 30)))
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblSuma))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblPromedio)))
+                        .addGap(46, 46, 46)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(81, 81, 81)
@@ -206,9 +199,7 @@ public class EjemploArrayList extends javax.swing.JInternalFrame {
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(btnCalcular)
-                        .addGap(18, 18, 18)
+                        .addGap(98, 98, 98)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(lblSuma))
@@ -228,22 +219,11 @@ public class EjemploArrayList extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-
-        
-        imprimir1();
-
-
+        this.comprobarNumero();
     }//GEN-LAST:event_btnGuardarActionPerformed
-
-    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-        // TODO add your handling code here:
-        sumaYpromedio();
-        imprimir2();
-    }//GEN-LAST:event_btnCalcularActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -4,6 +4,7 @@
  */
 package DIU;
 
+import Colas.Colas1;
 import DIU.vistas.ListaDconTablas;
 import Listas.EjemploArray;
 import Listas.EjemploArrayList;
@@ -49,6 +50,8 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         menuArboles = new javax.swing.JMenu();
         menuColas = new javax.swing.JMenu();
+        oplColas = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         menuFicha = new javax.swing.JMenu();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
 
@@ -143,6 +146,18 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(menuArboles);
 
         menuColas.setText("Colas");
+
+        oplColas.setText("Colas Suma");
+        oplColas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oplColasActionPerformed(evt);
+            }
+        });
+        menuColas.add(oplColas);
+
+        jMenuItem4.setText("Consultas");
+        menuColas.add(jMenuItem4);
+
         jMenuBar1.add(menuColas);
 
         menuFicha.setText("Ficha");
@@ -232,8 +247,17 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_opLDinamicasActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-
+       ListaDconTablas ventanaV = new  ListaDconTablas();
+       escritorio.add(ventanaV);
+       ventanaV.show();
+       
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void oplColasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oplColasActionPerformed
+        Colas1 ventanaC1 = new Colas1();
+        escritorio.add(ventanaC1);
+        ventanaC1.show();
+    }//GEN-LAST:event_oplColasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,6 +301,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuColas;
     private javax.swing.JMenu menuFicha;
@@ -287,5 +312,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem opLDinamicas;
     private javax.swing.JMenuItem opLDinamico;
     private javax.swing.JMenuItem opLJugador;
+    private javax.swing.JMenuItem oplColas;
     // End of variables declaration//GEN-END:variables
 }
