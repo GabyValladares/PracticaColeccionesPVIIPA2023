@@ -30,6 +30,7 @@ public class Persona {
         this.cedula = cedula;
         this.listaNombres = listaNombres;
     }
+    
 
     public String getNombre() {
         return nombre;

@@ -42,7 +42,7 @@ public class FichaJugador extends javax.swing.JInternalFrame {
         String[] informacion = new String[4];
 
         if (datos.equalsIgnoreCase("portero")) {
-            informacion[0] = "-";
+            informacion[0] = "Portero";
         }
         if (datos.equalsIgnoreCase("defensa")) {
             informacion[0] = "central";

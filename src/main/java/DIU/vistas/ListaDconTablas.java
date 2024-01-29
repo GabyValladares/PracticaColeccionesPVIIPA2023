@@ -22,7 +22,7 @@ public class ListaDconTablas extends javax.swing.JInternalFrame {
      */
     public ListaDconTablas() {
         initComponents();
-        setModelo();
+        this.setModelo();
         
     }
 
@@ -56,6 +56,7 @@ public class ListaDconTablas extends javax.swing.JInternalFrame {
         tbNombres.setModel(modelo);
     
     }
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.

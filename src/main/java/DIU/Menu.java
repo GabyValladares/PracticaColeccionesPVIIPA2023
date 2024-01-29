@@ -4,7 +4,9 @@
  */
 package DIU;
 
+
 import Colas.Colas1;
+import Colas.Seguro;
 import DIU.vistas.ListaDconTablas;
 import Listas.EjemploArray;
 import Listas.EjemploArrayList;
@@ -51,7 +53,7 @@ public class Menu extends javax.swing.JFrame {
         menuArboles = new javax.swing.JMenu();
         menuColas = new javax.swing.JMenu();
         oplColas = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         menuFicha = new javax.swing.JMenu();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
 
@@ -155,8 +157,13 @@ public class Menu extends javax.swing.JFrame {
         });
         menuColas.add(oplColas);
 
-        jMenuItem4.setText("Consultas");
-        menuColas.add(jMenuItem4);
+        jMenuItem8.setText("Seguro");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        menuColas.add(jMenuItem8);
 
         jMenuBar1.add(menuColas);
 
@@ -247,10 +254,10 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_opLDinamicasActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-       ListaDconTablas ventanaV = new  ListaDconTablas();
-       escritorio.add(ventanaV);
-       ventanaV.show();
-       
+        ListaDconTablas ventanaV = new ListaDconTablas();
+        escritorio.add(ventanaV);
+        ventanaV.show();
+
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void oplColasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oplColasActionPerformed
@@ -258,6 +265,12 @@ public class Menu extends javax.swing.JFrame {
         escritorio.add(ventanaC1);
         ventanaC1.show();
     }//GEN-LAST:event_oplColasActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        Seguro ventanaS = new Seguro();
+        escritorio.add(ventanaS);
+        ventanaS.show();
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,7 +314,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuColas;
     private javax.swing.JMenu menuFicha;
