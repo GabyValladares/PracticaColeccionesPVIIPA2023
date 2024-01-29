@@ -6,6 +6,7 @@ package DIU;
 
 import Listas.Ejercicio_1;
 import Listas.Ejercicio_2;
+import Pilas.Ejercicio_5;
 
 /**
  *
@@ -37,6 +38,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         menuArboles = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -98,6 +100,16 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(menuListas);
 
         menuPilas.setText("Pilas");
+
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem4.setText("Strin Invertido Eje_5");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        menuPilas.add(jMenuItem4);
+
         jMenuBar1.add(menuPilas);
 
         menuArboles.setText("Árboles");
@@ -192,6 +204,13 @@ public class Menu extends javax.swing.JFrame {
         eje4.show();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+          Ejercicio_5 eje5 = new Ejercicio_5();
+        escritorio.add(eje5);
+        eje5.show();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -237,6 +256,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;
