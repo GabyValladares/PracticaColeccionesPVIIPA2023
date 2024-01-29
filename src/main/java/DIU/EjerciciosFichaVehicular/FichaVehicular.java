@@ -1,4 +1,5 @@
 package DIU.EjerciciosFichaVehicular;
+
 import DIU.Menu;
 
 /**
@@ -12,7 +13,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
      */
     public FichaVehicular() {
         initComponents();
-        ReporteValorPagar reporte=new ReporteValorPagar();
+        ReporteValorPagar reporte = new ReporteValorPagar();
         reporte.setVisible(false);
     }
 
@@ -25,7 +26,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        btnGrupo = new javax.swing.ButtonGroup();
         txtAnioFab = new javax.swing.JTextField();
         btnVer = new javax.swing.JButton();
         txtCedula = new javax.swing.JTextField();
@@ -336,33 +337,33 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
         // TODO add your handling code here:
-         ReporteValorPagar reporte1=new ReporteValorPagar();
-        reporte1.cedula=txtCedula.getText();
-        reporte1.nombre=txtNombres.getText();
-        reporte1.placa=txtPlaca.getText();
-        reporte1.color=txtColor.getText();
-        reporte1.año=txtAnioFab.getText();
-        reporte1.valor=txtValor.getText();
-        reporte1.marca=(String) cmbMarcas.getSelectedItem();
-        if(rbtAutomovil.isSelected()){
-            reporte1.tipo="Automovil";
-        }else if(rbtJeep.isSelected()){
-            reporte1.tipo="Jeep";
-        }else if(rbtCamioneta.isSelected()){
-            reporte1.tipo="Camioneta";
-        }else if(rbtVitara.isSelected()){
-            reporte1.tipo="Vitara";
+        ReporteValorPagar reporte1 = new ReporteValorPagar();
+        reporte1.cedula = txtCedula.getText();
+        reporte1.nombre = txtNombres.getText();
+        reporte1.placa = txtPlaca.getText();
+        reporte1.color = txtColor.getText();
+        reporte1.año = txtAnioFab.getText();
+        reporte1.valor = txtValor.getText();
+        reporte1.marca = (String) cmbMarcas.getSelectedItem();
+        if (rbtAutomovil.isSelected()) {
+            reporte1.tipo = "Automovil";
+        } else if (rbtJeep.isSelected()) {
+            reporte1.tipo = "Jeep";
+        } else if (rbtCamioneta.isSelected()) {
+            reporte1.tipo = "Camioneta";
+        } else if (rbtVitara.isSelected()) {
+            reporte1.tipo = "Vitara";
         }
-        
-        if(chxMultasSi.isSelected()){
-            reporte1.multas="Si";
-        }else{
-            reporte1.multas="No";
+
+        if (chxMultasSi.isSelected()) {
+            reporte1.multas = "Si";
+        } else {
+            reporte1.multas = "No";
         }
-      
+
         Menu.escritorio.add(reporte1);
         reporte1.setVisible(true);
-        
+
 //        Reporte ficha = new Reporte();     
 //        ficha.cedula=txtCedula.getText();
 //        ficha.nombre=txtNombres.getText();
@@ -388,8 +389,6 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 //       
 //       Menu.escritorio.add(ficha);
 //       ficha.setVisible(true);
-       
-        
 
     }//GEN-LAST:event_btnVerActionPerformed
 
@@ -411,12 +410,12 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         // TODO add your handling code here:
-        buttonGroup1.add(rbtJeep);
-        buttonGroup1.add(rbtVitara);
-        buttonGroup1.add(rbtAutomovil);
-        buttonGroup1.add(rbtCamioneta);
-        buttonGroup1.add(chxMultasSi);
-        buttonGroup1.add(chxMultasNo);
+        btnGrupo.add(rbtJeep);
+        btnGrupo.add(rbtVitara);
+        btnGrupo.add(rbtAutomovil);
+        btnGrupo.add(rbtCamioneta);
+        btnGrupo.add(chxMultasSi);
+        btnGrupo.add(chxMultasNo);
     }//GEN-LAST:event_formInternalFrameActivated
 
     private void cmbMarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMarcasActionPerformed
@@ -443,30 +442,30 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
     private void btnTablaVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTablaVehiculosActionPerformed
         // TODO add your handling code here:
-        TablaVehiculo reporte1=new TablaVehiculo();
-        reporte1.cedula=txtCedula.getText();
-        reporte1.nombre=txtNombres.getText();
-        reporte1.placa=txtPlaca.getText();
-        reporte1.color=txtColor.getText();
-        reporte1.añoFabricacion=txtAnioFab.getText();
-        reporte1.valor=txtValor.getText();
-        reporte1.marca=(String) cmbMarcas.getSelectedItem();
-        if(rbtAutomovil.isSelected()){
-            reporte1.tipo="Automovil";
-        }else if(rbtJeep.isSelected()){
-            reporte1.tipo="Jeep";
-        }else if(rbtCamioneta.isSelected()){
-            reporte1.tipo="Camioneta";
-        }else if(rbtVitara.isSelected()){
-            reporte1.tipo="Vitara";
+        TablaVehiculo reporte1 = new TablaVehiculo();
+        reporte1.cedula = txtCedula.getText();
+        reporte1.nombre = txtNombres.getText();
+        reporte1.placa = txtPlaca.getText();
+        reporte1.color = txtColor.getText();
+        reporte1.añoFabricacion = txtAnioFab.getText();
+        reporte1.valor = txtValor.getText();
+        reporte1.marca = (String) cmbMarcas.getSelectedItem();
+        if (rbtAutomovil.isSelected()) {
+            reporte1.tipo = "Automovil";
+        } else if (rbtJeep.isSelected()) {
+            reporte1.tipo = "Jeep";
+        } else if (rbtCamioneta.isSelected()) {
+            reporte1.tipo = "Camioneta";
+        } else if (rbtVitara.isSelected()) {
+            reporte1.tipo = "Vitara";
         }
-        
-        if(chxMultasSi.isSelected()){
-            reporte1.multas="Si";
-        }else{
-            reporte1.multas="No";
+
+        if (chxMultasSi.isSelected()) {
+            reporte1.multas = "Si";
+        } else {
+            reporte1.multas = "No";
         }
-      
+
         Menu.escritorio.add(reporte1);
         reporte1.setVisible(true);
     }//GEN-LAST:event_btnTablaVehiculosActionPerformed
@@ -474,9 +473,9 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
+    private javax.swing.ButtonGroup btnGrupo;
     private javax.swing.JButton btnTablaVehiculos;
     private javax.swing.JButton btnVer;
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox chxMultasNo;
     private javax.swing.JCheckBox chxMultasSi;
     private javax.swing.JComboBox<String> cmbMarcas;

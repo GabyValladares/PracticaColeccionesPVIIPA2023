@@ -4,14 +4,17 @@ import DIU.modelo.Persona;
 import DIU.modelo.Vehiculo;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Criss
  */
 public class TablaVehiculo extends javax.swing.JInternalFrame {
-    public String nombre,cedula,placa,marca,color,valor,multas,tipo,añoFabricacion;
-    ArrayList<Vehiculo> listaVehiculosLD=new ArrayList<>();
-    DefaultTableModel modelo=new DefaultTableModel();
+
+    public String nombre, cedula, placa, marca, color, valor, multas, tipo, añoFabricacion;
+    ArrayList<Vehiculo> listaVehiculosLD = new ArrayList<>();
+    DefaultTableModel modelo = new DefaultTableModel();
+
     /**
      * Creates new form TablaVehiculo
      */
@@ -19,40 +22,40 @@ public class TablaVehiculo extends javax.swing.JInternalFrame {
         initComponents();
         setModelo();
     }
-    
-    public void setModelo(){
-            
-        String[]cabecera={"Nro.","Placa","Marca","Tipo de Vehículo","Fecha de Fabricación","Color","Valor","Multas"};
+
+    public void setModelo() {
+
+        String[] cabecera = {"Nro.", "Placa", "Marca", "Tipo de Vehículo", "Fecha de Fabricación", "Color", "Valor", "Multas"};
         modelo.setColumnIdentifiers(cabecera);
         tblDatosVehiculares.setModel(modelo);
     }
-    
-    public void llenarArray(){
-        Vehiculo vehiculo=new Vehiculo(placa, marca, color, tipo, multas,añoFabricacion , Double.parseDouble(valor));
-        Persona persona=new Persona(nombre,Integer.parseInt( cedula), listaVehiculosLD);
-         listaVehiculosLD.add(vehiculo);
-    
+
+    public void llenarArray() {
+        Vehiculo vehiculo = new Vehiculo(placa, marca, color, tipo, multas, añoFabricacion, Double.parseDouble(valor));
+        Persona persona = new Persona(nombre, Integer.parseInt(cedula), listaVehiculosLD);
+        listaVehiculosLD.add(vehiculo);
+
     }
-    
-    public void setDatos(){
-        Object[]filas=new Object[modelo.getColumnCount()];
-        int cont=1;
-        for(Vehiculo puntero:listaVehiculosLD){
-        filas[0]=cont;
-        filas[1]=puntero.getPlaca();
-        filas[2]=puntero.getMarca();
-        filas[3]=puntero.getTipo();
-        filas[4]=puntero.getAñoFabricacion();
-        filas[5]=puntero.getColor();
-        filas[6]=puntero.getValor();
-        filas[7]=puntero.getMultas();
-        modelo.addRow(filas);
-        cont++;       
+
+    public void setDatos() {
+        Object[] filas = new Object[modelo.getColumnCount()];
+        int cont = 1;
+        for (Vehiculo puntero : listaVehiculosLD) {
+            filas[0] = cont;
+            filas[1] = puntero.getPlaca();
+            filas[2] = puntero.getMarca();
+            filas[3] = puntero.getTipo();
+            filas[4] = puntero.getAñoFabricacion();
+            filas[5] = puntero.getColor();
+            filas[6] = puntero.getValor();
+            filas[7] = puntero.getMultas();
+            modelo.addRow(filas);
+            cont++;
         }
         tblDatosVehiculares.setModel(modelo);
         lblNombre.setText(nombre);
         lblCedula.setText(cedula);
-    
+
     }
 
     /**
@@ -122,41 +125,42 @@ public class TablaVehiculo extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(404, 404, 404)
+                .addGap(394, 394, 394)
                 .addComponent(jLabel3)
-                .addContainerGap(412, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(14, 14, 14)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
 
         pack();
@@ -164,8 +168,8 @@ public class TablaVehiculo extends javax.swing.JInternalFrame {
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         // TODO add your handling code here:
-         llenarArray();
-         setDatos();
+        llenarArray();
+        setDatos();
     }//GEN-LAST:event_formInternalFrameActivated
 
 

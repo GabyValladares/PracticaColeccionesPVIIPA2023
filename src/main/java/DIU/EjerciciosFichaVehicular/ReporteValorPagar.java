@@ -13,49 +13,49 @@ import javax.swing.table.DefaultTableModel;
  * @author Criss
  */
 public class ReporteValorPagar extends javax.swing.JInternalFrame {
-public String nombre,cedula,placa,marca,color,valor,multas,tipo,año;
+
+    public String nombre, cedula, placa, marca, color, valor, multas, tipo, año;
     /**
      * Creates new form ReporteValorPagar
      */
-    ArrayList<Vehiculo> listaVehiculos=new ArrayList<>();
-    DefaultTableModel modelo=new DefaultTableModel();
-     
+    ArrayList<Vehiculo> listaVehiculos = new ArrayList<>();
+    DefaultTableModel modelo = new DefaultTableModel();
+
     public ReporteValorPagar() {
         initComponents();
         setModelo();
     }
-    
-    public void setModelo(){
-    String cabecera[]={"Nro.","Placa","Marca","Color","Tipo","Valor","Multas","Año Fabricación"};
-    modelo.setColumnIdentifiers(cabecera);
-    tblFichaVehicular.setModel(modelo);
-    }
-    
-    public void llenarDatos(){
-    Vehiculo v1=new Vehiculo(placa, marca, color, tipo, multas, año, Double.parseDouble(valor));
-    Persona p1=new Persona(nombre, Integer.parseInt(cedula), listaVehiculos);
-   listaVehiculos.add(v1);}
-    
-    private void setDatos(){
-        Object[]datos=new Object[modelo.getColumnCount()];
-        int i=1;
-        modelo.setRowCount(0);
-        for (Vehiculo vehiculo :listaVehiculos) {
-            datos[0]=i;
-            datos[1]=vehiculo.getPlaca();
-            datos[2]=vehiculo.getMarca();
-            datos[3]=vehiculo.getColor();
-            datos[4]=vehiculo.getTipo();
-            datos[5]=vehiculo.getValor();
-            datos[6]=vehiculo.getMultas();
-            datos[7]=vehiculo.getAñoFabricacion();
-            modelo.addRow(datos);
-                        i++;
-        }
-         tblFichaVehicular.setModel(modelo);
+
+    public void setModelo() {
+        String cabecera[] = {"Nro.", "Placa", "Marca", "Color", "Tipo", "Valor", "Multas", "Año Fabricación"};
+        modelo.setColumnIdentifiers(cabecera);
+        tblFichaVehicular.setModel(modelo);
     }
 
-    
+    public void llenarDatos() {
+        Vehiculo v1 = new Vehiculo(placa, marca, color, tipo, multas, año, Double.parseDouble(valor));
+        Persona p1 = new Persona(nombre, Integer.parseInt(cedula), listaVehiculos);
+        listaVehiculos.add(v1);
+    }
+
+    private void setDatos() {
+        Object[] datos = new Object[modelo.getColumnCount()];
+        int i = 1;
+        modelo.setRowCount(0);
+        for (Vehiculo vehiculo : listaVehiculos) {
+            datos[0] = i;
+            datos[1] = vehiculo.getPlaca();
+            datos[2] = vehiculo.getMarca();
+            datos[3] = vehiculo.getColor();
+            datos[4] = vehiculo.getTipo();
+            datos[5] = vehiculo.getValor();
+            datos[6] = vehiculo.getMultas();
+            datos[7] = vehiculo.getAñoFabricacion();
+            modelo.addRow(datos);
+            i++;
+        }
+        tblFichaVehicular.setModel(modelo);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -111,7 +111,8 @@ public String nombre,cedula,placa,marca,color,valor,multas,tipo,año;
         ));
         jScrollPane2.setViewportView(tblFichaVehicular);
 
-        jLabel1.setText("RESUMEN DE PAGO FICHA VEHICULAR");
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel1.setText("RESUMEN DE PAGO FICHA VEHICULAR:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,7 +148,7 @@ public String nombre,cedula,placa,marca,color,valor,multas,tipo,año;
     }// </editor-fold>//GEN-END:initComponents
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        String datos="Nombre:"+nombre+"\n"+"Cédula:"+cedula;
+        String datos = "Nombre:" + nombre + "\n" + "Cédula:" + cedula;
         txtADatos.setText(datos);
         llenarDatos();
         setDatos();
