@@ -5,6 +5,7 @@
 package DIU;
 
 import DIU.Ejercicio1.Ejercicio1;
+import DIU.Ejercicio2.Ejercicio2;
 import DIU.EjerciciosFichaVehicular.FichaVehicular;
 import DIU.vista.LDTable;
 import DIU.vista.ListasDinamicas;
@@ -45,6 +46,7 @@ public class Menu extends javax.swing.JFrame {
         opFichaVehicular = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         opEjercicio1 = new javax.swing.JMenuItem();
+        opEjercicio2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -129,6 +131,14 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu4.add(opEjercicio1);
 
+        opEjercicio2.setText("Ejercicio2");
+        opEjercicio2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opEjercicio2ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(opEjercicio2);
+
         jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
@@ -186,6 +196,13 @@ public class Menu extends javax.swing.JFrame {
         eje1.show();
     }//GEN-LAST:event_opEjercicio1ActionPerformed
 
+    private void opEjercicio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio2ActionPerformed
+        // TODO add your handling code here:
+        Ejercicio2 eje2=new Ejercicio2();
+        escritorio.add(eje2);
+        eje2.show();
+    }//GEN-LAST:event_opEjercicio2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -233,6 +250,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu menuPilas;
     private javax.swing.JMenuItem opDTable;
     private javax.swing.JMenuItem opEjercicio1;
+    private javax.swing.JMenuItem opEjercicio2;
     private javax.swing.JMenuItem opFichaVehicular;
     private javax.swing.JMenuItem opLDinamicas;
     private javax.swing.JMenuItem opLEstatico;
