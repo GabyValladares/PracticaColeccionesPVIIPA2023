@@ -12,7 +12,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="opLEstatico">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Shift+E"/>
+                  <KeyStroke key="Ctrl+E"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Est&#xe1;ticas"/>
               </Properties>
@@ -23,42 +23,127 @@
             <MenuItem class="javax.swing.JMenuItem" name="opLDinamicas">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Shift+D"/>
+                  <KeyStroke key="Ctrl+D"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Dinamicas"/>
+                <Property name="text" type="java.lang.String" value="Din&#xe1;micas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opLDinamicasActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="opDTable">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Listas / Table"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opDTableActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
+            </MenuItem>
+            <Menu class="javax.swing.JMenu" name="MenuTareas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tareas Listas Estaticas"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="opLTarea1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tarea 1"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opLTarea1ActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="opLTarea2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tarea 2"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opLTarea2ActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="opLTarea3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tarea 3"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opLTarea3ActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="opLTarea4">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Tarea 4"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opLTarea4ActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuPilas">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pilas"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="opLTarea5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tarea 5"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opLTarea5ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="opLTarea6">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tarea 6"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opLTarea6ActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuArboles">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Arboles"/>
+            <Property name="text" type="java.lang.String" value="&#xc1;rboles"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="menuColas">
+        <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Colas"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="opLTarea7">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tarea 7"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opLTarea7ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="opLTarea8">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tarea 8"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opLTarea8ActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="menuFichaV">
+        <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ficha Vehicular"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="opFichaVehicular">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Revisi&#xf3;n"/>
+                <Property name="text" type="java.lang.String" value="FichaVehicular"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opFichaVehicularActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -89,12 +174,19 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="escritorio" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="escritorio" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="escritorio" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="escritorio" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -107,12 +199,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="800" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="1387" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="543" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="564" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>

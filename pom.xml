@@ -12,4 +12,5 @@
         <maven.compiler.target>15</maven.compiler.target>
         <exec.mainClass>com.mycompany.practicacolecciones.PracticaColecciones</exec.mainClass>
     </properties>
+    <name>PracticaColeccionesYo</name>
 </project>
