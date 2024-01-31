@@ -4,6 +4,7 @@
  */
 package DIU;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -87,5 +88,36 @@ public class Vehiculo {
     
     
     
-    
+    ////
+    public double calcularMultaContaminacion() {
+    int añoActual = Calendar.getInstance().get(Calendar.YEAR);
+    int añosContaminacion = añoActual - añoFabricacion.getYear() + 1900;
+
+    if (añosContaminacion < 0) {
+        return 0; // Año de fabricación futuro, no hay contaminación acumulada
+    }
+
+    // Calcular la multa por contaminación equivalente al 2% por cada año de contaminación
+    double multaContaminacion = 0.02 * añosContaminacion;
+    return multaContaminacion;
+}
+public double calcularValorMatriculacion() {
+    double valorMatriculacion = 0;
+
+    if (marca.equals("Toyota")) {
+        if (tipo.equals("Jeep")) {
+            valorMatriculacion = 0.08 * valor;
+        } else if (tipo.equals("Camioneta")) {
+            valorMatriculacion = 0.12 * valor;
+        }
+    } else if (marca.equals("Suzuki")) {
+        if (tipo.equals("Vitara")) {
+            valorMatriculacion = 0.10 * valor;
+        } else if (tipo.equals("Automóvil")) {
+            valorMatriculacion = 0.09 * valor;
+        }
+    }
+
+    return valorMatriculacion;
+}
 }

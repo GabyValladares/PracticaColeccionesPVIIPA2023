@@ -18,10 +18,15 @@ public class Jugadores extends javax.swing.JInternalFrame {
     /**
      * Creates new form Jugadores
      */
-    public Jugadores(String nombre, int edad, String puesto, String nacionalidad, int goles) {
-        initComponents();
+   public Jugadores () {
+       initComponents();
     setModelo();
     }
+    public Jugadores(String nombre, int edad, String puesto, String nacionalidad, int goles) {
+       
+    }
+
+ 
       private void setModelo() {
         String[] cabeceras = {"Nombre", "Edad", "Puesto", "Nacionalidad", "Goles"};
         modelo.setColumnIdentifiers(cabeceras);

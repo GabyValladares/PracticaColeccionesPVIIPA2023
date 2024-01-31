@@ -6,8 +6,12 @@ package DIU;
 
 import DIU.vistas.Array;
 import DIU.vistas.ContadorPalabras;
+import DIU.vistas.InvertirCadena;
+import DIU.vistas.Jugadores;
 import DIU.vistas.ListaDinamica;
 import DIU.vistas.LDTable;
+import DIU.vistas.Numeros;
+
 
 /**
  *
@@ -40,10 +44,12 @@ public class Menu extends javax.swing.JFrame {
         dltg = new javax.swing.JMenuItem();
         palabras = new javax.swing.JMenuItem();
         array = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jugadores = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
+        string = new javax.swing.JMenuItem();
         menuArboles = new javax.swing.JMenu();
         colas = new javax.swing.JMenu();
+        numeros = new javax.swing.JMenuItem();
         fichavehiculo = new javax.swing.JMenu();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
 
@@ -57,7 +63,7 @@ public class Menu extends javax.swing.JFrame {
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 544, Short.MAX_VALUE)
+            .addGap(0, 545, Short.MAX_VALUE)
         );
 
         menuListas.setText("Listas");
@@ -116,24 +122,44 @@ public class Menu extends javax.swing.JFrame {
         });
         menuListas.add(array);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        jMenuItem1.setText("Jugadores");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jugadores.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jugadores.setText("Jugadores");
+        jugadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jugadoresActionPerformed(evt);
             }
         });
-        menuListas.add(jMenuItem1);
+        menuListas.add(jugadores);
 
         jMenuBar1.add(menuListas);
 
         menuPilas.setText("Pilas");
+
+        string.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        string.setText("String");
+        string.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stringActionPerformed(evt);
+            }
+        });
+        menuPilas.add(string);
+
         jMenuBar1.add(menuPilas);
 
         menuArboles.setText("Árboles");
         jMenuBar1.add(menuArboles);
 
         colas.setText("Colas");
+
+        numeros.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        numeros.setText("numeros");
+        numeros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numerosActionPerformed(evt);
+            }
+        });
+        colas.add(numeros);
+
         jMenuBar1.add(colas);
 
         fichavehiculo.setText("Ficha Vehicular");
@@ -239,9 +265,26 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_arrayActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugadoresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+      Jugadores ventanaLE = new Jugadores();
+      escritorio.add(ventanaLE);
+        ventanaLE.show();
+    }//GEN-LAST:event_jugadoresActionPerformed
+
+    private void stringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stringActionPerformed
+        // TODO add your handling code here:
+         InvertirCadena ventanaLE=new  InvertirCadena();
+        escritorio.add(ventanaLE);
+        ventanaLE.show();
+    }//GEN-LAST:event_stringActionPerformed
+
+    private void numerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numerosActionPerformed
+   Numeros ventanaLE = new Numeros();
+      escritorio.add(ventanaLE);
+        ventanaLE.show();        // TODO add your handling code here:
+    }//GEN-LAST:event_numerosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,12 +331,14 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu fichavehiculo;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jugadores;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;
+    private javax.swing.JMenuItem numeros;
     private javax.swing.JMenuItem opLDinamicas;
     private javax.swing.JMenuItem opLEstatico;
     private javax.swing.JMenuItem palabras;
+    private javax.swing.JMenuItem string;
     // End of variables declaration//GEN-END:variables
 }

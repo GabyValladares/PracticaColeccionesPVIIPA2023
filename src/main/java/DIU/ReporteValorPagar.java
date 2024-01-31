@@ -37,6 +37,8 @@ public String nombre,cedula,placa,marca,color,valor,multas,tipo,añoFabricacion;
     
     public void llenarDatos(){
     Vehiculo v1=new Vehiculo(placa, marca, color, tipo, Double.parseDouble(valor),multas, new Date(añoFabricacion));
+     double multaContaminacion = v1.calcularMultaContaminacion();
+    v1.setMultas(multas + multaContaminacion);
     Persona p1=new Persona(nombre, Integer.parseInt(cedula), listaVehiculos);
    listaVehiculos.add(v1);}
     
@@ -59,7 +61,28 @@ public String nombre,cedula,placa,marca,color,valor,multas,tipo,añoFabricacion;
          tblFichaVehicular.setModel(modelo);}
     
     
-    
+       
+public double calcularDescuentoMultas() {
+    double sueldoBasico = 460; 
+
+    // Calcular el 25% del sueldo básico si hay multas
+    double descuentoMultas = 0.25 * sueldoBasico;
+
+    return descuentoMultas;
+}
+
+public double calcularMontoTotal() {
+    double montoMatriculacion = 0;
+
+    for (Vehiculo vehiculo : listaVehiculos) {
+        montoMatriculacion += vehiculo.calcularValorMatriculacion();
+    }
+
+    double descuentoMultas = calcularDescuentoMultas();
+    double montoTotal = montoMatriculacion - descuentoMultas;
+
+    return montoTotal;
+}
     
     
     @SuppressWarnings("unchecked")
@@ -117,24 +140,28 @@ public String nombre,cedula,placa,marca,color,valor,multas,tipo,añoFabricacion;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 817, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(385, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(357, 357, 357))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(161, 161, 161))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
