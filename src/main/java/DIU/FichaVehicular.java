@@ -4,6 +4,10 @@
  */
 package DIU;
 
+import DIU.Modelo.Auto;
+import DIU.Modelo.Persona;
+import DIU.Vista.TablaVehiculos;
+
 /**
  *
  * @author tutut
@@ -16,7 +20,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     public FichaVehicular() {
         initComponents();
         Reporte reporte= new Reporte();
-        
+        reporte.setVisible(false);
     }
 
     /**
@@ -53,6 +57,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         ckbSi = new javax.swing.JCheckBox();
         ckbNo = new javax.swing.JCheckBox();
         btnFicha = new javax.swing.JButton();
+        btnGtv = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -119,6 +124,13 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             }
         });
 
+        btnGtv.setText("Generar Tabla Vehiculos");
+        btnGtv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGtvActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -165,7 +177,10 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                                     .addComponent(txtVaDeVe, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ckbSi)
                                     .addComponent(ckbNo)
-                                    .addComponent(btnFicha)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnFicha)
+                                        .addGap(28, 28, 28)
+                                        .addComponent(btnGtv))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -230,7 +245,9 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ckbNo)
                 .addGap(18, 18, 18)
-                .addComponent(btnFicha)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFicha)
+                    .addComponent(btnGtv))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
@@ -248,23 +265,72 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     private void btnFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFichaActionPerformed
         // TODO add your handling code here:
         Reporte reporte1 = new Reporte();
+        //Auto auto1 = new Auto();
+        //Persona pers1 = new Persona();        
+       // reporte1.nombre(txtNombre.getText());
+        //reporte1.cedula(txtCedula.getText());
+        //reporte1.placa(txtNumPl.getText());
+        //reporte1.color(txtColor.getText());
+        //reporte1.valor(txtVaDeVe.getText());
+       reporte1.marca=(String) cbxMarca.getSelectedItem();
+        if(rbtAutomovil.isSelected()){
+            //reporte1.tipo("Automovil");
+        }else if(rbtCamioneta.isSelected()){
+            //reporte1.tipo("Camioneta");
+        }else if(rbtVitara.isSelected()){
+            //reporte1.tipo("Vitara");
+        }else if(rbtJeep.isSelected()){
+          //  reporte1.tipo("Jeep");
+        }
+        if(ckbSi.isSelected()==true){
+        //    reporte1.multas("Si");
+        }else{
+        //    reporte1.multas("No");
+        }
+        //reporte1.indicarDatos(auto1, pers1);
+        this.dispose();
+        Menu.escritorio.add(reporte1);
+        reporte1.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnFichaActionPerformed
+
+    private void btnGtvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGtvActionPerformed
+        // TODO add your handling code here:
+        TablaVehiculos reporte1=new TablaVehiculos();
         reporte1.nombre=txtNombre.getText();
         reporte1.cedula=txtCedula.getText();
-        reporte1.marca=(String) cbxMarca.getSelectedItem();
+        reporte1.placa=txtNumPl.getText();
+        reporte1.color=txtColor.getText();
+        reporte1.valor=txtVaDeVe.getText();
+       reporte1.marca=(String) cbxMarca.getSelectedItem();
         if(rbtAutomovil.isSelected()){
-            reporte1.tipo="Automovil";
+            reporte1.tipo=("Automovil");
         }else if(rbtCamioneta.isSelected()){
-            reporte1.tipo="Camioneta";
+            reporte1.tipo=("Camioneta");
         }else if(rbtVitara.isSelected()){
-            reporte1.tipo="Vitara";
+            reporte1.tipo=("Vitara");
         }else if(rbtJeep.isSelected()){
-            reporte1.tipo="Jeep";
-        }  
-    }//GEN-LAST:event_btnFichaActionPerformed
+            reporte1.tipo=("Jeep");
+        }
+        if(ckbSi.isSelected()==true){
+            reporte1.multas=("Si");
+        }else{
+            reporte1.multas=("No");
+        }
+        //reporte1.indicarDatos(auto1, pers1);
+        //this.dispose();
+        Menu.escritorio.add(reporte1);
+        reporte1.setVisible(true);
+        this.dispose();
+        
+       
+        
+    }//GEN-LAST:event_btnGtvActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFicha;
+    private javax.swing.JButton btnGtv;
     private javax.swing.JComboBox<String> cbxMarca;
     private javax.swing.JCheckBox ckbNo;
     private javax.swing.JCheckBox ckbSi;
