@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package DIU;
+package DIU.modelo;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -11,13 +13,15 @@ package DIU;
 public class PersonaReport {
     String Cédula;
     String Nombre;
+    private ArrayList<String> listaVehiculos;
 
     public PersonaReport() {
     }
 
-    public PersonaReport(String Cédula, String Nombre) {
+    public PersonaReport(String Cédula, String Nombre,ArrayList listaVehiculo) {
         this.Cédula = Cédula;
         this.Nombre = Nombre;
+        this.listaVehiculos=listaVehiculo;
     }
 
     public String getCédula() {

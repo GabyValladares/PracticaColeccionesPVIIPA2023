@@ -6,6 +6,7 @@ package DIU;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import DIU.modelo.PersonaReport;
 
 /**
  *
@@ -239,7 +240,7 @@ public class Reporte extends javax.swing.JInternalFrame {
         double multasValor = 0.00;
         double cantidadMultaContaminacion = 0;
 
-        if (person1.Cédula.charAt(0) == '1' && car1.getPlaca().charAt(0) == 'I' || car1.getPlaca().charAt(0) == 'i') {
+        if (person1.getCédula().charAt(0) == '1' && car1.getPlaca().charAt(0) == 'I' || car1.getPlaca().charAt(0) == 'i') {
             inicialesValor = sueldoBasico * 0.05;
             matriculaTotal = inicialesValor;
         }

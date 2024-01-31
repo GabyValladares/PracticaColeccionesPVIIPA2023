@@ -4,6 +4,8 @@
  */
 package DIU;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author oli
