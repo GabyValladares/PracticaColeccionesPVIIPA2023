@@ -40,9 +40,13 @@ public class MenuI extends javax.swing.JFrame {
         opLDinamicas2 = new javax.swing.JMenuItem();
         opLDinamicas3Clase = new javax.swing.JMenuItem();
         opDTable = new javax.swing.JMenuItem();
+        opJugador = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
         opLPilas1 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        opPilas2 = new javax.swing.JMenuItem();
+        Colas = new javax.swing.JMenu();
+        opColas1 = new javax.swing.JMenuItem();
+        FichaVehicular = new javax.swing.JMenu();
         opLFichaVehicular = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -123,6 +127,15 @@ public class MenuI extends javax.swing.JFrame {
         });
         MenuListas.add(opDTable);
 
+        opJugador.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        opJugador.setText("Jugador");
+        opJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opJugadorActionPerformed(evt);
+            }
+        });
+        MenuListas.add(opJugador);
+
         jMenuBar1.add(MenuListas);
 
         menuPilas.setText("Pilas");
@@ -141,9 +154,36 @@ public class MenuI extends javax.swing.JFrame {
         });
         menuPilas.add(opLPilas1);
 
+        opPilas2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        opPilas2.setText("Torre de Hanoi");
+        opPilas2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opPilas2ActionPerformed(evt);
+            }
+        });
+        menuPilas.add(opPilas2);
+
         jMenuBar1.add(menuPilas);
 
-        jMenu1.setText("Ficha Vehicular");
+        Colas.setText("Colas");
+        Colas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ColasActionPerformed(evt);
+            }
+        });
+
+        opColas1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        opColas1.setText("Colas Ejemplo 1");
+        opColas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opColas1ActionPerformed(evt);
+            }
+        });
+        Colas.add(opColas1);
+
+        jMenuBar1.add(Colas);
+
+        FichaVehicular.setText("Ficha Vehicular");
 
         opLFichaVehicular.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         opLFichaVehicular.setText("Igresar Datos");
@@ -152,9 +192,9 @@ public class MenuI extends javax.swing.JFrame {
                 opLFichaVehicularActionPerformed(evt);
             }
         });
-        jMenu1.add(opLFichaVehicular);
+        FichaVehicular.add(opLFichaVehicular);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(FichaVehicular);
 
         setJMenuBar(jMenuBar1);
 
@@ -232,6 +272,28 @@ public class MenuI extends javax.swing.JFrame {
         ldt.show();
     }//GEN-LAST:event_opDTableActionPerformed
 
+    private void ColasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ColasActionPerformed
+        
+    }//GEN-LAST:event_ColasActionPerformed
+
+    private void opColas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opColas1ActionPerformed
+        ColasEjemplo1 ce = new ColasEjemplo1();
+        Escritorio.add(ce);
+        ce.show();
+    }//GEN-LAST:event_opColas1ActionPerformed
+
+    private void opPilas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opPilas2ActionPerformed
+        TorresHanoi th = new TorresHanoi();
+        Escritorio.add(th);
+        th.show();
+    }//GEN-LAST:event_opPilas2ActionPerformed
+
+    private void opJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opJugadorActionPerformed
+        FichaJugador fj = new FichaJugador();
+        Escritorio.add(fj);
+        fj.show();
+    }//GEN-LAST:event_opJugadorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -268,13 +330,16 @@ public class MenuI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Colas;
     public static javax.swing.JDesktopPane Escritorio;
+    private javax.swing.JMenu FichaVehicular;
     private javax.swing.JMenu MenuListas;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu menuPilas;
+    private javax.swing.JMenuItem opColas1;
     private javax.swing.JMenuItem opDTable;
+    private javax.swing.JMenuItem opJugador;
     private javax.swing.JMenuItem opLDinamicas;
     private javax.swing.JMenuItem opLDinamicas2;
     private javax.swing.JMenuItem opLDinamicas3Clase;
@@ -282,5 +347,6 @@ public class MenuI extends javax.swing.JFrame {
     private javax.swing.JMenuItem opLEstatica2;
     private javax.swing.JMenuItem opLFichaVehicular;
     private javax.swing.JMenuItem opLPilas1;
+    private javax.swing.JMenuItem opPilas2;
     // End of variables declaration//GEN-END:variables
 }

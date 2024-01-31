@@ -4,6 +4,8 @@
  */
 package DIU;
 
+import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.util.Arrays;
 
 /**
@@ -38,7 +40,6 @@ public class CantidadPalabras extends javax.swing.JInternalFrame {
         btnEnviar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtRepetir = new javax.swing.JTextField();
-        btnGuardar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtListas = new javax.swing.JTextArea();
@@ -52,6 +53,12 @@ public class CantidadPalabras extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Ingrese una palabra: ");
 
+        txtPalabra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPalabraKeyPressed(evt);
+            }
+        });
+
         jLabel3.setText("Escriba la palabra a buscar: ");
 
         btnEnviar.setText("Enviar");
@@ -62,13 +69,6 @@ public class CantidadPalabras extends javax.swing.JInternalFrame {
         });
 
         jLabel4.setText("La palabra se repite: ");
-
-        btnGuardar.setText("Guardar");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("Lista");
 
@@ -92,9 +92,7 @@ public class CantidadPalabras extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addComponent(btnGuardar)
-                .addGap(23, 23, 23))
+                .addGap(23, 133, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -123,8 +121,7 @@ public class CantidadPalabras extends javax.swing.JInternalFrame {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGuardar))
+                    .addComponent(txtPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -148,40 +145,56 @@ public class CantidadPalabras extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        String Palabras = txtPalabra.getText();
-        
-        this.guardarPalabras(Palabras);
-    }//GEN-LAST:event_btnGuardarActionPerformed
-
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         String buscar = txtBuscar.getText();
         this.buscarPalabras(buscar);
     }//GEN-LAST:event_btnEnviarActionPerformed
 
+    private void txtPalabraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPalabraKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String Palabras = txtPalabra.getText();
+        this.guardarPalabras(Palabras);
+        }
+    }//GEN-LAST:event_txtPalabraKeyPressed
+
     public void guardarPalabras(String Palabra) {
-        for (int i = 0; i < palabras.length; i++) {
-            if (palabras[i] == null || palabras[i].equals("")) {
-                palabras[i] = Palabra;
-                txtPalabra.setText("");
-                break;
+        int cont = 0;
+        for (String palabra : palabras) {
+            if (palabra != null && !palabra.isEmpty()) {
+                cont++;
             }
         }
+        if (cont < 8) {
+            for (int i = 0; i < palabras.length; i++) {
+                if (palabras[i] == null || palabras[i].equals("")) {
+                    palabras[i] = Palabra;
+                    txtPalabra.setText("");
+                    break;
+                }
+            }
+        } else {
+            txtPalabra.setText("Solo Puede Ingresar 8 Palabras");
+            txtPalabra.setBackground(Color.red);
+            txtPalabra.setEditable(false);
+        }
+
         txtListas.setText(Arrays.toString(palabras));
+        txtListas.setEditable(false);
     }
-    public void buscarPalabras(String palabra){
+
+    public void buscarPalabras(String palabra) {
         int contador = 0;
         for (int i = 0; i < palabras.length; i++) {
             if (palabras[i].equalsIgnoreCase(palabra)) {
                 contador++;
             }
         }
+        txtRepetir.setEditable(false);
         txtRepetir.setText(String.valueOf(contador));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
-    private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

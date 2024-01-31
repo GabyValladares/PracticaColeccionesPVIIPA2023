@@ -11,9 +11,10 @@ import DIU.MenuI;
  * @author kevin
  */
 public class Main {
+
     public static void main(String[] args) {
         MenuI menu = new MenuI();
         menu.setVisible(true);
-        
+
     }
 }

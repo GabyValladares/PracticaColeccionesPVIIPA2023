@@ -4,6 +4,7 @@
  */
 package DIU;
 
+import java.awt.event.KeyEvent;
 import java.util.Arrays;
 
 /**
@@ -16,8 +17,8 @@ public class IngresarNumeros extends javax.swing.JInternalFrame {
      * Creates new form IngresarNumeros
      */
     int[] numeros = new int[10];
-
-    
+    int min = Integer.MAX_VALUE;
+    int max;
 
     public IngresarNumeros() {
         initComponents();
@@ -37,7 +38,7 @@ public class IngresarNumeros extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtNumero = new javax.swing.JTextField();
-        btnEnviar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtLista = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
@@ -52,10 +53,21 @@ public class IngresarNumeros extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Ingresa 10 numeros: ");
 
-        btnEnviar.setText("Guardar");
-        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
+        txtNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEnviarActionPerformed(evt);
+                txtNumeroActionPerformed(evt);
+            }
+        });
+        txtNumero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNumeroKeyPressed(evt);
+            }
+        });
+
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -95,7 +107,7 @@ public class IngresarNumeros extends javax.swing.JInternalFrame {
                             .addComponent(txtLista, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(140, 140, 140)
-                        .addComponent(btnEnviar)
+                        .addComponent(btnGuardar)
                         .addGap(43, 43, 43)
                         .addComponent(jButton1)
                         .addGap(63, 63, 63)
@@ -116,7 +128,7 @@ public class IngresarNumeros extends javax.swing.JInternalFrame {
                     .addComponent(txtLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEnviar)
+                    .addComponent(btnGuardar)
                     .addComponent(btnCancelar)
                     .addComponent(jButton1))
                 .addGap(0, 24, Short.MAX_VALUE))
@@ -136,24 +148,35 @@ public class IngresarNumeros extends javax.swing.JInternalFrame {
         txtLista.setText(Arrays.toString(numeros));
     }
 
-    
-    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+    public void minMax() {
 
-        int numero = Integer.parseInt(txtNumero.getText());
-        this.lista(numero);
+        for (int numero : numeros) {
+            if (numero < min) {
+                min = numero;
+            } else if (numero > max) {
+                max = numero;
+            }
+        }
 
-    }//GEN-LAST:event_btnEnviarActionPerformed
+    }
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+
+
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         AnalisisNumeros an1 = new AnalisisNumeros();
         an1.numeros1 = numeros;
         an1.ingresarNumero();
-        an1.minMax();
+        this.minMax();
+        an1.min = min;
+        an1.max = max;
         this.dispose();
         MenuI.Escritorio.add(an1);
         an1.setVisible(true);
         System.out.println(Arrays.toString(an1.numeros1));
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -164,10 +187,21 @@ public class IngresarNumeros extends javax.swing.JInternalFrame {
         System.out.println(Arrays.toString(numeros));
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void txtNumeroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            int numero = Integer.parseInt(txtNumero.getText());
+            this.lista(numero);
+        }
+    }//GEN-LAST:event_txtNumeroKeyPressed
+
+    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumeroActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnEnviar;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
