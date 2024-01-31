@@ -9,6 +9,7 @@ import DIU.Ejercicio2.Ejercicio2;
 import DIU.Ejercicio3.Ejercicio3;
 import DIU.Ejercicio4.Ejercicio4;
 import DIU.Ejercicio5.Ejercicio5;
+import DIU.Ejercicio6.Ejercicio6;
 import DIU.EjerciciosFichaVehicular.FichaVehicular;
 import DIU.vista.LDTable;
 import DIU.vista.ListasDinamicas;
@@ -53,6 +54,7 @@ public class Menu extends javax.swing.JFrame {
         opEjercicio3 = new javax.swing.JMenuItem();
         opEjericio4 = new javax.swing.JMenuItem();
         opEjercicio5 = new javax.swing.JMenuItem();
+        opEjercicio6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -169,6 +171,14 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu4.add(opEjercicio5);
 
+        opEjercicio6.setText("Ejercicio6");
+        opEjercicio6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opEjercicio6ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(opEjercicio6);
+
         jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
@@ -254,6 +264,13 @@ public class Menu extends javax.swing.JFrame {
         eje5.show();
     }//GEN-LAST:event_opEjercicio5ActionPerformed
 
+    private void opEjercicio6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio6ActionPerformed
+        // TODO add your handling code here:
+        Ejercicio6 eje6 = new Ejercicio6();
+        escritorio.add(eje6);
+        eje6.show();
+    }//GEN-LAST:event_opEjercicio6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -304,6 +321,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem opEjercicio2;
     private javax.swing.JMenuItem opEjercicio3;
     private javax.swing.JMenuItem opEjercicio5;
+    private javax.swing.JMenuItem opEjercicio6;
     private javax.swing.JMenuItem opEjericio4;
     private javax.swing.JMenuItem opFichaVehicular;
     private javax.swing.JMenuItem opLDinamicas;
