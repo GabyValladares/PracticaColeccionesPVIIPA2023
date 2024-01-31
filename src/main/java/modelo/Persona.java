@@ -4,34 +4,49 @@
  */
 package modelo;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author Leo
+ * @author carlo
  */
 public class Persona {
-   
-    private String Nombre;
-    
+    private String nombre;
+    private String cedula;
+    private ArrayList<Vehiculo> listaVehiculos;
 
     public Persona() {
     }
 
+    public Persona(String nombre, String cedula, ArrayList<Vehiculo> listaVehiculos) {
+        this.nombre = nombre;
+        this.cedula = cedula;
+        this.listaVehiculos = listaVehiculos;
+    }
+
+    public ArrayList<Vehiculo> getListaVehiculos() {
+        return listaVehiculos;
+    }
+
+    public void setListaVehiculos(ArrayList<Vehiculo> listaVehiculos) {
+        this.listaVehiculos = listaVehiculos;
+    }
+    
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
-    public Persona(String nombre) {
-        this.Nombre = Nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
-    }
-    
-    
-    
-    
-    
     
 }
- 

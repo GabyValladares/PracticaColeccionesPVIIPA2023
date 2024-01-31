@@ -130,7 +130,7 @@ public class TablaEjercicio1 extends javax.swing.JInternalFrame {
         for (int i = 0; i < numeros.length; i++) {
             numeros[i]=0;
         }
-        LEEjercicio1 retorno=new LEEjercicio1();
+        ListasEstaticas1 retorno=new ListasEstaticas1();
         retorno.setVisible(true);
     }//GEN-LAST:event_formInternalFrameClosed
 

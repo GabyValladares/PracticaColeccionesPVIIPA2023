@@ -4,14 +4,21 @@
  */
 package Diuu;
 
+
+import Listas.EArraylist1;
+import Listas.EArraylist2;
+import Pilas.Pilas1;
+import Pilas.Pilas2;
+import javax.management.JMX;
+
 /**
  *
- * @author Leo
+ * @author carlo
  */
 public class Menu extends javax.swing.JFrame {
 
     /**
-     * Creates new form Menu
+     * Creates new form ver
      */
     public Menu() {
         initComponents();
@@ -26,100 +33,155 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        escritorio = new javax.swing.JDesktopPane();
+        Escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuListas = new javax.swing.JMenu();
-        opLEstatico = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        memuArray = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        menuPilas = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        menuColas = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        menuArboles = new javax.swing.JMenu();
-        menuFichaV = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jmListas = new javax.swing.JMenu();
+        jmEstatica1 = new javax.swing.JMenuItem();
+        jmEstatica2 = new javax.swing.JMenuItem();
+        jmArraylist = new javax.swing.JMenuItem();
+        jMArraylist2 = new javax.swing.JMenuItem();
+        jMPracticaArrayClase = new javax.swing.JMenuItem();
+        jmPilas = new javax.swing.JMenu();
+        jMpilas1 = new javax.swing.JMenuItem();
+        jMpilas2 = new javax.swing.JMenuItem();
+        jmColas = new javax.swing.JMenu();
+        jMcolas1 = new javax.swing.JMenuItem();
+        jMcolas2 = new javax.swing.JMenuItem();
+        FichaVehicular = new javax.swing.JMenu();
+        jmVer = new javax.swing.JMenuItem();
+        jmArboles = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
-        escritorio.setLayout(escritorioLayout);
-        escritorioLayout.setHorizontalGroup(
-            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+        javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
+        Escritorio.setLayout(EscritorioLayout);
+        EscritorioLayout.setHorizontalGroup(
+            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 887, Short.MAX_VALUE)
         );
-        escritorioLayout.setVerticalGroup(
-            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 544, Short.MAX_VALUE)
+        EscritorioLayout.setVerticalGroup(
+            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 532, Short.MAX_VALUE)
         );
 
-        menuListas.setText("Listas");
+        jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
 
-        opLEstatico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        opLEstatico.setText("Estaticas");
-        opLEstatico.addActionListener(new java.awt.event.ActionListener() {
+        jmListas.setBackground(new java.awt.Color(204, 204, 204));
+        jmListas.setBorder(null);
+        jmListas.setText("Listas");
+        jmListas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opLEstaticoActionPerformed(evt);
+                jmListasActionPerformed(evt);
             }
         });
-        menuListas.add(opLEstatico);
 
-        jMenu1.setText("Dinamicas2");
-        menuListas.add(jMenu1);
-
-        jMenuBar1.add(menuListas);
-
-        memuArray.setText("Arrays");
-
-        jMenuItem2.setText("Ejercicio 1");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jmEstatica1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jmEstatica1.setText("Estatica");
+        jmEstatica1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jmEstatica1ActionPerformed(evt);
             }
         });
-        memuArray.add(jMenuItem2);
+        jmListas.add(jmEstatica1);
 
-        jMenuBar1.add(memuArray);
-
-        menuPilas.setText("Pilas");
-
-        jMenuItem4.setText("Ejercicio 1");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        jmEstatica2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jmEstatica2.setText("Estatica 2");
+        jmEstatica2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                jmEstatica2ActionPerformed(evt);
             }
         });
-        menuPilas.add(jMenuItem4);
+        jmListas.add(jmEstatica2);
 
-        jMenuBar1.add(menuPilas);
-
-        menuColas.setText("Colas");
-
-        jMenuItem5.setText("Ejercicio 1");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        jmArraylist.setText("Arraylist");
+        jmArraylist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                jmArraylistActionPerformed(evt);
             }
         });
-        menuColas.add(jMenuItem5);
+        jmListas.add(jmArraylist);
 
-        jMenuBar1.add(menuColas);
-
-        menuArboles.setText("Arboles");
-        jMenuBar1.add(menuArboles);
-
-        menuFichaV.setText("Ficha Vehicular");
-
-        jMenuItem1.setText("Revisión");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMArraylist2.setText("Arraylist Objetos");
+        jMArraylist2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMArraylist2ActionPerformed(evt);
             }
         });
-        menuFichaV.add(jMenuItem1);
+        jmListas.add(jMArraylist2);
 
-        jMenuBar1.add(menuFichaV);
+        jMPracticaArrayClase.setText("Dinámicas PRACTICA");
+        jMPracticaArrayClase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMPracticaArrayClaseActionPerformed(evt);
+            }
+        });
+        jmListas.add(jMPracticaArrayClase);
+
+        jMenuBar1.add(jmListas);
+
+        jmPilas.setBorder(null);
+        jmPilas.setText("Pilas");
+
+        jMpilas1.setText("Pilas 1");
+        jMpilas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMpilas1ActionPerformed(evt);
+            }
+        });
+        jmPilas.add(jMpilas1);
+
+        jMpilas2.setText("Pilas 2");
+        jMpilas2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMpilas2ActionPerformed(evt);
+            }
+        });
+        jmPilas.add(jMpilas2);
+
+        jMenuBar1.add(jmPilas);
+
+        jmColas.setBorder(null);
+        jmColas.setText("Colas");
+
+        jMcolas1.setText("Colas 1");
+        jMcolas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMcolas1ActionPerformed(evt);
+            }
+        });
+        jmColas.add(jMcolas1);
+
+        jMcolas2.setText("Colas 2");
+        jMcolas2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMcolas2ActionPerformed(evt);
+            }
+        });
+        jmColas.add(jMcolas2);
+
+        jMenuBar1.add(jmColas);
+
+        FichaVehicular.setBorder(null);
+        FichaVehicular.setText("Ficha vehicular");
+        FichaVehicular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FichaVehicularActionPerformed(evt);
+            }
+        });
+
+        jmVer.setText("Ver");
+        jmVer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmVerActionPerformed(evt);
+            }
+        });
+        FichaVehicular.add(jmVer);
+
+        jMenuBar1.add(FichaVehicular);
+
+        jmArboles.setBorder(null);
+        jmArboles.setText("Árboles");
+        jMenuBar1.add(jmArboles);
 
         setJMenuBar(jMenuBar1);
 
@@ -127,39 +189,88 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void opLEstaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLEstaticoActionPerformed
-        LEEjercicio1 ejercicio1=new LEEjercicio1();
-        escritorio.add(ejercicio1);
-        ejercicio1.show();
-    }//GEN-LAST:event_opLEstaticoActionPerformed
+    private void jmListasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmListasActionPerformed
+        
+    }//GEN-LAST:event_jmListasActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        FichaVehicular ventanaFicha=new FichaVehicular();
-        escritorio.add(ventanaFicha);
-        ventanaFicha.show();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void jmEstatica1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEstatica1ActionPerformed
+        ListasEstaticas1 ventanaLE= new ListasEstaticas1();
+        Escritorio.add(ventanaLE);
+        ventanaLE.show();
+    }//GEN-LAST:event_jmEstatica1ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-   
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void FichaVehicularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FichaVehicularActionPerformed
+        
+    }//GEN-LAST:event_FichaVehicularActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
- 
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    private void jmVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmVerActionPerformed
+        FichaVehicular ventFvehi = new FichaVehicular();
+        Escritorio.add(ventFvehi);
+        ventFvehi.show();
+     
+    }//GEN-LAST:event_jmVerActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-  
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    private void jmEstatica2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEstatica2ActionPerformed
+        ListasEstaticas2 ventanaLE = new ListasEstaticas2();
+        Escritorio.add(ventanaLE);
+        ventanaLE.show();
+    }//GEN-LAST:event_jmEstatica2ActionPerformed
+
+    private void jmArraylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmArraylistActionPerformed
+        EArraylist1 ventanaArr = new EArraylist1();
+        Escritorio.add(ventanaArr);
+        ventanaArr.show();
+    }//GEN-LAST:event_jmArraylistActionPerformed
+
+    private void jMpilas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMpilas1ActionPerformed
+        Pilas1 ventanaP = new Pilas1();
+        Escritorio.add(ventanaP);
+        ventanaP.show();
+    }//GEN-LAST:event_jMpilas1ActionPerformed
+
+    private void jMpilas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMpilas2ActionPerformed
+        Pilas2 ventanaP = new Pilas2();
+        Escritorio.add(ventanaP);
+        ventanaP.show();
+    }//GEN-LAST:event_jMpilas2ActionPerformed
+
+    private void jMcolas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMcolas1ActionPerformed
+        Colas1 ventanaP = new Colas1();
+        Escritorio.add(ventanaP);
+        ventanaP.show();
+    }//GEN-LAST:event_jMcolas1ActionPerformed
+
+    private void jMcolas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMcolas2ActionPerformed
+        Colas2 ventanaP = new Colas2();
+        Escritorio.add(ventanaP);
+        ventanaP.show();
+    }//GEN-LAST:event_jMcolas2ActionPerformed
+
+    private void jMArraylist2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMArraylist2ActionPerformed
+        EArraylist2 ventanaArr = new EArraylist2();
+        Escritorio.add(ventanaArr);
+        ventanaArr.show();
+    }//GEN-LAST:event_jMArraylist2ActionPerformed
+
+    private void jMPracticaArrayClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMPracticaArrayClaseActionPerformed
+        PracticaArraylist ventanaArr = new PracticaArraylist();
+        Escritorio.add(ventanaArr);
+        ventanaArr.show();
+    }//GEN-LAST:event_jMPracticaArrayClaseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,6 +299,8 @@ public class Menu extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -198,19 +311,22 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JDesktopPane escritorio;
-    private javax.swing.JMenu jMenu1;
+    public static javax.swing.JDesktopPane Escritorio;
+    private javax.swing.JMenu FichaVehicular;
+    private javax.swing.JMenuItem jMArraylist2;
+    private javax.swing.JMenuItem jMPracticaArrayClase;
+    private javax.swing.JMenuItem jMcolas1;
+    private javax.swing.JMenuItem jMcolas2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenu memuArray;
-    private javax.swing.JMenu menuArboles;
-    private javax.swing.JMenu menuColas;
-    private javax.swing.JMenu menuFichaV;
-    private javax.swing.JMenu menuListas;
-    private javax.swing.JMenu menuPilas;
-    private javax.swing.JMenuItem opLEstatico;
+    private javax.swing.JMenuItem jMpilas1;
+    private javax.swing.JMenuItem jMpilas2;
+    private javax.swing.JMenu jmArboles;
+    private javax.swing.JMenuItem jmArraylist;
+    private javax.swing.JMenu jmColas;
+    private javax.swing.JMenuItem jmEstatica1;
+    private javax.swing.JMenuItem jmEstatica2;
+    private javax.swing.JMenu jmListas;
+    private javax.swing.JMenu jmPilas;
+    private javax.swing.JMenuItem jmVer;
     // End of variables declaration//GEN-END:variables
 }
