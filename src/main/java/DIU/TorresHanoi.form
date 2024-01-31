@@ -112,12 +112,12 @@
                       <Component id="btnCTA" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="btnCTB" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnATB" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnATC" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnBTC" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
-                          <Component id="btnCTB" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnATB" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>

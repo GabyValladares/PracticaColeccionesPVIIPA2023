@@ -5,6 +5,9 @@
 package DIU;
 
 import DIU.vistas.tablaVehiculo;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import javax.swing.SwingUtilities;
 
 /**
@@ -54,6 +57,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         CheckBoxYes = new javax.swing.JCheckBox();
         CheckBoxNo = new javax.swing.JCheckBox();
         btnVerTabla = new javax.swing.JButton();
+        lblColor = new javax.swing.JLabel();
+        txtColor = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -120,6 +125,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             }
         });
 
+        lblColor.setText("Color del Vehiculo:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,25 +134,30 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtNombreP, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGap(77, 77, 77)
+                                    .addComponent(lblValor)
+                                    .addGap(67, 67, 67))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(81, 81, 81)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(6, 6, 6)
+                                            .addComponent(CBMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblMarca))
+                                    .addGap(43, 43, 43)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(blbNombreP)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(12, 12, 12)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addComponent(CBMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(lblMarca)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(lblValor)
-                                        .addGap(24, 24, 24)))
-                                .addGap(43, 43, 43))
-                            .addComponent(txtNumPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(69, 69, 69)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtNombreP, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNumPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(97, 97, 97)
+                                .addComponent(blbNombreP)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -191,8 +203,13 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                         .addComponent(lblAnio)))
                 .addContainerGap(38, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(btnVerFicha)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(btnVerFicha))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(lblColor)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -214,7 +231,11 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNumPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblColor)
+                .addGap(14, 14, 14)
+                .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMarca)
                     .addComponent(jLabel6))
@@ -240,7 +261,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVerFicha)
                     .addComponent(btnVerTabla))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
@@ -259,6 +280,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         ReportedeValoraPagar reporte1 = new ReportedeValoraPagar();
         reporte1.nombre = txtNombreP.getText();
+        reporte1.color = txtColor.getText();
         reporte1.cedula = txtNumCedula.getText();
         reporte1.placa = txtNumPlaca.getText();
         reporte1.valorV = txtValor.getText();
@@ -290,6 +312,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         ReportedeValoraPagar reporte1 = new ReportedeValoraPagar();
         reporte1.nombre = txtNombreP.getText();
+        reporte1.color = txtColor.getText();
         reporte1.cedula = txtNumCedula.getText();
         reporte1.placa = txtNumPlaca.getText();
         reporte1.valorV = txtValor.getText();
@@ -328,6 +351,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup buttonGroup;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lblAnio;
+    private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblMarca;
     private javax.swing.JLabel lblMultas;
     private javax.swing.JLabel lblNumCedula;
@@ -337,6 +361,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton rdtCamioneta;
     private javax.swing.JRadioButton rdtJeep;
     private javax.swing.JTextField txtAnio;
+    private javax.swing.JTextField txtColor;
     private javax.swing.JTextField txtNombreP;
     private javax.swing.JTextField txtNumCedula;
     private javax.swing.JTextField txtNumPlaca;
