@@ -8,6 +8,7 @@ import DIU.Ejercicio1.Ejercicio1;
 import DIU.Ejercicio2.Ejercicio2;
 import DIU.Ejercicio3.Ejercicio3;
 import DIU.Ejercicio4.Ejercicio4;
+import DIU.Ejercicio5.Ejercicio5;
 import DIU.EjerciciosFichaVehicular.FichaVehicular;
 import DIU.vista.LDTable;
 import DIU.vista.ListasDinamicas;
@@ -51,6 +52,7 @@ public class Menu extends javax.swing.JFrame {
         opEjercicio2 = new javax.swing.JMenuItem();
         opEjercicio3 = new javax.swing.JMenuItem();
         opEjericio4 = new javax.swing.JMenuItem();
+        opEjercicio5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -159,6 +161,14 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu4.add(opEjericio4);
 
+        opEjercicio5.setText("Ejercicio5");
+        opEjercicio5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opEjercicio5ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(opEjercicio5);
+
         jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
@@ -188,19 +198,19 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_opLEstaticoActionPerformed
 
     private void opFichaVehicularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opFichaVehicularActionPerformed
-        FichaVehicular ventanaLE=new FichaVehicular();
+        FichaVehicular ventanaLE = new FichaVehicular();
         escritorio.add(ventanaLE);
         ventanaLE.show();
     }//GEN-LAST:event_opFichaVehicularActionPerformed
 
     private void opLDinamicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicasActionPerformed
-        ListasDinamicas ld=new ListasDinamicas();
+        ListasDinamicas ld = new ListasDinamicas();
         escritorio.add(ld);
         ld.show();
     }//GEN-LAST:event_opLDinamicasActionPerformed
 
     private void opDTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDTableActionPerformed
-        LDTable ldtable=new LDTable();
+        LDTable ldtable = new LDTable();
         escritorio.add(ldtable);
         ldtable.show();
     }//GEN-LAST:event_opDTableActionPerformed
@@ -211,31 +221,38 @@ public class Menu extends javax.swing.JFrame {
 
     private void opEjercicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio1ActionPerformed
         // TODO add your handling code here:
-        Ejercicio1 eje1=new Ejercicio1();
+        Ejercicio1 eje1 = new Ejercicio1();
         escritorio.add(eje1);
         eje1.show();
     }//GEN-LAST:event_opEjercicio1ActionPerformed
 
     private void opEjercicio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio2ActionPerformed
         // TODO add your handling code here:
-        Ejercicio2 eje2=new Ejercicio2();
+        Ejercicio2 eje2 = new Ejercicio2();
         escritorio.add(eje2);
         eje2.show();
     }//GEN-LAST:event_opEjercicio2ActionPerformed
 
     private void opEjercicio3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio3ActionPerformed
         // TODO add your handling code here:
-       Ejercicio3 eje3=new Ejercicio3();
-       escritorio.add(eje3);
-       eje3.show();
+        Ejercicio3 eje3 = new Ejercicio3();
+        escritorio.add(eje3);
+        eje3.show();
     }//GEN-LAST:event_opEjercicio3ActionPerformed
 
     private void opEjericio4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjericio4ActionPerformed
         // TODO add your handling code here:
-        Ejercicio4 eje4=new Ejercicio4();
-       escritorio.add(eje4);
-       eje4.show();
+        Ejercicio4 eje4 = new Ejercicio4();
+        escritorio.add(eje4);
+        eje4.show();
     }//GEN-LAST:event_opEjericio4ActionPerformed
+
+    private void opEjercicio5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio5ActionPerformed
+        // TODO add your handling code here:
+        Ejercicio5 eje5 = new Ejercicio5();
+        escritorio.add(eje5);
+        eje5.show();
+    }//GEN-LAST:event_opEjercicio5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,6 +303,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem opEjercicio1;
     private javax.swing.JMenuItem opEjercicio2;
     private javax.swing.JMenuItem opEjercicio3;
+    private javax.swing.JMenuItem opEjercicio5;
     private javax.swing.JMenuItem opEjericio4;
     private javax.swing.JMenuItem opFichaVehicular;
     private javax.swing.JMenuItem opLDinamicas;
