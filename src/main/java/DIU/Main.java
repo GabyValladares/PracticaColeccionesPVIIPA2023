@@ -6,13 +6,12 @@ package DIU;
 
 /**
  *
- * @author 59398
+ * @author Usuario
  */
-
 public class Main {
     public static void main(String[] args) {
-        menu menu = new menu();
+        Menu menu=new Menu();
         menu.setVisible(true);
     }
+    
 }
-
