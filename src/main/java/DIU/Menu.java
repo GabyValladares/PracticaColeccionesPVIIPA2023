@@ -11,6 +11,10 @@ import DIU.Vista.Ejercicio2;
 import DIU.Vista.Ejercicio1;
 import DIU.Vista.Ejercicio3;
 import DIU.Vista.Ejercicio4;
+import DIU.Vista.Ejercicio5;
+import DIU.Vista.Ejercicio6;
+import DIU.Vista.Ejercicio7;
+import DIU.Vista.Ejercicio8;
 
 /**
  *
@@ -50,6 +54,10 @@ public class Menu extends javax.swing.JFrame {
         E2 = new javax.swing.JMenuItem();
         E3 = new javax.swing.JMenuItem();
         E4 = new javax.swing.JMenuItem();
+        E5 = new javax.swing.JMenuItem();
+        E6 = new javax.swing.JMenuItem();
+        E7 = new javax.swing.JMenuItem();
+        E8 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -159,6 +167,42 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu3.add(E4);
 
+        E5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        E5.setText("Ejercicio5");
+        E5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                E5ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(E5);
+
+        E6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        E6.setText("Ejercicio6");
+        E6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                E6ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(E6);
+
+        E7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        E7.setText("Ejercicio7");
+        E7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                E7ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(E7);
+
+        E8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        E8.setText("Ejercicio8");
+        E8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                E8ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(E8);
+
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -248,6 +292,34 @@ public class Menu extends javax.swing.JFrame {
         E4.show();
     }//GEN-LAST:event_E4ActionPerformed
 
+    private void E5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E5ActionPerformed
+        // TODO add your handling code here:
+        Ejercicio5 E5=new Ejercicio5();
+        escritorio.add(E5);
+        E5.show();
+    }//GEN-LAST:event_E5ActionPerformed
+
+    private void E6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E6ActionPerformed
+        // TODO add your handling code here:
+        Ejercicio6 E6=new Ejercicio6();
+        escritorio.add(E6);
+        E6.show();
+    }//GEN-LAST:event_E6ActionPerformed
+
+    private void E7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E7ActionPerformed
+        // TODO add your handling code here:
+       Ejercicio7 E7= new Ejercicio7();
+        escritorio.add(E7);
+        E7.show();
+    }//GEN-LAST:event_E7ActionPerformed
+
+    private void E8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E8ActionPerformed
+        // TODO add your handling code here:
+        Ejercicio8 E8=new Ejercicio8();
+        escritorio.add(E8);
+        E8.show();
+    }//GEN-LAST:event_E8ActionPerformed
+
     public void ejecutarReporte(){
         ReporteValorPa reporte=new ReporteValorPa();
         escritorio.add(reporte);
@@ -295,6 +367,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem E2;
     private javax.swing.JMenuItem E3;
     private javax.swing.JMenuItem E4;
+    private javax.swing.JMenuItem E5;
+    private javax.swing.JMenuItem E6;
+    private javax.swing.JMenuItem E7;
+    private javax.swing.JMenuItem E8;
     private javax.swing.JMenuItem MenuItemManejo;
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
