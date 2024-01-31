@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author carlo
+ * @author  Leo
  */
 public class EArraylist2 extends javax.swing.JInternalFrame {
 

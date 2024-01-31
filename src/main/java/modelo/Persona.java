@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author carlo
+ * @author  Leo
  */
 public class Persona {
     private String nombre;

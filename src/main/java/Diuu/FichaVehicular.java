@@ -15,7 +15,7 @@ import modelo.Vehiculo;
 
 /**
  *
- * @author carlo
+ * @author  Leo
  */
 public class FichaVehicular extends javax.swing.JInternalFrame {
 

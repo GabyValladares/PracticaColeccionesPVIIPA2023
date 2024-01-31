@@ -12,7 +12,7 @@ import modelo.Persona;
 
 /**
  *
- * @author carlo
+ * @author  Leo
  */
 public class PracticaArraylist extends javax.swing.JInternalFrame {
     DefaultTableModel modelo = new DefaultTableModel();

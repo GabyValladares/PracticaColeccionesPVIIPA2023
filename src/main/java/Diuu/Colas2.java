@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author carlo
+ * @author  Leo
  */
 public class Colas2 extends javax.swing.JInternalFrame {
 

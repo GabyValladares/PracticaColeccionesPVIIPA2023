@@ -8,7 +8,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author carlo
+ * @author  Leo
  */
 public class ListasEstaticas2 extends javax.swing.JInternalFrame {
 

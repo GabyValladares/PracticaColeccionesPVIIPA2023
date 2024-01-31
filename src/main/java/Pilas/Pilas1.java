@@ -8,7 +8,7 @@ import java.util.Stack;
 
 /**
  *
- * @author carlo
+ * @author  Leo
  */
 public class Pilas1 extends javax.swing.JInternalFrame {
 

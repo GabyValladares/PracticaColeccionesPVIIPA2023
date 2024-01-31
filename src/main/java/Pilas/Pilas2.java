@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author carlo
+ * @author  Leo
  */
 public class Pilas2 extends javax.swing.JInternalFrame {
     private Stack<Integer> torre1, torre2, torre3;

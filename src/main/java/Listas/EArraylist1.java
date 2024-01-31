@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author carlo
+ * @author  Leo
  */
 public class EArraylist1 extends javax.swing.JInternalFrame {
 

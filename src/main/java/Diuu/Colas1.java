@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author carlo
+ * @author Leo
  */
 public class Colas1 extends javax.swing.JInternalFrame {
     private Queue<Integer> cola1 = new LinkedList<>();

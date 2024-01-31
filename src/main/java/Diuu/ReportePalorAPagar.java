@@ -10,7 +10,7 @@ import modelo.Vehiculo;
 
 /**
  *
- * @author carlo
+ * @author  Leo
  */
 public class ReportePalorAPagar extends javax.swing.JInternalFrame {
 
