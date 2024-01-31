@@ -4,11 +4,9 @@
  */
 package DIU;
 
+import DIU.modelo.Numeros1;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,10 +15,64 @@ import java.util.Map;
 public class ListasDinamicas3 extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form ListasEstaticas
+     * Creates new form ListasDinamicas4
      */
+    public String numero;
+    
+    DefaultTableModel modelo = new DefaultTableModel();
+    ArrayList<Numeros1> listaValores = new ArrayList<>();
+    
     public ListasDinamicas3() {
         initComponents();
+        setModelo();
+    }
+    
+    public void setModelo() {
+        String[] cabecera = {"Número de valores leídos", "Suma de los valores", "Promedio de los valores","Valores mayores que el promedio"};
+        modelo.setColumnIdentifiers(cabecera);
+        tblValores.setModel(modelo);
+
+    }
+    public void llenarTabla() {
+        String numeroStr = txtNumero.getText();
+        int numero = Integer.parseInt(numeroStr);
+
+        if (numero == -99) {
+            setDatos();
+        } else {
+            Numeros1 valor = new Numeros1(numero);
+            listaValores.add(valor);
+            txtNumero.setText("");
+        }
+        
+    }
+
+    
+    private void setDatos() {
+        // Calcular suma y promedio
+        int cantidad = listaValores.size();
+        int suma = 0;
+        for (Numeros1 num : listaValores) {
+            suma += num.getNumero();
+        }
+        double promedio = cantidad > 0 ? (double) suma / cantidad : 0;
+
+        // Calcular valores mayores que el promedio
+        ArrayList<Integer> valoresMayores = new ArrayList<>();
+        for (Numeros1 num : listaValores) {
+            if (num.getNumero() > promedio) {
+                valoresMayores.add(num.getNumero());
+            }
+        }
+
+        // ESTRUCTURA INFORMACIÓN TABLA
+        Object[] informacion = new Object[modelo.getColumnCount()];
+        informacion[0] = cantidad;
+        informacion[1] = suma;
+        informacion[2] = promedio;
+        informacion[3] = valoresMayores;
+
+        modelo.addRow(informacion);
     }
 
     /**
@@ -32,53 +84,39 @@ public class ListasDinamicas3 extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtTamanio = new javax.swing.JTextField();
         lblTitulo = new javax.swing.JLabel();
-        lblTamanio = new javax.swing.JLabel();
-        lblPalabra = new javax.swing.JLabel();
+        lblIngreseNumeros = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtAListaPalabra = new javax.swing.JTextArea();
-        lblBucarPalabra = new javax.swing.JLabel();
-        lblNumeroVeces = new javax.swing.JLabel();
-        txtPalabraBuscar = new javax.swing.JTextField();
-        lblResultadoNmrPalabra = new javax.swing.JLabel();
-        btnBuscarPalabra = new javax.swing.JButton();
+        tblValores = new javax.swing.JTable();
+        txtNumero = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("EJERCICIOS CON ARRAYS []");
+        setTitle("LISTAS DINÁMICAS EJERCICIO 4");
+        setToolTipText("");
 
-        txtTamanio.setBackground(new java.awt.Color(204, 255, 204));
-        txtTamanio.setForeground(new java.awt.Color(0, 0, 0));
+        lblTitulo.setText("ArrayList");
 
-        lblTitulo.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(0, 204, 102));
-        lblTitulo.setText("Practica Lista Dinámicas");
+        lblIngreseNumeros.setText("Ingrese números enteros ingrese (-99) si desea terminar: ");
 
-        lblTamanio.setForeground(new java.awt.Color(0, 0, 0));
-        lblTamanio.setText("Ingrese el tamaño:");
+        tblValores.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblValores);
 
-        lblPalabra.setForeground(new java.awt.Color(0, 0, 0));
-        lblPalabra.setText("Ingrse la lista de palabras:");
-
-        txtAListaPalabra.setBackground(new java.awt.Color(204, 255, 204));
-        txtAListaPalabra.setColumns(20);
-        txtAListaPalabra.setForeground(new java.awt.Color(0, 0, 0));
-        txtAListaPalabra.setRows(5);
-        jScrollPane1.setViewportView(txtAListaPalabra);
-
-        lblBucarPalabra.setText("Ingrese una palabra de la lista:");
-
-        lblNumeroVeces.setText("Número de veces que aparece la palabra:");
-
-        btnBuscarPalabra.setBackground(new java.awt.Color(204, 102, 0));
-        btnBuscarPalabra.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscarPalabra.setText("Buscar");
-        btnBuscarPalabra.addActionListener(new java.awt.event.ActionListener() {
+        txtNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarPalabraActionPerformed(evt);
+                txtNumeroActionPerformed(evt);
             }
         });
 
@@ -87,107 +125,47 @@ public class ListasDinamicas3 extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(519, Short.MAX_VALUE)
                 .addComponent(lblTitulo)
-                .addGap(168, 168, 168))
+                .addGap(492, 492, 492))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(lblTamanio)
-                                .addGap(39, 39, 39))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lblPalabra)
-                                .addGap(23, 23, 23)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(txtTamanio, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblNumeroVeces)
-                                .addGap(27, 27, 27)
-                                .addComponent(lblResultadoNmrPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblBucarPalabra)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnBuscarPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPalabraBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addGap(119, 119, 119)
+                .addComponent(lblIngreseNumeros)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(lblTitulo)
-                .addGap(26, 26, 26)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTamanio)
-                    .addComponent(txtTamanio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(lblPalabra)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblBucarPalabra)
-                    .addComponent(txtPalabraBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnBuscarPalabra)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNumeroVeces)
-                    .addComponent(lblResultadoNmrPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(62, Short.MAX_VALUE))
+                    .addComponent(lblIngreseNumeros)
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBuscarPalabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPalabraActionPerformed
+    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
         // TODO add your handling code here:
-         // Obtener el tamaño de la lista desde txtTamanio
-    int cantidadPalabras = Integer.parseInt(txtTamanio.getText());
-
-    // Obtener la lista de palabras desde txtAListaPalabra
-    String[] palabrasArray = txtAListaPalabra.getText().split("\\s+"); // Dividir la cadena en palabras
-    List<String> listaPalabras = new ArrayList<>(Arrays.asList(palabrasArray));
-
-    // Crear un mapa para contar la frecuencia de cada palabra
-    Map<String, Integer> frecuenciaPalabras = new HashMap<>();
-    for (String palabra : listaPalabras) {
-        frecuenciaPalabras.put(palabra, frecuenciaPalabras.getOrDefault(palabra, 0) + 1);
-    }
-
-    // Obtener la palabra a buscar desde txtPalabraBuscar
-    String palabraBuscada = txtPalabraBuscar.getText();
-
-    // Mostrar la frecuencia en lblResultadoNmrPalabra
-    int frecuencia = frecuenciaPalabras.getOrDefault(palabraBuscada, 0);
-    lblResultadoNmrPalabra.setText(String.valueOf(frecuencia));
-    }//GEN-LAST:event_btnBuscarPalabraActionPerformed
+        this.llenarTabla();
+    }//GEN-LAST:event_txtNumeroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscarPalabra;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblBucarPalabra;
-    private javax.swing.JLabel lblNumeroVeces;
-    private javax.swing.JLabel lblPalabra;
-    private javax.swing.JLabel lblResultadoNmrPalabra;
-    private javax.swing.JLabel lblTamanio;
+    private javax.swing.JLabel lblIngreseNumeros;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JTextArea txtAListaPalabra;
-    private javax.swing.JTextField txtPalabraBuscar;
-    private javax.swing.JTextField txtTamanio;
+    private javax.swing.JTable tblValores;
+    private javax.swing.JTextField txtNumero;
     // End of variables declaration//GEN-END:variables
 }

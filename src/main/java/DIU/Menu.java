@@ -4,6 +4,8 @@
  */
 package DIU;
 
+import DIU.vista.ListasDinámicasTabla;
+
 /**
  *
  * @author Usuario
@@ -32,13 +34,19 @@ public class Menu extends javax.swing.JFrame {
         opLEstatico1 = new javax.swing.JMenuItem();
         opLEstatico2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        opLDinamicas = new javax.swing.JMenuItem();
+        opLDinamicasPractica = new javax.swing.JMenuItem();
+        opDtable = new javax.swing.JMenuItem();
+        opLDinamicas3 = new javax.swing.JMenuItem();
+        opLDinamicas4 = new javax.swing.JMenuItem();
         menuArboles = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
+        oplColas7 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
-        oplPila = new javax.swing.JMenuItem();
+        oplPila5 = new javax.swing.JMenuItem();
+        oplPila6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,7 +58,7 @@ public class Menu extends javax.swing.JFrame {
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 564, Short.MAX_VALUE)
+            .addGap(0, 618, Short.MAX_VALUE)
         );
 
         menuListas.setText("Listas Estaticas");
@@ -77,14 +85,38 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu3.setText("Listas Dinámicas");
 
-        opLDinamicas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        opLDinamicas.setText("Ejercicio 3");
-        opLDinamicas.addActionListener(new java.awt.event.ActionListener() {
+        opLDinamicasPractica.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        opLDinamicasPractica.setText("Practica Listas");
+        opLDinamicasPractica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opLDinamicasActionPerformed(evt);
+                opLDinamicasPracticaActionPerformed(evt);
             }
         });
-        jMenu3.add(opLDinamicas);
+        jMenu3.add(opLDinamicasPractica);
+
+        opDtable.setText("Listas/Table");
+        opDtable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opDtableActionPerformed(evt);
+            }
+        });
+        jMenu3.add(opDtable);
+
+        opLDinamicas3.setText("Listas Dinámicas 3");
+        opLDinamicas3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opLDinamicas3ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(opLDinamicas3);
+
+        opLDinamicas4.setText("Listas Dinámicas 4");
+        opLDinamicas4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opLDinamicas4ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(opLDinamicas4);
 
         jMenuBar1.add(jMenu3);
 
@@ -92,6 +124,23 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(menuArboles);
 
         jMenu1.setText("Colas");
+
+        oplColas7.setText("Colas7");
+        oplColas7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oplColas7ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(oplColas7);
+
+        jMenuItem2.setText("Colas 8");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Ficha Vehicular");
@@ -113,14 +162,22 @@ public class Menu extends javax.swing.JFrame {
 
         menuPilas.setText("Pilas");
 
-        oplPila.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        oplPila.setText("Pilas");
-        oplPila.addActionListener(new java.awt.event.ActionListener() {
+        oplPila5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        oplPila5.setText("Pilas 5");
+        oplPila5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                oplPilaActionPerformed(evt);
+                oplPila5ActionPerformed(evt);
             }
         });
-        menuPilas.add(oplPila);
+        menuPilas.add(oplPila5);
+
+        oplPila6.setText("Pilas 6");
+        oplPila6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oplPila6ActionPerformed(evt);
+            }
+        });
+        menuPilas.add(oplPila6);
 
         jMenuBar1.add(menuPilas);
 
@@ -138,8 +195,8 @@ public class Menu extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(escritorio)
+                .addContainerGap())
         );
 
         pack();
@@ -167,12 +224,12 @@ public class Menu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void oplPilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oplPilaActionPerformed
+    private void oplPila5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oplPila5ActionPerformed
         // TODO add your handling code here:
-        Pilas ventanaPls = new Pilas();
-        escritorio.add(ventanaPls);
-        ventanaPls.show();
-    }//GEN-LAST:event_oplPilaActionPerformed
+        Pilas5 ejercicio5 = new Pilas5();
+        escritorio.add(ejercicio5);
+        ejercicio5.show();
+    }//GEN-LAST:event_oplPila5ActionPerformed
 
     private void opLEstatico2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLEstatico2ActionPerformed
         // TODO add your handling code here:
@@ -181,17 +238,65 @@ public class Menu extends javax.swing.JFrame {
         ventanaLE2.show();
     }//GEN-LAST:event_opLEstatico2ActionPerformed
 
-    private void opLDinamicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicasActionPerformed
+    private void opLDinamicasPracticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicasPracticaActionPerformed
         // TODO add your handling code here:
-        ListasDinamicas3 ventanaLD = new ListasDinamicas3();
+        PracticaListasDinamicas ventanaLD = new PracticaListasDinamicas();
         escritorio.add(ventanaLD);
         ventanaLD.show();
-    }//GEN-LAST:event_opLDinamicasActionPerformed
+    }//GEN-LAST:event_opLDinamicasPracticaActionPerformed
+
+    private void opDtableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDtableActionPerformed
+        // TODO add your handling code here:
+        ListasDinámicasTabla ldTable = new ListasDinámicasTabla();
+        escritorio.add(ldTable);
+        ldTable.show();
+    }//GEN-LAST:event_opDtableActionPerformed
+
+    private void opLDinamicas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicas3ActionPerformed
+        // TODO add your handling code here:
+        ListasDinamicas3 ejercicio3 = new ListasDinamicas3();
+        escritorio.add(ejercicio3);
+        ejercicio3.show();
+    }//GEN-LAST:event_opLDinamicas3ActionPerformed
+
+    private void oplPila6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oplPila6ActionPerformed
+        // TODO add your handling code here:
+        Pilas6 ejercicio6 = new Pilas6();
+        escritorio.add(ejercicio6);
+        ejercicio6.show();
+    }//GEN-LAST:event_oplPila6ActionPerformed
+
+    private void oplColas7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oplColas7ActionPerformed
+        // TODO add your handling code here:
+        Colas7 ejercicio7 = new Colas7();
+        escritorio.add(ejercicio7);
+        ejercicio7.show();
+    }//GEN-LAST:event_oplColas7ActionPerformed
+
+    private void opLDinamicas4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicas4ActionPerformed
+        // TODO add your handling code here:
+        FormularioFutbol ejercicio4 = new FormularioFutbol();
+        escritorio.add(ejercicio4);
+        ejercicio4.show();
+    }//GEN-LAST:event_opLDinamicas4ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        SistemaAtencionClientes ejercicio8 = new SistemaAtencionClientes();
+        escritorio.add(ejercicio8);
+        ejercicio8.show();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     public void ejecutarReporte() {
         ReporteValorPagar reporte = new ReporteValorPagar();
         escritorio.add(reporte);
         reporte.show();
+    }
+    
+    public void ejecutarJugadores() {
+        FiltrarJugadores jugador = new FiltrarJugadores();
+        escritorio.add(jugador);
+        jugador.show();
     }
 
     /**
@@ -236,12 +341,18 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;
-    private javax.swing.JMenuItem opLDinamicas;
+    private javax.swing.JMenuItem opDtable;
+    private javax.swing.JMenuItem opLDinamicas3;
+    private javax.swing.JMenuItem opLDinamicas4;
+    private javax.swing.JMenuItem opLDinamicasPractica;
     private javax.swing.JMenuItem opLEstatico1;
     private javax.swing.JMenuItem opLEstatico2;
-    private javax.swing.JMenuItem oplPila;
+    private javax.swing.JMenuItem oplColas7;
+    private javax.swing.JMenuItem oplPila5;
+    private javax.swing.JMenuItem oplPila6;
     // End of variables declaration//GEN-END:variables
 }

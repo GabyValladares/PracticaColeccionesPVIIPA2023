@@ -4,8 +4,10 @@
  */
 package DIU;
 
-
+import DIU.modelo.Numeros1;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,11 +18,90 @@ import javax.swing.table.DefaultTableModel;
 public class ListasEstaticas1 extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form ListasEstaticas
+     * Creates new form ListasEstaticas1
      */
+    public String numero;
+    DefaultTableModel modelo = new DefaultTableModel();
+    DefaultTableModel modelo2 = new DefaultTableModel();
+    ArrayList<Numeros1> listaNumeros = new ArrayList<>();
+
     public ListasEstaticas1() {
         initComponents();
         setModelo();
+    }
+
+    public void setModelo() {
+        String[] cabecera = {"Valor 1", "Valor 2", "Valor 3", "Valor 4", "Valor 5",
+            "Valor 6", "Valor 7", "Valor 8", "Valor 9", "Valor 10"};
+        modelo.setColumnIdentifiers(cabecera);
+        tblNumeros1.setModel(modelo);
+
+    }
+
+    public void llenarTabla() {
+        String numero = txtNumeros.getText();
+
+        if (listaNumeros.size() < 10) {
+            Numeros1 numeros = new Numeros1(Integer.parseInt(numero));
+            listaNumeros.add(numeros);
+
+            txtNumeros.setText("");
+        } else {
+            // Mostrar un mensaje de error si se intenta ingresar más de 10 números
+            JOptionPane.showMessageDialog(rootPane, "Ya has ingresado 10 números. No se pueden ingresar más.");
+        }
+    }
+
+    public void setDatos() {
+        // ESTRUCTURA DE INFORMACIÓN PARA tblNumeros1
+        Object[] lista = new Object[modelo.getColumnCount()];
+
+        for (int i = 0; i < 10; i++) {
+            lista[i] = listaNumeros.get(i).getNumero();
+        }
+
+        modelo.addRow(lista);
+        tblNumeros1.setModel(modelo);
+
+        // Invertir la lista de números antes de agregarla a tblNumeros2
+        Collections.reverse(listaNumeros);
+
+        // Obtener los nombres de las columnas del modelo original
+        Vector<String> nombresColumnas = new Vector<>();
+        for (int i = 0; i < modelo.getColumnCount(); i++) {
+            nombresColumnas.add(modelo.getColumnName(i));
+        }
+
+        // Configurar los nombres de las columnas en modelo2
+        modelo2.setColumnIdentifiers(nombresColumnas);
+        modelo2.addRow(listaNumeros.stream().map(Numeros1::getNumero).toArray());
+        tblNumeros2.setModel(modelo2);
+    }
+
+    private void encontrarMayorMenor() {
+        // Verificar si hay al menos un número en la lista
+        if (listaNumeros.size() > 0) {
+            // Encontrar el número mayor y menor
+            int mayor = listaNumeros.get(0).getNumero();
+            int menor = listaNumeros.get(0).getNumero();
+
+            for (int i = 0; i < listaNumeros.size(); i++) {
+                // Suponiendo que la clase Numeros1 tiene un método getNumero()
+                int numeroActual = listaNumeros.get(i).getNumero();
+
+                if (numeroActual > mayor) {
+                    mayor = numeroActual;
+                }
+
+                if (numeroActual < menor) {
+                    menor = numeroActual;
+                }
+            }
+
+            // Mostrar los resultados en las etiquetas
+            lblResultadoMayor.setText(String.valueOf(mayor));
+            lblResultadoMenor.setText(String.valueOf(menor));
+        }
     }
 
     /**
@@ -32,30 +113,26 @@ public class ListasEstaticas1 extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtNumeros = new javax.swing.JTextField();
         lblTitulo = new javax.swing.JLabel();
         lblNumeros = new javax.swing.JLabel();
-        btnGenerar = new javax.swing.JButton();
         lblMayor = new javax.swing.JLabel();
         lblMenor = new javax.swing.JLabel();
         lblResultadoMayor = new javax.swing.JLabel();
         lblResultadoMenor = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblListas = new javax.swing.JTable();
+        tblNumeros1 = new javax.swing.JTable();
+        txtNumeros = new javax.swing.JTextField();
+        btnGenerarLista = new javax.swing.JButton();
+        lblLista1 = new javax.swing.JLabel();
+        lblLista2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblNumeros2 = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("EJERCICIOS CON ARRAYS []");
-
-        txtNumeros.setBackground(new java.awt.Color(204, 255, 204));
-        txtNumeros.setForeground(new java.awt.Color(0, 0, 0));
-        txtNumeros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNumerosActionPerformed(evt);
-            }
-        });
+        setTitle("LISTAS ESTATICAS EJERCICIO 1");
 
         lblTitulo.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(0, 204, 102));
@@ -64,162 +141,152 @@ public class ListasEstaticas1 extends javax.swing.JInternalFrame {
         lblNumeros.setForeground(new java.awt.Color(0, 0, 0));
         lblNumeros.setText("Ingrese 10 números enteros por separado:");
 
-        btnGenerar.setBackground(new java.awt.Color(204, 102, 0));
-        btnGenerar.setForeground(new java.awt.Color(255, 255, 255));
-        btnGenerar.setText("Generar");
-        btnGenerar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGenerarActionPerformed(evt);
-            }
-        });
-
         lblMayor.setForeground(new java.awt.Color(0, 0, 0));
         lblMayor.setText("Número mayor:");
 
         lblMenor.setForeground(new java.awt.Color(0, 0, 0));
         lblMenor.setText("Número menor:");
 
-        tblListas.setModel(new javax.swing.table.DefaultTableModel(
+        tblNumeros1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {}
+                {null, null, null, null}
             },
             new String [] {
-
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblListas);
+        jScrollPane1.setViewportView(tblNumeros1);
+
+        txtNumeros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumerosActionPerformed(evt);
+            }
+        });
+
+        btnGenerarLista.setText("Generar");
+        btnGenerarLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarListaActionPerformed(evt);
+            }
+        });
+
+        lblLista1.setText("Lista 1:");
+
+        lblLista2.setText("Lista 2:");
+
+        tblNumeros2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblNumeros2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(247, Short.MAX_VALUE)
-                .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(275, 275, 275))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblMayor)
-                                .addComponent(lblMenor))
-                            .addComponent(lblNumeros))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblResultadoMayor, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblResultadoMenor, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(txtNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(262, 262, 262)
+                        .addGap(236, 236, 236)
                         .addComponent(lblTitulo))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblNumeros)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnGenerarLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtNumeros))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblMayor)
+                    .addComponent(lblMenor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblResultadoMayor, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblResultadoMenor, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lblLista2)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(82, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lblLista1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
                 .addComponent(lblTitulo)
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNumeros)
-                    .addComponent(txtNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGenerar)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblNumeros)
+                        .addComponent(txtNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblMayor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblResultadoMayor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblResultadoMayor, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblMenor)
                             .addComponent(lblResultadoMenor, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGenerarLista)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(lblLista1)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblLista2)
+                        .addGap(70, 70, 70))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    DefaultTableModel listas = new DefaultTableModel();
-    ArrayList<Integer> numeros = new ArrayList<>();
-    private void setModelo() {
-        String[] cabecera = {"Valor 1", "Valor 2", "Valor 3", "Valor 4", "Valor 5",
-            "Valor 6", "Valor 7", "Valor 8", "Valor 9", "Valor 10"};
-        listas.setColumnIdentifiers(cabecera);
-        tblListas.setModel(listas);
-        
-    }
 
-
-    private void setDatos() {
-         Object[] numerosOrdenados = new Object[10];
-    for (int i = 0; i < numeros.size(); i++) {
-        numerosOrdenados[i] = numeros.get(i);
-    }
-    listas.addRow(numerosOrdenados);
-
-    // Crear un array para guardar los números en orden inverso
-    Object[] numerosInversos = new Object[10];
-    for (int i = 0; i < numeros.size(); i++) {
-        numerosInversos[i] = numeros.get(numeros.size() - 1 - i);
-    }
-    listas.addRow(numerosInversos);
-    }
-    
-
-
-    private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
-        int max = numeros.get(0);
-    int min = numeros.get(0);
-    for (int numero : numeros) {
-        if (numero > max) {
-            max = numero;
-        }
-        if (numero < min) {
-            min = numero;
-        }
-    }
-    lblResultadoMayor.setText(Integer.toString(max));
-    lblResultadoMenor.setText(Integer.toString(min));
+    private void btnGenerarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarListaActionPerformed
+        // TODO add your handling code here:
+        encontrarMayorMenor();
         setDatos();
-    }//GEN-LAST:event_btnGenerarActionPerformed
+    }//GEN-LAST:event_btnGenerarListaActionPerformed
 
     private void txtNumerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumerosActionPerformed
-      if (numeros.size() >= 10) {
-        JOptionPane.showMessageDialog(this, "Ya no puedes ingresar más números. El límite es 10.");
-        return;
-    }
-    int numero = Integer.parseInt(txtNumeros.getText());
-    numeros.add(numero);
-    txtNumeros.setText("");
-    if (numeros.size() == 10) {
-        btnGenerar.setEnabled(true);
-    }
+        this.llenarTabla();
     }//GEN-LAST:event_txtNumerosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGenerar;
+    private javax.swing.JButton btnGenerarLista;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblLista1;
+    private javax.swing.JLabel lblLista2;
     private javax.swing.JLabel lblMayor;
     private javax.swing.JLabel lblMenor;
     private javax.swing.JLabel lblNumeros;
     private javax.swing.JLabel lblResultadoMayor;
     private javax.swing.JLabel lblResultadoMenor;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JTable tblListas;
+    private javax.swing.JTable tblNumeros1;
+    private javax.swing.JTable tblNumeros2;
     private javax.swing.JTextField txtNumeros;
     // End of variables declaration//GEN-END:variables
 }
