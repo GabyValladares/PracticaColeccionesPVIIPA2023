@@ -4,6 +4,7 @@
  */
 package DIU;
 
+import DIU.vistas.tablaVehiculo;
 import javax.swing.SwingUtilities;
 
 /**
@@ -52,6 +53,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         lblMultas = new javax.swing.JLabel();
         CheckBoxYes = new javax.swing.JCheckBox();
         CheckBoxNo = new javax.swing.JCheckBox();
+        btnVerTabla = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -111,6 +113,13 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
         CheckBoxNo.setText("No");
 
+        btnVerTabla.setText("Ver Tabla");
+        btnVerTabla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerTablaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,22 +147,6 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                             .addComponent(txtNumPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(55, 55, 55)
-                                    .addComponent(txtNumCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(105, 105, 105)
-                                    .addComponent(lblNumCedula))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(105, 105, 105)
-                                    .addComponent(jLabel6)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(130, 130, 130)
-                                .addComponent(lblMultas))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
@@ -169,7 +162,28 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                                         .addGap(138, 138, 138)
                                         .addComponent(rdtAutomovil)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rdtCamioneta))))
+                                .addComponent(rdtCamioneta))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(55, 55, 55)
+                                            .addComponent(txtNumCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(105, 105, 105)
+                                            .addComponent(lblNumCedula))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(105, 105, 105)
+                                            .addComponent(jLabel6)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(130, 130, 130)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnVerTabla)
+                                            .addComponent(lblMultas))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(111, 111, 111)
                         .addComponent(lblNumPlaca)
@@ -177,7 +191,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                         .addComponent(lblAnio)))
                 .addContainerGap(38, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(226, 226, 226)
+                .addGap(110, 110, 110)
                 .addComponent(btnVerFicha)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -223,7 +237,9 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                         .addComponent(CheckBoxYes)
                         .addComponent(CheckBoxNo)))
                 .addGap(47, 47, 47)
-                .addComponent(btnVerFicha)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVerFicha)
+                    .addComponent(btnVerTabla))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -269,6 +285,37 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         this.dispose();
         
     }//GEN-LAST:event_btnVerFichaActionPerformed
+
+    private void btnVerTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaActionPerformed
+        // TODO add your handling code here:
+        ReportedeValoraPagar reporte1 = new ReportedeValoraPagar();
+        reporte1.nombre = txtNombreP.getText();
+        reporte1.cedula = txtNumCedula.getText();
+        reporte1.placa = txtNumPlaca.getText();
+        reporte1.valorV = txtValor.getText();
+        reporte1.anio = txtAnio.getText();
+        reporte1.marca = (String)CBMarca.getSelectedItem();
+        
+        if(rdtAutomovil.isSelected()){
+            reporte1.tipo = "Automovil";  
+        }else if(rdtCamioneta.isSelected()){
+            reporte1.tipo = "Camioneta"; 
+        }else if(rdtJeep.isSelected()){
+            reporte1.tipo = "Jeep"; 
+        }
+        
+        
+        if(CheckBoxNo.isSelected()){
+            reporte1.multas = "No";
+        }else if(CheckBoxYes.isSelected()){
+            reporte1.multas = "Si";
+        }
+        
+        tablaVehiculo tvehiculo = new tablaVehiculo();
+        Menu.escritorio.add(tvehiculo);
+        tvehiculo.show();
+        this.dispose();
+    }//GEN-LAST:event_btnVerTablaActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -277,6 +324,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox CheckBoxYes;
     private javax.swing.JLabel blbNombreP;
     private javax.swing.JButton btnVerFicha;
+    private javax.swing.JButton btnVerTabla;
     private javax.swing.ButtonGroup buttonGroup;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lblAnio;

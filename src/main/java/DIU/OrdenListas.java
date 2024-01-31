@@ -15,7 +15,8 @@ public class OrdenListas extends javax.swing.JInternalFrame {
     
     DefaultTableModel tablaO = new DefaultTableModel();
     private int[] lista1 = {19, 2, 3, 1, 6, 5, 7, 92, 0, 4};
-    private int[] lista2 = new int[10];
+    //private int[] lista2 = new int[10];
+    private int[] lista2 = new int[lista1.length];
     /**
      * Creates new form OrdenListas
      */
@@ -136,7 +137,7 @@ public class OrdenListas extends javax.swing.JInternalFrame {
 
     private void btnOrdenListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenListaActionPerformed
         // TODO add your handling code here:
-        obtenerLista1();
+        //obtenerLista1();
         obtenerLista2();
     }//GEN-LAST:event_btnOrdenListaActionPerformed
 
@@ -182,10 +183,16 @@ public class OrdenListas extends javax.swing.JInternalFrame {
 
  private void obtenerLista2(){
      //tablaO.setRowCount(0);
-     for (int i = lista1.length - 1; i >= 0; i--) {
-        tablaO.addRow(new Object[]{lista1[i], null});
-        tablaO.setValueAt(lista1[i], lista1.length - 1 - i, 1);
-    }
+     for (int i = lista1.length - 1, j = 0; i >= 0; i--, j++) {
+         lista2[j] = lista1[i];
+     }
+     
+     for (int i = 0; i < lista2.length; i++) {
+        tablaO.addRow(new Object[]{lista1[i],lista2[i]});
+
+     }
+         
+    
   
  }
     

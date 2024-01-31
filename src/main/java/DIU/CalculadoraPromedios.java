@@ -4,17 +4,28 @@
  */
 package DIU;
 
+import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author USUARIO
  */
 public class CalculadoraPromedios extends javax.swing.JInternalFrame {
+    DefaultTableModel tablaCP = new DefaultTableModel();
+        private ArrayList<Integer> listaNumeros = new ArrayList<>();
 
     /**
      * Creates new form CalculadoraPromedios
      */
     public CalculadoraPromedios() {
         initComponents();
+        
+        String identficadores [] = {"Lista de Numeros","mayores a al promedio"};
+        
+        tablaCP.setColumnIdentifiers(identficadores);
+        tblaResultados.setModel(tablaCP);
     }
 
     /**
@@ -26,21 +37,158 @@ public class CalculadoraPromedios extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtnumeros = new javax.swing.JTextField();
+        lblInstruccion = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblaResultados = new javax.swing.JTable();
+        lblPromedio = new javax.swing.JLabel();
+        lblSuma = new javax.swing.JLabel();
+        btnLimpiarTabla = new javax.swing.JButton();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
+        txtnumeros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnumerosActionPerformed(evt);
+            }
+        });
+
+        lblInstruccion.setText("Ingresar la lista de numeros: ");
+
+        tblaResultados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblaResultados);
+
+        btnLimpiarTabla.setText("Limpiar Tabla");
+        btnLimpiarTabla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarTablaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblInstruccion)
+                                .addGap(32, 32, 32)
+                                .addComponent(txtnumeros, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                        .addComponent(btnLimpiarTabla)
+                        .addGap(22, 22, 22))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblPromedio, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblSuma, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblInstruccion)
+                    .addComponent(txtnumeros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpiarTabla))
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblPromedio, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                    .addComponent(lblSuma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtnumerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumerosActionPerformed
+        // TODO add your handling code here:
+        
+
+        try {
+            
+            int numero = Integer.parseInt(txtnumeros.getText());
+            txtnumeros.setText("");
+
+            if (numero != -99) {
+                listaNumeros.add(numero);
+                
+        int cantidadNumeros = listaNumeros.size();
+                   
+        int suma = 0;
+
+        for (int num : listaNumeros) {
+            suma += num;
+            
+        }
+        
+        tablaCP.addRow(new Object[]{numero});
+
+        double promedio = (double) suma / cantidadNumeros;
+
+        lblSuma.setText("Suma de los valores: " + suma);
+        lblPromedio.setText("Promedio de los valores: " + promedio);
+
+        int contadorMayoresQuePromedio = 0;
+
+        for (int num : listaNumeros) {
+
+            if (num > promedio) {
+                contadorMayoresQuePromedio++;
+                tablaCP.setValueAt("MP", contadorMayoresQuePromedio - 1, 1);
+            }
+
+        }
+            
+            
+            }
+            
+        }catch(NumberFormatException e){
+            lblInstruccion.setForeground(Color.RED);
+          lblInstruccion.setText("SOLO NUMEROS");
+          lblInstruccion.setForeground(Color.BLACK);
+          lblInstruccion.setText("Ingresar la lista de numeros: ");
+        }
+
+    
+
+
+    }//GEN-LAST:event_txtnumerosActionPerformed
+
+    private void btnLimpiarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarTablaActionPerformed
+        // TODO add your handling code here:
+        listaNumeros.clear();
+        tablaCP.setRowCount(0);
+    }//GEN-LAST:event_btnLimpiarTablaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLimpiarTabla;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblInstruccion;
+    private javax.swing.JLabel lblPromedio;
+    private javax.swing.JLabel lblSuma;
+    private javax.swing.JTable tblaResultados;
+    private javax.swing.JTextField txtnumeros;
     // End of variables declaration//GEN-END:variables
 }

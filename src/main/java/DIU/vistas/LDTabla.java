@@ -33,7 +33,7 @@ public class LDTabla extends javax.swing.JInternalFrame {
     
     public void llenarArrayList(){
         String nombre = txtNombres.getText();
-        Persona persona = new Persona (nombre);
+        Persona persona = new Persona();
         listaNombres.add(persona);
         
     }

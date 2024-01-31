@@ -4,17 +4,27 @@
  */
 package DIU;
 
+import java.util.Stack;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author USUARIO
  */
 public class CadenaInvertida extends javax.swing.JInternalFrame {
+    DefaultTableModel tablaCI = new DefaultTableModel();
 
+    Stack<Character> pila = new Stack<>();
+    
     /**
      * Creates new form CadenaInvertida
      */
     public CadenaInvertida() {
         initComponents();
+        String identficadores [] = {"Texto Original","Texto Invertido"};
+        
+        tablaCI.setColumnIdentifiers(identficadores);
+        tblaResultados.setModel(tablaCI);
     }
 
     /**
@@ -26,21 +36,100 @@ public class CadenaInvertida extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblInstrucciones = new javax.swing.JLabel();
+        txtCadena = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblaResultados = new javax.swing.JTable();
+        btnAñadir = new javax.swing.JButton();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
+        lblInstrucciones.setText("Ingresar un Texto:");
+
+        tblaResultados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblaResultados);
+
+        btnAñadir.setText("Añadir");
+        btnAñadir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAñadirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(lblInstrucciones)
+                .addGap(50, 50, 50)
+                .addComponent(txtCadena, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAñadir)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblInstrucciones)
+                    .addComponent(txtCadena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAñadir))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirActionPerformed
+        // TODO add your handling code here:
+        String cadena = txtCadena.getText();
+        txtCadena.setText("");
+        
+        for(char c : cadena.toCharArray()){
+          pila.push(c);
+        }
+        
+        StringBuilder invertida = new StringBuilder();
+        
+        while(!pila.isEmpty()){
+            invertida.append(pila.pop());
+ 
+        }
+        
+        //invertida.toString();
+        
+        tablaCI.addRow(new Object[]{cadena, invertida});
+        
+    }//GEN-LAST:event_btnAñadirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAñadir;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblInstrucciones;
+    private javax.swing.JTable tblaResultados;
+    private javax.swing.JTextField txtCadena;
     // End of variables declaration//GEN-END:variables
 }

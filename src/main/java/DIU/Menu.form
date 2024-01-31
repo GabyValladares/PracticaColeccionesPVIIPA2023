@@ -55,6 +55,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Torres de Hanoi"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opTorresHanoiActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -98,6 +101,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Calculadora de Promedios"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opCalcularPromediosActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="opFutbol">
               <Properties>
@@ -115,11 +121,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Suma de Numeros"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opSumaNumActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="opServicios">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Atencion de Servicios"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opServiciosActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

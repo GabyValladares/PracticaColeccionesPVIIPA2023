@@ -101,6 +101,11 @@ public class Menu extends javax.swing.JFrame {
         menuPilas.add(opCadenaInvertida);
 
         opTorresHanoi.setText("Torres de Hanoi");
+        opTorresHanoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opTorresHanoiActionPerformed(evt);
+            }
+        });
         menuPilas.add(opTorresHanoi);
 
         jMenuBar1.add(menuPilas);
@@ -132,6 +137,11 @@ public class Menu extends javax.swing.JFrame {
         menuArrayList.add(opConteoPalabras);
 
         opCalcularPromedios.setText("Calculadora de Promedios");
+        opCalcularPromedios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opCalcularPromediosActionPerformed(evt);
+            }
+        });
         menuArrayList.add(opCalcularPromedios);
 
         opFutbol.setText("Equipo de Futbol");
@@ -142,9 +152,19 @@ public class Menu extends javax.swing.JFrame {
         menuColas.setText("Colas");
 
         opSumaNum.setText("Suma de Numeros");
+        opSumaNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opSumaNumActionPerformed(evt);
+            }
+        });
         menuColas.add(opSumaNum);
 
         opServicios.setText("Atencion de Servicios");
+        opServicios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opServiciosActionPerformed(evt);
+            }
+        });
         menuColas.add(opServicios);
 
         jMenuBar1.add(menuColas);
@@ -186,6 +206,9 @@ public class Menu extends javax.swing.JFrame {
 
     private void opCadenaInvertidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opCadenaInvertidaActionPerformed
         // TODO add your handling code here:
+        CadenaInvertida ventanaCI = new CadenaInvertida();
+        escritorio.add(ventanaCI);
+        ventanaCI.show();
     }//GEN-LAST:event_opCadenaInvertidaActionPerformed
 
     private void opLDinamicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicaActionPerformed
@@ -209,6 +232,34 @@ public class Menu extends javax.swing.JFrame {
         tabla.show();
         
     }//GEN-LAST:event_oplTablaActionPerformed
+
+    private void opCalcularPromediosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opCalcularPromediosActionPerformed
+        // TODO add your handling code here:
+        CalculadoraPromedios ventanaCP = new CalculadoraPromedios();
+        escritorio.add(ventanaCP);
+        ventanaCP.show();
+    }//GEN-LAST:event_opCalcularPromediosActionPerformed
+
+    private void opTorresHanoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opTorresHanoiActionPerformed
+        // TODO add your handling code here:
+        TorresHanoi ventanaTH = new TorresHanoi();
+        escritorio.add(ventanaTH);
+        ventanaTH.show();
+    }//GEN-LAST:event_opTorresHanoiActionPerformed
+
+    private void opSumaNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opSumaNumActionPerformed
+        // TODO add your handling code here:
+        SumaNumeros ventanaSN = new SumaNumeros();
+        escritorio.add(ventanaSN);
+        ventanaSN.show();
+    }//GEN-LAST:event_opSumaNumActionPerformed
+
+    private void opServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opServiciosActionPerformed
+        // TODO add your handling code here:
+        AtencionServicios ventanaAS = new AtencionServicios();
+        escritorio.add(ventanaAS);
+        ventanaAS.show();
+    }//GEN-LAST:event_opServiciosActionPerformed
 
     public void ejecutarReporte(){
         ReportedeValoraPagar reporte = new ReportedeValoraPagar();

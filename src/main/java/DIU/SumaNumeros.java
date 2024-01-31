@@ -1,8 +1,13 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package DIU;
+
+import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.Queue;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,21 +31,134 @@ public class SumaNumeros extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblinstruccion1 = new javax.swing.JLabel();
+        lblInstruccion2 = new javax.swing.JLabel();
+        txtCola1 = new javax.swing.JTextField();
+        txtCola2 = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaResultados = new javax.swing.JTable();
+        btnCalcular = new javax.swing.JButton();
+
+        lblinstruccion1.setText("Ingrese los goles anotados de equipo Temporada 1");
+
+        lblInstruccion2.setText("Ingrese los goles anotados de equipo Temporada 2");
+
+        tablaResultados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tablaResultados);
+
+        btnCalcular.setText("Calcular");
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblinstruccion1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblInstruccion2)
+                        .addGap(469, 469, 469))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(290, 290, 290)
+                                .addComponent(btnCalcular))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(txtCola1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(133, 133, 133)
+                                .addComponent(txtCola2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblinstruccion1)
+                    .addComponent(lblInstruccion2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCola1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCola2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(btnCalcular)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+        // TODO add your handling code here:
+        try{
+        Queue<Integer> cola1 = new LinkedList<>();
+        Queue<Integer> cola2 = new LinkedList<>();
+        Queue<Integer> resultado = new LinkedList<>();
+        
+        int valor1 = Integer.parseInt(txtCola1.getText());
+        txtCola1.setText("");
+        int valor2 = Integer.parseInt(txtCola2.getText());
+        txtCola2.setText("");
+        
+        cola1.offer(valor1);
+        cola2.offer(valor2);
+                
+        mostarTablas(cola1, cola2, resultado, tablaResultados);
+        
+        }catch(NumberFormatException e){
+           System.err.println("Error: Ingresa números enteros"); 
+        }
+    }//GEN-LAST:event_btnCalcularActionPerformed
+    
+    private void mostarTablas(Queue<Integer> cola1, Queue<Integer> cola2, Queue<Integer> resultado, javax.swing.JTable tabla){
+       DefaultTableModel modeloResultado = (DefaultTableModel) tablaResultados.getModel();
+       String identficadores [] = {"Fecha del Juego","Primera Tiempo", "Segunda Tiempo", "Resultado de goles"};
+       modeloResultado.setColumnIdentifiers(identficadores);
+        modeloResultado.setRowCount(0);
+        
+         LocalDate fechaActual = LocalDate.now();
+        
+        int fila = 0;
 
+        if (!cola1.isEmpty() && !cola2.isEmpty()) {
+             int valor1 = cola1.poll();
+        int valor2 = cola2.poll();
+        int suma = valor1 + valor2;
+        modeloResultado.insertRow(fila++,new Object[]{fechaActual, valor1, valor2, suma});
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCalcular;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblInstruccion2;
+    private javax.swing.JLabel lblinstruccion1;
+    private javax.swing.JTable tablaResultados;
+    private javax.swing.JTextField txtCola1;
+    private javax.swing.JTextField txtCola2;
     // End of variables declaration//GEN-END:variables
 }
