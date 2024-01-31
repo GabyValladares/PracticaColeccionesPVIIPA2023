@@ -2,23 +2,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package DIU;
+package DIU.Vista;
 
 import DIU.Modelo.Persona;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author jefe
  */
-public class ListasDinamicas extends javax.swing.JInternalFrame {
+public class ListasDinamicas2 extends javax.swing.JInternalFrame {
 
-    
-     ArrayList <Persona> ListaNombres= new ArrayList<>();
-    
-    
-     public ListasDinamicas() {
+    /**
+     * 
+     * Creates new form ListasDinamicas2
+     */
+    public ListasDinamicas2() {
         initComponents();
+        Tablamodelo();
     }
 
     /**
@@ -33,7 +35,7 @@ public class ListasDinamicas extends javax.swing.JInternalFrame {
         lblIngresar = new javax.swing.JLabel();
         TxtIngresar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TxtAresultado = new javax.swing.JTextArea();
+        TblIngresarlista = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -47,9 +49,7 @@ public class ListasDinamicas extends javax.swing.JInternalFrame {
 
         lblIngresar.setText("Ingresar Nombres ");
 
-        TxtAresultado.setColumns(20);
-        TxtAresultado.setRows(5);
-        jScrollPane1.setViewportView(TxtAresultado);
+        jScrollPane1.setViewportView(TblIngresarlista);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -58,49 +58,68 @@ public class ListasDinamicas extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
+                        .addGap(75, 75, 75)
                         .addComponent(lblIngresar)
-                        .addGap(66, 66, 66)
+                        .addGap(178, 178, 178)
                         .addComponent(TxtIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(96, Short.MAX_VALUE))
+                        .addGap(201, 201, 201)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(377, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(88, 88, 88)
+                .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIngresar)
-                    .addComponent(TxtIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                    .addComponent(TxtIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIngresar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+ArrayList<Persona> listanombre = new ArrayList<>();
+DefaultTableModel modelo = new DefaultTableModel();
+
+public void Tablamodelo() {
+    String[] cabecera = {"N°", "Nombres"};
+    modelo.setColumnIdentifiers(cabecera);
+    TblIngresarlista.setModel(modelo);
+}
+
+public void llenarArrayList(){
+String nombre=TxtIngresar.getText();
+Persona persona= new Persona(nombre);
+listanombre.add(persona);
+
+}
+
+public void setDatos(){
+Object[]informacion=new Object[modelo.getColumnCount()];
+int contador=1;
+modelo.setNumRows(0);
+for (Persona perona : listanombre){
+informacion[0]=contador;
+informacion[1]=perona.getNombre();
+contador++;
+modelo.addRow(informacion);
+}
+TblIngresarlista.setModel(modelo);
+}
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        // TODO add your handling code here:
-     String nombre= TxtIngresar.getText();
-     //Instancia del objeto Persona
-     Persona persona=new Persona();
-     persona.setNombre(nombre);
-     ListaNombres.add(persona);
-     TxtIngresar.setText("");
-     TxtAresultado.setText("");
-
-     for (Persona ListaPersona : ListaNombres) {
-        TxtAresultado.append(ListaPersona.getNombre()+ "\n");
-    }
- 
+        // TODO add your handling code here:        
+     this.llenarArrayList();
+     this.setDatos();    
     }//GEN-LAST:event_formMouseClicked
 
-
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea TxtAresultado;
+    private javax.swing.JTable TblIngresarlista;
     private javax.swing.JTextField TxtIngresar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblIngresar;
