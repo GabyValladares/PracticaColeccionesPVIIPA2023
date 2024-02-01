@@ -4,7 +4,7 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="menuListas">
+        <Menu class="javax.swing.JMenu" name="opLEstaticas">
           <Properties>
             <Property name="text" type="java.lang.String" value="Listas"/>
           </Properties>
@@ -27,6 +27,30 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Din&#xe1;micas"/>
               </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="OpListasEstaticas2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="ListasEstaticas2"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OpListasEstaticas2ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="Ejercicio1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ejercicio1"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Ejercicio1ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="Ejercicio2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ejercicio2"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Ejercicio2ActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -59,6 +83,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuFichaActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ReportePagarT">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="ReportePagarT"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ReportePagarTActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

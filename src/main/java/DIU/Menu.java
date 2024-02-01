@@ -4,6 +4,10 @@
  */
 package DIU;
 
+import EjercicioColecciones.Ejercicio1;
+import EjercicioColecciones.Ejercicio2;
+import Listas.ListasEstaticas;
+
 /**
  *
  * @author Usuario
@@ -28,14 +32,18 @@ public class Menu extends javax.swing.JFrame {
 
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuListas = new javax.swing.JMenu();
+        opLEstaticas = new javax.swing.JMenu();
         opLEstatico = new javax.swing.JMenuItem();
         opLDinamicas = new javax.swing.JMenuItem();
+        OpListasEstaticas2 = new javax.swing.JMenuItem();
+        Ejercicio1 = new javax.swing.JMenuItem();
+        Ejercicio2 = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
         menuArboles = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         menuFicha = new javax.swing.JMenuItem();
+        ReportePagarT = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,7 +58,7 @@ public class Menu extends javax.swing.JFrame {
             .addGap(0, 564, Short.MAX_VALUE)
         );
 
-        menuListas.setText("Listas");
+        opLEstaticas.setText("Listas");
 
         opLEstatico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         opLEstatico.setText("Estáticas");
@@ -59,13 +67,37 @@ public class Menu extends javax.swing.JFrame {
                 opLEstaticoActionPerformed(evt);
             }
         });
-        menuListas.add(opLEstatico);
+        opLEstaticas.add(opLEstatico);
 
         opLDinamicas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         opLDinamicas.setText("Dinámicas");
-        menuListas.add(opLDinamicas);
+        opLEstaticas.add(opLDinamicas);
 
-        jMenuBar1.add(menuListas);
+        OpListasEstaticas2.setText("ListasEstaticas2");
+        OpListasEstaticas2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpListasEstaticas2ActionPerformed(evt);
+            }
+        });
+        opLEstaticas.add(OpListasEstaticas2);
+
+        Ejercicio1.setText("Ejercicio1");
+        Ejercicio1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ejercicio1ActionPerformed(evt);
+            }
+        });
+        opLEstaticas.add(Ejercicio1);
+
+        Ejercicio2.setText("Ejercicio2");
+        Ejercicio2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ejercicio2ActionPerformed(evt);
+            }
+        });
+        opLEstaticas.add(Ejercicio2);
+
+        jMenuBar1.add(opLEstaticas);
 
         menuPilas.setText("Pilas");
         jMenuBar1.add(menuPilas);
@@ -90,6 +122,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jMenu2.add(menuFicha);
+
+        ReportePagarT.setText("ReportePagarT");
+        ReportePagarT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReportePagarTActionPerformed(evt);
+            }
+        });
+        jMenu2.add(ReportePagarT);
 
         jMenuBar1.add(jMenu2);
 
@@ -116,9 +156,9 @@ public class Menu extends javax.swing.JFrame {
 
     private void opLEstaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLEstaticoActionPerformed
         // TODO add your handling code here:
-        ListasEstaticas ventanaLE=new ListasEstaticas();
-        escritorio.add(ventanaLE);
-        ventanaLE.show();
+        //ListasEstaticas ventanaLE=new ListasEstaticas();
+        //escritorio.add(ventanaLE);
+        //ventanaLE.show();
     }//GEN-LAST:event_opLEstaticoActionPerformed
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
@@ -133,9 +173,30 @@ public class Menu extends javax.swing.JFrame {
         escritorio.add(f);
         f.show();
     }//GEN-LAST:event_menuFichaActionPerformed
-    private void ListasEstaticas(){
+
+    private void OpListasEstaticas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpListasEstaticas2ActionPerformed
+ 
+    }//GEN-LAST:event_OpListasEstaticas2ActionPerformed
+
+    private void ReportePagarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportePagarTActionPerformed
+       ReportePagarT f = new ReportePagarT();
+       escritorio.add(f);
+       f.show();
         
-    }
+    }//GEN-LAST:event_ReportePagarTActionPerformed
+
+    private void Ejercicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ejercicio1ActionPerformed
+        Ejercicio1 f = new Ejercicio1();
+        escritorio.add(f);
+        f.show();
+    }//GEN-LAST:event_Ejercicio1ActionPerformed
+
+    private void Ejercicio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ejercicio2ActionPerformed
+       Ejercicio2 f = new Ejercicio2();
+       escritorio.add(f);
+       f.show();
+    }//GEN-LAST:event_Ejercicio2ActionPerformed
+  
     /**
      * @param args the command line arguments
      */
@@ -172,15 +233,19 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Ejercicio1;
+    private javax.swing.JMenuItem Ejercicio2;
+    private javax.swing.JMenuItem OpListasEstaticas2;
+    private javax.swing.JMenuItem ReportePagarT;
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenuItem menuFicha;
-    private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;
     private javax.swing.JMenuItem opLDinamicas;
+    private javax.swing.JMenu opLEstaticas;
     private javax.swing.JMenuItem opLEstatico;
     // End of variables declaration//GEN-END:variables
 }

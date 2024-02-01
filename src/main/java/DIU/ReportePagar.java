@@ -15,6 +15,7 @@ public String cedula, nombre,placa, color, anio, marca, tipo, valor;
      */
     public ReportePagar() {
         initComponents();
+        
     }
 
     /**
@@ -62,20 +63,28 @@ public String cedula, nombre,placa, color, anio, marca, tipo, valor;
             }
         });
 
-        jLabel1.setText("VALOR A PAGAR");
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        jLabel1.setText("REPORTE");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         jLabel2.setText("Cedula");
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         jLabel3.setText("Nombres y apellidos");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         jLabel4.setText("Placa");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         jLabel5.setText("Año Fabricación ");
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         jLabel6.setText("Marca Vehiculo");
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         jLabel7.setText("Color vehiculo:");
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         jLabel8.setText("Tipo Vehiculo:");
 
         Rcedula.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +111,7 @@ public String cedula, nombre,placa, color, anio, marca, tipo, valor;
             }
         });
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         jLabel9.setText("Valor Vehiculo:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -141,7 +151,7 @@ public String cedula, nombre,placa, color, anio, marca, tipo, valor;
                                     .addComponent(Rcolor, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(Rmarca)
                                     .addComponent(Rvalor))))))
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,7 +190,7 @@ public String cedula, nombre,placa, color, anio, marca, tipo, valor;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(Rvalor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
