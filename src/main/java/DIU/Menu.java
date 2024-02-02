@@ -12,6 +12,7 @@ import DIU.Deber.LEEj1;
 import DIU.Deber.PilasEj5;
 import DIU.Deber.PilasEj6;
 import DIU.Vista.LbTable;
+import DIU.Deber.ColasEj8;
 
 /**
  *
@@ -51,6 +52,7 @@ public class Menu extends javax.swing.JFrame {
         menuArboles = new javax.swing.JMenu();
         menuColas = new javax.swing.JMenu();
         opCEj7 = new javax.swing.JMenuItem();
+        opColasEj8 = new javax.swing.JMenuItem();
         menuFichaVehicular = new javax.swing.JMenu();
         opFicha = new javax.swing.JMenuItem();
 
@@ -166,6 +168,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         menuColas.add(opCEj7);
+
+        opColasEj8.setText("Colas Ej 8");
+        opColasEj8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opColasEj8ActionPerformed(evt);
+            }
+        });
+        menuColas.add(opColasEj8);
 
         jMenuBar1.add(menuColas);
 
@@ -290,6 +300,13 @@ public class Menu extends javax.swing.JFrame {
         ventanaPilasEj5.show();
     }//GEN-LAST:event_opPilasEj5ActionPerformed
 
+    private void opColasEj8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opColasEj8ActionPerformed
+        // TODO add your handling code here:
+        ColasEj8 ventanaColasEj8 = new ColasEj8();
+        escritorio.add(ventanaColasEj8);
+        ventanaColasEj8.show();
+    }//GEN-LAST:event_opColasEj8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -337,6 +354,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem opALEj4;
     private javax.swing.JMenuItem opAlEj3;
     private javax.swing.JMenuItem opCEj7;
+    private javax.swing.JMenuItem opColasEj8;
     private javax.swing.JMenuItem opFicha;
     private javax.swing.JMenuItem opLDinamica;
     private javax.swing.JMenuItem opLEEj1;
