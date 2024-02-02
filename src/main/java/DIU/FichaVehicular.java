@@ -4,6 +4,8 @@
  */
 package DIU;
 
+import DIU.vistas.TablaVehiculo;
+
 
 
 /**
@@ -56,6 +58,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         ckbSi = new javax.swing.JCheckBox();
         ckbNo = new javax.swing.JCheckBox();
         btnCancelar = new javax.swing.JButton();
+        btnTablaVehiculos = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -169,6 +172,13 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             }
         });
 
+        btnTablaVehiculos.setText("Generar Tabla Vehiculos");
+        btnTablaVehiculos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTablaVehiculosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -225,7 +235,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                 .addGap(257, 257, 257)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnVer, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTablaVehiculos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(155, 155, 155))
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
@@ -258,7 +269,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTablaVehiculos))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
@@ -409,9 +421,50 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         ckbSi.setSelected(false);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void btnTablaVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTablaVehiculosActionPerformed
+        
+        
+        
+        
+        TablaVehiculo reporte1=new TablaVehiculo();
+        reporte1.cedula=txtCedula.getText();
+        reporte1.nombre=txtNombres.getText();
+        reporte1.placa=txtPlaca.getText();
+        reporte1.color=txtColor.getText();
+        reporte1.añoFabricacion=txtAnioFab.getText();
+        reporte1.valor=txtValor.getText();
+        reporte1.marca=(String) cmbMarcas.getSelectedItem();
+        if(rbtAutomovil.isSelected()){
+            reporte1.tipo="Automovil";
+        }else if(rbtJeep.isSelected()){
+            reporte1.tipo="Jeep";
+        }else if(rbtCamioneta.isSelected()){
+            reporte1.tipo="Camioneta";
+        }else if(rbtVitara.isSelected()){
+            reporte1.tipo="Vitara";
+        }
+        
+        if(ckbSi.isSelected()){
+            reporte1.multas="Si";
+        }else{
+            reporte1.multas="No";
+        }
+      
+        Menu.escritorio.add(reporte1);
+        reporte1.setVisible(true);
+        this.dispose();
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btnTablaVehiculosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnTablaVehiculos;
     private javax.swing.JButton btnVer;
     private javax.swing.JCheckBox ckbNo;
     private javax.swing.JCheckBox ckbSi;
