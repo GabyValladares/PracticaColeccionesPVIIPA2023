@@ -9,6 +9,8 @@ import DIU.modelo.PersonaModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -74,5 +76,27 @@ public class PersonaControlador {
     
     }
     
+   
+   public ArrayList<Object[]> datosPersonas() throws SQLException{
+       ArrayList<Object[]> ListaTotalRegistros=new ArrayList<>();
+       try {
+            String sql = "call sp_listaPersonas();";
+           ejecutar = (PreparedStatement) conectado.prepareCall(sql);
+           
+           ResultSet res=ejecutar.executeQuery();
+           while(res.next()){
+               Object[]fila=new Object[6];
+               for (int i = 0; i < 6; i++) {
+                   fila[0]=res.getObject(i+1);
+                   
+                   
+               }
+           }
+           ejecutar.close();
+           return ListaTotalRegistros;
+           
+       } catch (Exception e) {
+       }
+ {
     
 }
