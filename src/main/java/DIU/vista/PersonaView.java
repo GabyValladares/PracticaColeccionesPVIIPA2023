@@ -78,6 +78,23 @@ public class PersonaView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setTitle("GESTIÓN DE USUARIO");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         lblSubtitulo.setText("Ingrese los siguietes campos");
 
@@ -200,6 +217,16 @@ public class PersonaView extends javax.swing.JInternalFrame {
         setDatos();
         tblPersonas.setModel(modelo);
     }//GEN-LAST:event_btnCrearActionPerformed
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        PersonaControlador pC = new PersonaControlador();
+        pC.datosPersona();
+        ArrayList<Object[]>  lista = pC.datosPersona();
+        for (Object[] filas : lista) {
+            modelo.addRow(filas);
+        }
+        tblPersonas.setModel(modelo);
+    }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
