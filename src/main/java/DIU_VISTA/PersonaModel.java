@@ -29,11 +29,6 @@ public class PersonaModel extends javax.swing.JInternalFrame {
      modelo.setColumnIdentifiers(cabecera);
      tbPer.setModel(modelo);
     }
-     
-    public void LlenarArray(){ 
-       
-        
-    }
     
     public void setDatos(){
     Object[] datosfila = new Object[modelo.getColumnCount()];
@@ -84,6 +79,23 @@ public class PersonaModel extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setTitle("DATOS PERSONA");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -236,6 +248,17 @@ public class PersonaModel extends javax.swing.JInternalFrame {
         setDatos();
         tbPer.setModel(modelo);
     }//GEN-LAST:event_btnCrearActionPerformed
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        // TODO add your handling code here:
+        PersonaController  pc1 = new PersonaController();
+        ArrayList<Object[]> lista = pc1.datosPersonas();
+        for (Object[] filas : lista) {
+            modelo.addRow(filas);
+            
+        }
+        tbPer.setModel(modelo);
+    }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
