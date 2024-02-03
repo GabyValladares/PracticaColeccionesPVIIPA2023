@@ -2,15 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Menu;
+package DIU.Controlador;
+
+import DIU.controlador.ConexionBDD;
 
 /**
  *
  * @author user
  */
-public class Main {
+public class PruebaBDD {
     public static void main(String[] args) {
-        PantallaPrincipal pantalla=new PantallaPrincipal();
-        pantalla.setVisible(true);
-    } 
+        ConexionBDD conectar =new ConexionBDD();
+        conectar.conectar();
+    }        
 }

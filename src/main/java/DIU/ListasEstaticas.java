@@ -2,11 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package Menu;
+package DIU;
+
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author user
+ * @author tutut
  */
 public class ListasEstaticas extends javax.swing.JInternalFrame {
 
@@ -28,7 +30,6 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         LbTamaño = new javax.swing.JLabel();
-        BttValidar = new javax.swing.JButton();
         TxtDatos = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAResultado = new javax.swing.JTextArea();
@@ -36,28 +37,19 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
         lbDatos = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        BttValidar = new javax.swing.JButton();
+        BttLimpiar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Ejercicios con arrays");
+        setTitle("EJERCICIOS CON ARRAYS");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         LbTamaño.setFont(new java.awt.Font("Sitka Banner", 3, 14)); // NOI18N
         LbTamaño.setText("Ingrese el tamaño:");
-
-        BttValidar.setBackground(new java.awt.Color(204, 204, 204));
-        BttValidar.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        BttValidar.setText("Validar");
-        BttValidar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BttValidar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        BttValidar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BttValidarActionPerformed(evt);
-            }
-        });
 
         TxtDatos.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -84,39 +76,62 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(258, 258, 258)
+                .addGap(165, 165, 165)
                 .addComponent(jLabel3)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3))
         );
+
+        BttValidar.setBackground(new java.awt.Color(204, 204, 204));
+        BttValidar.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        BttValidar.setText("Validar");
+        BttValidar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BttValidar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BttValidar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BttValidarActionPerformed(evt);
+            }
+        });
+
+        BttLimpiar.setBackground(new java.awt.Color(204, 204, 204));
+        BttLimpiar.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        BttLimpiar.setText("Eliminar");
+        BttLimpiar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BttLimpiar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BttLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BttLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(BttLimpiar)
+                .addGap(60, 60, 60)
+                .addComponent(BttValidar)
+                .addGap(113, 113, 113))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbDatos)
                             .addComponent(LbTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(60, 60, 60)
+                        .addGap(46, 46, 46)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxtDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtTamanio, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(247, 247, 247)
-                        .addComponent(BttValidar)))
+                            .addComponent(TxtTamanio, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -131,11 +146,13 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbDatos)
                     .addComponent(TxtDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(BttValidar)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BttLimpiar)
+                    .addComponent(BttValidar, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -149,7 +166,7 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -172,8 +189,16 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_BttValidarActionPerformed
 
+    private void BttLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BttLimpiarActionPerformed
+        // TODO add your handling code here:
+        TxtDatos.setText(null);
+        TxtTamanio.setText(null);
+        txtAResultado.setText(null);
+    }//GEN-LAST:event_BttLimpiarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BttLimpiar;
     private javax.swing.JButton BttValidar;
     private javax.swing.JLabel LbTamaño;
     private javax.swing.JTextField TxtDatos;
