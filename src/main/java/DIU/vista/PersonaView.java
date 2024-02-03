@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 public class PersonaView extends javax.swing.JInternalFrame {
-
+    
     ArrayList<PersonaModelo> listaPersonaModel = new ArrayList<>();
     DefaultTableModel modelo = new DefaultTableModel();
 
@@ -15,9 +15,9 @@ public class PersonaView extends javax.swing.JInternalFrame {
         String[] cabecera = {"Nro.", "Nombres", "Apellidos", "Cedula", "Usuario", "Contraseña"};
         modelo.setColumnIdentifiers(cabecera);
         tblDatos.setModel(modelo);
-
+        
     }
-
+    
     public void setDatos() {
         Object[] datosFila = new Object[modelo.getColumnCount()];
         int contador = 1;
@@ -32,9 +32,9 @@ public class PersonaView extends javax.swing.JInternalFrame {
             modelo.addRow(datosFila);
         }
         tblDatos.setModel(modelo);
-
+        
     }
-
+    
     public PersonaView() {
         initComponents();
         setModel();
@@ -71,6 +71,23 @@ public class PersonaView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setTitle("GESTIÓN DE USUARIOS");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel1.setText("Nombre:");
@@ -190,12 +207,21 @@ public class PersonaView extends javax.swing.JInternalFrame {
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         PersonaModelo pM = new PersonaModelo(0, txtNombre.getText(), txtApellido.getText(),
                 Integer.parseInt(txtCedula.getText()), txtUsuario.getText(), pswClave.getText());
-        PersonaControlador pC=new PersonaControlador();
+        PersonaControlador pC = new PersonaControlador();
         pC.crearPersona(pM);
         listaPersonaModel.add(pM);
         setDatos();
-        tblDatos.setModel(modelo);  
+        tblDatos.setModel(modelo);
     }//GEN-LAST:event_btnCrearActionPerformed
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        PersonaControlador pC = new PersonaControlador();
+        ArrayList<Object[]> lista = pC.datosPersonas();
+        for (Object[] filas : lista) {
+            modelo.addRow(filas);
+        }
+        tblDatos.setModel(modelo);
+    }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
