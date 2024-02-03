@@ -20,7 +20,6 @@ public class GestionPersona extends javax.swing.JInternalFrame {
 
     ArrayList<PersonaModelo> listaPersonas = new ArrayList<>();
     DefaultTableModel modelo = new DefaultTableModel();
-    
 
     public GestionPersona() {
         initComponents();
@@ -83,6 +82,7 @@ public class GestionPersona extends javax.swing.JInternalFrame {
         btnActualizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jScrollBar1 = new javax.swing.JScrollBar();
+        btnLimpiar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 255, 204));
         setClosable(true);
@@ -106,6 +106,11 @@ public class GestionPersona extends javax.swing.JInternalFrame {
             public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
             }
         });
 
@@ -216,6 +221,11 @@ public class GestionPersona extends javax.swing.JInternalFrame {
             }
         ));
         tblPersonas.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tblPersonas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPersonasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblPersonas);
 
         btnBuscar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
@@ -245,6 +255,15 @@ public class GestionPersona extends javax.swing.JInternalFrame {
             }
         });
 
+        btnLimpiar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        btnLimpiar.setForeground(new java.awt.Color(51, 0, 204));
+        btnLimpiar.setText("LIMPIAR ");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -266,7 +285,8 @@ public class GestionPersona extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnLimpiar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGap(179, 179, 179))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -300,7 +320,7 @@ public class GestionPersona extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -338,7 +358,9 @@ public class GestionPersona extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnActualizar)
                         .addGap(18, 18, 18)
-                        .addComponent(btnEliminar)))
+                        .addComponent(btnEliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLimpiar)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(56, Short.MAX_VALUE))
@@ -375,17 +397,14 @@ public class GestionPersona extends javax.swing.JInternalFrame {
         pC.insertarPersona(pM);
         listaPersonas.add(pM);
         setDatos();
+        limpiarTabla();
+        cargarPersonas();
         tblPersonas.setModel(modelo);
 
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        PersonaControlador pC = new PersonaControlador();
-        ArrayList<Object[]> listaFilas = pC.datosPersona();
-        for (Object[] listaFila : listaFilas) {
-            modelo.addRow(listaFila);
-        }
-        tblPersonas.setModel(modelo);
+        cargarPersonas();
     }//GEN-LAST:event_formInternalFrameActivated
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -395,32 +414,73 @@ public class GestionPersona extends javax.swing.JInternalFrame {
         this.limpiarTabla();
         for (Object[] listaFila : listaFilas) {
             modelo.addRow(listaFila);
-            System.out.println("---"+listaFila);
+            System.out.println("---" + listaFila);
         }
-        
+
         tblPersonas.setModel(modelo);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        // TODO add your handling code here:
+        PersonaModelo pM = new PersonaModelo(txtNombres.getText(), txtApellidos.getText(), Integer.parseInt(txtCedula1.getText()), txtUsuario.getText(), pswClave.getText());
+        PersonaControlador pC = new PersonaControlador();
+        pC.actualizarPersona(pM);
+        limpiarTabla();
+        cargarPersonas();
+
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        DefaultTableModel dtm = (DefaultTableModel) tblPersonas.getModel(); //TableProducto es el nombre de mi tabla ;)
-        dtm.removeRow(tblPersonas.getSelectedRow()); 
+        PersonaControlador pC = new PersonaControlador();
+        pC.eliminarPersona(Integer.parseInt(txtCedula1.getText()));
+
+        limpiarTabla();
+        cargarPersonas();
+
     }//GEN-LAST:event_btnEliminarActionPerformed
-    private void limpiarTabla(){
-        int a =modelo.getRowCount()-1;  //Índices van de 0 a n-1
+
+    private void tblPersonasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPersonasMouseClicked
+        DefaultTableModel dtm = (DefaultTableModel) tblPersonas.getModel(); //TableProducto es el nombre de mi tabla ;)
+        txtNombres.setText((String) dtm.getValueAt(tblPersonas.getSelectedRow(), 1));
+        txtApellidos.setText((String) dtm.getValueAt(tblPersonas.getSelectedRow(), 2));
+        txtUsuario.setText((String) dtm.getValueAt(tblPersonas.getSelectedRow(), 4));
+        pswClave.setText((String) dtm.getValueAt(tblPersonas.getSelectedRow(), 5));
+        txtCedula1.setText(dtm.getValueAt(tblPersonas.getSelectedRow(), 3).toString());
+    }//GEN-LAST:event_tblPersonasMouseClicked
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+        txtNombres.setText("");
+        txtApellidos.setText("");
+        txtCedula1.setText("");
+        txtUsuario.setText("");
+        pswClave.setText("");
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        cargarPersonas();
+    }//GEN-LAST:event_formMouseClicked
+    private void limpiarTabla() {
+        int a = modelo.getRowCount() - 1;  //Índices van de 0 a n-1
         //System.out.println("Tabla "+a);   //Para mostrar por consola el resultado
-        for(int i=a;i>=0;i--){ 
+        for (int i = a; i >= 0; i--) {
 
             //System.out.println("i "+i);    //Para mostrar por consola el resultado
             modelo.removeRow(i);
         }
     }
-    
-    private void personalizarCabecera(){
-        
+
+    private void cargarPersonas() {
+        PersonaControlador pC = new PersonaControlador();
+        ArrayList<Object[]> listaFilas = pC.datosPersona();
+        for (Object[] listaFila : listaFilas) {
+            modelo.addRow(listaFila);
+        }
+        tblPersonas.setModel(modelo);
+
+    }
+
+    private void personalizarCabecera() {
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -428,6 +488,7 @@ public class GestionPersona extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCrear;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollBar jScrollBar1;
