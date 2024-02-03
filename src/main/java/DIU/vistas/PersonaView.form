@@ -11,6 +11,9 @@
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="internalFrameActivated" listener="javax.swing.event.InternalFrameListener" parameters="javax.swing.event.InternalFrameEvent" handler="formInternalFrameActivated"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -33,28 +36,26 @@
                       <Component id="lblPersonaR" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               <Component id="lblNombre" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblCedula" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblApellidos" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblUsuarios" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblClave" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                              <Component id="lblCedula" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblApellidos" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblUsuarios" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblClave" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="63" pref="63" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtNombres" pref="311" max="32767" attributes="0"/>
+                          <Component id="txtNombres" max="32767" attributes="0"/>
                           <Component id="txtApellidos" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtCedula" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtUsuarios" alignment="0" max="32767" attributes="0"/>
-                          <Component id="pswClave" max="32767" attributes="0"/>
+                          <Component id="pswClave" min="-2" pref="311" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -65,11 +66,11 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="185" max="32767" attributes="0"/>
+              <EmptySpace pref="214" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -78,7 +79,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Component id="lblPersonaR" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtNombres" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -107,9 +108,9 @@
                   <Component id="lblClave" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="pswClave" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="17" max="32767" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="330" max="-2" attributes="0"/>
+              <EmptySpace pref="130" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

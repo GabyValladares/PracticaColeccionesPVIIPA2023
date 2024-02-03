@@ -8,6 +8,7 @@ import DIU.modelo.PersonaModelo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -89,5 +90,31 @@ public class PersonaController {
             JOptionPane.showMessageDialog(null, "COMUNICARCE CON EL ADMINISTRADOR DEL SISTEMA");
          
         }
+        
     }
+   public ArrayList <Object[]> DatosPersona(){
+       ArrayList <Object[]> ListaTotalRegistros = new ArrayList();
+       try {
+           String SQL = "call sp_ListaPersonas()";
+           ejecutar = (PreparedStatement) conectado.prepareCall (SQL);
+           ResultSet res = ejecutar.executeQuery();
+           int cont=1;
+           while (res.next()){
+               Object[] fila = new Object[6];
+               for (int i = 0; i < 6; i++) {
+                   fila [i] = res.getObject(i+1);
+                  
+               }
+               fila[0]= cont;
+              ListaTotalRegistros.add(fila);
+              cont++;
+           }
+            ejecutar.close();
+           return ListaTotalRegistros;
+           
+       } catch (Exception e) {
+           System.out.println("COMUNIQUESE CON EL ADMINISTRADOR DEL SISTEMA"+e);
+       }
+       return null;
+   }
 }

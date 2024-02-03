@@ -28,10 +28,7 @@ public class PersonaView extends javax.swing.JInternalFrame {
         modelo.setColumnIdentifiers(cabecera);
         tbPersona.setModel(modelo);
     }
-     public void llenarArrayList(){
-   
-     
-    }
+    
      public void setDatos(){
          Object[]  datosFila = new Object [modelo.getColumnCount()];
          int nro=1;
@@ -79,6 +76,23 @@ public class PersonaView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setTitle("DATOS PERSONA");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         lblPersonaR.setText("Registro de Personas");
 
@@ -156,24 +170,23 @@ public class PersonaView extends javax.swing.JInternalFrame {
                         .addGap(301, 301, 301)
                         .addComponent(lblPersonaR))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(68, 68, 68)
+                                .addGap(1, 1, 1)
                                 .addComponent(lblNombre))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCedula)
-                                    .addComponent(lblApellidos)
-                                    .addComponent(lblUsuarios)
-                                    .addComponent(lblClave))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblCedula)
+                                .addComponent(lblApellidos)
+                                .addComponent(lblUsuarios)
+                                .addComponent(lblClave)))
                         .addGap(63, 63, 63)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNombres, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                            .addComponent(txtNombres)
                             .addComponent(txtApellidos)
                             .addComponent(txtCedula)
                             .addComponent(txtUsuarios)
-                            .addComponent(pswClave))
+                            .addComponent(pswClave, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(73, 73, 73)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCrear)
@@ -181,16 +194,16 @@ public class PersonaView extends javax.swing.JInternalFrame {
                             .addComponent(btnActualizar)
                             .addComponent(btnBuscar)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
+                        .addGap(134, 134, 134)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(lblPersonaR)
-                .addGap(48, 48, 48)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre)
                     .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -214,9 +227,9 @@ public class PersonaView extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblClave)
                     .addComponent(pswClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         pack();
@@ -252,6 +265,16 @@ public class PersonaView extends javax.swing.JInternalFrame {
         setDatos();
         tbPersona.setModel(modelo);         
     }//GEN-LAST:event_btnCrearActionPerformed
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        PersonaController pC = new PersonaController();
+         ArrayList <Object[]> lista = pC.DatosPersona();
+         for (Object[] filas : lista) {
+            modelo.addRow(filas);
+            
+        }
+         tbPersona.setModel(modelo);  
+    }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
