@@ -271,11 +271,21 @@ public class PersonaView extends javax.swing.JInternalFrame {
          ArrayList <Object[]> lista = pC.DatosPersona();
          for (Object[] filas : lista) {
             modelo.addRow(filas);
-            
+          
         }
+         this.limpiarTabla();
          tbPersona.setModel(modelo);  
     }//GEN-LAST:event_formInternalFrameActivated
+    
+    private void limpiarTabla() {
+        int a = modelo.getRowCount() - 1;  //Índices van de 0 a n-1
+        //System.out.println("Tabla "+a);   //Para mostrar por consola el resultado
+        for (int i = a; i >= 0; i--) {
 
+            //System.out.println("i "+i);    //Para mostrar por consola el resultado
+            modelo.removeRow(i);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
