@@ -2,11 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package view;
+package view.vistas;
 
 import view.vistas.ListaDinamica;
 import javax.swing.event.InternalFrameAdapter;
 import javax.swing.event.InternalFrameEvent;
+import view.CadenaInvertida;
+import view.ListaDT;
+import view.ListaPalabras;
+import view.ListaProm;
+import view.Listainversa;
 
 /**
  *
@@ -179,7 +184,7 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuFichaActionPerformed
 
     private void opFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opFichaActionPerformed
-        FichaVehicular ficha = new FichaVehicular();
+        nuevoForm ficha = new nuevoForm();
      escritorio.add(ficha);
      ficha.show();
      

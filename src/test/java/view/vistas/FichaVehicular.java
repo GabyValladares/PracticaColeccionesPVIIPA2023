@@ -2,7 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package view;
+package view.vistas;
+
+import java.util.Calendar;
+import javax.swing.JOptionPane;
+import view.vistas.TablaV;
+import view.vistas.reporte;
+import view.vistas.principal;
 
 /**
  *
@@ -18,13 +24,10 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         reporte report = new reporte();
         report.setVisible(true);
         
-//        btnVer.addActionListener(new java.awt.event.ActionListener(){
-//        public void actionPerformed(java.awt.ActiveEvent evt){
-//            verFichaActionPerformed(evt);
-//        }
-//        });
+        TablaV reporteV = new TablaV();
+        reporteV.setVisible(true);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,6 +62,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         cmbsi = new javax.swing.JCheckBox();
         cmbno = new javax.swing.JCheckBox();
         cmbColores = new javax.swing.JComboBox<>();
+        btm_tabla = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -130,6 +134,13 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
         cmbColores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amarillo", "Azul", "Rojo", "Verde", "Naranja", "Morado", "Blanco", "Negro", "Marron", "Gris", " " }));
 
+        btm_tabla.setText("generar tabla vehiculo");
+        btm_tabla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btm_tablaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -160,38 +171,45 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(txtcedula))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtplaca, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmbColores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbMarcas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(rbtjeep)
-                                    .addComponent(jLabel5))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtanioehiculo)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(rbtautomovil)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
                                         .addGap(18, 18, 18)
-                                        .addComponent(rbtvitara)
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                                        .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtplaca, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cmbColores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cmbMarcas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(rbtjeep)
+                                            .addComponent(jLabel5))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(rbtautomovil)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(rbtvitara))
+                                            .addComponent(txtanioehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVer)
-                        .addGap(38, 38, 38))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnVer)
+                                .addGap(107, 107, 107))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btm_tabla)
+                                .addGap(79, 79, 79))))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(244, 244, 244)
                 .addComponent(jLabel1)
-                .addContainerGap(423, Short.MAX_VALUE))
+                .addContainerGap(422, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,29 +237,31 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(cmbMarcas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cmbMarcas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbColores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(rbtjeep)
+                            .addComponent(rbtautomovil)
+                            .addComponent(rbtvitara))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(txtvalor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(cmbsi)
+                            .addComponent(cmbno)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addComponent(btnVer)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbColores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(rbtjeep)
-                    .addComponent(rbtautomovil)
-                    .addComponent(rbtvitara))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtvalor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(cmbsi)
-                    .addComponent(cmbno))
+                        .addComponent(btnVer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btm_tabla)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -334,8 +354,75 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
       rbtgroup.add(rbtvitara);
     }//GEN-LAST:event_formInternalFrameActivated
 
+    private void btm_tablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btm_tablaActionPerformed
+   try {
+        TablaV reporte1 = new TablaV();
+        // Validar que se haya ingresado el nombre
+        if (txtnombre.getText().isEmpty()) {
+            throw new IllegalArgumentException("Por favor ingrese un nombre.");
+        }
+        reporte1.nombre = txtnombre.getText();
+        
+        // Validar que se haya ingresado la cédula y que tenga 10 dígitos
+        String cedula = txtcedula.getText();
+        if (cedula.isEmpty()) {
+            throw new IllegalArgumentException("Por favor ingrese una cédula.");
+        } else if (cedula.length() != 10) {
+            throw new IllegalArgumentException("La cédula debe tener 10 dígitos.");
+        }
+        reporte1.cedula = cedula;
+        
+        // Validar la placa (dos letras, tres números y una letra)
+        String placa = txtplaca.getText().toUpperCase();
+        if (!placa.matches("[A-Z]{2}\\d{3}[A-Z]")) {
+            throw new IllegalArgumentException("Por favor ingrese una placa válida (dos letras, tres números y una letra).");
+        }
+        reporte1.placa = placa;
+        
+        // Validar el año (que no sea mayor al año actual)
+        String anioStr = txtanioehiculo.getText();
+        int anioActual = Calendar.getInstance().get(Calendar.YEAR);
+        if (anioStr.isEmpty()) {
+            throw new IllegalArgumentException("Por favor ingrese un año.");
+        } else if (!anioStr.matches("\\d{4}")) {
+            throw new IllegalArgumentException("Por favor ingrese un año válido.");
+        } else if (Integer.parseInt(anioStr) > anioActual) {
+            throw new IllegalArgumentException("El año del vehículo no puede ser mayor que el año actual.");
+        }
+        reporte1.anio = anioStr;
+        
+        reporte1.color = (String) cmbColores.getSelectedItem();
+        reporte1.marca = (String) cmbMarcas.getSelectedItem();
+        
+        if (rbtautomovil.isSelected()) {
+            reporte1.tipo_ve = "Automovil";
+        } else if (rbtjeep.isSelected()) {
+            reporte1.tipo_ve = "Jeet";
+        } else if (rbtvitara.isSelected()) {
+            reporte1.tipo_ve = "Vitara";
+        }
+        
+        reporte1.valor = txtvalor.getText();
+        
+        if (cmbsi.isSelected()) {
+            reporte1.multas = "Si";
+        } else {
+            reporte1.multas = "No";
+        }
+        
+        this.dispose();
+        principal.escritorio.add(reporte1);
+        reporte1.setVisible(true);
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Por favor ingrese un año válido.", "Error", JOptionPane.ERROR_MESSAGE);
+    } catch (IllegalArgumentException e) {
+        JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    }//GEN-LAST:event_btm_tablaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btm_tabla;
     public static javax.swing.JButton btnVer;
     private javax.swing.JComboBox<String> cmbColores;
     private javax.swing.JComboBox<String> cmbMarcas;
