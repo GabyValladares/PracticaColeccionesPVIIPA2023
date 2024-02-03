@@ -13,6 +13,7 @@ import DIU.Deber.PilasEj5;
 import DIU.Deber.PilasEj6;
 import DIU.Vista.LbTable;
 import DIU.Deber.ColasEj8;
+import DIU.vista.PersonaView;
 
 /**
  *
@@ -55,6 +56,8 @@ public class Menu extends javax.swing.JFrame {
         opColasEj8 = new javax.swing.JMenuItem();
         menuFichaVehicular = new javax.swing.JMenu();
         opFicha = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        opCrud = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -197,6 +200,18 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(menuFichaVehicular);
 
+        jMenu1.setText("practicaBdd");
+
+        opCrud.setText("CRUD");
+        opCrud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opCrudActionPerformed(evt);
+            }
+        });
+        jMenu1.add(opCrud);
+
+        jMenuBar1.add(jMenu1);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -307,6 +322,13 @@ public class Menu extends javax.swing.JFrame {
         ventanaColasEj8.show();
     }//GEN-LAST:event_opColasEj8ActionPerformed
 
+    private void opCrudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opCrudActionPerformed
+        // TODO add your handling code here:
+        PersonaView ventanaPerV=new PersonaView();
+        escritorio.add(ventanaPerV);
+        ventanaPerV.show();
+    }//GEN-LAST:event_opCrudActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -344,6 +366,7 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane escritorio;
+    private javax.swing.JMenu jMenu1;
     public static javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu menuArboles;
@@ -355,6 +378,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem opAlEj3;
     private javax.swing.JMenuItem opCEj7;
     private javax.swing.JMenuItem opColasEj8;
+    private javax.swing.JMenuItem opCrud;
     private javax.swing.JMenuItem opFicha;
     private javax.swing.JMenuItem opLDinamica;
     private javax.swing.JMenuItem opLEEj1;
