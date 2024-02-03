@@ -9,6 +9,7 @@ import DIU.controlador.ConexionBDD;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -37,7 +38,7 @@ public class PersonaControlador {
     
     //TRASACCIONABILIDAD
     
-    
+    //crear
     public void crearPersona (Persona p){
         try{
                         
@@ -53,18 +54,54 @@ public class PersonaControlador {
             }else{
                 JOptionPane.showMessageDialog(null, "Revisar los datos ingresados");
             }      
-            
+           ejecutar.close(); 
         }catch(SQLException e){
             
         }
     }
-
+    //consulta de toda la tabla
+    public ArrayList< Object[]> DatosPersona(){
+          //tabla no es una estructura linea
+          //next() lee cada linea  y salta de fila por fila  
+        ArrayList< Object[]>listaTotalRegistros=new ArrayList<>();
+        try {
+            String SQL=" Call Lista_personas()";
+            ejecutar=(PreparateStament) conectado.prepareCall(SQL);
+            int cont=1;
+            ResultSet res= ejecutar.executeQuery();
+            while(res.next()){
+               Object[] fila=new Object[6];
+               for (int i = 0; i < 6; i++) {
+                fila[1]=res.getObject(i+1);
+                
+            }
+               fila[0]=cont;               
+               listaTotalRegistros.add(fila);
+               cont++;
+            }
+            ejecutar.close(); 
+            return listaTotalRegistros;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Comuniquese con el Administrador");
+        }
+        return null;
+    }
+    
+            
     private static class PreparateStament {
 
         public PreparateStament() {
         }
 
         private int executeUpdate() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        private ResultSet executeQuery() {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        private void close() {
             throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
     }
