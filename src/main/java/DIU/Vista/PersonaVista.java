@@ -241,11 +241,16 @@ public class PersonaVista extends javax.swing.JInternalFrame {
         listaPersonas.add(pM);
         setDatos();
         tblPersonas.setModel(modelo);
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         // TODO add your handling code here:
+    PersonaController pc=new PersonaController();
+    pc.datosPersona();
+    ArrayList<Object[]>  Lista=pc.datosPersona();
+    for (Object [] filas: Lista){
+    modelo.addRow(filas);
+    }
     
     }//GEN-LAST:event_formInternalFrameActivated
 
