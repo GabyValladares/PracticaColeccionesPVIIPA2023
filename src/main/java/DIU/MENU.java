@@ -13,6 +13,7 @@ import DIU.Ejercicios.ListasEstaticas1;
 import DIU.Ejercicios.ListasEstaticas2;
 import DIU.Ejercicios.Pilas1;
 import DIU.Ejercicios.Pilas2;
+import DIU.vista.PersonaVistas;
 import javax.management.JMX;
 
 /**
@@ -54,6 +55,8 @@ public class MENU extends javax.swing.JFrame {
         FichaVehicular = new javax.swing.JMenu();
         jmVer = new javax.swing.JMenuItem();
         jmArboles = new javax.swing.JMenu();
+        jmAdministracion = new javax.swing.JMenu();
+        jMusuario = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,11 +64,11 @@ public class MENU extends javax.swing.JFrame {
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 887, Short.MAX_VALUE)
+            .addGap(0, 957, Short.MAX_VALUE)
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 532, Short.MAX_VALUE)
+            .addGap(0, 601, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
@@ -187,6 +190,18 @@ public class MENU extends javax.swing.JFrame {
         jmArboles.setText("Árboles");
         jMenuBar1.add(jmArboles);
 
+        jmAdministracion.setText("Administración");
+
+        jMusuario.setText("Usuario");
+        jMusuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMusuarioActionPerformed(evt);
+            }
+        });
+        jmAdministracion.add(jMusuario);
+
+        jMenuBar1.add(jmAdministracion);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -276,6 +291,12 @@ public class MENU extends javax.swing.JFrame {
         ventanaArr.show();
     }//GEN-LAST:event_jMPracticaArrayClaseActionPerformed
 
+    private void jMusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMusuarioActionPerformed
+        PersonaVistas personaView = new PersonaVistas();
+        Escritorio.add(personaView);
+        personaView.show();
+    }//GEN-LAST:event_jMusuarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -322,6 +343,8 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMpilas1;
     private javax.swing.JMenuItem jMpilas2;
+    private javax.swing.JMenuItem jMusuario;
+    private javax.swing.JMenu jmAdministracion;
     private javax.swing.JMenu jmArboles;
     private javax.swing.JMenuItem jmArraylist;
     private javax.swing.JMenu jmColas;

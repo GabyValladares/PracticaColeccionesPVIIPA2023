@@ -23,7 +23,9 @@ public class Persona {
         this.cedula = cedula;
         this.listaVehiculos = listaVehiculos;
     }
-
+    public void agregarAutomovil(Automovil automovil) {
+        listaVehiculos.add(automovil);
+    }
     public ArrayList<Automovil> getListaVehiculos() {
         return listaVehiculos;
     }

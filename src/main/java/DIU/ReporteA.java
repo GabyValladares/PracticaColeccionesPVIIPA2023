@@ -4,8 +4,10 @@
  */
 package DIU;
 
+
 import DIU.Modelo.Automovil;
 import DIU.Modelo.Persona;
+import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -13,12 +15,10 @@ import javax.swing.table.DefaultTableModel;
  * @author carlo
  */
 public class ReporteA extends javax.swing.JInternalFrame {
-
-    /**
-     * Creates new form ReporteA
-     */
+    private FichaVehicular ventanaAnterior;
     public ReporteA() {
         initComponents();
+        
     }
 
     /**
@@ -34,6 +34,9 @@ public class ReporteA extends javax.swing.JInternalFrame {
         lblNombre = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtablaRep = new javax.swing.JTable();
+        btnVolver = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblReporteP = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -74,25 +77,61 @@ public class ReporteA extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jtablaRep);
 
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+
+        tblReporteP.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Cedula N°\"1\" y Inicio Placa\"I\"", "Año fabricación > 2010", "Valor de matriculación", "Valor de multas", "Valor total a pagar"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblReporteP);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2))
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane2)
+                .addGap(10, 10, 10))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(232, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnVolver)
+                .addGap(279, 279, 279)
                 .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(226, 226, 226))
+                .addContainerGap(500, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVolver))
+                .addGap(52, 52, 52)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -116,7 +155,6 @@ public class ReporteA extends javax.swing.JInternalFrame {
     public void mostrarDatos(Automovil auto, Persona persona) {
         DefaultTableModel modelo = (DefaultTableModel) jtablaRep.getModel();
         Object[] fila = new Object[10];
-
         fila[0] = modelo.getRowCount() + 1;
         fila[1] = persona.getNombre();
         fila[2] = persona.getCedula();
@@ -129,17 +167,46 @@ public class ReporteA extends javax.swing.JInternalFrame {
         fila[9] = auto.getMultas();
 
         modelo.addRow(fila);
+        
+        
     }
+      
+    public void agregarResult(String[] resultados){
+        DefaultTableModel modelo = (DefaultTableModel) tblReporteP.getModel();
+        Object[] fila = new Object[5];
+
+        fila[0] = resultados[0];
+        fila[1] = resultados[1];
+        fila[2] = resultados[2];
+        fila[3] = resultados[3];
+        fila[4] = resultados[4];
+
+        modelo.addRow(fila);
+    }
+    public void setVentanaAnterior(FichaVehicular ventanaAnterior) {
+        this.ventanaAnterior = ventanaAnterior;
+    }
+    
     private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
         
         
     }//GEN-LAST:event_formAncestorAdded
 
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        if (ventanaAnterior != null) {
+            ventanaAnterior.setVisible(true);
+        }
+        this.dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVolver;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jtablaRep;
     public static javax.swing.JLabel lblNombre;
+    private javax.swing.JTable tblReporteP;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,18 +9,19 @@ import DIU.Modelo.Persona;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author carlo
  */
-public class FichaVehicular extends javax.swing.JInternalFrame {
-
-    /**
-     * Creates new form FichaVehicular
-     */
+public class FichaVehicular extends javax.swing.JInternalFrame{
+    private Persona personaL;
+    private ReporteA reporte;
     public FichaVehicular() {
         initComponents();
         ReporteA reporte = new ReporteA();
@@ -344,20 +345,66 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         ReporteA ventana = new ReporteA();
         Automovil auto = new Automovil();
         Persona per = new Persona();
-        
-        per.setCedula(txtCedula.getText());
-        per.setNombre(txtNombres.getText());
-        auto.setPlaca(txtPlaca.getText());
-        auto.setValor(txtValor.getText());
-        auto.setMarca(cmbMarca.getSelectedItem().toString());
-        String anioTexto = txtAnioFab.getText();
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy");
-        try {
-            auto.setAnoFabricacion(formatoFecha.parse(anioTexto));
-        } catch (ParseException ex) {
-            Logger.getLogger(FichaVehicular.class.getName()).log(Level.SEVERE, null, ex);
+
+        String cedula = txtCedula.getText().trim();
+        if (cedula.matches("\\d{10}")) {
+            per.setCedula(cedula);
+        } else {
+            JOptionPane.showMessageDialog(this, "La cédula debe contener 10 dígitos numéricos", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
         }
-        auto.setColor(txtColor.getText());
+
+        String nombres = txtNombres.getText().trim();
+
+        if (nombres.matches("[a-zA-Z]+")) {
+            per.setNombre(nombres);
+        } else {
+            JOptionPane.showMessageDialog(this, "Los nombres solo deben contener letras", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        String placa = txtPlaca.getText().trim();
+        if (placa.matches("[a-zA-Z0-9]{6}")) {
+            auto.setPlaca(placa);
+        } else {
+            JOptionPane.showMessageDialog(this, "El número de placa debe contener 6 caracteres alfanuméricos", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        String anioTexto = txtAnioFab.getText().trim();
+        if (anioTexto.matches("\\d{4}")) {
+            int anoFabricacion = Integer.parseInt(anioTexto);
+            if (anoFabricacion >= 1890 && anoFabricacion <= 2100) {
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy");
+                try {
+                    auto.setAnoFabricacion(formatoFecha.parse(anioTexto));
+                } catch (ParseException ex) {
+                    Logger.getLogger(FichaVehicular.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "El año de fabricación debe estar entre 1890 y 2100", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "El año de fabricación debe ser un número de 4 dígitos", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        String color = txtColor.getText().trim();
+        if (color.matches("[a-zA-Z]+")) {
+            auto.setColor(color);
+        } else {
+            JOptionPane.showMessageDialog(this, "El color solo puede contener letras", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        auto.setMarca(cmbMarca.getSelectedItem().toString());
+        String valorTexto = txtValor.getText().trim();
+        if (valorTexto.matches("\\d+(\\.\\d+)?")) {
+            auto.setValor(valorTexto);
+        } else {
+            JOptionPane.showMessageDialog(this, "El valor del vehículo debe contener solo números y puede ser decimal", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         if (rdAuto.isSelected()) {
             auto.setTipo("Automóvil");
         } else if (rdCamioneta.isSelected()) {
@@ -375,15 +422,74 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             auto.setMultas("NO");
         }
         
-        ventana.mostrarDatos(auto,per);
-        this.dispose();
+        ventana.mostrarDatos(auto, per);
+        ventana.agregarResult(calcular(auto, per));
+        ventana.setVentanaAnterior(this);
+        this.setVisible(false);
         MENU.Escritorio.add(ventana);
         ventana.setVisible(true);
-        this.dispose();
-        
         
     }//GEN-LAST:event_btnVerActionPerformed
+    public String[] calcular(Automovil auto, Persona persona) {
+        String[] resultados = new String[5];
 
+        String cedulaUsuario = persona.getCedula();
+        String numeroPlaca = auto.getPlaca();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(auto.getAnoFabricacion());
+        int anoFabricacion = calendar.get(Calendar.YEAR);
+
+        double sueldoBasico = 435.0;
+        double importeRenovacion = 0.0;
+        double multaContaminacion = 0.0;
+        double valorMatriculacion = 0.0;
+        double valorMultas = 0.0;
+
+        if (cedulaUsuario.startsWith("1") && numeroPlaca.contains("I")) {
+            importeRenovacion = sueldoBasico * 0.05;
+        }
+
+        if (anoFabricacion < 2010) {
+            multaContaminacion = sueldoBasico * 0.02 * (2010 - anoFabricacion);
+        }
+
+        String marca = auto.getMarca();
+        String tipo = auto.getTipo();
+
+        double porcentajeMatriculacion = 0.0;
+
+        if ("Toyota".equalsIgnoreCase(marca)) {
+            if ("Jeep".equalsIgnoreCase(tipo)) {
+                porcentajeMatriculacion = 0.08;
+            } else if ("Camioneta".equalsIgnoreCase(tipo)) {
+                porcentajeMatriculacion = 0.12;
+            }
+        } else if ("Suzuki".equalsIgnoreCase(marca)) {
+            if ("Vitara".equalsIgnoreCase(tipo)) {
+                porcentajeMatriculacion = 0.10;
+            } else if ("Automóvil".equalsIgnoreCase(tipo)) {
+                porcentajeMatriculacion = 0.09;
+            }
+        }
+
+        valorMatriculacion = Double.parseDouble(auto.getValor()) * porcentajeMatriculacion;
+
+        String multas = auto.getMultas();
+        if (multas == "SI") {
+            valorMultas = sueldoBasico * 0.25;
+        } else {
+            valorMultas = 0.0;
+        }
+        double valorTotal = importeRenovacion + multaContaminacion + valorMatriculacion + valorMultas;
+
+        resultados[0] = String.valueOf(importeRenovacion);
+        resultados[1] = String.valueOf(multaContaminacion);
+        resultados[2] = String.valueOf(valorMatriculacion);
+        resultados[3] = String.valueOf(valorMultas);
+        resultados[4] = String.valueOf(valorTotal);
+
+        return resultados;
+    }
     private void chxMultasSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chxMultasSiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chxMultasSiActionPerformed
@@ -401,7 +507,9 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtNombresActionPerformed
 
     private void btnTablaVehActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTablaVehActionPerformed
-        
+        TablaVehiculos tablaVehiculos = new TablaVehiculos();
+        MENU.Escritorio.add(tablaVehiculos);
+        tablaVehiculos.setVisible(true);
         
     }//GEN-LAST:event_btnTablaVehActionPerformed
 
