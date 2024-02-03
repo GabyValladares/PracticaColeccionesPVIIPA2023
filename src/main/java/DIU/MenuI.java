@@ -3,8 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package DIU;
-import Listas.Ejercicio1;
 
+import DIU.Vista.PersonaView;
+import Listas.Ejercicio1;
 
 /**
  *
@@ -48,6 +49,8 @@ public class MenuI extends javax.swing.JFrame {
         opColas1 = new javax.swing.JMenuItem();
         FichaVehicular = new javax.swing.JMenu();
         opLFichaVehicular = new javax.swing.JMenuItem();
+        Gestion = new javax.swing.JMenu();
+        opGestionPersona = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -196,6 +199,19 @@ public class MenuI extends javax.swing.JFrame {
 
         jMenuBar1.add(FichaVehicular);
 
+        Gestion.setText("Gestion");
+
+        opGestionPersona.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        opGestionPersona.setText("Gestion Personas");
+        opGestionPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opGestionPersonaActionPerformed(evt);
+            }
+        });
+        Gestion.add(opGestionPersona);
+
+        jMenuBar1.add(Gestion);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -221,10 +237,10 @@ public class MenuI extends javax.swing.JFrame {
     }//GEN-LAST:event_opLFichaVehicularActionPerformed
 
     private void opLDinamicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicasActionPerformed
-        ListasDinamicas ld=new ListasDinamicas();
-        Escritorio.add(ld) ;
+        ListasDinamicas ld = new ListasDinamicas();
+        Escritorio.add(ld);
         ld.show();
-        
+
     }//GEN-LAST:event_opLDinamicasActionPerformed
 
     private void opLEstatica1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLEstatica1ActionPerformed
@@ -250,30 +266,30 @@ public class MenuI extends javax.swing.JFrame {
     }//GEN-LAST:event_opLPilas1ActionPerformed
 
     private void opLDinamicas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicas2ActionPerformed
-        ArrayDinamico ad= new ArrayDinamico();
+        ArrayDinamico ad = new ArrayDinamico();
         Escritorio.add(ad);
         ad.show();
     }//GEN-LAST:event_opLDinamicas2ActionPerformed
 
     private void MenuListasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuListasActionPerformed
-        
-    
+
+
     }//GEN-LAST:event_MenuListasActionPerformed
 
     private void opLDinamicas3ClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicas3ClaseActionPerformed
-        ListasDinamicaClase ldc= new ListasDinamicaClase();
+        ListasDinamicaClase ldc = new ListasDinamicaClase();
         Escritorio.add(ldc);
         ldc.show();
     }//GEN-LAST:event_opLDinamicas3ClaseActionPerformed
 
     private void opDTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDTableActionPerformed
-        ListasDinamicasTable ldt=new ListasDinamicasTable();
+        ListasDinamicasTable ldt = new ListasDinamicasTable();
         Escritorio.add(ldt);
         ldt.show();
     }//GEN-LAST:event_opDTableActionPerformed
 
     private void ColasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ColasActionPerformed
-        
+
     }//GEN-LAST:event_ColasActionPerformed
 
     private void opColas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opColas1ActionPerformed
@@ -293,6 +309,12 @@ public class MenuI extends javax.swing.JFrame {
         Escritorio.add(fj);
         fj.show();
     }//GEN-LAST:event_opJugadorActionPerformed
+
+    private void opGestionPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opGestionPersonaActionPerformed
+        PersonaView pv = new PersonaView();
+        Escritorio.add(pv);
+        pv.show();
+    }//GEN-LAST:event_opGestionPersonaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -333,12 +355,14 @@ public class MenuI extends javax.swing.JFrame {
     private javax.swing.JMenu Colas;
     public static javax.swing.JDesktopPane Escritorio;
     private javax.swing.JMenu FichaVehicular;
+    private javax.swing.JMenu Gestion;
     private javax.swing.JMenu MenuListas;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu menuPilas;
     private javax.swing.JMenuItem opColas1;
     private javax.swing.JMenuItem opDTable;
+    private javax.swing.JMenuItem opGestionPersona;
     private javax.swing.JMenuItem opJugador;
     private javax.swing.JMenuItem opLDinamicas;
     private javax.swing.JMenuItem opLDinamicas2;

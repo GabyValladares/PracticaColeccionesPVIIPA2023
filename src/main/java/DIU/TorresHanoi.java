@@ -20,7 +20,6 @@ public class TorresHanoi extends javax.swing.JInternalFrame {
     Stack<String> PilaA;
     Stack<String> PilaB;
     Stack<String> PilaC;
-    Stack<String> Pila;
 
     public TorresHanoi() {
         initComponents();
@@ -28,7 +27,6 @@ public class TorresHanoi extends javax.swing.JInternalFrame {
         PilaA = new Stack<>();
         PilaB = new Stack<>();
         PilaC = new Stack<>();
-        Pila = new Stack<>();
     }
 
     public void contarMovimientos() {
@@ -42,14 +40,6 @@ public class TorresHanoi extends javax.swing.JInternalFrame {
         PilaA.push("2");
         PilaA.push("1");
         jblPila1.setText(PilaA.toString());
-    }
-
-    public void verificar() {
-
-        Pila.push("3");
-        Pila.push("2");
-        Pila.push("1");
-
     }
 
     @SuppressWarnings("unchecked")
@@ -80,9 +70,18 @@ public class TorresHanoi extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Torre A: ");
 
+        jblPila1.setBackground(new java.awt.Color(255, 102, 102));
+        jblPila1.setForeground(new java.awt.Color(255, 153, 153));
+
         jLabel3.setText("Torre B: ");
 
+        jblPila2.setBackground(new java.awt.Color(102, 255, 255));
+        jblPila2.setForeground(new java.awt.Color(102, 255, 255));
+
         jLabel4.setText("Torre C: ");
+
+        jblPila3.setBackground(new java.awt.Color(255, 153, 255));
+        jblPila3.setForeground(new java.awt.Color(51, 255, 0));
 
         jLabel1.setText("Movimientos:");
 
@@ -144,7 +143,6 @@ public class TorresHanoi extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(65, 65, 65)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnJugar, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -182,8 +180,10 @@ public class TorresHanoi extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(20, 20, 20)
-                                .addComponent(jblMovimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(238, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnJugar, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jblMovimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,9 +216,9 @@ public class TorresHanoi extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jblMovimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
+                .addGap(45, 45, 45)
                 .addComponent(btnJugar)
-                .addContainerGap())
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -226,6 +226,7 @@ public class TorresHanoi extends javax.swing.JInternalFrame {
 
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
         this.agregarPila();
+        btnJugar.setEnabled(false);
     }//GEN-LAST:event_btnJugarActionPerformed
 
     private void B1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1ActionPerformed
@@ -256,6 +257,12 @@ public class TorresHanoi extends javax.swing.JInternalFrame {
 
                 if (PilaA.isEmpty() && PilaB.isEmpty()) {
                     JOptionPane.showMessageDialog(rootPane, "¡Felicidades, ganaste el juego!");
+                    B1.setEnabled(false);
+                    C1.setEnabled(false);
+                    A2.setEnabled(false);
+                    C2.setEnabled(false);
+                    B3.setEnabled(false);
+                    A3.setEnabled(false);
                 }
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Movimiento no permitido. El disco origen es más grande.");
@@ -292,6 +299,13 @@ public class TorresHanoi extends javax.swing.JInternalFrame {
 
                 if (PilaA.isEmpty() && PilaB.isEmpty()) {
                     JOptionPane.showMessageDialog(rootPane, "¡Felicidades, ganaste el juego!");
+                    B1.setEnabled(false);
+                    C1.setEnabled(false);
+                    A2.setEnabled(false);
+                    C2.setEnabled(false);
+                    B3.setEnabled(false);
+                    A3.setEnabled(false);
+
                 }
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Movimiento no permitido. El disco origen es más grande.");
