@@ -52,6 +52,8 @@ public class Menu extends javax.swing.JFrame {
         numeros = new javax.swing.JMenuItem();
         fichavehiculo = new javax.swing.JMenu();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        gestion = new javax.swing.JMenu();
+        persona = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -175,6 +177,14 @@ public class Menu extends javax.swing.JFrame {
         fichavehiculo.add(jCheckBoxMenuItem1);
 
         jMenuBar1.add(fichavehiculo);
+
+        gestion.setText("Gestion");
+
+        persona.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        persona.setText("Persona");
+        gestion.add(persona);
+
+        jMenuBar1.add(gestion);
 
         setJMenuBar(jMenuBar1);
 
@@ -329,6 +339,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem dltg;
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu fichavehiculo;
+    private javax.swing.JMenu gestion;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jugadores;
@@ -339,6 +350,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem opLDinamicas;
     private javax.swing.JMenuItem opLEstatico;
     private javax.swing.JMenuItem palabras;
+    private javax.swing.JMenuItem persona;
     private javax.swing.JMenuItem string;
     // End of variables declaration//GEN-END:variables
 }

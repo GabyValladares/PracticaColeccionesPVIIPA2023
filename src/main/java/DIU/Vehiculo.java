@@ -94,7 +94,7 @@ public class Vehiculo {
     int añosContaminacion = añoActual - añoFabricacion.getYear() + 1900;
 
     if (añosContaminacion < 0) {
-        return 0; // Año de fabricación futuro, no hay contaminación acumulada
+        return 2010; 
     }
 
     // Calcular la multa por contaminación equivalente al 2% por cada año de contaminación
