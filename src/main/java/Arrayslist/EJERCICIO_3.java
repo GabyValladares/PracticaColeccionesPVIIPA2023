@@ -1,8 +1,10 @@
+package Arrayslist;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package DIU;
+
 
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -71,6 +73,7 @@ public class EJERCICIO_3 extends javax.swing.JInternalFrame {
 
         txtn3.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
 
+        tbnumeros.setBackground(new java.awt.Color(204, 255, 204));
         tbnumeros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},

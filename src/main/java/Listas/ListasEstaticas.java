@@ -1,4 +1,4 @@
-package DIU;
+package Listas;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -6,8 +6,6 @@ package DIU;
  */
 
 
-import java.util.ArrayList;
-import java.util.Collections;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,6 +31,8 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblistas = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -45,12 +45,25 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setTitle("EJERCICIOS CON ARRAYS");
 
-        tblistas.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        tblistas.setBackground(new java.awt.Color(255, 255, 204));
         tblistas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -163,7 +176,7 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtmayor)
                             .addComponent(txtmenor, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +201,7 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtmenor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
@@ -196,69 +209,59 @@ public class ListasEstaticas extends javax.swing.JInternalFrame {
 
     private void tblistasAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tblistasAncestorAdded
         // TODO add your handling code here:
-
     }//GEN-LAST:event_tblistasAncestorAdded
 
     private void txtnumerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumerosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnumerosActionPerformed
-ArrayList<Integer> listaOriginal = new ArrayList<>();
-ArrayList<Integer> listaOrdenada = new ArrayList<>(listaOriginal);
-    private void txtagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtagregarActionPerformed
-        // TODO add your handling code here:
-        String numeros = txtnumeros.getText();
-        String[] numerosSplit = numeros.split(" ");
 
-        for (String numero : numerosSplit) {
-            listaOriginal.add(Integer.valueOf(numero));
+    private void txtagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtagregarActionPerformed
+       String cadena = txtnumeros.getText();
+    DefaultTableModel modelo = (DefaultTableModel) tblistas.getModel();
+    String[] numeros = cadena.split(",");
+    Object[] cadenanumeros = new Object[2];
+
+    if (numeros.length == 10) {
+        int[] lista1 = new int[10];
+        int[] lista2 = new int[10];
+
+        for (int i = 0; i < 10; i++) {
+            // Check if the string is not empty before parsing
+            if (!numeros[i].trim().isEmpty()) {
+                lista1[i] = Integer.parseInt(numeros[i]);
+                lista2[9 - i] = Integer.parseInt(numeros[i]);
+            }
         }
 
-        // Ordenar listaOriginal y actualizar listaOrdenada
+        for (int j = 0; j < 10; j++) {
+            cadenanumeros[0] = lista1[j];
+            cadenanumeros[1] = lista2[j];
+            modelo.addRow(cadenanumeros.clone());
+        }
 
-        listaOrdenada = new ArrayList<>(listaOriginal);
-        Collections.sort(listaOrdenada);
-        // Resto del código para actualizar la tabla y mostrar los resultados
-        actualizarTabla(listaOriginal);
+        int mayor = lista1[0];
+        int menor = lista1[0];
+        for (int num : lista1) {
+            if (num > mayor) {
+                mayor = num;
+            }
+            if (num < menor) {
+                menor = num;
+            }
+        }
+        txtmayor.setText(String.valueOf(mayor));
+        txtmenor.setText(String.valueOf(menor));
         txtnumeros.setText("");
+    } else {
+        JOptionPane.showMessageDialog(null, "Porfavor, ingresar 10 números separados por comas.");
+    }
     }//GEN-LAST:event_txtagregarActionPerformed
 
     private void txteliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txteliminarActionPerformed
-        if (!listaOriginal.isEmpty()) {
-            // Eliminar el último número ingresado de listaOriginal y actualizar listaOrdenada
-            listaOriginal.remove(listaOriginal.size() - 1);
-            listaOrdenada = new ArrayList<>(listaOriginal);
-
-            // Resto del código para actualizar la tabla y mostrar los resultados
-            actualizarTabla(listaOriginal);
-        } else {
-            JOptionPane.showMessageDialog(this, "La lista está vacía", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+           DefaultTableModel modelo = (DefaultTableModel) tblistas.getModel();
+        modelo.setRowCount(0);
     }//GEN-LAST:event_txteliminarActionPerformed
-private void actualizarTabla(ArrayList<Integer> listaOriginal) {
-        // Establecer el modelo de la tabla
-    DefaultTableModel modelo = new DefaultTableModel();
-    modelo.addColumn("Lista 1");
-    modelo.addColumn("Lista 2");
 
-    // Agregar filas al modelo
-    for (int i = 0; i < listaOriginal.size(); i++) {
-        modelo.addRow(new Object[]{listaOriginal.get(i), listaOrdenada.get(i)});
-    }
-
-    // Establecer el modelo en la tabla
-    tblistas.setModel(modelo);
-
-    // Actualizar los resultados en los JTextField
-    if (!listaOriginal.isEmpty()) {
-        int mayor = Collections.max(listaOriginal);
-        int menor = Collections.min(listaOriginal);
-        txtmayor.setText(String.valueOf(mayor));
-        txtmenor.setText(String.valueOf(menor));
-    } else {
-        txtmayor.setText("");
-        txtmenor.setText("");
-    }
-}
     private void txtmenorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmenorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtmenorActionPerformed
@@ -274,6 +277,8 @@ private void actualizarTabla(ArrayList<Integer> listaOriginal) {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTable tblistas;
     private javax.swing.JButton txtagregar;
     private javax.swing.JButton txteliminar;
@@ -281,4 +286,6 @@ private void actualizarTabla(ArrayList<Integer> listaOriginal) {
     private javax.swing.JTextField txtmenor;
     private javax.swing.JTextField txtnumeros;
     // End of variables declaration//GEN-END:variables
+
+  
 }

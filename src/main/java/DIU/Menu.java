@@ -4,6 +4,16 @@
  */
 package DIU;
 
+import Arrayslist.EJERCICIO_3;
+import Arrayslist.EJEM_4;
+import Listas.ListasEstaticas;
+import Listas.ListaPalabras;
+import Colas.EJEM_7;
+import Colas.EJEM_8;
+import DIU.Vista.PersonaVista;
+import Pilas.EJEM_5;
+import Pilas.EJEM_6;
+
 /**
  *
  * @author Usuario
@@ -30,16 +40,22 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         menuListas = new javax.swing.JMenu();
         opLEstatico = new javax.swing.JMenuItem();
-        opLDinamicas = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        opLDinamicas = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         menuArboles = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        EJEM_8 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,7 +63,7 @@ public class Menu extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1387, Short.MAX_VALUE)
+            .addGap(0, 1208, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -65,6 +81,15 @@ public class Menu extends javax.swing.JFrame {
         });
         menuListas.add(opLEstatico);
 
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem2.setText("EJEM_1");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        menuListas.add(jMenuItem2);
+
         opLDinamicas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         opLDinamicas.setText("Dinámicas");
         opLDinamicas.addActionListener(new java.awt.event.ActionListener() {
@@ -74,15 +99,8 @@ public class Menu extends javax.swing.JFrame {
         });
         menuListas.add(opLDinamicas);
 
-        jMenuItem2.setText("EJER_2");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        menuListas.add(jMenuItem2);
-
-        jMenuItem3.setText("EJER_3");
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem3.setText("EJEM_2");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -90,10 +108,17 @@ public class Menu extends javax.swing.JFrame {
         });
         menuListas.add(jMenuItem3);
 
-        jMenuItem4.setText("jMenuItem4");
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem4.setText("EJEM_3");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         menuListas.add(jMenuItem4);
 
-        jMenuItem5.setText("Dinamicas_2");
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem5.setText("EJEM_4");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -104,12 +129,49 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(menuListas);
 
         menuPilas.setText("Pilas");
+
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem6.setText("EJEM_5");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        menuPilas.add(jMenuItem6);
+
+        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem7.setText("EJEM_6");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        menuPilas.add(jMenuItem7);
+
         jMenuBar1.add(menuPilas);
 
         menuArboles.setText("Árboles");
         jMenuBar1.add(menuArboles);
 
         jMenu1.setText("Colas");
+
+        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem8.setText("EJEM_7");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem8);
+
+        EJEM_8.setText("EJEM_8");
+        EJEM_8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EJEM_8ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(EJEM_8);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Ficha Vehicular");
@@ -119,7 +181,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem1.setText("INGRESAR");
+        jMenuItem1.setText("jMenuItem1");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -129,6 +191,18 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setText("Gestion");
+
+        jMenuItem9.setText("Persona");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem9);
+
+        jMenuBar1.add(jMenu3);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -137,8 +211,7 @@ public class Menu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(escritorio))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +222,7 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void opLEstaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLEstaticoActionPerformed
         // TODO add your handling code here:
         ListasEstaticas ventanaLE=new ListasEstaticas();
@@ -172,33 +245,75 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void opLDinamicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicasActionPerformed
+        // TODO add your handling code here:
+        ListasDinamicas LD=new ListasDinamicas();
+        escritorio.add(LD);
+        LD.show();
+    }//GEN-LAST:event_opLDinamicasActionPerformed
+
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        ListaPalabras EJER_2=new ListaPalabras();
-        escritorio.add(EJER_2);
-        EJER_2.show();
+         ListaPalabras Estaticas=new ListaPalabras();
+        escritorio.add(Estaticas);
+        Estaticas.show();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        EJERCICIO_3 EJER_3=new EJERCICIO_3();
-        escritorio.add(EJER_3);
-        EJER_3.show();
+//        EJERCICIO_3 N3=new EJERCICIO_3();
+//        escritorio.add(N3);
+//        N3.show();                   
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void opLDinamicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicasActionPerformed
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-         ListaPalabras dinamic=new ListaPalabras();
-        escritorio.add(dinamic);
-        dinamic.show();
-    }//GEN-LAST:event_opLDinamicasActionPerformed
+         EJERCICIO_3 N3=new EJERCICIO_3();
+        escritorio.add(N3);
+        N3.show(); 
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-        ListasDinamicas LD= new ListasDinamicas();
-        escritorio.add(LD);
-        LD.show();
+         EJEM_4 N4=new EJEM_4();
+        escritorio.add(N4);
+        N4.show();   
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        EJEM_5 N5=new EJEM_5();
+        escritorio.add(N5);
+        N5.show(); 
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+        EJEM_6 N6=new EJEM_6();
+        escritorio.add(N6);
+        N6.show(); 
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+        EJEM_7 N7=new EJEM_7();
+        escritorio.add(N7);
+        N7.show();
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void EJEM_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EJEM_8ActionPerformed
+         //TODO add your handling code here:
+         EJEM_8 N8=new EJEM_8();
+        escritorio.add(N8);
+        N8.show();
+    }//GEN-LAST:event_EJEM_8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+        PersonaVista PV= new PersonaVista();
+        escritorio.add(PV);
+        PV.show();
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     public void ejecutarReporte(){
         ReporteValor reporte=new ReporteValor();
@@ -234,6 +349,10 @@ public class Menu extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -244,15 +363,21 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem EJEM_8;
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;

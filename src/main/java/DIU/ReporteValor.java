@@ -14,13 +14,14 @@ import javax.swing.table.DefaultTableModel;
  * @author usuario
  */
 public class ReporteValor extends javax.swing.JInternalFrame {
- String nombre,cedula,placa,marca,color,valor,multas,tipo,anio,valorPagar;
+ int importeRenovacionPlacas,multaContaminacion,valorMatriculacion,totalPagar,multaPorMultas;
     /**
      * Creates new form ReporteValor
      */
     public ReporteValor() {
         initComponents();
         modeloTabla();
+        Tablapagar();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,6 +38,8 @@ public class ReporteValor extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaDatos = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablapagar = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -91,33 +94,52 @@ public class ReporteValor extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(tablaDatos);
 
+        tablapagar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tablapagar);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(274, 274, 274)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 913, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(34, 34, 34)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(280, 280, 280)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(52, 52, 52)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 913, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(jLabel1)))
                 .addGap(42, 42, 42)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();
@@ -127,6 +149,12 @@ DefaultTableModel modelo = new DefaultTableModel();
     String[] tablaficha={"N°","Nombres","Cedula","Placa","Año Fabricacion","Marca","Color","Tipo","Valor","Multas"};
     modelo.setColumnIdentifiers(tablaficha);
     tablaDatos.setModel(modelo);
+    }
+    DefaultTableModel modeloPAGAR = new DefaultTableModel();
+    public void Tablapagar(){
+    String[] tablaPAGO={"N°","importeRenovacionPlacas","multaContaminacion","valorMatriculacion","multaPorMultas","totalPagar"};
+    modeloPAGAR.setColumnIdentifiers(tablaPAGO);
+    tablapagar.setModel(modeloPAGAR);
     }
     public void mostrarDatos(Auto auto,Persona1 persona){
         Object[] fila = new Object[10];
@@ -150,9 +178,26 @@ DefaultTableModel modelo = new DefaultTableModel();
 
     private void txtADatosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtADatosAncestorAdded
         // TODO add your handling code here:
-           String datos="Nombre:"+nombre+"\n"+"Cédula:"+cedula+"\n"+"Placa:"+placa+"\n"+"Marca:"+marca+"\n"+"Año fabricacion:"+anio
-        +"\n"+"Color:"+color+"\n"+"Valor:"+valor+"\n"+"Multas:"+multas+"\n"+"Tipo:"+tipo+"\n"+"Valor a pagar:"+valorPagar;
-    txtADatos.setText(datos);
+//           String datos="Nombre:"+nombre+"\n"+"Cédula:"+cedula+"\n"+"Placa:"+placa+"\n"+"Marca:"+marca+"\n"+"Año fabricacion:"+anio
+//        +"\n"+"Color:"+color+"\n"+"Valor:"+valor+"\n"+"Multas:"+multas+"\n"+"Tipo:"+tipo+"\n"+"Valor a pagar:"+valorPagar;
+//    txtADatos.setText(datos);
+//    JOptionPane.showMessageDialog(this, "Importe Renovación Placas: $" + importeRenovacionPlacas
+//                + "\nMulta Contaminación: $" + multaContaminacion
+//                + "\nValor Matriculación: $" + valorMatriculacion
+//                + "\nMultas: $" + multaPorMultas
+//                + "\nTotal a Pagar: $" + totalPagar);
+//modeloPAGAR.setRowCount(0);
+
+    Object[] filapago = new Object[6];
+
+    filapago[0] = modeloPAGAR.getRowCount() + 1;
+    filapago[1] = importeRenovacionPlacas +" $";
+    filapago[2] = multaContaminacion +" $";
+    filapago[3] = valorMatriculacion +" $";
+    filapago[4] = multaPorMultas +" $";  
+    filapago[5] = totalPagar +" $";
+
+    modeloPAGAR.addRow(filapago);
     }//GEN-LAST:event_txtADatosAncestorAdded
 
     private void tablaDatosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tablaDatosAncestorAdded
@@ -164,7 +209,9 @@ DefaultTableModel modelo = new DefaultTableModel();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tablaDatos;
+    private javax.swing.JTable tablapagar;
     private javax.swing.JTextArea txtADatos;
     // End of variables declaration//GEN-END:variables
 }
