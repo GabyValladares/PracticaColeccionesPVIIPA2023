@@ -5,6 +5,7 @@
 package DIU;
 
 import DIU.vistas.LDTabla;
+import DIU.vistas.PersonaView;
 
 /**
  *
@@ -47,6 +48,8 @@ public class Menu extends javax.swing.JFrame {
         menuColas = new javax.swing.JMenu();
         opSumaNum = new javax.swing.JMenuItem();
         opServicios = new javax.swing.JMenuItem();
+        menuAdministrador = new javax.swing.JMenu();
+        opUsuario = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -169,6 +172,18 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(menuColas);
 
+        menuAdministrador.setText("Administrador ");
+
+        opUsuario.setText("Usuario");
+        opUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opUsuarioActionPerformed(evt);
+            }
+        });
+        menuAdministrador.add(opUsuario);
+
+        jMenuBar1.add(menuAdministrador);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -261,6 +276,13 @@ public class Menu extends javax.swing.JFrame {
         ventanaAS.show();
     }//GEN-LAST:event_opServiciosActionPerformed
 
+    private void opUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opUsuarioActionPerformed
+        // TODO add your handling code here:
+        PersonaView ventanaPV = new PersonaView();
+        escritorio.add(ventanaPV);
+        ventanaPV.show();
+    }//GEN-LAST:event_opUsuarioActionPerformed
+
     public void ejecutarReporte(){
         ReportedeValoraPagar reporte = new ReportedeValoraPagar();
         escritorio.add(reporte);
@@ -305,6 +327,7 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu menuAdministrador;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuArrayList;
     private javax.swing.JMenu menuColas;
@@ -321,6 +344,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem opStatico;
     private javax.swing.JMenuItem opSumaNum;
     private javax.swing.JMenuItem opTorresHanoi;
+    private javax.swing.JMenuItem opUsuario;
     private javax.swing.JMenuItem oplTabla;
     // End of variables declaration//GEN-END:variables
 }

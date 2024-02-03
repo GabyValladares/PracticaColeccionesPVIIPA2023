@@ -41,7 +41,6 @@ public class tablaVehiculo extends javax.swing.JInternalFrame {
     
     public void llenarArray(){
     Vehiculo vehiculo = new Vehiculo(placa, marca, color,tipo, multas, valorV, numAnio, valorAuto);
-    Persona persona = new Persona(nombre, Integer.parseInt(cedula), listaVehiculos);
     
     listaVehiculos.add(vehiculo);
 }
