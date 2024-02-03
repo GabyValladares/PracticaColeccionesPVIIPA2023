@@ -75,6 +75,23 @@ public class PersonaView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setTitle("Usuario");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         btnEntrada.setText("ENTRADA");
         btnEntrada.addActionListener(new java.awt.event.ActionListener() {
@@ -193,6 +210,17 @@ public class PersonaView extends javax.swing.JInternalFrame {
         setDatos();
         tblDatos.setModel(modelo);
     }//GEN-LAST:event_btnEntradaActionPerformed
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        // TODO add your handling code here:
+        PersonaControl pC= new PersonaControl();
+        ArrayList<Object[]> lista= pC.datosPersonas();
+        for (Object[] filas : lista) {
+            modelo.addRow(filas);
+            
+        }
+        tblDatos.setModel(modelo);
+    }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
