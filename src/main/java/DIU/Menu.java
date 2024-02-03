@@ -4,8 +4,14 @@
  */
 package DIU;
 
+import DiuVistas.personaView;
 import EjercicioColecciones.Ejercicio1;
 import EjercicioColecciones.Ejercicio2;
+import EjercicioColecciones.Ejercicio3;
+import EjercicioColecciones.Ejercicio4;
+import EjercicioColecciones.Ejercicio5;
+import EjercicioColecciones.Ejercicio6;
+import EjercicioColecciones.Ejercicio7;
 import Listas.ListasEstaticas;
 
 /**
@@ -38,12 +44,19 @@ public class Menu extends javax.swing.JFrame {
         OpListasEstaticas2 = new javax.swing.JMenuItem();
         Ejercicio1 = new javax.swing.JMenuItem();
         Ejercicio2 = new javax.swing.JMenuItem();
+        Ejercicio3 = new javax.swing.JMenuItem();
+        Ejercicio4 = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
+        Ejercicio5 = new javax.swing.JMenuItem();
+        Ejercicio6 = new javax.swing.JMenuItem();
         menuArboles = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
+        Ejercicio7 = new javax.swing.JMenuItem();
+        Ejercicio8 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         menuFicha = new javax.swing.JMenuItem();
         ReportePagarT = new javax.swing.JMenuItem();
+        Gestion = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,15 +110,60 @@ public class Menu extends javax.swing.JFrame {
         });
         opLEstaticas.add(Ejercicio2);
 
+        Ejercicio3.setText("Ejercicio3");
+        Ejercicio3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ejercicio3ActionPerformed(evt);
+            }
+        });
+        opLEstaticas.add(Ejercicio3);
+
+        Ejercicio4.setText("Ejercicio4");
+        Ejercicio4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ejercicio4ActionPerformed(evt);
+            }
+        });
+        opLEstaticas.add(Ejercicio4);
+
         jMenuBar1.add(opLEstaticas);
 
         menuPilas.setText("Pilas");
+
+        Ejercicio5.setText("Ejercicio5");
+        Ejercicio5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ejercicio5ActionPerformed(evt);
+            }
+        });
+        menuPilas.add(Ejercicio5);
+
+        Ejercicio6.setText("Ejercicio6");
+        Ejercicio6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ejercicio6ActionPerformed(evt);
+            }
+        });
+        menuPilas.add(Ejercicio6);
+
         jMenuBar1.add(menuPilas);
 
         menuArboles.setText("Árboles");
         jMenuBar1.add(menuArboles);
 
         jMenu1.setText("Colas");
+
+        Ejercicio7.setText("Ejercicio7");
+        Ejercicio7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ejercicio7ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Ejercicio7);
+
+        Ejercicio8.setText("Ejercicio8");
+        jMenu1.add(Ejercicio8);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Ficha Vehicular");
@@ -132,6 +190,14 @@ public class Menu extends javax.swing.JFrame {
         jMenu2.add(ReportePagarT);
 
         jMenuBar1.add(jMenu2);
+
+        Gestion.setText("Gestion");
+        Gestion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GestionActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(Gestion);
 
         setJMenuBar(jMenuBar1);
 
@@ -196,6 +262,42 @@ public class Menu extends javax.swing.JFrame {
        escritorio.add(f);
        f.show();
     }//GEN-LAST:event_Ejercicio2ActionPerformed
+
+    private void Ejercicio3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ejercicio3ActionPerformed
+        Ejercicio3 f = new Ejercicio3();
+        escritorio.add(f);
+        f.show();
+    }//GEN-LAST:event_Ejercicio3ActionPerformed
+
+    private void Ejercicio4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ejercicio4ActionPerformed
+        Ejercicio4 f = new Ejercicio4();
+        escritorio.add(f);
+        f.show();
+    }//GEN-LAST:event_Ejercicio4ActionPerformed
+
+    private void Ejercicio5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ejercicio5ActionPerformed
+        Ejercicio5 f = new Ejercicio5();
+        escritorio.add(f);
+        f.show();
+    }//GEN-LAST:event_Ejercicio5ActionPerformed
+
+    private void Ejercicio6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ejercicio6ActionPerformed
+        Ejercicio6 f = new Ejercicio6();
+        escritorio.add(f);
+        f.show();
+    }//GEN-LAST:event_Ejercicio6ActionPerformed
+
+    private void Ejercicio7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ejercicio7ActionPerformed
+        Ejercicio7 f = new Ejercicio7();
+        escritorio.add(f);
+        f.show();
+    }//GEN-LAST:event_Ejercicio7ActionPerformed
+
+    private void GestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionActionPerformed
+        personaView f = new personaView();
+        escritorio.add(f);
+        f.show();    
+    }//GEN-LAST:event_GestionActionPerformed
   
     /**
      * @param args the command line arguments
@@ -235,6 +337,13 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Ejercicio1;
     private javax.swing.JMenuItem Ejercicio2;
+    private javax.swing.JMenuItem Ejercicio3;
+    private javax.swing.JMenuItem Ejercicio4;
+    private javax.swing.JMenuItem Ejercicio5;
+    private javax.swing.JMenuItem Ejercicio6;
+    private javax.swing.JMenuItem Ejercicio7;
+    private javax.swing.JMenuItem Ejercicio8;
+    private javax.swing.JMenu Gestion;
     private javax.swing.JMenuItem OpListasEstaticas2;
     private javax.swing.JMenuItem ReportePagarT;
     public static javax.swing.JDesktopPane escritorio;

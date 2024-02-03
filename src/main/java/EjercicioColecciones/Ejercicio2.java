@@ -139,7 +139,16 @@ public class Ejercicio2 extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVecesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVecesActionPerformed
-        // TODO add your handling code here:
+       String palabraBuscar = txtPalabras.getText().trim();
+    String texto = A1.getText();
+    String[] palabras = texto.split("\\s+");
+    int contador = 0;
+    for (String palabra : palabras) {
+        if (palabra.equals(palabraBuscar)) {
+            contador++;
+        }
+    }
+    A3.setText("La palabra '" + palabraBuscar + "' se repite " + contador + " veces en el texto.");
     }//GEN-LAST:event_btnVecesActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
@@ -152,7 +161,23 @@ public class Ejercicio2 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+       String palabraBuscar = txtPalabras.getText();
+       String texto = A1.getText();
+       String[] palabras = texto.split("\\s+");
+       
+       boolean palabraEncontrada = false ;
+       for (String palabra : palabras){
+           if (palabra.equals(palabraBuscar)){
+               palabraEncontrada =true ;
+               break;
+           }
+       }
+       if (palabraEncontrada ){
+           A2.setText("La palabra '" + palabraBuscar + "' no existe en el texto.");
+       }else{
+           A2.setText("La palabra '" + palabraBuscar + "' si existe en el texto.");
+       }
+           
     }//GEN-LAST:event_btnBuscarActionPerformed
 
 
