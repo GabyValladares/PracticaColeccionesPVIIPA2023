@@ -2,15 +2,13 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <NonVisualComponents>
-    <Component class="javax.swing.ButtonGroup" name="rbtGrupo">
+    <Component class="javax.swing.ButtonGroup" name="btnGRUPO">
     </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="closable" type="boolean" value="true"/>
     <Property name="iconifiable" type="boolean" value="true"/>
     <Property name="maximizable" type="boolean" value="true"/>
-    <Property name="resizable" type="boolean" value="true"/>
-    <Property name="title" type="java.lang.String" value="FICHA VEHICULAR"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -34,183 +32,192 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="381" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="244" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
-                      <Component id="cmbMarcas" min="-2" pref="205" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lblTipo" min="-2" pref="160" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="rbtJeep" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rbtAutomovil" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="rbtVitara" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rbtCamioneta" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lblColor" min="-2" pref="160" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtColor" min="-2" pref="205" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblValor1" min="-2" pref="160" max="-2" attributes="0"/>
-                          <Component id="lblValor" min="-2" pref="160" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ckbSi" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtValor" min="-2" pref="205" max="-2" attributes="0"/>
-                          <Component id="ckbNo" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <Component id="btnmultas1" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="lblCedula" min="-2" pref="151" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblPlaca" min="-2" pref="160" max="-2" attributes="0"/>
-                                  <Component id="lblNombres" min="-2" pref="160" max="-2" attributes="0"/>
-                                  <Component id="lblAnioFab" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                                  <Component id="lblMarca" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="btnAuto" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnjeep" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtCedula" alignment="1" min="-2" pref="205" max="-2" attributes="0"/>
-                          <Component id="txtNombres" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtAnioFab" alignment="1" min="-2" pref="205" max="-2" attributes="0"/>
-                          <Component id="txtPlaca" alignment="1" min="-2" pref="205" max="-2" attributes="0"/>
+                          <Component id="btnVitara" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCamioneta" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-              <Component id="btnVer" min="-2" pref="176" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="329" max="-2" attributes="0"/>
+              <EmptySpace min="216" pref="260" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="txtvalorP" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="210" max="-2" attributes="0"/>
+                          <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblValor" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <Component id="lblTipo" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="415" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblMarca" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Component id="cmbMarca" min="-2" pref="205" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblAnioFab" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="txtAnioFab" min="-2" pref="205" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblColor" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                                          <Component id="lblValor1" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtColor" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                          <Component id="txtValor" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                              <Component id="btnmultas" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="lblNombres" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lblPlaca" alignment="0" pref="160" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="lblCedula" alignment="0" min="-2" pref="151" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                              <Component id="txtCedula" alignment="1" min="-2" pref="205" max="-2" attributes="0"/>
+                                              <Component id="txtNombres" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="txtPlaca" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnVer" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnCancelar" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblCedula" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="txtCedula" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                      <Component id="btnVer" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace pref="329" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnjeep" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnVitara" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnCamioneta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAuto" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+              <Component id="txtvalorP" min="-2" pref="3" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <Component id="btnmultas1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblNombres" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="txtNombres" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtPlaca" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="lblPlaca" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblAnioFab" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="txtAnioFab" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblMarca" alignment="3" pref="62" max="32767" attributes="0"/>
-                  <Component id="cmbMarcas" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblColor" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="txtColor" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="lblTipo" min="-2" pref="36" max="-2" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblCedula" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="txtCedula" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblNombres" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="txtNombres" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblPlaca" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="txtPlaca" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblAnioFab" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Component id="txtAnioFab" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lblMarca" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="cmbMarca" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="btnVer" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="rbtJeep" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="rbtAutomovil" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="rbtCamioneta" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="rbtVitara" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblColor" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="txtColor" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  <Component id="lblTipo" min="-2" pref="36" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="txtValor" min="-2" pref="36" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnmultas" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="lblValor" min="-2" pref="36" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="lblValor1" min="-2" pref="36" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblValor" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="txtValor" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblValor1" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="ckbSi" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="ckbNo" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="txtAnioFab">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAnioFabActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JButton" name="btnVer">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ver Ficha"/>
@@ -263,70 +270,9 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblAnioFab">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="A&#xf1;o Fabricaci&#xf3;n:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblMarca">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Marca del Veh&#xed;culo:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblColor">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Color del Veh&#xed;culo:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtColor">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtColorActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cmbMarcas">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Toyota"/>
-            <StringItem index="1" value="Kia"/>
-            <StringItem index="2" value="Suzuki"/>
-            <StringItem index="3" value="Skoda"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMarcasActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblTipo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tipo de Veh&#xed;culo:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="rbtJeep">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Jeep"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="rbtAutomovil">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Autom&#xf3;vil"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="rbtCamioneta">
+    <Component class="javax.swing.JRadioButton" name="btnCamioneta">
       <Properties>
         <Property name="text" type="java.lang.String" value="Camioneta"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="rbtVitara">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Vitara"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblValor">
@@ -347,15 +293,103 @@
         <Property name="text" type="java.lang.String" value="&#xbf;Posee Multas?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="ckbSi">
+    <Component class="javax.swing.JCheckBox" name="btnmultas">
       <Properties>
         <Property name="text" type="java.lang.String" value="Si"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnmultasActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="ckbNo">
+    <Component class="javax.swing.JCheckBox" name="btnmultas1">
       <Properties>
         <Property name="text" type="java.lang.String" value="No"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnmultas1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnCancelar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAnioFab">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="A&#xf1;o Fabricaci&#xf3;n:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtAnioFab">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAnioFabActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblMarca">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Marca del Veh&#xed;culo:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblColor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Color del Veh&#xed;culo:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtColor">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtColorActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cmbMarca">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Toyota"/>
+            <StringItem index="1" value="Suzuki"/>
+            <StringItem index="2" value="Kia"/>
+            <StringItem index="3" value="Skoda"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTipo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tipo de Veh&#xed;culo:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="btnjeep">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Jeep"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnjeepActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="btnAuto">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Autom&#xf3;vil"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAutoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="btnVitara">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Vitara"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtvalorP">
     </Component>
   </SubComponents>
 </Form>

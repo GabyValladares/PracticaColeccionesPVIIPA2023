@@ -15,6 +15,7 @@ import DIU.Vista.Ejercicio5;
 import DIU.Vista.Ejercicio6;
 import DIU.Vista.Ejercicio7;
 import DIU.Vista.Ejercicio8;
+import DIU.Vista.PersonaVista;
 
 /**
  *
@@ -58,6 +59,8 @@ public class Menu extends javax.swing.JFrame {
         E6 = new javax.swing.JMenuItem();
         E7 = new javax.swing.JMenuItem();
         E8 = new javax.swing.JMenuItem();
+        ADMI = new javax.swing.JMenu();
+        USUARIO = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,6 +122,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         jMenuItem1.setText("Reporte");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,6 +208,19 @@ public class Menu extends javax.swing.JFrame {
         jMenu3.add(E8);
 
         jMenuBar1.add(jMenu3);
+
+        ADMI.setText("Administracion");
+
+        USUARIO.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        USUARIO.setText("Usuario");
+        USUARIO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                USUARIOActionPerformed(evt);
+            }
+        });
+        ADMI.add(USUARIO);
+
+        jMenuBar1.add(ADMI);
 
         setJMenuBar(jMenuBar1);
 
@@ -320,13 +337,16 @@ public class Menu extends javax.swing.JFrame {
         E8.show();
     }//GEN-LAST:event_E8ActionPerformed
 
-    public void ejecutarReporte(){
-        ReporteValorPa reporte=new ReporteValorPa();
-        escritorio.add(reporte);
-        reporte.show();
+    private void USUARIOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USUARIOActionPerformed
+        // TODO add your handling code here:
+    PersonaVista PV=new PersonaVista();
+    escritorio.add(PV);
+    PV.show();
+    }//GEN-LAST:event_USUARIOActionPerformed
+
+
         
-        
-    }
+    
     /**
      * @param args the command line arguments
      */
@@ -363,6 +383,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu ADMI;
     private javax.swing.JMenuItem E1;
     private javax.swing.JMenuItem E2;
     private javax.swing.JMenuItem E3;
@@ -372,6 +393,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem E7;
     private javax.swing.JMenuItem E8;
     private javax.swing.JMenuItem MenuItemManejo;
+    private javax.swing.JMenuItem USUARIO;
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -384,4 +406,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem opLDinamicas;
     private javax.swing.JMenuItem opLEstatico;
     // End of variables declaration//GEN-END:variables
+
+    private PersonaVista PersonaVista() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

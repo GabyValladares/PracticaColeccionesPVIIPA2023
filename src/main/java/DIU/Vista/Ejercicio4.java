@@ -39,7 +39,7 @@ public class Ejercicio4 extends javax.swing.JInternalFrame {
  
     if(datos.equalsIgnoreCase("Portero")){
     informacion[0]="Portero"; 
-}   
+  }   
  if(datos.equalsIgnoreCase("Defensa")){
     informacion[0]="Defensa central";
     informacion[1]="Lateral";

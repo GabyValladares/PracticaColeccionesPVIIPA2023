@@ -4,16 +4,20 @@
  */
 package DIU.Modelo;
 
-import java.util.ArrayList;
-
 /**
  *
- * @author jefe
+ * @author usuario
  */
-public class Persona {
-    
-    private String nombre;
-    private String cedula;
+public class PERSONAV {
+    private String nombre, cedula;
+
+    public PERSONAV() {
+    }
+
+    public PERSONAV(String nombre, String cedula) {
+        this.nombre = nombre;
+        this.cedula = cedula;
+    }
 
     public String getNombre() {
         return nombre;
@@ -30,16 +34,5 @@ public class Persona {
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }
-
-    public Persona(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Persona(String nombre, String cedula) {
-        this.nombre = nombre;
-        this.cedula = cedula;
-    }
-
-
-
+    
 }
