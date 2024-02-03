@@ -15,6 +15,7 @@ import DIU.Ejercicios.Ejercicio8;
 import DIU.EjerciciosFichaVehicular.FichaVehicular;
 import DIU.vista.LDTable;
 import DIU.vista.ListasDinamicas;
+import DIU.vista.PantallaGestion;
 
 /**
  *
@@ -59,6 +60,8 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         opFichaVehicular = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        MenGestion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -196,6 +199,18 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenu2.setText("Gestion");
+
+        MenGestion.setText("Gestion");
+        MenGestion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenGestionActionPerformed(evt);
+            }
+        });
+        jMenu2.add(MenGestion);
+
+        jMenuBar1.add(jMenu2);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -289,6 +304,13 @@ public class Menu extends javax.swing.JFrame {
         eje6.show();
     }//GEN-LAST:event_opEjercicio6ActionPerformed
 
+    private void MenGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenGestionActionPerformed
+       PantallaGestion pv =new PantallaGestion();
+        escritorio.add(pv);
+        pv.show();
+      
+    }//GEN-LAST:event_MenGestionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -325,8 +347,10 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MenGestion;
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;

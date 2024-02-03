@@ -15,11 +15,18 @@
 
     <build>
         <plugins>
-            <!-- Configuración de plugins, como exec-maven-plugin, va aquí -->
+           
         </plugins>
     </build>
     <dependencies>
+         <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.2.0</version>
+        </dependency>    
         
     </dependencies>
+  
 </project>
 
