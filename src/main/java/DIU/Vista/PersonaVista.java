@@ -4,6 +4,11 @@
  */
 package DIU.Vista;
 
+import DIU.Controlador.PersonaControlador;
+import DIU.Modelo.PersonaModel;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author usuario
@@ -15,6 +20,7 @@ public class PersonaVista extends javax.swing.JInternalFrame {
      */
     public PersonaVista() {
         initComponents();
+        modelotabla();
     }
 
     /**
@@ -37,12 +43,12 @@ public class PersonaVista extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         btnagregar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
-        txtclave = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TBtabla = new javax.swing.JTable();
+        TBpersonas = new javax.swing.JTable();
         btnbuscar = new javax.swing.JButton();
         btnagregar2 = new javax.swing.JButton();
+        txtclave = new javax.swing.JPasswordField();
 
         setClosable(true);
         setIconifiable(true);
@@ -83,13 +89,11 @@ public class PersonaVista extends javax.swing.JInternalFrame {
         btneliminar.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         btneliminar.setText("ELIMINAR");
 
-        txtclave.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-
         jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jLabel6.setText("INGRESAR CLAVE :");
 
-        TBtabla.setBackground(new java.awt.Color(204, 255, 204));
-        TBtabla.setModel(new javax.swing.table.DefaultTableModel(
+        TBpersonas.setBackground(new java.awt.Color(204, 255, 204));
+        TBpersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -100,7 +104,7 @@ public class PersonaVista extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(TBtabla);
+        jScrollPane1.setViewportView(TBpersonas);
 
         btnbuscar.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         btnbuscar.setText("BUSCAR");
@@ -129,15 +133,11 @@ public class PersonaVista extends javax.swing.JInternalFrame {
                         .addGap(26, 26, 26)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtclave)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtnom)
-                                    .addComponent(txtapellidos)
-                                    .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(178, 178, 178)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtnom)
+                            .addComponent(txtapellidos)
+                            .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btneliminar)
                             .addGroup(layout.createSequentialGroup()
@@ -146,7 +146,9 @@ public class PersonaVista extends javax.swing.JInternalFrame {
                                 .addComponent(btnbuscar)))
                         .addGap(302, 302, 302))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtusuario, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                            .addComponent(txtclave))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,9 +196,10 @@ public class PersonaVista extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addComponent(txtclave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel6))
+                        .addGap(40, 40, 40))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(txtclave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
@@ -209,21 +212,41 @@ public class PersonaVista extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+ArrayList<PersonaModel>ListaPersonaModel=new ArrayList<>();
+    DefaultTableModel modelo=new DefaultTableModel();
+    public void modelotabla(){
+    String[] INGRESAR={"N°","NOMBRES","APELLIDOS","CEDULA","USUARIO","CLAVE"};
+    modelo.setColumnIdentifiers(INGRESAR);
+    TBpersonas.setModel(modelo);
+}
+    public void setdatos(){
+        Object[] datosfila=new Object[modelo.getColumnCount()];
+        int nro=1;
+        for(PersonaModel datos:ListaPersonaModel){
+            datosfila[0]=nro;
+            datosfila[1]=datos.getNombres();
+            datosfila[2]=datos.getApellidos();
+            datosfila[3]=datos.getCedula();
+            datosfila[4]=datos.getUsuario();
+            datosfila[5]=datos.getClave();
+            nro++;
+            modelo.addRow(datosfila);
+        }
+    }
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
         // TODO add your handling code here:
-        String nombre=txtnom.getText();
-        String apellido=txtapellidos.getText();
-        int cedula= Integer.parseInt(txtapellidos.getText());
-        String usuario=txtusuario.getText();
-        String clave=txtclave.getText();
-          
-        
+        PersonaModel pM = new PersonaModel(0, txtnom.getText(), txtapellidos.getText(),
+                txtusuario.getText(), txtclave.getText(), Integer.parseInt(txtcedula.getText()));
+        PersonaControlador pC = new PersonaControlador();
+        pC.crearPersona(pM);
+        ListaPersonaModel.add(pM);
+        setdatos();
+        TBpersonas.setModel(modelo);
     }//GEN-LAST:event_btnagregarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable TBtabla;
+    private javax.swing.JTable TBpersonas;
     private javax.swing.JButton btnagregar;
     private javax.swing.JButton btnagregar2;
     private javax.swing.JButton btnbuscar;
@@ -237,7 +260,7 @@ public class PersonaVista extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtapellidos;
     private javax.swing.JTextField txtcedula;
-    private javax.swing.JTextField txtclave;
+    private javax.swing.JPasswordField txtclave;
     private javax.swing.JTextField txtnom;
     private javax.swing.JTextField txtusuario;
     // End of variables declaration//GEN-END:variables

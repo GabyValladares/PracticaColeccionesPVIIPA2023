@@ -51,6 +51,7 @@ public class PersonaControlador {
                JOptionPane.showMessageDialog(null,"REVISE LA INFO!!!!");
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"CONTACTESE CON EL ADMINISTRADOR !!");
         }
     
     }
