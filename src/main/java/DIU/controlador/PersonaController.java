@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,8 +20,8 @@ public class PersonaController {
     ConexionBDD conectar=new ConexionBDD();
     Connection conectado=(Connection)conectar.conectar();
     PreparedStatement ejecutar;
-    ResultSet resultado;
-
+    ResultSet resultado;//para leer u obtener datos
+    int res;//para escribir
     public PersonaController() {
     }
 
@@ -41,8 +42,12 @@ public class PersonaController {
             ejecutar = (PreparedStatement) conectado.prepareCall(sql);
             int res=ejecutar.executeUpdate();
             if(res>0){
+                JOptionPane.showMessageDialog
+        (null, "Persona creada con éxito");
                 System.out.println("PERSONA CREADA CON ÉXITO");
             }else{
+                JOptionPane.showMessageDialog
+        (null, "Revisar los datos ingresados");
                 System.out.println("REVISAR LA INFORMACIÓN INGRESADA");
             }
             } catch (SQLException e) {

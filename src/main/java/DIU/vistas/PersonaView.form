@@ -53,7 +53,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="593" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblApellidos" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -69,11 +69,11 @@
                               <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
                               <Component id="btnCrear" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtCedula1" alignment="0" max="32767" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="pswClave" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtCedula1" alignment="0" pref="348" max="32767" attributes="0"/>
                               <Component id="txtApellidos" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtUsuario" alignment="0" max="32767" attributes="0"/>
-                              <Component id="pswClave" alignment="0" min="-2" pref="348" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -178,8 +178,6 @@
         <Property name="text" type="java.lang.String" value="CLAVE:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="pswClave">
-    </Component>
     <Component class="javax.swing.JTextField" name="txtNombres">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombresActionPerformed"/>
@@ -208,7 +206,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable2">
+        <Component class="javax.swing.JTable" name="tblPersonas">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">
@@ -226,6 +224,11 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="CREAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="pswClave">
     </Component>
   </SubComponents>
 </Form>

@@ -435,6 +435,7 @@ public class GestionPersona extends javax.swing.JInternalFrame {
 
         limpiarTabla();
         cargarPersonas();
+        
 
     }//GEN-LAST:event_btnEliminarActionPerformed
 
