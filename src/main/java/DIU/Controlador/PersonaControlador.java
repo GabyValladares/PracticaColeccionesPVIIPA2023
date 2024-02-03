@@ -10,6 +10,7 @@ import com.mysql.cj.xdevapi.PreparableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -49,16 +50,50 @@ public class PersonaControlador {
             int res = ejecutar.executeUpdate();
             if (res > 0) {
                 System.out.println("Persona Creada con Exito");
+                ejecutar.close();
 
-            }else{
-            
+            } else {
+
                 System.out.println("Revise la informacion ingresada");
             }
 
         } catch (Exception e) {
-            
+
             System.out.println("COMUNICARSE CON EL ADMINISTRADOR DEL SISTEMA");
         }
 
     }
+
+    public ArrayList<Object[]> datosPersona() {
+
+        ArrayList<Object[]> listaTotalRegistro = new ArrayList<>();
+        try {
+            String SQL = "call sp_listaPersonas()";
+            ejecutar = (PreparedStatement) conectado.prepareCall(SQL);
+
+            //RESIVO UN ResultSet 
+            ResultSet res = ejecutar.executeQuery();
+            int cont = 1;
+
+            //res.next() va en registro en registro, toma toda la fila
+            while (res.next()) {
+
+                Object[] fila = new Object[6];
+                for (int i = 0; i < 6; i++) {
+                    fila[i] = res.getObject(i + 1);
+
+                }
+                fila[0] = cont;
+                listaTotalRegistro.add(fila);
+                cont++;
+            }
+
+            ejecutar.close();
+            return listaTotalRegistro;
+        } catch (Exception e) {
+            System.out.println("BDD" + e);
+        }
+        return null;
+    }
+
 }

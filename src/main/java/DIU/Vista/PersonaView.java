@@ -14,16 +14,16 @@ import javax.swing.table.DefaultTableModel;
  * @author kevin
  */
 public class PersonaView extends javax.swing.JInternalFrame {
-    
+
     ArrayList<PersonaModel> ListaPersonaModelo = new ArrayList<>();
     DefaultTableModel modelo = new DefaultTableModel();
-    
+
     public void setModelo() {
         String[] cabecera = {"Nro.", "Nombres", "Apellidos", "Cédula", "Usuario", "Clave"};
         modelo.setColumnIdentifiers(cabecera);
         tblPersonas.setModel(modelo);
     }
-    
+
     private void setDatos() {
         // ESTRUCTURA INFORMACIÓN TABLA
         Object[] filas = new Object[modelo.getColumnCount()];
@@ -36,12 +36,12 @@ public class PersonaView extends javax.swing.JInternalFrame {
             filas[4] = datos.getUsuario();
             filas[5] = datos.getClave();
             modelo.addRow(filas);
-            
+
             contador++;
         }
         tblPersonas.setModel(modelo);
     }
-    
+
     public PersonaView() {
         initComponents();
         setModelo();
@@ -76,6 +76,23 @@ public class PersonaView extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jLabel1.setText("GESTION PERSONAS");
 
@@ -149,9 +166,9 @@ public class PersonaView extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(198, 198, 198)
                         .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +212,7 @@ public class PersonaView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        
+
         PersonaModel pM = new PersonaModel(0, txtNombre.getText(),
                 txtNombre.getText(),
                 Integer.parseInt(txtCedula.getText()),
@@ -207,6 +224,15 @@ public class PersonaView extends javax.swing.JInternalFrame {
         setDatos();
         tblPersonas.setModel(modelo);
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        PersonaControlador pC = new PersonaControlador();
+        ArrayList<Object[]> lista = pC.datosPersona();
+        for (Object[] filas : lista) {
+            modelo.addRow(filas);
+        }
+        tblPersonas.setModel(modelo);
+    }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
