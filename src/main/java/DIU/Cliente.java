@@ -9,28 +9,19 @@ package DIU;
  * @author Usuario
  */
 public class Cliente {
-    private String nombre;
     private int numeroAtencion;
     private String tipoAtencion;
 
     public Cliente() {
     }
 
-    public Cliente(String nombre, int numeroAtencion, String tipoAtencion) {
-        this.nombre = nombre;
+    public Cliente( int numeroAtencion, String tipoAtencion) {
         this.numeroAtencion = numeroAtencion;
         this.tipoAtencion = tipoAtencion;
     }
 
     
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
+   
     public int getNumeroAtencion() {
         return numeroAtencion;
     }
