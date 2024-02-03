@@ -11,6 +11,8 @@ import com.mysql.cj.xdevapi.PreparableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -50,9 +52,35 @@ public class PersonaControlador {
             }else{
                JOptionPane.showMessageDialog(null,"REVISE LA INFO!!!!");
             }
+            ejecutar.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"CONTACTESE CON EL ADMINISTRADOR !!");
         }
     
+    }
+    
+    public ArrayList<Object[]> datospersona(){
+        ArrayList<Object[]> totalregistros=new ArrayList<>();
+        try {
+            String SQL= "call verPersonas()";
+            ejecutar=(PreparedStatement)conectado.prepareCall(SQL);
+            ResultSet res=ejecutar.executeQuery();
+            int contador=1;
+            while (res.next()){
+                Object[] fila=new Object[6];
+                for (int i=0;i<6;i++){
+                    fila[i]=res.getObject(i+1);
+                    
+                }
+                fila[0]=contador;
+                totalregistros.add(fila);
+                contador++;
+            }
+               ejecutar.close();
+               return totalregistros;
+        } catch (SQLException e) {
+        }
+     JOptionPane.showMessageDialog(null, "BDD");
+     return null;
     }
 }
