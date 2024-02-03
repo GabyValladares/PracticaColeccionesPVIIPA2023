@@ -81,6 +81,23 @@ public class PersonaView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
         setAutoscrolls(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jLabel1.setText("Nombre Completos");
 
@@ -210,7 +227,7 @@ public class PersonaView extends javax.swing.JInternalFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
         
-        Persona p = new Persona(ERROR, txtNombres.getText(), txtApellidos.getText(), Integer.parseInt(txtCedula.getText()), txtUsuario.getText(), tswClave.getText());
+        Persona p = new Persona(txtNombres.getText(), txtApellidos.getText(), Integer.parseInt(txtCedula.getText()), txtUsuario.getText(), tswClave.getText());
                
         PersonaControlador pC = new PersonaControlador();
         pC.crearPersona(p);
@@ -223,6 +240,18 @@ public class PersonaView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_btnElininarActionPerformed
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        // TODO add your handling code here:
+        PersonaControlador pC = new PersonaControlador();
+        ArrayList< Object[]> lista = pC.datosPersonas();
+        
+        for (Object[] filas : lista) {
+            
+            modelo.addRow(filas);  
+        }
+        tblPersonas.setModel(modelo);
+    }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

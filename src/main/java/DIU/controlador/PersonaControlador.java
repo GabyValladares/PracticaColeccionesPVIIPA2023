@@ -8,6 +8,7 @@ import DIU.modelo.Persona;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -56,9 +57,44 @@ public class PersonaControlador {
                 System.out.println("Person creada");
             }
             
+            ejecutar.close();
+            
         }catch(SQLException e){
             System.out.println("Error en la conexion");
         }
+    }
+    
+    // consultas a la tabla
+    public  ArrayList< Object[]> datosPersonas(){
+        
+        ArrayList< Object[]> listaTotalRegistros = new ArrayList<>();
+        
+        try{
+          String SQL= "call ver_persona()";
+          ejecutar = (PreparateStament)conectado.prepareCall(SQL);
+          ResultSet res = ejecutar.executeQuery();
+          
+          int cont = 1;
+          
+          while(res.next()){
+              Object[] fila = new Object[6];
+              for (int i = 0; i < 6; i++) {
+                  fila[i] = res.getObject(i+1);
+              }
+              
+              fila[0] = cont;
+              listaTotalRegistros.add(fila);
+              cont++;
+              
+          }
+          
+          ejecutar.close();
+          
+        }catch(Exception e){
+            System.out.println("Comuniquense con el administrador del sistema");
+            
+        }
+        return null;
     }
     
     

@@ -4,6 +4,8 @@
  */
 package DIU.controlador;
 
+import java.sql.ResultSet;
+
 /**
  *
  * @author USUARIO
@@ -11,6 +13,14 @@ package DIU.controlador;
 class PreparateStament {
 
     int executeUpdate() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    ResultSet executeQuery() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    void close() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
