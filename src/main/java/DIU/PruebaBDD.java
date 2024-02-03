@@ -4,15 +4,17 @@
  */
 package DIU;
 
+import DIU.controlador.ConexionBDD;
+
 /**
  *
  * @author Belial
  */
-public class Main {
-    public static void main(String[] args) {
-        Menu menu=new Menu();
-        menu.setVisible(true);
+public class PruebaBDD {
     
+     public static void main(String[] args) {
+        ConexionBDD conectar=new ConexionBDD();
+        conectar.conectar();
     }
     
 }

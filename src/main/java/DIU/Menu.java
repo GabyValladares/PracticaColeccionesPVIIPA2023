@@ -15,6 +15,7 @@ import DIU.Tareas.Ejercicio8;
 import DIU.EjerciciosFichaVehicular.FichaVehicular;
 import DIU.vista.LDTable;
 import DIU.vista.ListasDinamicas;
+import DIU.vista.PersonaView;
 import Listas.ListasEstaticass;
 
 /**
@@ -60,6 +61,8 @@ public class Menu extends javax.swing.JFrame {
         opLTarea8 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         opFichaVehicular = new javax.swing.JMenuItem();
+        jmGestion = new javax.swing.JMenu();
+        jmUsuarios = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -196,6 +199,18 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jmGestion.setText("Gestion");
+
+        jmUsuarios.setText("Usuarios");
+        jmUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmUsuariosActionPerformed(evt);
+            }
+        });
+        jmGestion.add(jmUsuarios);
+
+        jMenuBar1.add(jmGestion);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -297,6 +312,13 @@ public class Menu extends javax.swing.JFrame {
         eje8.show();
     }//GEN-LAST:event_opLTarea8ActionPerformed
 
+    private void jmUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmUsuariosActionPerformed
+        // TODO add your handling code here:
+        PersonaView pvw=new PersonaView();
+        escritorio.add(pvw);
+        pvw.show();
+    }//GEN-LAST:event_jmUsuariosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -339,6 +361,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JMenu jmGestion;
+    private javax.swing.JMenuItem jmUsuarios;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;

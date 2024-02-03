@@ -5,12 +5,22 @@
     <artifactId>PracticaColecciones</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-   
+    
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.2.0</version>
+        </dependency>
+    </dependencies>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
         <exec.mainClass>com.mycompany.practicacolecciones.PracticaColecciones</exec.mainClass>
     </properties>
+
     <name>PracticaColeccionesYo</name>
 </project>
