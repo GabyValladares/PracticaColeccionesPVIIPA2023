@@ -24,7 +24,6 @@ public class TablaVehiculo extends javax.swing.JInternalFrame {
     }
 
     public void setModelo() {
-
         String[] cabecera = {"Nro.", "Placa", "Marca", "Tipo de Vehículo", "Fecha de Fabricación", "Color", "Valor", "Multas"};
         modelo.setColumnIdentifiers(cabecera);
         tblDatosVehiculares.setModel(modelo);
