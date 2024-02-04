@@ -8,6 +8,7 @@ import DIU.vistas.LDTabla;
 import DIU.vistas.PersonaView;
 import Practica.Ejercicio1_ListaEstaticas;
 import Practica.Ejercicio2_ListaPalabras;
+import Practica.Ejercicio3_NumerosEnteros;
 
 /**
  *
@@ -42,9 +43,15 @@ public class Menu extends javax.swing.JFrame {
         MenuColas = new javax.swing.JMenu();
         MenuFichaV = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        opEjercicio7 = new javax.swing.JMenu();
         opEjercicio1 = new javax.swing.JMenuItem();
         opEjercicio2 = new javax.swing.JMenuItem();
+        opEjercicio3 = new javax.swing.JMenuItem();
+        opEjercicio4 = new javax.swing.JMenuItem();
+        opEjercicio5 = new javax.swing.JMenuItem();
+        opEjercicio6 = new javax.swing.JMenuItem();
+        op = new javax.swing.JMenuItem();
+        opEjercicio8 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
 
@@ -113,7 +120,12 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(MenuFichaV);
 
-        jMenu3.setText("Practica Colecciones");
+        opEjercicio7.setText("Practica Colecciones");
+        opEjercicio7.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                opEjercicio7ItemStateChanged(evt);
+            }
+        });
 
         opEjercicio1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         opEjercicio1.setText("Ejercicio1");
@@ -122,7 +134,7 @@ public class Menu extends javax.swing.JFrame {
                 opEjercicio1ActionPerformed(evt);
             }
         });
-        jMenu3.add(opEjercicio1);
+        opEjercicio7.add(opEjercicio1);
 
         opEjercicio2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         opEjercicio2.setText("Ejercicio2 ");
@@ -131,9 +143,58 @@ public class Menu extends javax.swing.JFrame {
                 opEjercicio2ActionPerformed(evt);
             }
         });
-        jMenu3.add(opEjercicio2);
+        opEjercicio7.add(opEjercicio2);
 
-        jMenuBar1.add(jMenu3);
+        opEjercicio3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        opEjercicio3.setText("Ejercicio 3");
+        opEjercicio3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opEjercicio3ActionPerformed(evt);
+            }
+        });
+        opEjercicio7.add(opEjercicio3);
+
+        opEjercicio4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        opEjercicio4.setText("Ejercicio 4");
+        opEjercicio4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opEjercicio4ActionPerformed(evt);
+            }
+        });
+        opEjercicio7.add(opEjercicio4);
+
+        opEjercicio5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_5, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        opEjercicio5.setText("Ejercicio 5");
+        opEjercicio5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opEjercicio5ActionPerformed(evt);
+            }
+        });
+        opEjercicio7.add(opEjercicio5);
+
+        opEjercicio6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_6, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        opEjercicio6.setText("Ejercicio 6");
+        opEjercicio6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opEjercicio6ActionPerformed(evt);
+            }
+        });
+        opEjercicio7.add(opEjercicio6);
+
+        op.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_7, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        op.setText("Ejercicio 7");
+        op.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opActionPerformed(evt);
+            }
+        });
+        opEjercicio7.add(op);
+
+        opEjercicio8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_8, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        opEjercicio8.setText("Ejercicio 8");
+        opEjercicio7.add(opEjercicio8);
+
+        jMenuBar1.add(opEjercicio7);
 
         jMenu1.setText("Gestión de Persona");
 
@@ -160,7 +221,7 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(escritorio)
                 .addContainerGap())
         );
@@ -215,6 +276,32 @@ public class Menu extends javax.swing.JFrame {
         lP2.show();
     }//GEN-LAST:event_opEjercicio2ActionPerformed
 
+    private void opEjercicio7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_opEjercicio7ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_opEjercicio7ItemStateChanged
+
+    private void opEjercicio4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_opEjercicio4ActionPerformed
+
+    private void opActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_opActionPerformed
+
+    private void opEjercicio3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio3ActionPerformed
+       Ejercicio3_NumerosEnteros eN3 = new Ejercicio3_NumerosEnteros();
+        escritorio.add(eN3);
+        eN3.show();
+    }//GEN-LAST:event_opEjercicio3ActionPerformed
+
+    private void opEjercicio5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_opEjercicio5ActionPerformed
+
+    private void opEjercicio6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_opEjercicio6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -258,12 +345,18 @@ public class Menu extends javax.swing.JFrame {
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem op;
     private javax.swing.JMenuItem opEjercicio1;
     private javax.swing.JMenuItem opEjercicio2;
+    private javax.swing.JMenuItem opEjercicio3;
+    private javax.swing.JMenuItem opEjercicio4;
+    private javax.swing.JMenuItem opEjercicio5;
+    private javax.swing.JMenuItem opEjercicio6;
+    private javax.swing.JMenu opEjercicio7;
+    private javax.swing.JMenuItem opEjercicio8;
     private javax.swing.JMenuItem opLDinamica;
     private javax.swing.JMenuItem opLEstatica;
     private javax.swing.JMenuItem oplTabla;
