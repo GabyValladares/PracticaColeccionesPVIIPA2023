@@ -70,6 +70,7 @@ public class PersonaView extends javax.swing.JInternalFrame {
         btnActualizar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         pswClave = new javax.swing.JPasswordField();
+        btnLimpiar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -159,6 +160,18 @@ public class PersonaView extends javax.swing.JInternalFrame {
         });
 
         btnBuscar.setText("BUSCAR");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        btnLimpiar.setText("LIMPIAR");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -192,7 +205,8 @@ public class PersonaView extends javax.swing.JInternalFrame {
                             .addComponent(btnCrear)
                             .addComponent(btnEliminar)
                             .addComponent(btnActualizar)
-                            .addComponent(btnBuscar)))
+                            .addComponent(btnBuscar)
+                            .addComponent(btnLimpiar)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(134, 134, 134)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -226,8 +240,9 @@ public class PersonaView extends javax.swing.JInternalFrame {
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblClave)
-                    .addComponent(pswClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                    .addComponent(pswClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpiar))
+                .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(130, Short.MAX_VALUE))
         );
@@ -252,7 +267,8 @@ public class PersonaView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
@@ -263,19 +279,41 @@ public class PersonaView extends javax.swing.JInternalFrame {
         pC.crearPersona(pM);
         ListaPersonaModelo.add(pM);
         setDatos();
-        tbPersona.setModel(modelo);         
+        limpiarTabla();
+        cargarTabla();
+        
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
-        PersonaController pC = new PersonaController();
+       cargarTabla(); 
+    }//GEN-LAST:event_formInternalFrameActivated
+    public void cargarTabla (){
+     PersonaController pC = new PersonaController();
          ArrayList <Object[]> lista = pC.DatosPersona();
          for (Object[] filas : lista) {
             modelo.addRow(filas);
           
         }
          this.limpiarTabla();
-         tbPersona.setModel(modelo);  
-    }//GEN-LAST:event_formInternalFrameActivated
+         tbPersona.setModel(modelo); 
+ }
+ 
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+      txtNombres.setText("");
+      txtApellidos.setText("");
+      txtUsuarios.setText("");
+      pswClave.setText("");
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        
+       int cedula=Integer.parseInt(txtCedula.getText());
+       PersonaController pC=new PersonaController();
+       
+       pC.buscarPersona(cedula);
+       limpiarTabla();
+       cargarTabla();
+    }//GEN-LAST:event_btnBuscarActionPerformed
     
     private void limpiarTabla() {
         int a = modelo.getRowCount() - 1;  //Índices van de 0 a n-1
@@ -292,6 +330,7 @@ public class PersonaView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCrear;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblApellidos;
     private javax.swing.JLabel lblCedula;

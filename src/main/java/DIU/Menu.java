@@ -6,6 +6,7 @@ package DIU;
 
 import DIU.vistas.LDTabla;
 import DIU.vistas.PersonaView;
+import Practica.Ejercicio1_ListaEstaticas;
 
 /**
  *
@@ -40,6 +41,8 @@ public class Menu extends javax.swing.JFrame {
         MenuColas = new javax.swing.JMenu();
         MenuFichaV = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        opEjercicio1 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
 
@@ -53,7 +56,7 @@ public class Menu extends javax.swing.JFrame {
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 613, Short.MAX_VALUE)
+            .addGap(0, 614, Short.MAX_VALUE)
         );
 
         MenuListas.setText("Listas");
@@ -107,6 +110,19 @@ public class Menu extends javax.swing.JFrame {
         MenuFichaV.add(jMenuItem1);
 
         jMenuBar1.add(MenuFichaV);
+
+        jMenu3.setText("Practica Colecciones");
+
+        opEjercicio1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        opEjercicio1.setText("Ejercicio1");
+        opEjercicio1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opEjercicio1ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(opEjercicio1);
+
+        jMenuBar1.add(jMenu3);
 
         jMenu1.setText("Gestión de Persona");
 
@@ -175,6 +191,14 @@ public class Menu extends javax.swing.JFrame {
         pv.show();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void opEjercicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio1ActionPerformed
+   
+        Ejercicio1_ListaEstaticas eL1 = new Ejercicio1_ListaEstaticas();
+        escritorio.add(eL1);
+        eL1.show();
+        
+    }//GEN-LAST:event_opEjercicio1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -218,9 +242,11 @@ public class Menu extends javax.swing.JFrame {
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem opEjercicio1;
     private javax.swing.JMenuItem opLDinamica;
     private javax.swing.JMenuItem opLEstatica;
     private javax.swing.JMenuItem oplTabla;
