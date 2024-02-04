@@ -7,6 +7,7 @@ package DIU;
 import DIU.vistas.LDTabla;
 import DIU.vistas.PersonaView;
 import Practica.Ejercicio1_ListaEstaticas;
+import Practica.Ejercicio2_ListaPalabras;
 
 /**
  *
@@ -43,6 +44,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         opEjercicio1 = new javax.swing.JMenuItem();
+        opEjercicio2 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
 
@@ -122,6 +124,15 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu3.add(opEjercicio1);
 
+        opEjercicio2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        opEjercicio2.setText("Ejercicio2 ");
+        opEjercicio2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opEjercicio2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(opEjercicio2);
+
         jMenuBar1.add(jMenu3);
 
         jMenu1.setText("Gestión de Persona");
@@ -192,12 +203,17 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void opEjercicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio1ActionPerformed
-   
         Ejercicio1_ListaEstaticas eL1 = new Ejercicio1_ListaEstaticas();
         escritorio.add(eL1);
         eL1.show();
         
     }//GEN-LAST:event_opEjercicio1ActionPerformed
+
+    private void opEjercicio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio2ActionPerformed
+        Ejercicio2_ListaPalabras lP2 = new Ejercicio2_ListaPalabras();
+        escritorio.add(lP2);
+        lP2.show();
+    }//GEN-LAST:event_opEjercicio2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,6 +263,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem opEjercicio1;
+    private javax.swing.JMenuItem opEjercicio2;
     private javax.swing.JMenuItem opLDinamica;
     private javax.swing.JMenuItem opLEstatica;
     private javax.swing.JMenuItem oplTabla;
