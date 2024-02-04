@@ -4,11 +4,14 @@
  */
 package DIU.controlador;
 
+import DIU.Menu;
 import DIU.modelo.PersonaModel;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -161,5 +164,20 @@ public class PersonaController {
                 System.out.println("COMUNICARSE CON EL ADMINISTRADOR DEL SISTEMA");
         }
     
+    }
+    
+    public int verificarCredenciales(String usuario, String clave){
+        int estado=0;
+        try {
+            CallableStatement ejecutar = conectado.prepareCall("{call sp_InicioSesion('"+usuario+"','"+clave+"',?)}");
+            ejecutar.registerOutParameter(1,Types.INTEGER);
+            ejecutar.execute();
+            estado = ejecutar.getInt(1);
+            ejecutar.close();
+           return estado;
+        } catch (SQLException e) {
+            System.out.println("ERROR BDD"+e);
+        }
+        return estado;
     }
 }

@@ -4,14 +4,17 @@
  */
 package DIU;
 
+import DIU.vistas.InicioSesion;
+
 /**
  *
  * @author Usuario
  */
 public class Main {
     public static void main(String[] args) {
-        Menu menu=new Menu();
-        menu.setVisible(true);
+        InicioSesion iS=new InicioSesion();
+        iS.setVisible(true);
+                
     }
     
 }
