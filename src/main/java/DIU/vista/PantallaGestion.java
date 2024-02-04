@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
@@ -7,6 +8,7 @@ package DIU.vista;
 import DIU.Controlador.PersonaControlador;
 import DIU.modelo.PersonaModel;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -14,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Dilan Lara
  */
 public class PantallaGestion extends javax.swing.JInternalFrame {
-    public String nombres,apellidos, cedula, usuario,contraseña;
+    public String nombres,apellidos, cedula, usuario,clave;
     ArrayList<PersonaModel> listaDatos=new ArrayList<>();
     DefaultTableModel modelo=new DefaultTableModel();
     /**
@@ -55,8 +57,9 @@ public class PantallaGestion extends javax.swing.JInternalFrame {
         txtApellidos.setText(apellidos);
         txtCedula.setText(cedula);
         txtUsuario.setText(usuario);
-        txtClave.setText(contraseña);
+        txtClave.setText(clave);
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -77,6 +80,7 @@ public class PantallaGestion extends javax.swing.JInternalFrame {
         btnCrear = new javax.swing.JButton();
         txtClave = new javax.swing.JPasswordField();
         btnBuscar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -126,13 +130,13 @@ public class PantallaGestion extends javax.swing.JInternalFrame {
 
         tlbDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "null"
             }
         ));
         jScrollPane1.setViewportView(tlbDatos);
@@ -148,6 +152,13 @@ public class PantallaGestion extends javax.swing.JInternalFrame {
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
+            }
+        });
+
+        btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
             }
         });
 
@@ -197,6 +208,8 @@ public class PantallaGestion extends javax.swing.JInternalFrame {
                         .addComponent(btnCrear)
                         .addGap(27, 27, 27)
                         .addComponent(btnBuscar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnActualizar)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -221,7 +234,8 @@ public class PantallaGestion extends javax.swing.JInternalFrame {
                     .addComponent(jLabel6)
                     .addComponent(btnCrear)
                     .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar))
+                    .addComponent(btnBuscar)
+                    .addComponent(btnActualizar))
                 .addGap(49, 49, 49)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -248,27 +262,85 @@ public class PantallaGestion extends javax.swing.JInternalFrame {
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         // TODO add your handling code here:
-     PersonaModel pM=new PersonaModel();
-     txtNombres.getText();
-     txtApellidos.getText();
-     txtCedula.getText();
-     txtUsuario.getText();
-     txtClave.getText();
-     PersonaControlador pC=new PersonaControlador();
-     pC.CrearPersona(pM);
-       listaDatos.add(pM);     
-     setDatos();
-      tlbDatos.setModel(modelo);  
+ PersonaModel pM = new PersonaModel();
+pM.setNombres(txtNombres.getText());
+pM.setApellidos(txtApellidos.getText());
+pM.setCedula(Integer.parseInt(txtCedula.getText()));  // Asumo que cedula es de tipo int en PersonaModel
+pM.setUsuario(txtUsuario.getText());
+pM.setClave(txtClave.getText());
+        PersonaControlador pC = new PersonaControlador();
+        pC.crearPersona(pM);
+        listaDatos.add(pM);
+        setDatos();
+        limpiarTabla();
+        cargarPersonas();
+        tlbDatos.setModel(modelo);
+
       
          
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
+        
+      int cedula = Integer.parseInt(txtCedula.getText());
+        PersonaControlador pC = new PersonaControlador();
+        ArrayList<Object[]> listaFilas = pC.buscarPersona(cedula);
+        this.limpiarTabla();
+        for (Object[] listaFila : listaFilas) {
+            modelo.addRow(listaFila);
+            System.out.println("---" + listaFila);
+        }
+
+        tlbDatos.setModel(modelo);
+       
+        
+        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        // TODO add your handling code here:
+       PersonaModel pM = new PersonaModel();
+pM.setNombres(txtNombres.getText());
+pM.setApellidos(txtApellidos.getText());
+pM.setCedula(Integer.parseInt(txtCedula.getText()));  // Asumo que cedula es de tipo int en PersonaModel
+pM.setUsuario(txtUsuario.getText());
+pM.setClave(txtClave.getText());
+        PersonaControlador pC = new PersonaControlador();
+        pC.actualizarPersona(pM);
+        limpiarTabla();
+        cargarPersonas();
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+      private void limpiarTabla() {
+        int a = modelo.getRowCount() - 1;  //Índices van de 0 a n-1
+        //System.out.println("Tabla "+a);   //Para mostrar por consola el resultado
+        for (int i = a; i >= 0; i--) {
+
+            //System.out.println("i "+i);    //Para mostrar por consola el resultado
+            modelo.removeRow(i);
+        }
+    }
+      
+    public void cargarPersonas() {
+    if (listaDatos != null) {
+        DefaultTableModel modelo = (DefaultTableModel) tlbDatos.getModel();
+        modelo.setRowCount(0); // Limpiar la tabla
+
+        Iterator<PersonaModel> iterator = listaDatos.iterator();
+
+        while (iterator.hasNext()) {
+            PersonaModel persona = iterator.next();
+            Object[] fila = {persona.getNombres(), persona.getApellidos(), persona.getCedula(), persona.getUsuario()};
+            modelo.addRow(fila);
+        }
+    } else {
+        System.out.println("La lista de personas es nula.");
+    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCrear;
     private javax.swing.JLabel jLabel1;
