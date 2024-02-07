@@ -11,6 +11,7 @@ import Practica.Ejercicio2_ListaPalabras;
 import Practica.Ejercicio3_NumerosEnteros;
 import Practica.Ejercicio4_formularioJugador;
 import Practica.Ejercicio5_stringInviertido;
+import Practica.Ejercicio6_torresHanoi;
 
 /**
  *
@@ -305,7 +306,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_opEjercicio5ActionPerformed
 
     private void opEjercicio6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio6ActionPerformed
-        // TODO add your handling code here:
+        Ejercicio6_torresHanoi ET6 = new Ejercicio6_torresHanoi ();
+        escritorio.add(ET6);
+        ET6.show();
     }//GEN-LAST:event_opEjercicio6ActionPerformed
 
     /**
