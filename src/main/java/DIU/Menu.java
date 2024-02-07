@@ -10,6 +10,7 @@ import Practica.Ejercicio1_ListaEstaticas;
 import Practica.Ejercicio2_ListaPalabras;
 import Practica.Ejercicio3_NumerosEnteros;
 import Practica.Ejercicio4_formularioJugador;
+import Practica.Ejercicio5_stringInviertido;
 
 /**
  *
@@ -298,7 +299,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_opEjercicio3ActionPerformed
 
     private void opEjercicio5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio5ActionPerformed
-        // TODO add your handling code here:
+        Ejercicio5_stringInviertido ES5 = new Ejercicio5_stringInviertido();
+        escritorio.add(ES5);
+        ES5.show();
     }//GEN-LAST:event_opEjercicio5ActionPerformed
 
     private void opEjercicio6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio6ActionPerformed

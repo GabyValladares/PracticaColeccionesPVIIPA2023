@@ -4,6 +4,7 @@
  */
 package Practica;
 
+import DIU.modelo.E4_Jugador;
 import java.awt.event.ItemEvent;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
