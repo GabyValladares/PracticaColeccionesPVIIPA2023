@@ -4,6 +4,7 @@
  */
 package view.vistas;
 
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import view.controlador.perosnacontrol;
@@ -46,6 +47,29 @@ ArrayList<perosnamodel> lista = new ArrayList();
         tbl_tabla.setModel(model);
     }
     
+    public void datospersona(){
+        ArrayList<Object[]> listatotal = new ArrayList();
+        
+        try {
+            String SQL = "call sp_listapersona()";
+             ejecutar = (PreparedStatement)conectado.prepareCall(SQL);
+             
+             
+        Resultset res = ejecutar.executeUpdate();
+        
+        while (res.next()){
+            Object[] fila = new Object[6];
+            for (int i = 0; i < 6; i++) {
+               fila[i] = res.getObject(i+1); 
+            }
+            listatotal.add(fila);
+        }
+        ejecutar.close();
+        return listatotal;
+        } catch (Exception e) {
+        }
+    }
+    
     
     
     
@@ -74,6 +98,24 @@ ArrayList<perosnamodel> lista = new ArrayList();
         txtp_clave = new javax.swing.JPasswordField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_tabla = new javax.swing.JTable();
+
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jLabel1.setText("jLabel1");
 
@@ -207,15 +249,18 @@ ArrayList<perosnamodel> lista = new ArrayList();
     }//GEN-LAST:event_txt_nombreActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    perosnamodel pm = new perosnamodel(0,
-            txt_nombre.getText(),
-            txt_apellido.getText(),
-            txt_cedula.getText(),
-            txt_usu.getText(),
-            txtp_clave.getText()
+    perosnamodel pm;
+    pm = new perosnamodel(0,txt_nombre.getText(),txt_apellido.getText(),Integer.parseInt(txt_cedula.getText()),txt_usu.getText(),txtp_clave.getText()
     );
     
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formInternalFrameActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
