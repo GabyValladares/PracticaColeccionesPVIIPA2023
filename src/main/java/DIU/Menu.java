@@ -9,6 +9,7 @@ import DIU.vistas.PersonaView;
 import Practica.Ejercicio1_ListaEstaticas;
 import Practica.Ejercicio2_ListaPalabras;
 import Practica.Ejercicio3_NumerosEnteros;
+import Practica.Ejercicio4_formularioJugador;
 
 /**
  *
@@ -281,7 +282,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_opEjercicio7ItemStateChanged
 
     private void opEjercicio4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio4ActionPerformed
-        // TODO add your handling code here:
+        Ejercicio4_formularioJugador EF4 = new Ejercicio4_formularioJugador();
+        escritorio.add(EF4);
+        EF4.show();
     }//GEN-LAST:event_opEjercicio4ActionPerformed
 
     private void opActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opActionPerformed
