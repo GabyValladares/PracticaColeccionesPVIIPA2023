@@ -12,6 +12,7 @@ import Practica.Ejercicio3_NumerosEnteros;
 import Practica.Ejercicio4_formularioJugador;
 import Practica.Ejercicio5_stringInviertido;
 import Practica.Ejercicio6_torresHanoi;
+import Practica.Ejercicio7_numerosSumados;
 
 /**
  *
@@ -280,7 +281,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_opEjercicio2ActionPerformed
 
     private void opEjercicio7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_opEjercicio7ItemStateChanged
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_opEjercicio7ItemStateChanged
 
     private void opEjercicio4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio4ActionPerformed
@@ -290,7 +291,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_opEjercicio4ActionPerformed
 
     private void opActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opActionPerformed
-        // TODO add your handling code here:
+        Ejercicio7_numerosSumados EN7 = new Ejercicio7_numerosSumados();
+        escritorio.add(EN7);
+        EN7.show();
     }//GEN-LAST:event_opActionPerformed
 
     private void opEjercicio3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio3ActionPerformed
