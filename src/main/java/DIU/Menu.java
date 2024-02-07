@@ -13,6 +13,7 @@ import Practica.Ejercicio4_formularioJugador;
 import Practica.Ejercicio5_stringInviertido;
 import Practica.Ejercicio6_torresHanoi;
 import Practica.Ejercicio7_numerosSumados;
+import Practica.Ejercicio8_ColasSeguros;
 
 /**
  *
@@ -196,6 +197,11 @@ public class Menu extends javax.swing.JFrame {
 
         opEjercicio8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_8, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         opEjercicio8.setText("Ejercicio 8");
+        opEjercicio8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opEjercicio8ActionPerformed(evt);
+            }
+        });
         opEjercicio7.add(opEjercicio8);
 
         jMenuBar1.add(opEjercicio7);
@@ -313,6 +319,12 @@ public class Menu extends javax.swing.JFrame {
         escritorio.add(ET6);
         ET6.show();
     }//GEN-LAST:event_opEjercicio6ActionPerformed
+
+    private void opEjercicio8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEjercicio8ActionPerformed
+        Ejercicio8_ColasSeguros EC8 = new Ejercicio8_ColasSeguros();
+        escritorio.add(EC8);
+        EC8.show();
+    }//GEN-LAST:event_opEjercicio8ActionPerformed
 
     /**
      * @param args the command line arguments
