@@ -12,11 +12,11 @@ public class persona {
     private int idPersona;
     private String nombres;
     private String apellidos;
-    private String cedula;
+    private int cedula;
     private String usuario;
     private String clave;
 
-    public persona(int idPersona, String nombres, String apellidos, String cedula, String usuario, String clave) {
+    public persona(int idPersona, String nombres, String apellidos, int cedula, String usuario, String clave) {
         this.idPersona = idPersona;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -49,11 +49,11 @@ public class persona {
         this.apellidos = apellidos;
     }
 
-    public String getCedula() {
+    public int getCedula() {
         return cedula;
     }
 
-    public void setCedula(String cedula) {
+    public void setCedula(int cedula) {
         this.cedula = cedula;
     }
 

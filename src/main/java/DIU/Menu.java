@@ -57,6 +57,7 @@ public class Menu extends javax.swing.JFrame {
         menuFicha = new javax.swing.JMenuItem();
         ReportePagarT = new javax.swing.JMenuItem();
         Gestion = new javax.swing.JMenu();
+        GestionUsuario = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -197,6 +198,15 @@ public class Menu extends javax.swing.JFrame {
                 GestionActionPerformed(evt);
             }
         });
+
+        GestionUsuario.setText("GestionUsuario");
+        GestionUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GestionUsuarioActionPerformed(evt);
+            }
+        });
+        Gestion.add(GestionUsuario);
+
         jMenuBar1.add(Gestion);
 
         setJMenuBar(jMenuBar1);
@@ -294,10 +304,14 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Ejercicio7ActionPerformed
 
     private void GestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionActionPerformed
+          
+    }//GEN-LAST:event_GestionActionPerformed
+
+    private void GestionUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionUsuarioActionPerformed
         personaView f = new personaView();
         escritorio.add(f);
-        f.show();    
-    }//GEN-LAST:event_GestionActionPerformed
+        f.show();
+    }//GEN-LAST:event_GestionUsuarioActionPerformed
   
     /**
      * @param args the command line arguments
@@ -344,6 +358,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem Ejercicio7;
     private javax.swing.JMenuItem Ejercicio8;
     private javax.swing.JMenu Gestion;
+    private javax.swing.JMenuItem GestionUsuario;
     private javax.swing.JMenuItem OpListasEstaticas2;
     private javax.swing.JMenuItem ReportePagarT;
     public static javax.swing.JDesktopPane escritorio;
