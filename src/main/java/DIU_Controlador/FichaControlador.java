@@ -55,7 +55,7 @@ public class FichaControlador {
     }
     
     
-    public void insertarDatosVehiculo(int cedula, String placa, String color, String marca, String tipo, int valor) {
+   public void insertarDatosVehiculo(int cedula, String placa, String color, String marca, String tipo, int valor) {
     try {
         String sql = "CALL InsertarDatosVehiculo(?, ?, ?, ?, ?, ?)";
         try (PreparedStatement statement = conectar.prepareStatement(sql)) {
