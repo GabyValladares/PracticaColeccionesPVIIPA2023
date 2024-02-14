@@ -19,7 +19,7 @@ public class conexionDB {
     public java.sql.Connection conectar() {
         try {
             Class.forName("com.mysql.jdbc.Driver"); //FIJARSE EN EL NOMBRE DE LA BASE DE DATOS Y LA CONTRASEÑA
-            conexion = (java.sql.Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/practica?autoReconnect=true&useSSL=false", "root", "bajoterra100");
+            conexion = (java.sql.Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/vehiculos?autoReconnect=true&useSSL=false", "root", "bajoterra100");
 
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("ERROR DE CONEXION BD" + e);

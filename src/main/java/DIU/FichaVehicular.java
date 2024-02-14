@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package DIU;
+import DIU.controlador.CarroControlador;
+import DIU.controlador.PersonaControlador;
 import DIU.modelo.PersonaReport;
 
 /**
@@ -52,7 +54,6 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         lblColor = new javax.swing.JLabel();
         txtColor = new javax.swing.JTextField();
         cbxMarca = new javax.swing.JComboBox<>();
-        reporteFicha = new javax.swing.JPanel();
 
         setClosable(true);
         setIconifiable(true);
@@ -114,6 +115,12 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             }
         });
 
+        txtCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedulaActionPerformed(evt);
+            }
+        });
+
         chxMultasNo.setText("No");
         chxMultasNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,17 +143,6 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         lblColor.setText("Color del Vehículo:");
 
         cbxMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toyota", "Suzuki", "Kia", "Skoda" }));
-
-        javax.swing.GroupLayout reporteFichaLayout = new javax.swing.GroupLayout(reporteFicha);
-        reporteFicha.setLayout(reporteFichaLayout);
-        reporteFichaLayout.setHorizontalGroup(
-            reporteFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        reporteFichaLayout.setVerticalGroup(
-            reporteFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -201,12 +197,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                             .addComponent(rbtCamioneta)
                             .addComponent(rbtVitara))))
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 192, Short.MAX_VALUE))
-                    .addComponent(reporteFicha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(198, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap(382, Short.MAX_VALUE)
@@ -268,9 +260,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(reporteFicha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -291,10 +281,10 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
     PersonaReport person = new PersonaReport();
     Reporte ventana = new Reporte();
-    Carro carro1 = new Carro();
+    Carro carro1;
     
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
-        
+        carro1 = new Carro();
         ventana.transicionCarro(carro1);
         ventana.transicionPersona(person);
         person.setCédula(txtCedula.getText());
@@ -316,12 +306,14 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         }
         
         if (chxMultasSi.isSelected() == true) {
-            carro1.setMulta("SI");
+            carro1.setMulta("true");
         } else {
-            carro1.setMulta("NO");
+            carro1.setMulta("false");
         }
-        Menu.escritorio.add(ventana);
-        ventana.setVisible(true);
+        
+        
+        CarroControlador carc=new CarroControlador();
+        carc.insertarCarro(carro1, person);
         this.dispose();
     }//GEN-LAST:event_btnVerActionPerformed
 
@@ -339,6 +331,14 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         rbtGrupo.add(rbtJeep);
         rbtGrupo.add(rbtVitara);
     }//GEN-LAST:event_formInternalFrameActivated
+
+    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
+        PersonaControlador pc=new PersonaControlador();
+        if (!txtCedula.getText().isEmpty()) {
+            person=pc.buscarNombrePersonaCedula(txtCedula.getText());
+            txtNombres.setText(person.getNombre());
+        }
+    }//GEN-LAST:event_txtCedulaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -361,7 +361,6 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup rbtGrupo;
     private javax.swing.JRadioButton rbtJeep;
     private javax.swing.JRadioButton rbtVitara;
-    private javax.swing.JPanel reporteFicha;
     public static javax.swing.JTextField txtAnioFab;
     public static javax.swing.JTextField txtCedula;
     public static javax.swing.JTextField txtColor;

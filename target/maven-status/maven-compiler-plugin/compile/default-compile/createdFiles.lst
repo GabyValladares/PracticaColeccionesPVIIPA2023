@@ -11,6 +11,7 @@ DIU\CEjercicio1.class
 DIU\LEEjercicio2$2.class
 DIU\CEjercicio2$2.class
 DIU\PEjercicio2$3.class
+DIU\vista\PersonaView$4.class
 DIU\FichaVehicular$1.class
 DIU\Menu$13.class
 DIU\modelo\PersonaReport.class
@@ -19,6 +20,7 @@ DIU\TablaEjercicio1$1.class
 DIU\CEjercicio1$1.class
 DIU\Menu$4.class
 DIU\modelo\PersonaModelo.class
+DIU\controlador\CarroControlador.class
 DIU\Menu.class
 Listas\Ejercicio1$1.class
 DIU\LEEjercicio2$5.class
@@ -28,6 +30,7 @@ DIU\LEEjercicio2$3.class
 DIU\Menu$1.class
 Pilas\Ejercicio1$1.class
 DIU\TablaEjercicio1.class
+DIU\FichaVehicular$7.class
 DIU\CEjercicio1$2.class
 DIU\controlador\PersonaControlador.class
 DIU\Reporte$1.class
@@ -49,6 +52,7 @@ DIU\Menu$11.class
 DIU\controlador\pruebaBD.class
 DIU\Menu$2.class
 DIU\Menu$9.class
+DIU\vista\PersonaView$3.class
 DIU\CEjercicio2$1.class
 DIU\vista\LDTable$2.class
 DIU\LEEjercicio1$2.class

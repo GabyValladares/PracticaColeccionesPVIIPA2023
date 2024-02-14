@@ -35,7 +35,7 @@ public class LDTable extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblNombres = new javax.swing.JTable();
+        tblVehiculos = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -55,7 +55,7 @@ public class LDTable extends javax.swing.JInternalFrame {
             }
         });
 
-        tblNombres.setModel(new javax.swing.table.DefaultTableModel(
+        tblVehiculos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -66,7 +66,7 @@ public class LDTable extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblNombres);
+        jScrollPane1.setViewportView(tblVehiculos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,9 +109,9 @@ public class LDTable extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtNombreMouseClicked
     
     public void setModelo(){
-        String[] cabecera={"Nro","Nombres"};
+        String[] cabecera={"Nombre",""};
         modelo.setColumnIdentifiers(cabecera);
-        tblNombres.setModel(modelo);
+        tblVehiculos.setModel(modelo);
     }
     
     public void llenarArray(){
@@ -130,14 +130,14 @@ public class LDTable extends javax.swing.JInternalFrame {
             cont++;
             modelo.addRow(informacion);
         }
-        tblNombres.setModel(modelo);
+        tblVehiculos.setModel(modelo);
         txtNombre.setText("");
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblNombres;
+    private javax.swing.JTable tblVehiculos;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
