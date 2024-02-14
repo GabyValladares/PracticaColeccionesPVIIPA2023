@@ -26,133 +26,100 @@ public class Ejercicio1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtResultado = new javax.swing.JTextField();
-        lbnImprimir = new javax.swing.JButton();
-        lblTamanio = new javax.swing.JLabel();
-        lblPalabra = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtResultado = new javax.swing.JTextArea();
+        btnGenerar = new javax.swing.JButton();
         txtTamanio = new javax.swing.JTextField();
         txtPalabra = new javax.swing.JTextField();
-        lbnLimpiar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 153, 51));
+        setForeground(new java.awt.Color(255, 153, 0));
 
-        lbnImprimir.setText("IMPRIMIR");
-        lbnImprimir.addActionListener(new java.awt.event.ActionListener() {
+        txtResultado.setColumns(20);
+        txtResultado.setRows(5);
+        txtResultado.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 153, 0)));
+        jScrollPane1.setViewportView(txtResultado);
+
+        btnGenerar.setBackground(new java.awt.Color(255, 153, 51));
+        btnGenerar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnGenerar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGenerar.setText("GENERAR");
+        btnGenerar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnGenerar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lbnImprimirActionPerformed(evt);
+                btnGenerarActionPerformed(evt);
             }
         });
 
-        lblTamanio.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblTamanio.setForeground(new java.awt.Color(204, 0, 51));
-        lblTamanio.setText("Ingrese un tamaño");
+        txtTamanio.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 153, 51)));
 
-        lblPalabra.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblPalabra.setForeground(new java.awt.Color(204, 0, 51));
-        lblPalabra.setText("Ingrese una palabra");
+        txtPalabra.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 153, 51)));
 
-        txtTamanio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTamanioActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Ingresar el tamaño:");
 
-        lbnLimpiar.setText("LIMPIAR");
-        lbnLimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lbnLimpiarActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Ingresar 2 palabras:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblPalabra)
-                            .addComponent(lblTamanio))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtTamanio, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(txtPalabra)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(230, 230, 230)
-                .addComponent(lbnImprimir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                .addComponent(lbnLimpiar)
-                .addGap(101, 101, 101))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtTamanio)
+                            .addComponent(txtPalabra, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))))
+                .addGap(59, 59, 59))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(151, 151, 151))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(lblTamanio))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(txtTamanio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblPalabra)
-                    .addComponent(txtPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTamanio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbnImprimir)
-                    .addComponent(lbnLimpiar))
-                .addGap(72, 72, 72))
+                    .addComponent(txtPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(btnGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lbnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbnImprimirActionPerformed
-        // TODO add your handling code here:
-     // Parsear el tamaño del array
-    int tamanio = Integer.parseInt(txtTamanio.getText());
-
-    // Obtener la palabra ingresada
-    String palabra = txtPalabra.getText();
-  // Separar la palabra en palabras individuales
-    String[] palabras = palabra.split(" ");
-
-    // Crear un solo objeto lógico que almacene posiciones pares e impares
-    StringBuilder resultado = new StringBuilder(" \n ");
-
-    for (int i = 0; i < tamanio; i++) {
-        if (i % 2 == 0) {
-            // Posiciones pares
-            resultado.append(" ").append(palabras[0]);
-        } else {
-            // Posiciones impares
-            resultado.append(" ").append(palabras[1]);
+    private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
+        int tamanio=Integer.parseInt(txtTamanio.getText());
+        String [] palabras=new String[tamanio];
+        String [] recolector=txtPalabra.getText().split(" ");
+        StringBuilder mostrarP=new StringBuilder();
+        for (int i = 0; i < palabras.length; i++) {
+            if(i%2!=0){
+                palabras[i]=recolector[0];
+            }else{
+                palabras[i]=recolector[1];
+            }
+            mostrarP.append(palabras[i]);
         }
-    }
-
-    // Asignar el resultado al componente txtResultado
-    txtResultado.setText(resultado.toString().trim());
-    }//GEN-LAST:event_lbnImprimirActionPerformed
-
-    private void txtTamanioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTamanioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTamanioActionPerformed
-
-    private void lbnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbnLimpiarActionPerformed
-        // TODO add your handling code here:
-        txtPalabra.setText("");
-       txtTamanio.setText("");
-       txtResultado.setText("");
-    }//GEN-LAST:event_lbnLimpiarActionPerformed
+        txtResultado.setText(mostrarP.toString());
+    }//GEN-LAST:event_btnGenerarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,18 +149,20 @@ public class Ejercicio1 extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new Ejercicio1().setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Ejercicio1().setVisible(true);
+            }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblPalabra;
-    private javax.swing.JLabel lblTamanio;
-    private javax.swing.JButton lbnImprimir;
-    private javax.swing.JButton lbnLimpiar;
+    private javax.swing.JButton btnGenerar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtPalabra;
-    private javax.swing.JTextField txtResultado;
+    private javax.swing.JTextArea txtResultado;
     private javax.swing.JTextField txtTamanio;
     // End of variables declaration//GEN-END:variables
 }
