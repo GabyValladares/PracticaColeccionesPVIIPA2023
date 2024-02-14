@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Usuario
+ * @author Belial
  */
 public class ConexionBDD {
     java.sql.Connection conexion;

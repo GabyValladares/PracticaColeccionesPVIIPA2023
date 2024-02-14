@@ -5,7 +5,6 @@ package DIU.modelo;
  * @author Belial
  */
 public class Vehiculo {
-
     private String placa, marca, color, tipo, multas, añoFabricacion;
     private double valor;
 

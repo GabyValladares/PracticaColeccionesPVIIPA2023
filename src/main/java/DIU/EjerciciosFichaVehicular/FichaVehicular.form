@@ -100,11 +100,19 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnVer" min="-2" pref="176" max="-2" attributes="0"/>
-                          <Component id="btnCancelar" min="-2" pref="176" max="-2" attributes="0"/>
-                          <Component id="btnTablaVehiculos" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnVer" min="-2" pref="176" max="-2" attributes="0"/>
+                                  <Component id="btnCancelar" min="-2" pref="176" max="-2" attributes="0"/>
+                                  <Component id="btnTablaVehiculos" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
+                              <Component id="btnCrear" min="-2" pref="155" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -187,6 +195,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblAnioFab" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                           <Component id="txtAnioFab" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="btnCrear" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -408,10 +417,18 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnTablaVehiculos">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Generar Tabla Veh&#xed;culos"/>
+        <Property name="text" type="java.lang.String" value="VER TODOS SUS VEHICULOS"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTablaVehiculosActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnCrear">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CREAR VEHICULO"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

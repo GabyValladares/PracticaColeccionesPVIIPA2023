@@ -1,5 +1,7 @@
 package DIU.EjerciciosFichaVehicular;
 
+import DIU.CONTROLADOR.VehiculoControlador;
+import static DIU.EjerciciosFichaVehicular.FichaVehicular.txtCedula;
 import DIU.modelo.Persona;
 import DIU.modelo.Vehiculo;
 import java.util.ArrayList;
@@ -23,40 +25,51 @@ public class TablaVehiculo extends javax.swing.JInternalFrame {
         setModelo();
     }
 
-    public void setModelo() {
-
-        String[] cabecera = {"Nro.", "Placa", "Marca", "Tipo de Vehículo", "Fecha de Fabricación", "Color", "Valor", "Multas"};
+     public void setModelo() {
+        String[] cabecera = {"Cédula", "Nombres", "Placa", "Color", "Marca", "Tipo", "Valor"};
         modelo.setColumnIdentifiers(cabecera);
         tblDatosVehiculares.setModel(modelo);
     }
 
-    public void llenarArray() {
-        Vehiculo vehiculo = new Vehiculo(placa, marca, color, tipo, multas, añoFabricacion, Double.parseDouble(valor));
-        Persona persona = new Persona(nombre, Integer.parseInt(cedula), listaVehiculosLD);
-        listaVehiculosLD.add(vehiculo);
 
-    }
+    public void llenarTabla() {
+        // Limpiar la tabla antes de llenarla
+        modelo.setRowCount(0);
 
-    public void setDatos() {
-        Object[] filas = new Object[modelo.getColumnCount()];
-        int cont = 1;
-        for (Vehiculo puntero : listaVehiculosLD) {
-            filas[0] = cont;
-            filas[1] = puntero.getPlaca();
-            filas[2] = puntero.getMarca();
-            filas[3] = puntero.getTipo();
-            filas[4] = puntero.getAñoFabricacion();
-            filas[5] = puntero.getColor();
-            filas[6] = puntero.getValor();
-            filas[7] = puntero.getMultas();
-            modelo.addRow(filas);
-            cont++;
+        // Obtener los vehículos de la base de datos
+        Persona persona = new Persona();
+        VehiculoControlador controlador = new VehiculoControlador();
+        ArrayList<Object[]> vehiculos = controlador.obtenerVehiculosPorPersona(persona);
+
+
+        // Llenar la tabla con los datos de los vehículos obtenidos
+        if (vehiculos != null) {
+            for (Object[] fila : vehiculos) {
+                modelo.addRow(fila);
+            }
         }
-        tblDatosVehiculares.setModel(modelo);
-        lblNombre.setText(nombre);
-        lblCedula.setText(cedula);
-
     }
+
+//    public void setDatos() {
+//        Object[] filas = new Object[modelo.getColumnCount()];
+//        int cont = 1;
+//        for (Vehiculo puntero : listaVehiculosLD) {
+//            filas[0] = cont;
+//            filas[1] = puntero.getPlaca();
+//            filas[2] = puntero.getMarca();
+//            filas[3] = puntero.getTipo();
+//            filas[4] = puntero.getAñoFabricacion();
+//            filas[5] = puntero.getColor();
+//            filas[6] = puntero.getValor();
+//            filas[7] = puntero.getMultas();
+//            modelo.addRow(filas);
+//            cont++;
+//        }
+//        tblDatosVehiculares.setModel(modelo);
+////        lblNombre.setText(nombre);
+////        lblCedula.setText(cedula);
+//
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -69,11 +82,10 @@ public class TablaVehiculo extends javax.swing.JInternalFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDatosVehiculares = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
-        lblCedula = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txtCedula = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -110,57 +122,52 @@ public class TablaVehiculo extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tblDatosVehiculares);
 
-        jLabel1.setText("Cédula:");
-
-        jLabel2.setText("Nombre:");
-
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel3.setText("LOS DATOS DE SU VEHÍCULO SON:");
+        jLabel3.setText("LOS DATOS DE SUS VEHÍCULOS SON:");
+
+        jButton1.setText("ver");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Cedula:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(394, 394, 394)
+                .addGap(222, 222, 222)
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(289, 289, 289))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(14, 14, 14)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jLabel1)
+                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,18 +175,40 @@ public class TablaVehiculo extends javax.swing.JInternalFrame {
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         // TODO add your handling code here:
-        llenarArray();
-        setDatos();
+      
     }//GEN-LAST:event_formInternalFrameActivated
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+         int cedula = Integer.parseInt(txtCedula.getText());
+    Persona persona = new Persona();
+    persona.setCedula(cedula); // Suponiendo que tienes un método setCedula en tu clase Persona
+    
+    // Llamar al método obtenerVehiculosPorPersona del controlador
+    ArrayList<Object[]> vehiculos = controlador.obtenerVehiculosPorPersona(persona);
+    
+    // Luego, puedes usar los datos obtenidos en vehiculos para mostrarlos en la tabla
+    // Por ejemplo, podrías actualizar la tabla con estos datos
+    // Supongamos que tu tabla se llama tblDatosVehiculares
+    DefaultTableModel modeloTabla = (DefaultTableModel) tblDatosVehiculares.getModel();
+    modeloTabla.setRowCount(0); // Limpiar la tabla antes de agregar nuevos datos
+    
+    // Luego, agregar los datos de vehiculos a la tabla
+    for (Object[] fila : vehiculos) {
+        modeloTabla.addRow(fila);
+    }
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCedula;
-    private javax.swing.JLabel lblNombre;
     private javax.swing.JTable tblDatosVehiculares;
+    private javax.swing.JTextField txtCedula;
     // End of variables declaration//GEN-END:variables
 }

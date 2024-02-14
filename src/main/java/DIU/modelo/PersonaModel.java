@@ -9,78 +9,76 @@ package DIU.modelo;
  * @author Belial
  */
 public class PersonaModel {
-    private int idPersona;
-    private String Nombres;
-    private String Apellidos;
-    private String Cedula;
-    private String Usuario;
-    private String Clave; 
+    private int idpersona;
+    private String nombres;
+    private String apellidos;
+    private int cedula;
+    private String usuario;
+    private String clave; 
 
-    public PersonaModel(int idPersona, String Nombres, String Apellidos, String Cedula, String Usuario, String Clave) {
-        this.idPersona = idPersona;
-        this.Nombres = Nombres;
-        this.Apellidos = Apellidos;
-        this.Cedula = Cedula;
-        this.Usuario = Usuario;
-        this.Clave = Clave;
-    }
-    
-    
-    
-    public PersonaModel(){
-        
-    }
-    
-    
-    
-
-    public int getIdPersona() {
-        return idPersona;
+    public PersonaModel(int idpersona, String nombres, String apellidos, int cedula, String usuario, String clave) {
+        this.idpersona = idpersona;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.cedula = cedula;
+        this.usuario = usuario;
+        this.clave = clave;
     }
 
-    public void setIdPersona(int idPersona) {
-        this.idPersona = idPersona;
+    public PersonaModel() {
+    }
+
+    public int getIdpersona() {
+        return idpersona;
+    }
+
+    public void setIdpersona(int idpersona) {
+        this.idpersona = idpersona;
     }
 
     public String getNombres() {
-        return Nombres;
+        return nombres;
     }
 
-    public void setNombres(String Nombres) {
-        this.Nombres = Nombres;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
     public String getApellidos() {
-        return Apellidos;
+        return apellidos;
     }
 
-    public void setApellidos(String Apellidos) {
-        this.Apellidos = Apellidos;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
-    public String getCedula() {
-        return Cedula;
+    public int getCedula() {
+        return cedula;
     }
 
-    public void setCedula(String Cedula) {
-        this.Cedula = Cedula;
+    public void setCedula(int cedula) {
+        this.cedula = cedula;
     }
 
     public String getUsuario() {
-        return Usuario;
+        return usuario;
     }
 
-    public void setUsuario(String Usuario) {
-        this.Usuario = Usuario;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getClave() {
-        return Clave;
+        return clave;
     }
 
-    public void setClave(String Clave) {
-        this.Clave = Clave;
+    public void setClave(String clave) {
+        this.clave = clave;
     }
+
+   
+
+  
     
     
      @Override

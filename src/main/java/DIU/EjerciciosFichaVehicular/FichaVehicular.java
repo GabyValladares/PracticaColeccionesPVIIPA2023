@@ -1,6 +1,12 @@
 package DIU.EjerciciosFichaVehicular;
 
+import DIU.CONTROLADOR.VehiculoControlador;
 import DIU.Menu;
+import DIU.modelo.Persona;
+import DIU.modelo.Vehiculo;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -54,6 +60,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         btnTablaVehiculos = new javax.swing.JButton();
+        btnCrear = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -163,10 +170,17 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             }
         });
 
-        btnTablaVehiculos.setText("Generar Tabla Vehículos");
+        btnTablaVehiculos.setText("VER TODOS SUS VEHICULOS");
         btnTablaVehiculos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTablaVehiculosActionPerformed(evt);
+            }
+        });
+
+        btnCrear.setText("CREAR VEHICULO");
+        btnCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearActionPerformed(evt);
             }
         });
 
@@ -224,11 +238,16 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                                                 .addComponent(txtCedula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(117, 117, 117)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnTablaVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(117, 117, 117)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnTablaVehiculos)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(127, 127, 127)
+                                .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,7 +307,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -394,6 +414,9 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
     private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
         // TODO add your handling code here:
+        
+        
+        
     }//GEN-LAST:event_txtCedulaActionPerformed
 
     private void txtNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresActionPerformed
@@ -441,38 +464,76 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnTablaVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTablaVehiculosActionPerformed
-        // TODO add your handling code here:
-        TablaVehiculo reporte1 = new TablaVehiculo();
-        reporte1.cedula = txtCedula.getText();
-        reporte1.nombre = txtNombres.getText();
-        reporte1.placa = txtPlaca.getText();
-        reporte1.color = txtColor.getText();
-        reporte1.añoFabricacion = txtAnioFab.getText();
-        reporte1.valor = txtValor.getText();
-        reporte1.marca = (String) cmbMarcas.getSelectedItem();
-        if (rbtAutomovil.isSelected()) {
-            reporte1.tipo = "Automovil";
-        } else if (rbtJeep.isSelected()) {
-            reporte1.tipo = "Jeep";
-        } else if (rbtCamioneta.isSelected()) {
-            reporte1.tipo = "Camioneta";
-        } else if (rbtVitara.isSelected()) {
-            reporte1.tipo = "Vitara";
-        }
+                                                
+    // Crear una instancia de Persona con la cédula ingresada en txtCedula
+    int cedula = Integer.parseInt(txtCedula.getText());
+    Persona persona = new Persona();
+    persona.setCedula(cedula); // Suponiendo que tienes un método setCedula en tu clase Persona
+    
+    // Llamar al método obtenerVehiculosPorPersona del controlador
+    ArrayList<Object[]> vehiculos = controlador.obtenerVehiculosPorPersona(persona);
+    
+    // Luego, puedes usar los datos obtenidos en vehiculos para mostrarlos en la tabla
+    // Por ejemplo, podrías actualizar la tabla con estos datos
+    // Supongamos que tu tabla se llama tblDatosVehiculares
+    DefaultTableModel modeloTabla = (DefaultTableModel) tblDatosVehiculares.getModel();
+    modeloTabla.setRowCount(0); // Limpiar la tabla antes de agregar nuevos datos
+    
+    // Luego, agregar los datos de vehiculos a la tabla
+    for (Object[] fila : vehiculos) {
+        modeloTabla.addRow(fila);
+    }
 
-        if (chxMultasSi.isSelected()) {
-            reporte1.multas = "Si";
-        } else {
-            reporte1.multas = "No";
-        }
 
-        Menu.escritorio.add(reporte1);
-        reporte1.setVisible(true);
     }//GEN-LAST:event_btnTablaVehiculosActionPerformed
+
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+                                                                              
+    // Crear un objeto Vehiculo con los datos del nuevo vehículo
+    Vehiculo nuevoVehiculo = new Vehiculo();
+    nuevoVehiculo.setPlaca(txtPlaca.getText());
+    nuevoVehiculo.setColor(txtColor.getText());
+    nuevoVehiculo.setMarca(cmbMarcas.getSelectedItem().toString());
+    nuevoVehiculo.setTipo(obtenerTipoVehiculoSeleccionado());
+    nuevoVehiculo.setValor(Double.parseDouble(txtValor.getText()));
+    
+    // Obtener la cédula de la persona asociada al vehículo
+    int cedulaPersona = Integer.parseInt(txtCedula.getText());
+    
+    // Crear una instancia del controlador de vehículos
+    VehiculoControlador vehiculoControlador = new VehiculoControlador();
+    
+    // Llamar al método para insertar el vehículo
+    vehiculoControlador.insertarVehiculo(nuevoVehiculo, cedulaPersona);
+
+
+}
+
+// Método para obtener el tipo de vehículo seleccionado
+private String obtenerTipoVehiculoSeleccionado() {
+    if (rbtAutomovil.isSelected()) {
+        return "Automóvil";
+    } else if (rbtJeep.isSelected()) {
+        return "Jeep";
+    } else if (rbtCamioneta.isSelected()) {
+        return "Camioneta";
+    } else if (rbtVitara.isSelected()) {
+        return "Vitara";
+    } else {
+        return ""; // En caso de que ningún tipo de vehículo esté seleccionado
+    }
+
+    
+    
+    
+    
+
+    }//GEN-LAST:event_btnCrearActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnCrear;
     private javax.swing.ButtonGroup btnGrupo;
     private javax.swing.JButton btnTablaVehiculos;
     private javax.swing.JButton btnVer;

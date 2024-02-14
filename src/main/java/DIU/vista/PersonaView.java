@@ -4,9 +4,11 @@
  */
 package DIU.vista;
 
-import DIU.PersonaControlador;
+import DIU.CONTROLADOR.PersonaControlador;
 import DIU.modelo.PersonaModel;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -14,43 +16,41 @@ import javax.swing.table.DefaultTableModel;
  * @author Belial
  */
 public class PersonaView extends javax.swing.JInternalFrame {
-ArrayList<PersonaModel> ListaDatos = new ArrayList<>();
-DefaultTableModel modelo = new DefaultTableModel();
+    ArrayList<PersonaModel> ListaDatos = new ArrayList<>();
+    DefaultTableModel modelo = new DefaultTableModel();
 
    
     public PersonaView() {
-        initComponents();
-        setModelo();
-    }
+    initComponents();
+    setModelo();
+    
+}
+
 
       public void setModelo() {
-        String[] cabecera = {"Nro.", "Nombres", "Apellidos", "Cédula", "Usuario", "Contraseña"};
+          String[] cabecera = {"Nro.", "Nombres",
+            "Apellidos",
+            "Cédula",
+            "Usuario",
+            "Contraseña"};
         modelo.setColumnIdentifiers(cabecera);
         tblPersonas.setModel(modelo);
     }
       
       
       public void setDatos(){
-          Object[] datosFila = new Object[modelo.getColumnCount()];
-          int nro = 1;
-          for(PersonaModel datos : ListaDatos){
-              datosFila[0]=nro; 
-              datosFila[1]=datos.getNombres();
-              datosFila[2]=datos.getApellidos();
-              datosFila[3]=datos.getCedula();
-              datosFila[4]=datos.getUsuario();
-              datosFila[5]=datos.getClave();
-              modelo.addRow(datosFila);
-              nro++;
-          }
-          
-          tblPersonas.setModel(modelo);
-           txtNombres.setText("");
-        txtApellidos.setText("");
-        txtCedula.setText("");
-        txtUsuario.setText("");
-        txtClave.setText("");
-          
+ Object[] datosFila = new Object[modelo.getColumnCount()];
+        int nro = 1;
+        for (PersonaModel datos : ListaDatos) {
+            datosFila[0] = nro;
+            datosFila[1] = datos.getNombres();
+            datosFila[2] = datos.getApellidos();
+            datosFila[3] = datos.getCedula();
+            datosFila[4] = datos.getUsuario();
+            datosFila[5] = datos.getClave();
+            nro++;
+            modelo.addRow(datosFila);
+        }
       }
     
       
@@ -146,7 +146,7 @@ DefaultTableModel modelo = new DefaultTableModel();
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -174,8 +174,8 @@ DefaultTableModel modelo = new DefaultTableModel();
                                 .addGap(12, 12, 12)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
-                                .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(39, Short.MAX_VALUE))))
+                                .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(30, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,20 +237,76 @@ DefaultTableModel modelo = new DefaultTableModel();
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         // TODO add your handling code here:
-        PersonaModel pM=new PersonaModel();
-     txtNombres.getText();
-     txtApellidos.getText();
-     txtCedula.getText();
-     txtUsuario.getText();
-     txtClave.getText();
-     PersonaControlador pC=new PersonaControlador();
-     pC.crearPersona(pM);
-       ListaDatos.add(pM);     
-     setDatos();
-      tblPersonas.setModel(modelo);
+  PersonaModel pM = new PersonaModel(0,
+                txtNombres.getText(),
+                txtApellidos.getText(),
+                Integer.parseInt(txtCedula.getText()),
+                txtUsuario.getText(),
+                txtClave.getText());
+        PersonaControlador pC = new PersonaControlador();
+        pC.crearPersona(pM);
+        
+        ListaDatos.add(pM);
+        setDatos();
+        limpiarTabla();
+        cargarTabla();
+        tblPersonas.setModel(modelo);
         
     }//GEN-LAST:event_btnCrearActionPerformed
 
+
+ 
+      private void cargarTabla(){
+        PersonaControlador pC = new PersonaControlador();
+        ArrayList<Object[]> lista = pC.datosPersonas();
+        for (Object[] filas : lista) {
+            modelo.addRow(filas);
+        }
+      
+        tblPersonas.setModel(modelo);
+        
+    }
+     
+     
+    public void cargarPersonas() {
+    if (ListaDatos != null) {
+        DefaultTableModel modelo = (DefaultTableModel) tblPersonas.getModel();
+        modelo.setRowCount(0); // Limpiar la tabla
+
+        Iterator<PersonaModel> iterator = ListaDatos.iterator();
+
+        while (iterator.hasNext()) {
+            PersonaModel persona = iterator.next();
+            Object[] fila = {persona.getNombres(), persona.getApellidos(), persona.getCedula(), persona.getUsuario(), persona.getClave()};
+            modelo.addRow(fila);
+        }
+    } else {
+        System.out.println("La lista de personas es nula.");
+    }
+}
+ 
+ 
+    
+public void limpiarEntradas(){
+         txtNombres.setText("");
+        txtApellidos.setText("");
+        txtCedula.setText("");
+        txtUsuario.setText("");
+        txtClave.setText("");
+    }
+    
+    private void limpiarTabla() {
+        int a = modelo.getRowCount() - 1;  //Índices van de 0 a n-1
+        //System.out.println("Tabla "+a);   //Para mostrar por consola el resultado
+        for (int i = a; i >= 0; i--) {
+
+            //System.out.println("i "+i);    //Para mostrar por consola el resultado
+            modelo.removeRow(i);
+        }
+    }
+    
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
