@@ -1,5 +1,11 @@
 package DIU.EjerciciosFichaVehicular;
+import DIU.Controlador.ConexionBDD;
 import DIU.Menu;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,6 +20,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         initComponents();
         ReporteValorPagar reporte=new ReporteValorPagar();
         reporte.setVisible(false);
+        
     }
 
     /**
@@ -93,6 +100,11 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         txtCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCedulaActionPerformed(evt);
+            }
+        });
+        txtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCedulaKeyReleased(evt);
             }
         });
 
@@ -335,33 +347,47 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtAnioFabActionPerformed
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
-        // TODO add your handling code here:
-         ReporteValorPagar reporte1=new ReporteValorPagar();
-        reporte1.cedula=txtCedula.getText();
-        reporte1.nombre=txtNombres.getText();
-        reporte1.placa=txtPlaca.getText();
-        reporte1.color=txtColor.getText();
-        reporte1.año=txtAnioFab.getText();
-        reporte1.valor=txtValor.getText();
-        reporte1.marca=(String) cmbMarcas.getSelectedItem();
-        if(rbtAutomovil.isSelected()){
-            reporte1.tipo="Automovil";
-        }else if(rbtJeep.isSelected()){
-            reporte1.tipo="Jeep";
-        }else if(rbtCamioneta.isSelected()){
-            reporte1.tipo="Camioneta";
-        }else if(rbtVitara.isSelected()){
-            reporte1.tipo="Vitara";
-        }
+                                
+    // Recopilar los datos del vehículo
+    String placa = txtPlaca.getText();
+    String color = txtColor.getText();
+    String marca = (String) cmbMarcas.getSelectedItem();
+    String tipo = "";
+    if (rbtAutomovil.isSelected()) {
+        tipo = "Automovil";
+    } else if (rbtJeep.isSelected()) {
+        tipo = "Jeep";
+    } else if (rbtCamioneta.isSelected()) {
+        tipo = "Camioneta";
+    } else if (rbtVitara.isSelected()) {
+        tipo = "Vitara";
+    }
+    int valor = Integer.parseInt(txtValor.getText());
+    int idPersona = Integer.parseInt(txtCedula.getText()); 
+
+    try {
+        PreparedStatement statement = ConexionBDD.prepareStatement(
+            "INSERT INTO vehiculos (placa, color, marca, tipo, valor, idpersona) " +
+            "VALUES (?, ?, ?, ?, ?, ?)"
+        );
+        statement.setString(1, placa);
+        statement.setString(2, color);
+        statement.setString(3, marca);
+        statement.setString(4, tipo);
+        statement.setInt(5, valor);
+        statement.setInt(6, idPersona);
         
-        if(chxMultasSi.isSelected()){
-            reporte1.multas="Si";
-        }else{
-            reporte1.multas="No";
+        int rowsAffected = statement.executeUpdate();
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(this, "Datos del vehículo insertados correctamente en la base de datos");
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al insertar datos del vehículo en la base de datos");
         }
-      
-        Menu.escritorio.add(reporte1);
-        reporte1.setVisible(true);
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Error al insertar datos del vehículo en la base de datos: " + e.getMessage());
+    }
+
+
         
 //        Reporte ficha = new Reporte();     
 //        ficha.cedula=txtCedula.getText();
@@ -394,7 +420,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnVerActionPerformed
 
     private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
-        // TODO add your handling code here:
+   
     }//GEN-LAST:event_txtCedulaActionPerformed
 
     private void txtNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresActionPerformed
@@ -470,6 +496,28 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         Menu.escritorio.add(reporte1);
         reporte1.setVisible(true);
     }//GEN-LAST:event_btnTablaVehiculosActionPerformed
+
+    private void txtCedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyReleased
+         String cedula = txtCedula.getText();
+    
+    try (Connection conexion = ConexionBDD.conectar()) {
+        String sql = "SELECT nombres, apellidos FROM persona WHERE cedula = ?";
+        PreparedStatement statement = conexion.prepareStatement(sql);
+        statement.setString(1, cedula);
+        
+        ResultSet resultSet = statement.executeQuery();
+        
+        if (resultSet.next()) {
+            String nombres = resultSet.getString("nombres");
+            String apellidos = resultSet.getString("apellidos");
+            txtNombres.setText(nombres + " " + apellidos);
+        } else {
+            txtNombres.setText("");
+        }
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al consultar la base de datos: " + ex.getMessage());
+    }
+    }//GEN-LAST:event_txtCedulaKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

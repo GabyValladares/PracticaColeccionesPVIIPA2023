@@ -6,7 +6,6 @@ package DIU;
 
 import DIU.EjerciciosFichaVehicular.FichaVehicular;
 import DIU.vista.LDTable;
-import DIU.vista.ListasDinamicas;
 
 /**
  *
@@ -244,9 +243,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_opFichaVehicularActionPerformed
 
     private void opLDinamicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicasActionPerformed
-        ListasDinamicas ld=new ListasDinamicas();
-        escritorio.add(ld);
-        ld.show();
+      
     }//GEN-LAST:event_opLDinamicasActionPerformed
 
     private void opDTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDTableActionPerformed
