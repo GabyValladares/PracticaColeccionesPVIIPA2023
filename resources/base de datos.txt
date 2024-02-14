@@ -1,0 +1,62 @@
+CREATE TABLE Personas (
+    idPersona INT PRIMARY KEY AUTO_INCREMENT,
+    nombreCompleto VARCHAR(255) NOT NULL,
+    cedula VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE Vehiculos (
+    idVehiculo INT PRIMARY KEY AUTO_INCREMENT,
+    numeroPlaca VARCHAR(20) NOT NULL,
+    anioFabricacion INT NOT NULL,
+    marca VARCHAR(255) NOT NULL,
+    color VARCHAR(50) NOT NULL,
+    tipoVehiculo VARCHAR(50) NOT NULL,
+    valorVehiculo INT NOT NULL,
+    multas BOOLEAN NOT NULL,
+    idPersonaV INT,
+    FOREIGN KEY (idPersonaV) REFERENCES Personas(idPersona)
+);
+DELIMITER //
+
+CREATE PROCEDURE ObtenerPersonaCedula(
+    IN p_cedula VARCHAR(20)
+)
+BEGIN
+    SELECT idPersona, nombreCompleto
+    FROM Personas
+    WHERE cedula = p_cedula;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE InsertarCarro(
+    IN numeroPlaca VARCHAR(20),
+    IN anioFabricacion INT,
+    IN marca VARCHAR(255),
+    IN color VARCHAR(50),
+    IN tipoVehiculo VARCHAR(50),
+    IN valorVehiculo INT,
+    IN multas BOOLEAN,
+    IN idPersona INT
+)
+BEGIN
+    INSERT INTO Vehiculos (numeroPlaca, anioFabricacion, marca, color, tipoVehiculo, valorVehiculo, multas, idPersonaV)
+    VALUES (numeroPlaca, anioFabricacion, marca, color, tipoVehiculo, valorVehiculo, multas, idPersona);
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE ObtenerVehiculosPorPersona(
+    IN idPersonaParam INT
+)
+BEGIN
+    SELECT *
+    FROM Vehiculos
+    WHERE idPersona = idPersonaParam;
+END //
+
+DELIMITER ;
