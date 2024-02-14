@@ -9,6 +9,7 @@ import com.mysql.cj.protocol.Resultset;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  *
@@ -64,5 +65,22 @@ public class personaControlador {
           }
       } catch (Exception e) {
       }
+  }
+  public String obtenerNombresCompletosPorCedula(String cedula){
+      String nombresCompletos = "";
+      try {
+         String sql = "SELECT nombres, apellidos FROM persona Where cedula =?";
+         ejecutar = (PreparedStatement) conectado.prepareCall(sql);
+         ejecutar.setString(1, cedula);
+         ResultSet res = ejecutar.executeQuery();
+         if(resultado.next()){
+             String nombres = resultado.getString("nombres");
+             String apellidos = resultado.getString("apellidos");
+             nombresCompletos = nombres + " " + apellidos;
+         }
+      } catch (Exception e) {
+          e.printStackTrace();
+      }
+      return nombresCompletos;
   }
 }

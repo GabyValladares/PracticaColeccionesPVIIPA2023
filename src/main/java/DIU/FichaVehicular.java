@@ -4,6 +4,8 @@
  */
 package DIU;
 
+import DiuControlador.personaControlador;
+
 /**
  *
  * @author Usuario
@@ -282,7 +284,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtAnioFabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioFabActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtAnioFabActionPerformed
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
@@ -318,7 +320,10 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnVerActionPerformed
 
     private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
-        // TODO add your handling code here:
+     String cedula = txtCedula.getText();
+     personaControlador personaControlador = new personaControlador();
+     String nombresCompletos = personaControlador.obtenerNombresCompletosPorCedula(cedula);
+     txtNombres.setText(nombresCompletos);
     }//GEN-LAST:event_txtCedulaActionPerformed
 
     private void txtNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresActionPerformed
