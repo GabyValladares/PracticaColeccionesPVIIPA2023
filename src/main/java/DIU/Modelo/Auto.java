@@ -9,19 +9,22 @@ package DIU.Modelo;
  * @author usuario
  */
 public class Auto {
-    private String  placa,color,anioFa,marca,tipo,valor,multas;
+    private String placa, color, anioFa, marca, tipo, multas;
+    private int idpersona;
+    private int valor;
 
     public Auto() {
     }
 
-    public Auto(String placa, String anioFa, String marca, String tipo, String valor, String multas,String color) {
+    public Auto(String placa, String color, String anioFa, String marca, String tipo, String multas, int idpersona, int valor) {
         this.placa = placa;
+        this.color = color;
         this.anioFa = anioFa;
         this.marca = marca;
         this.tipo = tipo;
-        this.valor = valor;
         this.multas = multas;
-        this.color = color;
+        this.idpersona = idpersona;
+        this.valor = valor;
     }
 
     public String getPlaca() {
@@ -30,6 +33,14 @@ public class Auto {
 
     public void setPlaca(String placa) {
         this.placa = placa;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public String getAnioFa() {
@@ -56,14 +67,6 @@ public class Auto {
         this.tipo = tipo;
     }
 
-    public String getValor() {
-        return valor;
-    }
-
-    public void setValor(String valor) {
-        this.valor = valor;
-    }
-
     public String getMultas() {
         return multas;
     }
@@ -72,12 +75,22 @@ public class Auto {
         this.multas = multas;
     }
 
-    public String getColor() {
-        return color;
+    public int getIDpersona() {
+        return idpersona;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setIDpersona(int IDpersona) {
+        this.idpersona = IDpersona;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
     }
     
-}
+    }
+
+

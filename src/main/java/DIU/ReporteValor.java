@@ -7,6 +7,7 @@ package DIU;
 
 import DIU.Modelo.Auto;
 import DIU.Modelo.Persona1;
+import DIU.Modelo.PersonaModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -33,8 +34,6 @@ public class ReporteValor extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtADatos = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaDatos = new javax.swing.JTable();
@@ -54,20 +53,6 @@ public class ReporteValor extends javax.swing.JInternalFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-
-        txtADatos.setColumns(20);
-        txtADatos.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        txtADatos.setRows(5);
-        txtADatos.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                txtADatosAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        jScrollPane1.setViewportView(txtADatos);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jLabel1.setText("REPORTE VEHICULAR ");
@@ -116,9 +101,7 @@ public class ReporteValor extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(34, 34, 34)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(280, 280, 280)
+                            .addGap(416, 416, 416)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(52, 52, 52)
@@ -128,14 +111,9 @@ public class ReporteValor extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jLabel1)))
-                .addGap(42, 42, 42)
+                .addGap(48, 48, 48)
+                .addComponent(jLabel1)
+                .addGap(93, 93, 93)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -156,11 +134,11 @@ DefaultTableModel modelo = new DefaultTableModel();
     modeloPAGAR.setColumnIdentifiers(tablaPAGO);
     tablapagar.setModel(modeloPAGAR);
     }
-    public void mostrarDatos(Auto auto,Persona1 persona){
+    public void mostrarDatos(Auto auto,PersonaModel persona){
         Object[] fila = new Object[10];
 
     fila[0] = modelo.getRowCount() + 1;
-    fila[1] = persona.getNombre();
+    fila[1] = persona.getNombres();
     fila[2] = persona.getCedula();
     fila[3] = auto.getPlaca();
     fila[4] = auto.getAnioFa();  
@@ -176,30 +154,6 @@ DefaultTableModel modelo = new DefaultTableModel();
         // TODO add your handling code here:
     }//GEN-LAST:event_formAncestorAdded
 
-    private void txtADatosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtADatosAncestorAdded
-        // TODO add your handling code here:
-//           String datos="Nombre:"+nombre+"\n"+"Cédula:"+cedula+"\n"+"Placa:"+placa+"\n"+"Marca:"+marca+"\n"+"Año fabricacion:"+anio
-//        +"\n"+"Color:"+color+"\n"+"Valor:"+valor+"\n"+"Multas:"+multas+"\n"+"Tipo:"+tipo+"\n"+"Valor a pagar:"+valorPagar;
-//    txtADatos.setText(datos);
-//    JOptionPane.showMessageDialog(this, "Importe Renovación Placas: $" + importeRenovacionPlacas
-//                + "\nMulta Contaminación: $" + multaContaminacion
-//                + "\nValor Matriculación: $" + valorMatriculacion
-//                + "\nMultas: $" + multaPorMultas
-//                + "\nTotal a Pagar: $" + totalPagar);
-//modeloPAGAR.setRowCount(0);
-
-    Object[] filapago = new Object[6];
-
-    filapago[0] = modeloPAGAR.getRowCount() + 1;
-    filapago[1] = importeRenovacionPlacas +" $";
-    filapago[2] = multaContaminacion +" $";
-    filapago[3] = valorMatriculacion +" $";
-    filapago[4] = multaPorMultas +" $";  
-    filapago[5] = totalPagar +" $";
-
-    modeloPAGAR.addRow(filapago);
-    }//GEN-LAST:event_txtADatosAncestorAdded
-
     private void tablaDatosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tablaDatosAncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_tablaDatosAncestorAdded
@@ -207,11 +161,9 @@ DefaultTableModel modelo = new DefaultTableModel();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tablaDatos;
     private javax.swing.JTable tablapagar;
-    private javax.swing.JTextArea txtADatos;
     // End of variables declaration//GEN-END:variables
 }

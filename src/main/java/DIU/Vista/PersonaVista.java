@@ -7,6 +7,7 @@ package DIU.Vista;
 import DIU.Controlador.PersonaControlador;
 import DIU.Modelo.PersonaModel;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -49,6 +50,8 @@ public class PersonaVista extends javax.swing.JInternalFrame {
         btnbuscar = new javax.swing.JButton();
         btnagregar2 = new javax.swing.JButton();
         txtclave = new javax.swing.JPasswordField();
+        btnactualizar = new javax.swing.JButton();
+        btneliminarPER = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -105,6 +108,11 @@ public class PersonaVista extends javax.swing.JInternalFrame {
 
         btneliminar.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         btneliminar.setText("ELIMINAR");
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jLabel6.setText("INGRESAR CLAVE :");
@@ -125,9 +133,30 @@ public class PersonaVista extends javax.swing.JInternalFrame {
 
         btnbuscar.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         btnbuscar.setText("BUSCAR");
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
 
         btnagregar2.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         btnagregar2.setText("AGREGAR");
+
+        btnactualizar.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        btnactualizar.setText("ACTUALIZAR");
+        btnactualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnactualizarActionPerformed(evt);
+            }
+        });
+
+        btneliminarPER.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        btneliminarPER.setText("eliminar persona");
+        btneliminarPER.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarPERActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -154,18 +183,21 @@ public class PersonaVista extends javax.swing.JInternalFrame {
                             .addComponent(txtnom)
                             .addComponent(txtapellidos)
                             .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btneliminar)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnagregar)
-                                .addGap(33, 33, 33)
-                                .addComponent(btnbuscar)))
-                        .addGap(302, 302, 302))
+                            .addComponent(btnagregar)
+                            .addComponent(btneliminar))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnbuscar)
+                            .addComponent(btnactualizar))
+                        .addGap(292, 292, 292))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtusuario, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
                             .addComponent(txtclave))
+                        .addGap(200, 200, 200)
+                        .addComponent(btneliminarPER)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,16 +236,22 @@ public class PersonaVista extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(txtapellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(btneliminar))
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(40, 40, 40))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(btneliminar)
+                                    .addComponent(btnactualizar))
+                                .addGap(25, 25, 25)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(68, 68, 68)
+                                .addComponent(btneliminarPER)))
+                        .addGap(31, 31, 31))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel6)
                         .addComponent(txtclave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -244,8 +282,6 @@ ArrayList<PersonaModel>ListaPersonaModel=new ArrayList<>();
             datosfila[1]=datos.getNombres();
             datosfila[2]=datos.getApellidos();
             datosfila[3]=datos.getCedula();
-            datosfila[4]=datos.getUsuario();
-            datosfila[5]=datos.getClave();
             nro++;
             modelo.addRow(datosfila);
         }
@@ -253,7 +289,7 @@ ArrayList<PersonaModel>ListaPersonaModel=new ArrayList<>();
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
         // TODO add your handling code here:
         PersonaModel pM = new PersonaModel(0, txtnom.getText(), txtapellidos.getText(),
-                txtusuario.getText(), txtclave.getText(), Integer.parseInt(txtcedula.getText()));
+                 Integer.parseInt(txtcedula.getText()));
         PersonaControlador pC = new PersonaControlador();
         pC.crearPersona(pM);
         ListaPersonaModel.add(pM);
@@ -268,16 +304,62 @@ ArrayList<PersonaModel>ListaPersonaModel=new ArrayList<>();
         for(Object[] filas:listas){
             modelo.addRow(filas);
         }
-        TBpersonas.setModel(modelo);
+        limpiarTabla();
+         cargartabla();
     }//GEN-LAST:event_formInternalFrameActivated
 
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+        // TODO add your handling code here:
+        txtnom.setText("");
+        txtapellidos.setText("");
+        txtcedula.setText("");
+        txtusuario.setText("");
+        txtclave.setText("");
+    }//GEN-LAST:event_btneliminarActionPerformed
+
+    private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnactualizarActionPerformed
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        // TODO add your handling code here:
+      int cedula=Integer.parseInt(txtcedula.getText());
+      PersonaControlador pC=new PersonaControlador();
+        ArrayList<Object[]> listas=pC.buscarPersona(cedula);
+        for(Object[] filas:listas){
+            modelo.addRow(filas);
+        }
+      pC.buscarPersona(cedula);
+      limpiarTabla();
+      cargartabla();
+    }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void btneliminarPERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarPERActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btneliminarPERActionPerformed
+private void limpiarTabla() {
+    int a = modelo.getRowCount() - 1; 
+    for (int i = a; i >= 0; i--) {
+        modelo.removeRow(i);
+    }
+}
+ private void cargartabla(){
+      PersonaControlador pC=new PersonaControlador();
+        ArrayList<Object[]> listas=pC .datospersona();
+        for(Object[] filas:listas){
+            modelo.addRow(filas);
+        }
+        TBpersonas.setModel(modelo);
+ }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TBpersonas;
+    private javax.swing.JButton btnactualizar;
     private javax.swing.JButton btnagregar;
     private javax.swing.JButton btnagregar2;
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btneliminar;
+    private javax.swing.JButton btneliminarPER;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

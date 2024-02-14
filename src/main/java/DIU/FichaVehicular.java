@@ -4,10 +4,15 @@
  */
 package DIU;
 
+import DIU.Controlador.AutoControlador;
 import DIU.Modelo.Auto;
 import DIU.Modelo.Persona1;
+import DIU.Modelo.PersonaModel;
+import DIU.controlador.ConexionBDD;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
-
 
 /**
  *
@@ -15,12 +20,18 @@ import javax.swing.JOptionPane;
  */
 public class FichaVehicular extends javax.swing.JInternalFrame {
 
+    private Auto auto;
+    ConexionBDD conectar = new ConexionBDD();
+    Connection conectado = (Connection) conectar.conectar();
+    PreparedStatement ejecutar;
+    ResultSet resultado;
+
     /**
      * Creates new form FichaVehicular
      */
     public FichaVehicular() {
         initComponents();
-        ReporteValor reporte=new ReporteValor();
+        ReporteValor reporte = new ReporteValor();
         reporte.setVisible(false);
     }
 
@@ -333,94 +344,94 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
         // TODO add your handling code here:
-       if (validarCampos()) {
-        double valorPagar = 0;
-        ReporteValor reporte1 = new ReporteValor();
-        Persona1 persona = new Persona1();
-        Auto auto = new Auto();
+        if (validarCampos()) {
+            Auto auto = new Auto();
+            PersonaModel persona = new PersonaModel();
+            ReporteValor reporte1 = new ReporteValor();
 
-        persona.setNombre(txtNombres.getText());
-        persona.setCedula(txtCedula.getText());
-        auto.setMarca((String) cmbMarca.getSelectedItem());
-        auto.setColor(txtColor.getText());
-        auto.setPlaca(txtPlaca.getText());
-        auto.setValor(txtValor.getText());
-        auto.setAnioFa(txtAnioFab.getText());
+            persona.setNombres(txtNombres.getText());
+            persona.setCedula(Integer.parseInt(txtCedula.getText()));
+            auto.setMarca((String) cmbMarca.getSelectedItem());
+            auto.setColor(txtColor.getText());
+            auto.setPlaca(txtPlaca.getText());
+            auto.setValor(Integer.parseInt(txtValor.getText()));
+            auto.setAnioFa(txtAnioFab.getText());
 
-        if (btnAuto.isSelected()) {
-            auto.setTipo("Automovil");
-        } else if (btnjeep.isSelected()) {
-            auto.setTipo("Jeep");
-        } else if (btnCamioneta.isSelected()) {
-            auto.setTipo("Camioneta");
-        } else if (btnVitara.isSelected()) {
-            auto.setTipo("Vitara");
-        }
+            if (btnAuto.isSelected()) {
+                auto.setTipo("Automovil");
+            } else if (btnjeep.isSelected()) {
+                auto.setTipo("Jeep");
+            } else if (btnCamioneta.isSelected()) {
+                auto.setTipo("Camioneta");
+            } else if (btnVitara.isSelected()) {
+                auto.setTipo("Vitara");
+            }
 
-        if (btnmultas.isSelected()) {
-            auto.setMultas("Si");
+            if (btnmultas.isSelected()) {
+                auto.setMultas("Si");
+            } else {
+                auto.setMultas("No");
+            }
+
+            AutoControlador controlador = new AutoControlador();
+            controlador.crearVehiculo(auto);
+
+            reporte1.mostrarDatos(auto, persona);
+            Menu.escritorio.add(reporte1);
+            reporte1.setVisible(true);
+            this.dispose();
+
+            if (txtCedula.getText().startsWith("1") && txtPlaca.getText().startsWith("I")) {
+                reporte1.importeRenovacionPlacas = (int) (0.05 * 435);
+            }
+
+            if (Integer.parseInt(txtAnioFab.getText()) < 2010) {
+                // Calcular la multa por contaminación del 2% por cada año de antigüedad
+                int añosAntiguedad = 2010 - Integer.parseInt(txtAnioFab.getText());
+                reporte1.multaContaminacion = (int) ((0.02 * añosAntiguedad) * 435);
+            }
+
+            if (cmbMarca.getSelectedItem().equals("Toyota")) {
+                if (auto.getTipo().equalsIgnoreCase("Jeep")) {
+                    reporte1.valorMatriculacion = (int) (0.08 * auto.getValor());
+                } else if (auto.getTipo().equalsIgnoreCase("Camioneta")) {
+                    reporte1.valorMatriculacion = (int) (0.12 * auto.getValor());
+                }
+            } else if (cmbMarca.getSelectedItem().equals("Suzuki")) {
+                if (auto.getTipo().equalsIgnoreCase("Vitara")) {
+                    reporte1.valorMatriculacion = (int) (0.10 * auto.getValor());
+                } else if (auto.getTipo().equalsIgnoreCase("Automovil")) {
+                    reporte1.valorMatriculacion = (int) (0.09 * auto.getValor());
+                }
+            }
+
+            if (auto.getMultas().equalsIgnoreCase("Si")) {
+                reporte1.multaPorMultas += 435 * 0.25;
+            }
+
+            reporte1.totalPagar = reporte1.importeRenovacionPlacas + reporte1.multaContaminacion + reporte1.valorMatriculacion + reporte1.multaPorMultas;
+
         } else {
-            auto.setMultas("No");
+            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos antes de generar el informe.");
         }
-        reporte1.mostrarDatos(auto, persona);
-        Menu.escritorio.add(reporte1);
-        reporte1.setVisible(true);
-        this.dispose();
-
-        
-
-        if (txtCedula.getText().startsWith("1") && txtPlaca.getText().startsWith("I")) {
-            reporte1.importeRenovacionPlacas = (int) (0.05 * 435);
-        }
-
-        if (Integer.parseInt(txtAnioFab.getText()) < 2010) {
-            // Calcular la multa por contaminación del 2% por cada año de antigüedad
-            int añosAntiguedad = 2010 - Integer.parseInt(txtAnioFab.getText());
-            reporte1.multaContaminacion = (int) ((0.02 * añosAntiguedad) * 435);
-        }
-
-        if (cmbMarca.getSelectedItem().equals("Toyota")) {
-            if (auto.getTipo().equalsIgnoreCase("Jeep")) {
-                reporte1.valorMatriculacion = (int) (0.08 * Double.parseDouble(auto.getValor()));
-            } else if (auto.getTipo().equalsIgnoreCase("Camioneta")) {
-                reporte1.valorMatriculacion = (int) (0.12 * Double.parseDouble(auto.getValor()));
-            }
-        } else if (cmbMarca.getSelectedItem().equals("Suzuki")) {
-            if (auto.getTipo().equalsIgnoreCase("Vitara")) {
-                 reporte1.valorMatriculacion = (int) (0.10 * Double.parseDouble(auto.getValor()));
-            } else if (auto.getTipo().equalsIgnoreCase("Automovil")) {
-                reporte1.valorMatriculacion = (int) (0.09 * Double.parseDouble(auto.getValor()));
-            }
-        }
-
-        if (auto.getMultas().equalsIgnoreCase("Si")) {
-            reporte1.multaPorMultas += 435 * 0.25;
-        }
-
-        reporte1.totalPagar = reporte1.importeRenovacionPlacas + reporte1.multaContaminacion + reporte1.valorMatriculacion + reporte1.multaPorMultas;
-
-        
-    } else {
-        JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos antes de generar el informe.");
     }
-    }                                      
 
     private boolean validarCampos() {
-    if (!txtNombres.getText().matches("^[a-zA-Z\\s]+$")) {
-        JOptionPane.showMessageDialog(null, "Nombre Inválido");
-        return false;
-    }
+        if (!txtNombres.getText().matches("^[a-zA-Z\\s]+$")) {
+            JOptionPane.showMessageDialog(null, "Nombre Inválido");
+            return false;
+        }
 
-    String cedula = txtCedula.getText();
-    if (!cedula.matches("^\\d{10}$")) {
-        JOptionPane.showMessageDialog(null, "Ingrese una cédula válida con 10 dígitos numéricos.");
-        return false;
-    }
-    if (!txtValor.getText().matches("^\\d+$")) {
-        JOptionPane.showMessageDialog(null, "Ingrese un valor válido con solo números.");
-        return false;
-    }
-    return true;
+        String cedula = txtCedula.getText();
+        if (!cedula.matches("^\\d{10}$")) {
+            JOptionPane.showMessageDialog(null, "Ingrese una cédula válida con 10 dígitos numéricos.");
+            return false;
+        }
+        if (!txtValor.getText().matches("^\\d+$")) {
+            JOptionPane.showMessageDialog(null, "Ingrese un valor válido con solo números.");
+            return false;
+        }
+        return true;
     }//GEN-LAST:event_btnVerActionPerformed
 
     private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed

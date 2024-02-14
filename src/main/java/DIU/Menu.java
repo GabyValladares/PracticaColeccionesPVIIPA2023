@@ -10,6 +10,7 @@ import Listas.ListasEstaticas;
 import Listas.ListaPalabras;
 import Colas.EJEM_7;
 import Colas.EJEM_8;
+import DIU.Vista.AutoVista;
 import DIU.Vista.PersonaVista;
 import Pilas.EJEM_5;
 import Pilas.EJEM_6;
@@ -56,6 +57,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -201,6 +203,14 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem9);
 
+        jMenuItem10.setText("Vehiculo");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem10);
+
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -315,6 +325,13 @@ public class Menu extends javax.swing.JFrame {
         PV.show();
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        AutoVista AV= new AutoVista();
+        escritorio.add(AV);
+        AV.show();             
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
     public void ejecutarReporte(){
         ReporteValor reporte=new ReporteValor();
         escritorio.add(reporte);
@@ -370,6 +387,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

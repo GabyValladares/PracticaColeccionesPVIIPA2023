@@ -10,7 +10,7 @@ package DIU.Modelo;
  */
 public class PersonaModel {
     private int idpersona;
-    private String Nombres,Apellidos,Usuario,Clave;
+    private String Nombres,Apellidos;
     private int Cedula;
 
     public PersonaModel() {
@@ -40,22 +40,7 @@ public class PersonaModel {
         this.Apellidos = Apellidos;
     }
 
-    public String getUsuario() {
-        return Usuario;
-    }
-
-    public void setUsuario(String Usuario) {
-        this.Usuario = Usuario;
-    }
-
-    public String getClave() {
-        return Clave;
-    }
-
-    public void setClave(String Clave) {
-        this.Clave = Clave;
-    }
-
+  
     public int getCedula() {
         return Cedula;
     }
@@ -64,12 +49,10 @@ public class PersonaModel {
         this.Cedula = Cedula;
     }
 
-    public PersonaModel(int idpersona, String Nombres, String Apellidos, String Usuario, String Clave, int Cedula) {
+    public PersonaModel(int idpersona, String Nombres, String Apellidos, int Cedula) {
         this.idpersona = idpersona;
         this.Nombres = Nombres;
         this.Apellidos = Apellidos;
-        this.Usuario = Usuario;
-        this.Clave = Clave;
         this.Cedula = Cedula;
     }
 
