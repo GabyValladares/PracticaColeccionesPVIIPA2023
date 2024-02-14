@@ -135,7 +135,7 @@ public class ListasDinamicas_Practica extends javax.swing.JInternalFrame {
         txtNombres.setText("");
         txtAResultado.setText ("");
         for (Persona listaNombre : listaNombres){
-            txtAResultado.append (listaNombre.getNombres()+ "\n");
+          //  txtAResultado.append (listaNombre.getNombres()+ "\n");
         }
     }//GEN-LAST:event_txtNombresMouseClicked
 

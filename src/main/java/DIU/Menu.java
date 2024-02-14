@@ -4,6 +4,7 @@
  */
 package DIU;
 
+import DIU.EjercicioFichaVehicular.FichaVehicular;
 import DIU.vistas.LDTabla;
 import DIU.vistas.PersonaView;
 import Practica.Ejercicio1_ListaEstaticas;
@@ -253,7 +254,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        FichaVehicula ventanaLE = new FichaVehicula(); 
+        FichaVehicular ventanaLE = new FichaVehicular(); 
         escritorio.add(ventanaLE);
         ventanaLE.show();
     }//GEN-LAST:event_jMenuItem1ActionPerformed

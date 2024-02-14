@@ -4,6 +4,7 @@
  */
 package DIU.vistas;
 
+
 import DIU.modelo.Persona;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -45,7 +46,7 @@ public class LDTabla extends javax.swing.JInternalFrame {
         modelo.setRowCount(0);
         for (Persona persona : listaNombres) {
             informacion[0]= cont;
-            informacion[1]= persona.getNombres();
+            informacion[1]= persona.getNombre();
             cont++;
             modelo.addRow(informacion);
             

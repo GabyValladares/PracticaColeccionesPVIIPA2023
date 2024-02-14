@@ -4,7 +4,11 @@
  */
 package DIU.controlador;
 
+import DIU.EjercicioFichaVehicular.FichaVehicular;
+import static DIU.EjercicioFichaVehicular.FichaVehicular.txtColor;
+import static DIU.EjercicioFichaVehicular.FichaVehicular.txtPlaca;
 import DIU.modelo.PersonaModelo;
+import DIU.modelo.Vehiculo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -142,10 +146,73 @@ public class PersonaController {
                 System.out.println("COMUNICARSE CON EL ADMINISTRADOR DEL SISTEMA");
         }
             return null;
-      
-   
-   
-   
-   
+
 }
+    public String obtenerNombresCompletosCedula (int cedula){
+        try{
+            String SQL = "call obtenerNombresCompletos("+cedula+")";
+            ejecutar = (PreparedStatement) conectado.prepareCall(SQL);
+            ResultSet rs=ejecutar.executeQuery();
+            String nombresCompletos = "";
+            if(rs.next()){
+                nombresCompletos = rs.getString("Nombres_Completos");          
+            }
+            ejecutar.close();
+            return nombresCompletos;
+        }catch (Exception e){
+            System.out.println("Cominicarse con el administrador del sistema");
+        }
+        return null;
     }
+    
+    public void insertarVehiculo(Vehiculo v){
+        //try{
+            String placa = txtPlaca.getText();
+            String color = txtColor.getText();
+        //    String marca = (String) cmbMarcas.getSelectedItem();
+             String tipo;
+        // if (rbtAutomovil.isSelected()) {
+            tipo = "Automovil";
+        }
+       //  else if (rbtJeep.isSelected()) {
+         //   tipo = "Jeep";
+        //} 
+         //else if (rbtCamioneta.isSelected()) {
+            //tipo = "Camioneta";
+        //} 
+         //else if (rbtVitara.isSelected()) {
+           // tipo = "Vitara";
+        //}
+        //int valor = Integer.parseInt(txtValor.getText());
+        //int idPersona = obtenerIdPersonaSeleccionada();
+
+         String SQL = "INSERT INTO ejemplopoo_vehiculos(placa, color, marca, tipo, valor, idpersona) VALUES (?, ?, ?, ?, ?, ?)";
+      //   PreparedStatement statement = conectado.prepareStatement(SQL);
+       //  statement.setString(1, placa);
+        // statement.setString(2, color);
+     //    statement.setString(3, marca);   
+      //   statement.setString(4, tipo);   
+     //    statement.setInt(5, valor);
+       //  statement.setInt(6, idPersona);
+         
+       //  int filasInsertadas = statement.executeUpdate();
+        // if(filasInsertadas > 0){
+         //    System.out.println("Vehiculo insertado correctamente");
+         //}else{
+            // System.out.println("No se inserto correctamente el vehículo en la base de datos");
+        // }
+        // statement.close();
+       // }catch(Exception e){
+           // System.out.println("Error al insertar el vehiculo en la base de datos");
+        }
+        
+    //}
+    
+    
+    
+    
+    
+    
+//}
+
+   
