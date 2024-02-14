@@ -12,6 +12,7 @@ import Listas.EjemploArray;
 import Listas.EjemploArrayList;
 import Listas.FichaJugador;
 import Listas.ListasEstaticas;
+import DIU.vistas.PersonaVista;
 import Pilas.StringInvertido;
 import Pilas.TorresdeHanoi;
 import Practica.EjercicioArrayList;
@@ -56,6 +57,8 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         menuFicha = new javax.swing.JMenu();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -180,6 +183,18 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(menuFicha);
 
+        jMenu1.setText("Gestion");
+
+        jMenuItem4.setText("Persona");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu1);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -272,6 +287,12 @@ public class Menu extends javax.swing.JFrame {
         ventanaS.show();
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        PersonaVista vistP = new PersonaVista();
+        escritorio.add(vistP);
+        vistP.show();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -310,10 +331,12 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuColas;

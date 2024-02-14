@@ -14,23 +14,21 @@ public class Persona {
     
     private String nombre;
     private int cedula;
-    private ArrayList <Vehiculo> listaNombres;
+    private ArrayList <VehiculoModel> listaVehiculos;
 
     public Persona() {
     }
 
-    public Persona(String nombre, int cedula) {
+    public Persona(String nombre) {
         this.nombre = nombre;
-        this.cedula = cedula;
     }
     
 
-    public Persona(String nombre, int cedula, ArrayList<Vehiculo> listaNombres) {
+    public Persona(String nombre, int cedula, ArrayList<VehiculoModel> listaVehiculos) {
         this.nombre = nombre;
         this.cedula = cedula;
-        this.listaNombres = listaNombres;
+        this.listaVehiculos = listaVehiculos;
     }
-    
 
     public String getNombre() {
         return nombre;
@@ -48,14 +46,15 @@ public class Persona {
         this.cedula = cedula;
     }
 
-    public ArrayList<Vehiculo> getListaNombres() {
-        return listaNombres;
+    public ArrayList<VehiculoModel> getListaVehiculos() {
+        return listaVehiculos;
     }
 
-    public void setListaNombres(ArrayList<Vehiculo> listaNombres) {
-        this.listaNombres = listaNombres;
+    public void setListaVehiculos(ArrayList<VehiculoModel> listaVehiculos) {
+        this.listaVehiculos = listaVehiculos;
     }
 
+    
     
 
     

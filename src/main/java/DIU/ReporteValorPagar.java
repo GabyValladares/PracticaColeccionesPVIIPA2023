@@ -1,20 +1,27 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package DIU;
+
+import DIU.Moldelos.VehiculoModel;
+import DIU.controlador.ControladorVehivulo;
+import java.util.ArrayList;
 
 /**
  *
  * @author USER-HP
  */
-public class Ficha extends javax.swing.JFrame {
+public class ReporteValorPagar extends javax.swing.JInternalFrame {
+
+    public static ArrayList<VehiculoModel> listaVehiculos = new ArrayList();
+
     final double sueldobasico = 435.00;
 
     /**
-     * Creates new form NewJFrame
+     * Creates new form ReporteValorPagar
      */
-    public Ficha() {
+    public ReporteValorPagar() {
         initComponents();
     }
 
@@ -27,52 +34,66 @@ public class Ficha extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblMultasdp = new javax.swing.JLabel();
+        lblMarcadp = new javax.swing.JLabel();
         lblValordp = new javax.swing.JLabel();
+        lblNombres = new javax.swing.JLabel();
         lblPlaca3 = new javax.swing.JLabel();
+        lblPlaca2 = new javax.swing.JLabel();
         lblCeduladp = new javax.swing.JLabel();
+        lblPlaca4 = new javax.swing.JLabel();
         lblRenovacionPlacas = new javax.swing.JLabel();
+        lblTipodp = new javax.swing.JLabel();
         lblPlacadp = new javax.swing.JLabel();
+        lblPlaca = new javax.swing.JLabel();
         lblValorRenovacion = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         lblNombresdp = new javax.swing.JLabel();
         lblCedula = new javax.swing.JLabel();
         lblPlaca1 = new javax.swing.JLabel();
-        lblMultasdp = new javax.swing.JLabel();
-        lblMarcadp = new javax.swing.JLabel();
-        lblNombres = new javax.swing.JLabel();
-        lblPlaca2 = new javax.swing.JLabel();
-        lblPlaca4 = new javax.swing.JLabel();
-        lblTipodp = new javax.swing.JLabel();
-        lblPlaca = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+        setTitle("TOTAL VALOR A PAGAR");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
             }
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
             }
         });
 
-        lblPlaca3.setText("Valor:");
-
-        lblRenovacionPlacas.setText("Valor por Renovación de Placas:");
-
-        lblCedula.setText("Número de Cédula :");
-
-        lblPlaca1.setText("Marca:");
-
         lblNombres.setText("Nombres Completos :");
+
+        lblPlaca3.setText("Valor:");
 
         lblPlaca2.setText("Tipo de Vehículo:");
 
         lblPlaca4.setText("Multas:");
 
+        lblRenovacionPlacas.setText("Valor por Renovación de Placas:");
+
         lblPlaca.setText("Número de Placa:");
 
         lblNombre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblNombre.setText("            BIENVENIDO  TU TOTAL A PAGAR ES:");
+
+        lblCedula.setText("Número de Cédula :");
+
+        lblPlaca1.setText("Marca:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -167,30 +188,24 @@ public class Ficha extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblRenovacionPlacas, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblValorRenovacion, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-                
-                if (!cedula.isEmpty()&& ! numeroPlaca.isEmpty()){
-            if(cedula.charAt(0)=='1' && numeroPlaca.charAt(0)=='I'){
-                double renovacionplaca = sueldobasico*0.05;
-                lblRenovacionPlacas.setText(""+renovacionplaca);
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        if (!cedula.isEmpty() && !numeroPlaca.isEmpty()) {
+            if (cedula.charAt(0) == '1' && numeroPlaca.charAt(0) == 'I') {
+                double renovacionplaca = sueldobasico * 0.05;
+                lblRenovacionPlacas.setText("" + renovacionplaca);
             }
         }
 
-        
-    }//GEN-LAST:event_formWindowOpened
-String cedula, nombre,numeroPlaca,multa,marca,tipo,valor;
+    }//GEN-LAST:event_formInternalFrameOpened
+    String cedula, numeroPlaca,multa,marca,tipo,valor,anioF ,color,nombre;
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
 
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-
-    
-        
         lblCeduladp.setText(cedula);
         lblNombresdp.setText(nombre);
         lblPlacadp.setText(numeroPlaca);
@@ -198,45 +213,18 @@ String cedula, nombre,numeroPlaca,multa,marca,tipo,valor;
         lblTipodp.setText(tipo);
         lblMultasdp.setText(multa);
         lblValordp.setText(valor);
-        lblValorRenovacion.setText(""+sueldobasico*0.05);
-       
-    }//GEN-LAST:event_formWindowActivated
+        lblValorRenovacion.setText("" + sueldobasico * 0.05);
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ficha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ficha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ficha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ficha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Ficha().setVisible(true);
-            }
-        });
-    }
+
+// Asegurándose de que el orden de los parámetros coincida con la declaración del modelo
+        VehiculoModel vm = new VehiculoModel(numeroPlaca, anioF, marca, color, tipo, valor, multa, cedula);
+        ControladorVehivulo cv = new ControladorVehivulo();
+        cv.crearVehiculo(vm);
+
+
+    }//GEN-LAST:event_formInternalFrameActivated
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblCedula;
