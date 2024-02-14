@@ -83,4 +83,32 @@ public class PersonaControl {
         }
         return null;
     }
+    
+    
+    
+    public ArrayList<Object[]> buscarPersona(int cedula){
+        ArrayList<Object[]> listaTotalRegistros=new ArrayList<>();
+        try {
+            String sql = "call sp_BuscarPersona('" +cedula+ "');";
+            ejecutar = (PreparedStatement) conectado.prepareCall(sql);
+            ResultSet resultado=ejecutar.executeQuery();
+            int cont=1;
+            while(resultado.next()){
+                Object[]fila=new Object[6];
+                for (int i = 0; i < 6; i++) {
+                    fila[i]=resultado.getObject(i+1);
+               }
+                fila[0]=cont;
+                listaTotalRegistros.add(fila);
+                cont++;
+            }
+            ejecutar.close();
+            return listaTotalRegistros;         
+            
+                 
+            } catch (SQLException e) {
+                System.out.println("COMUNICARSE CON EL ADMINISTRADOR DEL SISTEMA");
+        }
+            return null;
+    }
 }

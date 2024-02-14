@@ -4,6 +4,8 @@
  */
 package DIU;
 
+import DIU.Controlador.VehiculoControl;
+import DIU.Modelo.VehiculoModelo;
 import DIU.Vistas.ReporteTabla;
 
 
@@ -144,6 +146,11 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         lblTipo.setText("Tipo de Vehículo:");
 
         rbtJeep.setText("Jeep");
+        rbtJeep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtJeepActionPerformed(evt);
+            }
+        });
 
         rbtAutomovil.setText("Automóvil");
 
@@ -313,8 +320,11 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
         // TODO add your handling code here:
+        VehiculoModelo pM= new VehiculoModelo(0, txtPlaca.getText(), txtColor.getText(), Integer.toString(cmbMarcas.getSelectedIndex()), Integer.toString(rbtGrupo.hashCode()), Integer.parseInt(txtValor.getText()), 0);
+        VehiculoControl pC= new VehiculoControl();
+        pC.crearVehiculo(pM);
         
-        ReporteValorPagar reporte1=new ReporteValorPagar();
+        ReporteTabla reporte1=new ReporteTabla();
         reporte1.cedula=txtCedula.getText();
         reporte1.nombre=txtNombres.getText();
         reporte1.placa=txtPlaca.getText();
@@ -341,34 +351,6 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         MENU.jdEscritorio.add(reporte1);
         reporte1.setVisible(true);
         this.dispose();
-        
-//        Menu.escritorio.add(reporte1);
-//       reporte1.setVisible(true);
-        
-//        Ficha ventana=new Ficha();
-//        ventana.cedula=txtCedula.getText();
-//        ventana.nombre=txtNombres.getText();
-//        ventana.numeroPlaca=txtPlaca.getText();
-//        ventana.valor=txtValor.getText();
-//        ventana.marca=cmbMarca.getSelectedItem().toString();
-//        if(rdAuto.isSelected()){
-//            ventana.tipo="Automóvil";
-//        }else if (rdCamioneta.isSelected()){
-//            ventana.tipo="Camioneta";
-//        }else if(rdVitara.isSelected()){
-//            ventana.tipo="Vitara";
-//        }else {
-//            ventana.tipo="Jeep";
-//        }
-//        ventana.multa="";
-//        if(chxMultasSi.isSelected()==true){
-//            ventana.multa="SI";
-//        }else{
-//            ventana.multa="NO";
-//        }
-//        ventana.setVisible(true);
-//        this.dispose();
-//
     }//GEN-LAST:event_btnVerActionPerformed
 
     private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
@@ -426,33 +408,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         
         
         
-        ReporteTabla reporte1=new ReporteTabla();
-        reporte1.cedula=txtCedula.getText();
-        reporte1.nombre=txtNombres.getText();
-        reporte1.placa=txtPlaca.getText();
-        reporte1.color=txtColor.getText();
-        reporte1.añoFabricacion=txtAnioFab.getText();
-        reporte1.valor=txtValor.getText();
-        reporte1.marca=(String) cmbMarcas.getSelectedItem();
-        if(rbtAutomovil.isSelected()){
-            reporte1.tipo="Automovil";
-        }else if(rbtJeep.isSelected()){
-            reporte1.tipo="Jeep";
-        }else if(rbtCamioneta.isSelected()){
-            reporte1.tipo="Camioneta";
-        }else if(rbtVitara.isSelected()){
-            reporte1.tipo="Vitara";
-        }
         
-        if(ckbSi.isSelected()){
-            reporte1.multas="Si";
-        }else{
-            reporte1.multas="No";
-        }
-      
-        MENU.jdEscritorio.add(reporte1);
-        reporte1.setVisible(true);
-        this.dispose();
         
         
         
@@ -460,6 +416,11 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_btnTablaVehiculosActionPerformed
+
+    
+    private void rbtJeepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtJeepActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtJeepActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
