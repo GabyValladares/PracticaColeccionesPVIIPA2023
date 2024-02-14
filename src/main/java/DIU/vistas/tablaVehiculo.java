@@ -40,7 +40,7 @@ public class tablaVehiculo extends javax.swing.JInternalFrame {
     }
     
     public void llenarArray(){
-    Vehiculo vehiculo = new Vehiculo(placa, marca, color,tipo, multas, valorV, numAnio, valorAuto);
+    Vehiculo vehiculo = new Vehiculo(placa, marca, tipo, multas, valorV, color, numAnio, valorAuto, WIDTH);
     
     listaVehiculos.add(vehiculo);
 }

@@ -25,6 +25,7 @@ public class PersonaView extends javax.swing.JInternalFrame {
     public PersonaView() {
         initComponents();
         setModel();
+        
     }
     
     public void setModel(){
@@ -70,11 +71,13 @@ public class PersonaView extends javax.swing.JInternalFrame {
         txtUsuario = new javax.swing.JTextField();
         txtCedula = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
-        btnElininar = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPersonas = new javax.swing.JTable();
         tswClave = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -116,14 +119,19 @@ public class PersonaView extends javax.swing.JInternalFrame {
             }
         });
 
-        btnElininar.setText("Eliminar");
-        btnElininar.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnElininarActionPerformed(evt);
+                btnLimpiarActionPerformed(evt);
             }
         });
 
-        jButton3.setText("jButton3");
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         tblPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -137,6 +145,10 @@ public class PersonaView extends javax.swing.JInternalFrame {
             }
         ));
         jScrollPane1.setViewportView(tblPersonas);
+
+        jButton1.setText("Actualizar");
+
+        jButton2.setText("Eliminar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -161,7 +173,7 @@ public class PersonaView extends javax.swing.JInternalFrame {
                                 .addComponent(txtCedula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
                                 .addComponent(txtNombres, javax.swing.GroupLayout.Alignment.LEADING)))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -178,10 +190,13 @@ public class PersonaView extends javax.swing.JInternalFrame {
                                     .addGap(95, 95, 95)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(85, 85, 85)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnAgregar)
-                            .addComponent(jButton3)
-                            .addComponent(btnElininar))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnAgregar)
+                                .addComponent(btnBuscar)
+                                .addComponent(btnLimpiar))
+                            .addComponent(jButton2))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -209,16 +224,20 @@ public class PersonaView extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(tswClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
+                        .addGap(38, 38, 38)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(123, 123, 123)
                         .addComponent(btnAgregar)
                         .addGap(33, 33, 33)
-                        .addComponent(btnElininar)
+                        .addComponent(btnLimpiar)
                         .addGap(34, 34, 34)
-                        .addComponent(jButton3)))
-                .addContainerGap(11, Short.MAX_VALUE))
+                        .addComponent(btnBuscar)
+                        .addGap(35, 35, 35)
+                        .addComponent(jButton1)
+                        .addGap(34, 34, 34)
+                        .addComponent(jButton2)))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         pack();
@@ -230,16 +249,23 @@ public class PersonaView extends javax.swing.JInternalFrame {
         Persona p = new Persona(txtNombres.getText(), txtApellidos.getText(), Integer.parseInt(txtCedula.getText()), txtUsuario.getText(), tswClave.getText());
                
         PersonaControlador pC = new PersonaControlador();
-        pC.crearPersona(p);
         listaPersona.add(p);
         setDatos();
+        limpiarTabla();
         tblPersonas.setModel(modelo);
     }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void btnElininarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElininarActionPerformed
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_btnElininarActionPerformed
+        txtNombres.setText("");
+        txtApellidos.setText("");
+        txtCedula.setText("");
+        txtUsuario.setText("");
+        tswClave.setText("");
+                
+        
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         // TODO add your handling code here:
@@ -250,14 +276,48 @@ public class PersonaView extends javax.swing.JInternalFrame {
             
             modelo.addRow(filas);  
         }
-        tblPersonas.setModel(modelo);
+        
+        //tblPersonas.setModel(modelo);
+        limpiarTabla();
+        cargarTabla();
     }//GEN-LAST:event_formInternalFrameActivated
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        int cedula = Integer.parseInt(txtCedula.getText());
+        PersonaControlador pC = new PersonaControlador();
+        
+        pC.buscarPersona(cedula);
+        limpiarTabla();
+        cargarTabla();
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void cargarTabla(){
+         Persona p = new Persona();
+         PersonaControlador pC = new PersonaControlador();
+        pC.crearPersona(p);
+        listaPersona.add(p);
+        setDatos();
+        tblPersonas.setModel(modelo);
+    }
+    
+    private void limpiarTabla() {
+        int a = modelo.getRowCount() - 1;  //Índices van de 0 a n-1
+        //System.out.println("Tabla "+a);   //Para mostrar por consola el resultado
+        for (int i = a; i >= 0; i--) {
+
+            //System.out.println("i "+i);    //Para mostrar por consola el resultado
+            modelo.removeRow(i);
+        }
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnElininar;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

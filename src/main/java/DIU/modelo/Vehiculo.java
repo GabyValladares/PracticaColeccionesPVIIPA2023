@@ -9,20 +9,21 @@ package DIU.modelo;
  * @author USUARIO
  */
 public class Vehiculo {
+   
     
-    private String placa, marca, tipo, multas, valorV, color;
+    private String placa, color, marca, tipo;
     private int numAnio;
     private double valorAuto;
+    private int idPersona;
 
-    public Vehiculo(String placa, String marca, String tipo, String multas, String valorV, String color, int numAnio, double valorAuto) {
+    public Vehiculo(String placa, String color, String marca, String tipo, int numAnio, double valorAuto, int idPersona) {
         this.placa = placa;
+        this.color = color;
         this.marca = marca;
         this.tipo = tipo;
-        this.multas = multas;
-        this.valorV = valorV;
-        this.color = color;
         this.numAnio = numAnio;
         this.valorAuto = valorAuto;
+        this.idPersona = idPersona;
     }
 
     public String getPlaca() {
@@ -31,6 +32,14 @@ public class Vehiculo {
 
     public void setPlaca(String placa) {
         this.placa = placa;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public String getMarca() {
@@ -49,30 +58,6 @@ public class Vehiculo {
         this.tipo = tipo;
     }
 
-    public String getMultas() {
-        return multas;
-    }
-
-    public void setMultas(String multas) {
-        this.multas = multas;
-    }
-
-    public String getValorV() {
-        return valorV;
-    }
-
-    public void setValorV(String valorV) {
-        this.valorV = valorV;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
     public int getNumAnio() {
         return numAnio;
     }
@@ -88,10 +73,20 @@ public class Vehiculo {
     public void setValorAuto(double valorAuto) {
         this.valorAuto = valorAuto;
     }
+
+    public int getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(int idPersona) {
+        this.idPersona = idPersona;
+    }
     
     
     
-    
-    
-    
+
 }
+
+    
+    
+   

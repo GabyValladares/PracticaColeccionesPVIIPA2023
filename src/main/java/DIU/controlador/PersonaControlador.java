@@ -50,6 +50,7 @@ public class PersonaControlador {
                     + "'"+p.getApellidos()+"',"
                     + "'"+p.getCedula()+"','"+p.getUsuario()+"',"
                     + "'"+p.getClave()+"')";
+            
             ejecutar = (PreparateStament)conectado.prepareCall(SQL);
             int  res = ejecutar.executeUpdate();
             
@@ -60,8 +61,43 @@ public class PersonaControlador {
             ejecutar.close();
             
         }catch(SQLException e){
-            System.out.println("Error en la conexion");
+            System.out.println("Error en la conexion: para persona ");
         }
+    }
+    
+    
+    //SIEMPRE QUE ME RETORNA MAS DE UN CAMPO PARA ESCRIBIR EN  UNA TABLA UTILIZAMOS
+    public ArrayList< Object[]> buscarPersona(int cedula){
+        
+        ArrayList< Object[]> listaTotalRegistros = new ArrayList<>();
+        
+        try{
+        String SQL= "call sp_BuscarPersona('"+cedula+"')";
+         ejecutar = (PreparateStament)conectado.prepareCall(SQL);
+          ResultSet ressultado = ejecutar.executeQuery();
+          
+          int cont = 1;
+          
+           while(ressultado.next()){
+              Object[] fila = new Object[6];
+              for (int i = 0; i < 6; i++) {
+                  fila[i] = ressultado.getObject(i+1);
+              }
+              
+              fila[0] = cont;
+              listaTotalRegistros.add(fila);
+              cont++;
+              
+          }
+          
+          ejecutar.close();
+          return listaTotalRegistros;
+          
+        }catch(SQLException e){
+            
+        } 
+        
+        return null;
     }
     
     // consultas a la tabla
@@ -87,11 +123,12 @@ public class PersonaControlador {
               cont++;
               
           }
-          
+
           ejecutar.close();
+          return listaTotalRegistros;
           
-        }catch(Exception e){
-            System.out.println("Comuniquense con el administrador del sistema");
+        }catch(SQLException e){
+            System.out.println("Comuniquense con el administrador del sistema. No se muestra la tabla");
             
         }
         return null;

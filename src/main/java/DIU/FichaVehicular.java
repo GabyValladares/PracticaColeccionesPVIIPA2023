@@ -4,6 +4,9 @@
  */
 package DIU;
 
+import DIU.controlador.VehiculoControlador;
+import DIU.modelo.Vehiculo;
+import DIU.vistas.LDTabla;
 import DIU.vistas.tablaVehiculo;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -20,10 +23,16 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
      * Creates new form FichaVehicular
      */
     
+    private VehiculoControlador controlador;
+    private LDTabla busquedaP;
+        
     public FichaVehicular() {
         initComponents();
         ReportedeValoraPagar reporte = new ReportedeValoraPagar();
         reporte.setVisible(false);
+        controlador = new VehiculoControlador();
+        busquedaP = new LDTabla();
+        
     }
 
     /**
@@ -59,6 +68,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         btnVerTabla = new javax.swing.JButton();
         lblColor = new javax.swing.JLabel();
         txtColor = new javax.swing.JTextField();
+        btnBuscarPrsona = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -127,6 +138,20 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
         lblColor.setText("Color del Vehiculo:");
 
+        btnBuscarPrsona.setText("🔎");
+        btnBuscarPrsona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarPrsonaActionPerformed(evt);
+            }
+        });
+
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -162,7 +187,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(rdtJeep)
@@ -177,40 +202,44 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                                 .addComponent(rdtCamioneta))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(55, 55, 55)
-                                            .addComponent(txtNumCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(105, 105, 105)
-                                            .addComponent(lblNumCedula))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(105, 105, 105)
-                                            .addComponent(jLabel6)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(130, 130, 130)
+                                        .addComponent(lblMultas))
+                                    .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnVerTabla)
-                                            .addComponent(lblMultas))))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(55, 55, 55)
+                                                .addComponent(txtNumCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(105, 105, 105)
+                                                .addComponent(lblNumCedula))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(105, 105, 105)
+                                                .addComponent(jLabel6)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnBuscarPrsona, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(111, 111, 111)
                         .addComponent(lblNumPlaca)
                         .addGap(119, 119, 119)
                         .addComponent(lblAnio)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(btnVerFicha))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(lblColor)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(114, 114, 114)
+                .addComponent(lblColor)
+                .addContainerGap(283, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(btnVerFicha)
+                .addGap(86, 86, 86)
+                .addComponent(btnGuardar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVerTabla)
+                .addGap(93, 93, 93))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +251,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombreP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNumCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarPrsona))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumPlaca)
@@ -260,8 +290,9 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVerFicha)
-                    .addComponent(btnVerTabla))
-                .addContainerGap(42, Short.MAX_VALUE))
+                    .addComponent(btnVerTabla)
+                    .addComponent(btnGuardar))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -339,6 +370,47 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         tvehiculo.show();
         this.dispose();
     }//GEN-LAST:event_btnVerTablaActionPerformed
+
+    private void btnBuscarPrsonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPrsonaActionPerformed
+        // TODO add your handling code here:
+        
+        LDTabla ventanaEP = new LDTabla();
+        Menu.escritorio.add(ventanaEP);
+        ventanaEP.show();
+    }//GEN-LAST:event_btnBuscarPrsonaActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        guardarVehiculo();
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
+    
+     private void guardarVehiculo() {
+        String placa = txtNumPlaca.getText();
+        String color = txtColor.getText();
+        int anio = Integer.parseInt(txtAnio.getText());
+        String textoValor = txtValor.getText();
+        String marca = (String)CBMarca.getSelectedItem();
+        
+        double valorAuto = Double.parseDouble(textoValor);
+        
+        String tipo = "";
+        
+        int cedula = Integer.parseInt(txtNumCedula.getText());
+        
+        if(rdtAutomovil.isSelected()){
+             tipo = "Automovil";  
+        }else if(rdtCamioneta.isSelected()){
+             tipo = "Camioneta"; 
+        }else if(rdtJeep.isSelected()){
+             tipo = "Jeep"; 
+        }
+        
+        
+        Vehiculo vehiculo = new Vehiculo(placa, color, marca, tipo, anio, valorAuto, cedula);
+        controlador.crearVehiculo(vehiculo);
+        
+     }
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -346,6 +418,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox CheckBoxNo;
     private javax.swing.JCheckBox CheckBoxYes;
     private javax.swing.JLabel blbNombreP;
+    private javax.swing.JButton btnBuscarPrsona;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnVerFicha;
     private javax.swing.JButton btnVerTabla;
     private javax.swing.ButtonGroup buttonGroup;
