@@ -8,6 +8,6 @@ package DIU;
  *
  * @author DELL
  */
-public class Vehiculo {
+public class vehiculo {
     
 }
