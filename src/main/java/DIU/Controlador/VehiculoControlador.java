@@ -5,8 +5,8 @@
 package DIU.Controlador;
 
 import DIU.Modelo.PersonaModel;
+import DIU.Modelo.Vehiculo;
 import DIU.controlador.ConexionBDD;
-import com.mysql.cj.xdevapi.PreparableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
  *
  * @author kevin
  */
-public class PersonaControlador {
+public class VehiculoControlador {
 
     private PersonaModel persona;
     ConexionBDD conectar = new ConexionBDD();
@@ -24,7 +24,7 @@ public class PersonaControlador {
     PreparedStatement ejecutar;
     ResultSet resultado;
 
-    public PersonaControlador() {
+    public VehiculoControlador() {
     }
 
     public PersonaModel getPersona() {
@@ -35,21 +35,16 @@ public class PersonaControlador {
         this.persona = persona;
     }
 
-    //TRANSACCIONABILIDAD
-    public void crearPersona(PersonaModel p) {
+    public void crearVehiculo(Vehiculo v) {
         try {
 
-            String sql = "CALL sp_CrearPersona('" + p.getNombres() + "','"
-                    + p.getApellidos() + "',"
-                    + p.getCedula() + ",'"
-                    + p.getUsuario()
-                    + "','" + p.getClave() + "')";
+            String sql = "CALL AgregarVehiculo('" + v.getPlacas() + "','" + v.getColor() + "','" + v.getMarca() + "','" + v.getTipo() + "','" + v.getValor() + "')";
             ejecutar = (PreparedStatement) conectado.prepareCall(sql);
 
             // LEER ejecutar.executeQuery()
             int res = ejecutar.executeUpdate();
             if (res > 0) {
-                System.out.println("Persona Creada con Exito");
+                System.out.println("Vehiculo Creado con Exito");
                 ejecutar.close();
 
             } else {
@@ -64,11 +59,11 @@ public class PersonaControlador {
 
     }
 
-    public ArrayList<Object[]> datosPersona() {
+    public ArrayList<Object[]> datosVehiculo(String cedula) {
 
         ArrayList<Object[]> listaTotalRegistro = new ArrayList<>();
         try {
-            String SQL = "call sp_listaPersonas()";
+            String SQL = "call VehiculosPropietario('"+cedula+"')";
             ejecutar = (PreparedStatement) conectado.prepareCall(SQL);
 
             //RESIVO UN ResultSet 
@@ -86,30 +81,6 @@ public class PersonaControlador {
                 fila[0] = cont;
                 listaTotalRegistro.add(fila);
                 cont++;
-            }
-
-            ejecutar.close();
-            return listaTotalRegistro;
-        } catch (Exception e) {
-            System.out.println("BDD" + e);
-        }
-        return null;
-    }
-
-    public ArrayList<Object[]> datosPersonaCedula(String Cedula) {
-
-        ArrayList<Object[]> listaTotalRegistro = new ArrayList<>();
-        try {
-            String SQL = "call ObtenerPropietario('"+Cedula+"')";
-            ejecutar = conectado.prepareStatement(SQL);
-
-            ResultSet res = ejecutar.executeQuery();
-
-            while (res.next()) {
-                
-                Object[] fila = new Object[1];
-                fila[0] = res.getObject(1); 
-                listaTotalRegistro.add(fila);
             }
 
             ejecutar.close();

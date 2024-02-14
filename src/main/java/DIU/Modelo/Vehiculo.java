@@ -4,6 +4,8 @@
  */
 package DIU.Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author kevin
@@ -17,6 +19,7 @@ public class Vehiculo {
     private String multas;
     private String tipo;
     private int anio;
+    private ArrayList<Vehiculo> vehiculo;
 
     
 

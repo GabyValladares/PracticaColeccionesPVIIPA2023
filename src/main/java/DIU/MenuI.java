@@ -5,6 +5,7 @@
 package DIU;
 
 import DIU.Vista.PersonaView;
+import DIU.Vista.Propietario;
 import Listas.Ejercicio1;
 
 /**
@@ -51,6 +52,7 @@ public class MenuI extends javax.swing.JFrame {
         opLFichaVehicular = new javax.swing.JMenuItem();
         Gestion = new javax.swing.JMenu();
         opGestionPersona = new javax.swing.JMenuItem();
+        opPropietario = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -210,6 +212,15 @@ public class MenuI extends javax.swing.JFrame {
         });
         Gestion.add(opGestionPersona);
 
+        opPropietario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        opPropietario.setText("Propietario Por Cedula");
+        opPropietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opPropietarioActionPerformed(evt);
+            }
+        });
+        Gestion.add(opPropietario);
+
         jMenuBar1.add(Gestion);
 
         setJMenuBar(jMenuBar1);
@@ -316,40 +327,16 @@ public class MenuI extends javax.swing.JFrame {
         pv.show();
     }//GEN-LAST:event_opGestionPersonaActionPerformed
 
+    private void opPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opPropietarioActionPerformed
+        Propietario p = new Propietario();
+        Escritorio.add(p);
+        p.show();
+    }//GEN-LAST:event_opPropietarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuI().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Colas;
@@ -372,5 +359,6 @@ public class MenuI extends javax.swing.JFrame {
     private javax.swing.JMenuItem opLFichaVehicular;
     private javax.swing.JMenuItem opLPilas1;
     private javax.swing.JMenuItem opPilas2;
+    private javax.swing.JMenuItem opPropietario;
     // End of variables declaration//GEN-END:variables
 }

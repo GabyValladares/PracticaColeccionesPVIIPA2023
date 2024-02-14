@@ -4,8 +4,12 @@
  */
 package DIU;
 
+import DIU.Controlador.PersonaControlador;
+import DIU.Controlador.VehiculoControlador;
 import DIU.Modelo.Persona;
+import DIU.Modelo.PersonaModel;
 import DIU.Modelo.Vehiculo;
+import DIU.Vista.VehiculosPropietario;
 
 /**
  *
@@ -15,7 +19,7 @@ public class FichaVehicular1 extends javax.swing.JInternalFrame {
 
     Persona p = new Persona();
     Vehiculo vh = new Vehiculo();
-    
+
     public FichaVehicular1() {
         initComponents();
         ReporteValorPagarTabla reportar = new ReporteValorPagarTabla();
@@ -57,6 +61,9 @@ public class FichaVehicular1 extends javax.swing.JInternalFrame {
         lblColor = new javax.swing.JLabel();
         txtColor = new javax.swing.JTextField();
         btnVerF = new javax.swing.JButton();
+        lblNombres1 = new javax.swing.JLabel();
+        txtApellido = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -150,7 +157,7 @@ public class FichaVehicular1 extends javax.swing.JInternalFrame {
             }
         });
 
-        lblNombres.setText("Nombres Completos :");
+        lblNombres.setText("Nombre :");
 
         lblPlaca.setText("Número de Placa:");
 
@@ -185,12 +192,27 @@ public class FichaVehicular1 extends javax.swing.JInternalFrame {
             }
         });
 
+        lblNombres1.setText("Apellido:");
+
+        txtApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellidoActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Ver Vehiculos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(119, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTitulo)
                 .addGap(76, 76, 76))
             .addGroup(layout.createSequentialGroup()
@@ -212,61 +234,72 @@ public class FichaVehicular1 extends javax.swing.JInternalFrame {
                                             .addComponent(rdbVitara)
                                             .addComponent(rdbAuto)))
                                     .addComponent(rdbCamioneta)
-                                    .addComponent(rdbJeep))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVerT)
-                        .addGap(21, 21, 21))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(cmbMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txtAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(22, 22, 22)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(chxMultasNo)
-                                        .addComponent(chxMultasSi)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblNombres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(rdbJeep)))
+                            .addComponent(lblNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVerF)
-                        .addGap(26, 26, 26))))
+                                .addGap(177, 177, 177)
+                                .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(lblNombres1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(68, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(cmbMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(lblAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(txtAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(lblValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(22, 22, 22)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(chxMultasNo)
+                                                .addComponent(chxMultasSi)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(lblPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnVerF, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnVerT)))
+                        .addGap(47, 47, 47))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(lblTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombres, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblNombres1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPlaca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -274,21 +307,18 @@ public class FichaVehicular1 extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cmbMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(btnVerT))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -314,7 +344,11 @@ public class FichaVehicular1 extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10))))
-                    .addComponent(btnVerF))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(btnVerF)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnVerT)))
                 .addGap(35, 35, 35))
         );
 
@@ -372,9 +406,11 @@ private double calcularImporte(String cedula, String placa) {
 
     private void btnVerTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTActionPerformed
         ReporteValorPagarTabla ventana = new ReporteValorPagarTabla();
-
+        PersonaModel pm = new PersonaModel();
         ventana.cedula = txtCedula.getText();
+
         ventana.nombre = txtNombres.getText();
+
         ventana.placas = txtPlaca.getText();
         ventana.valor = txtValor.getText();
         ventana.anio = txtAnioFab.getText();
@@ -398,10 +434,10 @@ private double calcularImporte(String cedula, String placa) {
         } else {
             ventana.multas = "NO";
         }
-        
+
         double importe = this.calcularImporte(ventana.cedula, ventana.placas);
         ventana.ImporteP = Double.toString(importe);
-        
+
         int anioF = Integer.parseInt(ventana.anio);
         double contaminacion = this.multaContaminacion(anioF);
         ventana.mulContaminacion = Double.toString(contaminacion);
@@ -409,14 +445,13 @@ private double calcularImporte(String cedula, String placa) {
         double valorV = Double.parseDouble(ventana.valor);
         double valorMatri = this.valorMatriculacion(ventana.marca, ventana.tipo, valorV);
         ventana.valorM = Double.toString(valorMatri);
-        
+
         double calcular = this.calcularMultaDeMulta(ventana.multas);
         ventana.calcularMM = Double.toString(calcular);
-        
+
         double total = calcular + valorMatri + contaminacion + importe;
         ventana.totalT = Double.toString(total);
-        
-        
+
         this.dispose();
         MenuI.Escritorio.add(ventana);
         ventana.setVisible(true);
@@ -461,22 +496,37 @@ private double calcularImporte(String cedula, String placa) {
 
     private void btnVerFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerFActionPerformed
         ReporteValorPagar ventana = new ReporteValorPagar();
-
+        VehiculosPropietario vp = new VehiculosPropietario();
+        vp.Cedula = txtCedula.getText();
+        PersonaModel pm = new PersonaModel();
+        Vehiculo vh = new Vehiculo();
+        pm.setCedula(Integer.parseInt(txtCedula.getText()));
+        pm.setNombres(txtNombres.getText());
+        pm.setApellidos(txtApellido.getText());
         ventana.cedula = txtCedula.getText();
         ventana.nombre = txtNombres.getText();
         ventana.placas = txtPlaca.getText();
+        vh.setPlacas(txtPlaca.getText());
         ventana.valor = txtValor.getText();
+        vh.setValor(Double.parseDouble(txtValor.getText()));
         ventana.anio = txtAnioFab.getText();
+
         ventana.color = txtColor.getText();
+        vh.setColor(txtColor.getText());
         ventana.marca = cmbMarca.getSelectedItem().toString();
+        vh.setMarca(cmbMarca.getSelectedItem().toString());
         if (rdbAuto.isSelected()) {
             ventana.tipo = "Automóvil";
+            vh.setTipo("Automóvil");
         } else if (rdbCamioneta.isSelected()) {
             ventana.tipo = "Camioneta";
+            vh.setTipo("Camioneta");
         } else if (rdbVitara.isSelected()) {
             ventana.tipo = "Vitara";
+            vh.setTipo("Vitara");
         } else {
             ventana.tipo = "Jeep";
+            vh.setTipo("Jeep");
         }
 
         ventana.multas = "";
@@ -487,10 +537,10 @@ private double calcularImporte(String cedula, String placa) {
         } else {
             ventana.multas = "NO";
         }
-        
+
         double importe = this.calcularImporte(ventana.cedula, ventana.placas);
         ventana.ImporteP = Double.toString(importe);
-        
+
         int anioF = Integer.parseInt(ventana.anio);
         double contaminacion = this.multaContaminacion(anioF);
         ventana.mulContaminacion = Double.toString(contaminacion);
@@ -498,18 +548,32 @@ private double calcularImporte(String cedula, String placa) {
         double valorV = Double.parseDouble(ventana.valor);
         double valorMatri = this.valorMatriculacion(ventana.marca, ventana.tipo, valorV);
         ventana.valorM = Double.toString(valorMatri);
-        
+
         double calcular = this.calcularMultaDeMulta(ventana.multas);
         ventana.calcularMM = Double.toString(calcular);
-        
+
         double total = calcular + valorMatri + contaminacion + importe;
         ventana.totalT = Double.toString(total);
-        
-        
+
         this.dispose();
         MenuI.Escritorio.add(ventana);
+        MenuI.Escritorio.add(vp);
+        vp.setVisible(true);
         ventana.setVisible(true);
+        VehiculoControlador vc = new VehiculoControlador();
+        vc.crearVehiculo(vh);
     }//GEN-LAST:event_btnVerFActionPerformed
+
+    private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApellidoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        VehiculosPropietario vp = new VehiculosPropietario();
+        vp.Cedula = txtCedula.getText();
+        MenuI.Escritorio.add(vp);
+        vp.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -518,11 +582,13 @@ private double calcularImporte(String cedula, String placa) {
     private javax.swing.JCheckBox chxMultasNo;
     private javax.swing.JCheckBox chxMultasSi;
     private javax.swing.JComboBox<String> cmbMarca;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblAnioFab;
     private javax.swing.JLabel lblCedula;
     private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblMarca;
     private javax.swing.JLabel lblNombres;
+    private javax.swing.JLabel lblNombres1;
     private javax.swing.JLabel lblPlaca;
     private javax.swing.JLabel lblTipo;
     private javax.swing.JLabel lblTitulo;
@@ -534,6 +600,7 @@ private double calcularImporte(String cedula, String placa) {
     private javax.swing.JRadioButton rdbJeep;
     private javax.swing.JRadioButton rdbVitara;
     public static javax.swing.JTextField txtAnioFab;
+    public static javax.swing.JTextField txtApellido;
     public static javax.swing.JTextField txtCedula;
     public static javax.swing.JTextField txtColor;
     public static javax.swing.JTextField txtNombres;

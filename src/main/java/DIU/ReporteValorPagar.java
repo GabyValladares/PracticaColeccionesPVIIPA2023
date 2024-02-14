@@ -4,6 +4,8 @@
  */
 package DIU;
 
+import DIU.Modelo.Vehiculo;
+
 /**
  *
  * @author kevin
@@ -279,6 +281,8 @@ public class ReporteValorPagar extends javax.swing.JInternalFrame {
         txtContaminacion.setEditable(false);
         txtTarifas.setEditable(false);
         txtTotal.setEditable(false);
+        Vehiculo v = new Vehiculo();
+        v.setPlacas(placas);
 
     }//GEN-LAST:event_formInternalFrameActivated
 
