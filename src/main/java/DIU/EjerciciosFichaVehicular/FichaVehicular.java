@@ -2,11 +2,8 @@ package DIU.EjerciciosFichaVehicular;
 
 import DIU.CONTROLADOR.VehiculoControlador;
 import DIU.Menu;
-import DIU.modelo.Persona;
 import DIU.modelo.Vehiculo;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -464,27 +461,11 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnTablaVehiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTablaVehiculosActionPerformed
-                                                
-    // Crear una instancia de Persona con la cédula ingresada en txtCedula
-    int cedula = Integer.parseInt(txtCedula.getText());
-    Persona persona = new Persona();
-    persona.setCedula(cedula); // Suponiendo que tienes un método setCedula en tu clase Persona
-    
-    // Llamar al método obtenerVehiculosPorPersona del controlador
-    ArrayList<Object[]> vehiculos = controlador.obtenerVehiculosPorPersona(persona);
-    
-    // Luego, puedes usar los datos obtenidos en vehiculos para mostrarlos en la tabla
-    // Por ejemplo, podrías actualizar la tabla con estos datos
-    // Supongamos que tu tabla se llama tblDatosVehiculares
-    DefaultTableModel modeloTabla = (DefaultTableModel) tblDatosVehiculares.getModel();
-    modeloTabla.setRowCount(0); // Limpiar la tabla antes de agregar nuevos datos
-    
-    // Luego, agregar los datos de vehiculos a la tabla
-    for (Object[] fila : vehiculos) {
-        modeloTabla.addRow(fila);
-    }
+        // TODO add your handling code here:
+        TablaVehiculo reporte1 = new TablaVehiculo();
 
-
+        Menu.escritorio.add(reporte1);
+        reporte1.setVisible(true);
     }//GEN-LAST:event_btnTablaVehiculosActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed

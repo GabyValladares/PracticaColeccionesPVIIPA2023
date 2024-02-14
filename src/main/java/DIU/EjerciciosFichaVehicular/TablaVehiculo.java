@@ -181,9 +181,13 @@ public class TablaVehiculo extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-         int cedula = Integer.parseInt(txtCedula.getText());
+     // Crear una instancia de Persona con la cédula ingresada en txtCedula
+    int cedula = Integer.parseInt(txtCedula.getText());
     Persona persona = new Persona();
     persona.setCedula(cedula); // Suponiendo que tienes un método setCedula en tu clase Persona
+    
+    // Crear una instancia de VehiculoControlador
+    VehiculoControlador controlador = new VehiculoControlador();
     
     // Llamar al método obtenerVehiculosPorPersona del controlador
     ArrayList<Object[]> vehiculos = controlador.obtenerVehiculosPorPersona(persona);
