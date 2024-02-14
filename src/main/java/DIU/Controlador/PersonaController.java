@@ -82,6 +82,31 @@ public class PersonaController {
 
         return null;
     }    
+    
+        public ArrayList<Object[]> buscarPersona(int cedula) {
+        ArrayList<Object[]> listaTotalObjetos=new ArrayList<>();
+        try {
+            String sql = "call sp_BuscarPersona('%"+cedula+"%');";
+            ejecutar = (PreparedStatement) conectado.prepareCall(sql);
+            ResultSet resultado = ejecutar.executeQuery();
+            int cont = 1;
+            while (resultado.next()) {
+                Object[] obpersona = new Object[6];
+                for (int i = 0; i < 6; i++) {
+                    obpersona[i] = resultado.getObject(i+1);
+                }
+                obpersona[0]=cont;
+                listaTotalObjetos.add(obpersona);
+                cont++;
+            }
+            ejecutar.close();
+            return listaTotalObjetos;
+           
+        } catch (SQLException e) {
+           JOptionPane.showMessageDialog( null, "COMUNIQUESE CON EL ADMINISTRADOR");
+        }
+        return null;
+    }
 }
 
 

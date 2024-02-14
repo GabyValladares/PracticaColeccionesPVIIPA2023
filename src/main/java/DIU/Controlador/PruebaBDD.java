@@ -20,5 +20,9 @@ public class PruebaBDD {
  ConexionBDD Conexion=new ConexionBDD();
  Conexion.conectar();
     }
+
+
+
     
 }
+

@@ -9,7 +9,7 @@ package DIU.Modelo;
  * @author usuario
  */
 public class VEHICULO {
-    private String  placa,color,anioFa,marca,tipo,valor,multas;
+    private String  placa,color,anioFa,marca,tipo,valor,multas,cedula;
 
     public VEHICULO() {
     }
@@ -22,8 +22,19 @@ public class VEHICULO {
         this.valor = valor;
         this.multas = multas;
         this.color = color;
+        
     }
 
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+
+    
     public String getPlaca() {
         return placa;
     }
