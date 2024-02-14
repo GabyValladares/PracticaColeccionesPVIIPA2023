@@ -264,6 +264,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
     private void btnFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFichaActionPerformed
         // TODO add your handling code here:
+        //Reporte reporte1 = new Reporte();
         Reporte reporte=new Reporte();
         reporte.cedula=txtCedula.getText();
         reporte.nombre=txtNombre.getText();
@@ -290,8 +291,13 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
       
         Menu.escritorio.add(reporte);
         reporte.setVisible(true);
-        reporte.show();
         this.dispose();
+        
+        Auto at= new Auto(txtNumPl.getText(), txtColor.getText(), txtFabric.getText(),
+                null, Double.parseDouble(txtValor.getText()),
+                null,(String) cbxMarca.getSelectedItem());
+        VehiculoControlador vhc=new VehiculoControlador();
+        vhc.crearAuto(at);
     }//GEN-LAST:event_btnFichaActionPerformed
 
     private void btnGtvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGtvActionPerformed
