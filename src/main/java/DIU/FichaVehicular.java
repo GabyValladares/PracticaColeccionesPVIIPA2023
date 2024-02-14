@@ -264,9 +264,6 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
     private void btnFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFichaActionPerformed
         // TODO add your handling code here:
-        Reporte reportes=new Reporte();
-        Menu.escritorio.add(reportes);
-        reportes.show();
         Reporte reporte=new Reporte();
         reporte.cedula=txtCedula.getText();
         reporte.nombre=txtNombre.getText();
