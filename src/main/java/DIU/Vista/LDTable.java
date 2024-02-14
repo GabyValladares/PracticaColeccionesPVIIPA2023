@@ -12,15 +12,17 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author tutut
  */
-public class LbTable extends javax.swing.JInternalFrame {
+public class LDTable extends javax.swing.JInternalFrame {
+    public String nombre,cedula,anio,placa,marca,color,valor,multas,tipo;
+
     ArrayList<Persona> listaNombres=new ArrayList<>();
     DefaultTableModel modelo =new DefaultTableModel();
-    public LbTable() {
+    public LDTable() {
         initComponents();
         setModelo();
     }
      public void setModelo(){
-        String[] cabecera={"Nro", "Nombres"};
+        String[] cabecera={"Nro", "Nombres","Vehiculo"};
         modelo.setColumnIdentifiers(cabecera);
         tbNombres.setModel(modelo);
     }
@@ -97,10 +99,10 @@ public class LbTable extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(96, 96, 96)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(324, Short.MAX_VALUE))

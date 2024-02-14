@@ -11,7 +11,7 @@ import DIU.Deber.LEEj2;
 import DIU.Deber.LEEj1;
 import DIU.Deber.PilasEj5;
 import DIU.Deber.PilasEj6;
-import DIU.Vista.LbTable;
+import DIU.Vista.LDTable;
 import DIU.Deber.ColasEj8;
 import DIU.vista.PersonaView;
 
@@ -270,7 +270,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        LbTable ventanaTable = new LbTable();
+        LDTable ventanaTable = new LDTable();
         escritorio.add(ventanaTable);
         ventanaTable.show();
     }//GEN-LAST:event_jMenuItem1ActionPerformed

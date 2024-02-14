@@ -4,9 +4,13 @@
  */
 package DIU;
 
+import DIU.Controlador.VehiculoControlador;
 import DIU.Modelo.Auto;
 import DIU.Modelo.Persona;
+import DIU.Vista.LDTable;
 import DIU.Vista.TablaVehiculos;
+import DIU.controlador.PersonaControlador;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -83,6 +87,12 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         });
 
         lblFabri.setText("Año de Fabricación del Vehículo:");
+
+        txtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCedulaKeyPressed(evt);
+            }
+        });
 
         lblTitulo.setForeground(new java.awt.Color(0, 0, 0));
         lblTitulo.setText("Datos Vehiculo");
@@ -263,32 +273,48 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameActivated
 
     private void btnFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFichaActionPerformed
-        // TODO add your handling code here:
-        Reporte reporte1 = new Reporte();
-        //Auto auto1 = new Auto();
-        //Persona pers1 = new Persona();        
-       // reporte1.nombre(txtNombre.getText());
-        //reporte1.cedula(txtCedula.getText());
-        //reporte1.placa(txtNumPl.getText());
-        //reporte1.color(txtColor.getText());
-        //reporte1.valor(txtVaDeVe.getText());
-       reporte1.marca=(String) cbxMarca.getSelectedItem();
-        if(rbtAutomovil.isSelected()){
-            //reporte1.tipo("Automovil");
-        }else if(rbtCamioneta.isSelected()){
-            //reporte1.tipo("Camioneta");
-        }else if(rbtVitara.isSelected()){
-            //reporte1.tipo("Vitara");
-        }else if(rbtJeep.isSelected()){
-          //  reporte1.tipo("Jeep");
+        VehiculoControlador controlador = new VehiculoControlador(); 
+        int cedula = Integer.parseInt(txtCedula.getText());
+        String placa = txtNumPl.getText();
+        String color = txtColor.getText();
+        String marca = (String) cbxMarca.getSelectedItem();
+        String tipo = "";
+        int valor = Integer.parseInt(txtVaDeVe.getText());
+         if (rbtAutomovil.isSelected()) {
+        tipo = "Automovil";
+    } else if (rbtJeep.isSelected()) {
+        tipo = "Jeep";
+    } else if (rbtCamioneta.isSelected()) {
+        tipo = "Camioneta";
+    } else if (rbtVitara.isSelected()) {
+        tipo = "Vitara";
+    }
+        
+
+        LDTable reporte1 = new LDTable();
+        reporte1.cedula = txtCedula.getText();
+        reporte1.nombre = txtNombre.getText();
+        reporte1.placa = txtNumPl.getText();
+        reporte1.color = txtColor.getText();
+        reporte1.anio= txtFabric.getText();
+        reporte1.valor = txtVaDeVe.getText();
+        reporte1.marca = (String) cbxMarca.getSelectedItem();
+        if (rbtAutomovil.isSelected()) {
+            reporte1.tipo = "Automovil";
+        } else if (rbtJeep.isSelected()) {
+            reporte1.tipo = "Jeep";
+        } else if (rbtCamioneta.isSelected()) {
+            reporte1.tipo = "Camioneta";
+        } else if (rbtVitara.isSelected()) {
+            reporte1.tipo = "Vitara";
         }
-        if(ckbSi.isSelected()==true){
-        //    reporte1.multas("Si");
-        }else{
-        //    reporte1.multas("No");
+
+        if (ckbSi.isSelected()) {
+            reporte1.multas = "Si";
+        } else {
+            reporte1.multas = "No";
         }
-        //reporte1.indicarDatos(auto1, pers1);
-        this.dispose();
+
         Menu.escritorio.add(reporte1);
         reporte1.setVisible(true);
         this.dispose();
@@ -327,6 +353,20 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnGtvActionPerformed
 
+    private void txtCedulaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyPressed
+        // TODO add your handling code here:
+       if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        int cedula = Integer.parseInt(txtCedula.getText());
+        String nombre = buscarNombrePorCedula(cedula); 
+        txtNombre.setText(nombre);
+    } 
+    }//GEN-LAST:event_txtCedulaKeyPressed
+    private String buscarNombrePorCedula(int cedula) {
+    
+    PersonaControlador controlador = new PersonaControlador();
+    String nombre = controlador.obtenerNombrePorCedula(cedula);
+    return nombre;
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFicha;

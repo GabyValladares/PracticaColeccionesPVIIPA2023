@@ -12,7 +12,7 @@ import DIU.Modelo.Persona;
  * @author tutut
  */
 public class Reporte extends javax.swing.JInternalFrame {
-    public String nombre,cedula,placa,marca,color,valor,multas,tipo;
+    public String nombre,cedula,anio,placa,marca,color,valor,multas,tipo;
     
     /**
      * Creates new form Reporte
