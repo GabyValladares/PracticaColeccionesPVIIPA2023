@@ -81,10 +81,33 @@ public class PantallaGestion extends javax.swing.JInternalFrame {
         txtClave = new javax.swing.JPasswordField();
         btnBuscar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Gestion Usuarios");
@@ -139,6 +162,11 @@ public class PantallaGestion extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "null"
             }
         ));
+        tlbDatos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tlbDatosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tlbDatos);
 
         btnCrear.setText("Crear");
@@ -162,6 +190,8 @@ public class PantallaGestion extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton1.setText("Eliminar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -171,9 +201,9 @@ public class PantallaGestion extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 117, Short.MAX_VALUE)
+                .addGap(0, 77, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(107, 107, 107))
+                .addGap(185, 185, 185))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -202,14 +232,16 @@ public class PantallaGestion extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
                             .addComponent(txtUsuario))
-                        .addContainerGap(74, Short.MAX_VALUE))
+                        .addContainerGap(111, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addComponent(btnCrear)
                         .addGap(27, 27, 27)
                         .addComponent(btnBuscar)
                         .addGap(18, 18, 18)
-                        .addComponent(btnActualizar)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -236,7 +268,9 @@ public class PantallaGestion extends javax.swing.JInternalFrame {
                     .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar)
                     .addComponent(btnActualizar))
-                .addGap(49, 49, 49)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(8, 8, 8)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
@@ -312,6 +346,36 @@ pM.setClave(txtClave.getText());
         cargarPersonas();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
+    private void tlbDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tlbDatosMouseClicked
+        // TODO add your handling code here:
+       DefaultTableModel dtm = (DefaultTableModel) tlbDatos.getModel(); // TableProducto es el nombre de mi tabla ;)
+
+    txtNombres.setText((String) dtm.getValueAt(tlbDatos.getSelectedRow(), 1));
+    txtApellidos.setText((String) dtm.getValueAt(tlbDatos.getSelectedRow(), 2));
+    txtUsuario.setText((String) dtm.getValueAt(tlbDatos.getSelectedRow(), 4));
+    txtClave.setText((String) dtm.getValueAt(tlbDatos.getSelectedRow(), 5));
+
+    // Verificar si el valor de la cédula no es nulo antes de asignarlo
+    Object cedulaObject = dtm.getValueAt(tlbDatos.getSelectedRow(), 3);
+    if (cedulaObject != null) {
+        txtCedula.setText(cedulaObject.toString());
+    } else {
+        txtCedula.setText(""); // O asignar un valor predeterminado si prefieres
+    }
+     cargarPersonas();
+    }//GEN-LAST:event_tlbDatosMouseClicked
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
+        // TODO add your handling code here:
+        cargarPersonas();
+    }//GEN-LAST:event_formInternalFrameActivated
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        cargarPersonas();
+    }//GEN-LAST:event_formMouseClicked
+       
+    
       private void limpiarTabla() {
         int a = modelo.getRowCount() - 1;  //Índices van de 0 a n-1
         //System.out.println("Tabla "+a);   //Para mostrar por consola el resultado
@@ -343,6 +407,7 @@ pM.setClave(txtClave.getText());
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCrear;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -92,6 +92,7 @@ private PersonaModel persona;
     }
     return null;
 }
+ 
  public void actualizarPersona(PersonaModel p) {
         try {
             String sql = "call sp_ActualizarPersona('" + p.getNombres() + "','" + p.getApellidos() + "','" + p.getCedula() + "','" + p.getUsuario() + "','" + p.getClave() + "');";
@@ -109,6 +110,7 @@ private PersonaModel persona;
             System.out.println("ERROR SQL");
         }
     }
+
  
 @SuppressWarnings("empty-statement")
  
@@ -140,5 +142,22 @@ public  ArrayList<Object[]> datosPersonas(){
     
    
   }
+public void eliminarPersona(int cedula) {
+        try {
+            String sql = "call sp_EliminarPersona(" + cedula + ");";
+            ejecutar = (PreparedStatement) conectado.prepareCall(sql);
+            int resultado = ejecutar.executeUpdate();
+            if (resultado > 0) {
+                JOptionPane.showMessageDialog(null, "Persona Eliminada con éxito");
+                System.out.println("PERSONA ELIMINADA CON ÉXITO");
+                ejecutar.close();
+            } else {
+                JOptionPane.showMessageDialog(null, "Revise los datos ingresados");
+                System.out.println("REVISE LOS DATOS INGRESADOS");
+            }
+        } catch (SQLException e) {
+            System.out.println("ERROR SQL"+e);
+        }
+    }
 }
 
