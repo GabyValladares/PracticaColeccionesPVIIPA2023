@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package DIU;
 
-import DIU_Controlador.ConexionBDD;
+package EjerciciosFichaVehicular;
+
 
 /**
  *
@@ -12,11 +12,10 @@ import DIU_Controlador.ConexionBDD;
  */
 public class Main {
     public static void main(String[] args) {
-        //Menu menu=new Menu();
-        //menu.setVisible(true);
+        Menu menu=new Menu();
+        menu.setVisible(true);
         
-        ConexionBDD cbb = new ConexionBDD ();
-        cbb.conectar();
-    }
-    
+        //ConexionBDD cbb = new ConexionBDD ();
+        //
+ }   
 }
