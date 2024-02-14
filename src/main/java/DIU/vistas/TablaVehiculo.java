@@ -4,10 +4,14 @@
  */
 package DIU.vistas;
 
-import DIU.Persona;
-import DIU.modelo.PersonaLD;
+
+import DIU.controlador.ConexionBDD;
 import DIU.modelo.VehiculoLD;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,14 +19,49 @@ import javax.swing.table.DefaultTableModel;
  * @author Usuario
  */
 public class TablaVehiculo extends javax.swing.JInternalFrame {
-    public String nombre,cedula,placa,marca,color,valor,multas,tipo,añoFabricacion;
-    ArrayList<VehiculoLD> listaVehiculosLD=new ArrayList<>();
-    DefaultTableModel modelo=new DefaultTableModel();
+     ConexionBDD conectar = new ConexionBDD();
+    Connection conectado = conectar.conectar();
+    DefaultTableModel modelo;
     
     public TablaVehiculo() {
         initComponents();
-        setModelo();
+          modelo = new DefaultTableModel();
+        modelo.addColumn("ID Vehiculo");
+        modelo.addColumn("Placa");
+        modelo.addColumn("Color");
+        modelo.addColumn("Marca");
+        modelo.addColumn("Tipo");
+        modelo.addColumn("Valor");
+          modelo.addColumn("ID persona");  
+        tblDatosVehiculares.setModel(modelo);
+        MostrarDatos(0, null);
     }
+    public void MostrarDatos(int opBuscar, String valor){  
+    
+     limpiarTabla();
+
+        String codsql;
+        
+            codsql = "Select *from vehiculos";
+        String[] datos = new String[7];
+        try {
+            Statement leer = conectado.createStatement();
+            ResultSet resultado = leer.executeQuery(codsql);
+            while (resultado.next()) {
+                datos[0] = resultado.getString(1);
+                datos[1] = resultado.getString(2);
+                datos[2] = resultado.getString(3);
+                datos[3] = resultado.getString(4);
+                datos[4] = resultado.getString(5);
+                datos[5] = resultado.getString(6);
+                modelo.addRow(datos);
+            }
+            tblDatosVehiculares.setModel(modelo);
+        } catch (SQLException e) {
+            JOptionPane.showInputDialog(null, "error");
+        }
+    
+        }
     
     public void setModelo(){
             
@@ -31,12 +70,7 @@ public class TablaVehiculo extends javax.swing.JInternalFrame {
         tblDatosVehiculares.setModel(modelo);
     }
     
-    public void llenarArray(){
-        VehiculoLD vehiculo=new VehiculoLD(placa, marca, color, tipo, multas,añoFabricacion , Double.parseDouble(valor));
-        PersonaLD persona=new PersonaLD(nombre,Integer.parseInt( cedula), listaVehiculosLD);
-         listaVehiculosLD.add(vehiculo);
-    
-    }
+   
     
     public void setDatos(){
         Object[]filas=new Object[modelo.getColumnCount()];
@@ -123,17 +157,17 @@ public class TablaVehiculo extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(116, 116, 116)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(171, 171, 171)
-                        .addComponent(lblNombreContx, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(134, Short.MAX_VALUE))
+                        .addComponent(lblNombreContx, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(132, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(115, 115, 115)
@@ -149,9 +183,9 @@ public class TablaVehiculo extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(lblCedula))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(56, 56, 56)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(16, 16, 16)
@@ -167,7 +201,11 @@ public class TablaVehiculo extends javax.swing.JInternalFrame {
         setDatos();
     }//GEN-LAST:event_formInternalFrameActivated
 
-
+ private void limpiarTabla() {
+        // Limpiar el modelo actual de la tabla
+        DefaultTableModel modeloTabla = (DefaultTableModel) TbDatosProyectos.getModel();
+        modeloTabla.setRowCount(0);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
