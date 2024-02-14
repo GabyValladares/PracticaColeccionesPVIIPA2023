@@ -4,6 +4,8 @@
  */
 package DIU;
 
+import DIU.vistas.LDTable;
+import DIU.vistas.ListasDinamicas;
 import java.awt.Component;
 
 /**
@@ -33,11 +35,13 @@ public class Menu extends javax.swing.JFrame {
         menuListas = new javax.swing.JMenu();
         opLEstatico = new javax.swing.JMenuItem();
         opLDinamicas = new javax.swing.JMenuItem();
+        opDTable = new javax.swing.JMenuItem();
         menuPilas = new javax.swing.JMenu();
         menuArboles = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        opGestorP = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,7 +69,20 @@ public class Menu extends javax.swing.JFrame {
 
         opLDinamicas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         opLDinamicas.setText("Dinámicas");
+        opLDinamicas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opLDinamicasActionPerformed(evt);
+            }
+        });
         menuListas.add(opLDinamicas);
+
+        opDTable.setText("Listas /Table");
+        opDTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opDTableActionPerformed(evt);
+            }
+        });
+        menuListas.add(opDTable);
 
         jMenuBar1.add(menuListas);
 
@@ -92,6 +109,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMenuItem1);
+
+        opGestorP.setText("Gestor Persona");
+        opGestorP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opGestorPActionPerformed(evt);
+            }
+        });
+        jMenu2.add(opGestorP);
 
         jMenuBar1.add(jMenu2);
 
@@ -138,6 +163,26 @@ public class Menu extends javax.swing.JFrame {
         ventana.show();
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void opLDinamicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicasActionPerformed
+        // TODO add your handling code here:
+        ListasDinamicas ld=new ListasDinamicas();
+        escritorio.add(ld);
+        ld.show();
+    }//GEN-LAST:event_opLDinamicasActionPerformed
+
+    private void opDTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDTableActionPerformed
+        LDTable ldtable=new LDTable();
+        escritorio.add(ldtable);
+        ldtable.show();
+    }//GEN-LAST:event_opDTableActionPerformed
+
+    private void opGestorPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opGestorPActionPerformed
+        // TODO add your handling code here:
+        PersonaL PL = new PersonaL();
+        escritorio.add(PL);
+        PL.show();
+    }//GEN-LAST:event_opGestorPActionPerformed
 
     public void ejecutarReporte(ReporteValorPagar reporte){
        escritorio.add(reporte);
@@ -187,6 +232,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;
+    private javax.swing.JMenuItem opDTable;
+    private javax.swing.JMenuItem opGestorP;
     private javax.swing.JMenuItem opLDinamicas;
     private javax.swing.JMenuItem opLEstatico;
     // End of variables declaration//GEN-END:variables

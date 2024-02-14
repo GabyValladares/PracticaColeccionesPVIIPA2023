@@ -38,11 +38,6 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="lblCedula" min="-2" pref="151" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblPlaca" min="-2" pref="160" max="-2" attributes="0"/>
@@ -53,6 +48,11 @@
                                   <Component id="lblTipo" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblCedula" min="-2" pref="151" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -103,6 +103,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btnVer" pref="176" max="32767" attributes="0"/>
                   <Component id="btnCancelar" max="32767" attributes="0"/>
+                  <Component id="btnTablaVehiculos" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
           </Group>
@@ -146,6 +147,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblAnioFab" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="txtAnioFab" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="btnTablaVehiculos" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -352,6 +354,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnTablaVehiculos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Generar Tabla Vehiculos"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTablaVehiculosActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
