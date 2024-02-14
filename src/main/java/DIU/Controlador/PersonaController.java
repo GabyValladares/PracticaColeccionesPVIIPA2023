@@ -4,8 +4,11 @@
  */
 package DIU.controlador;
 
-import DIU.Menu;
+
+import static DIU.FichaVehicular.txtNombres;
 import DIU.modelo.PersonaModel;
+import DIU.modelo.VehiculoModel;
+import java.security.spec.PSSParameterSpec;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -180,4 +183,55 @@ public class PersonaController {
         }
         return estado;
     }
+    
+  public void buscarCedula(int cedula) {
+    // Conectar a la base de datos y realizar la consulta
+    try {
+        // Aquí deberías construir tu consulta SQL para obtener la información de la tabla persona
+        String sql = "SELECT * FROM persona WHERE cedula = ?";
+        
+        try (PreparedStatement preparedStatement = conectado.prepareStatement(sql)) {
+            // Establecer el valor del parámetro de cédula en la consulta
+            preparedStatement.setInt(1, cedula);
+
+            try (ResultSet resultado = preparedStatement.executeQuery()) {
+                if (resultado.next()) {
+                    // Obtener los datos necesarios y realizar acciones
+                    String nombres = resultado.getString("nombres");
+                    txtNombres.setText(nombres);
+                 
+                } else {
+                    // Manejar el caso de que no se encuentre la cédula en la base de datos
+                    JOptionPane.showMessageDialog(null, "Cédula no encontrada");
+                }
+            }
+        }
+
+    } catch (SQLException e) {
+        // Manejar errores de conexión o consulta
+
+    }
+}
+
+  public void insertarVehiculo(VehiculoModel v1) {
+    try {
+        // Llamar al procedimiento almacenado sp_InsertarVehiculo
+        String sql = "{CALL sp_InsertarVehiculo(?, ?, ?, ?, ?, ?)}";
+        try (CallableStatement callableStatement = conectado.prepareCall(sql)) {
+            callableStatement.setString(1, v1.getPlaca());
+            callableStatement.setString(2, v1.getColor());
+            callableStatement.setString(3, v1.getMarca());
+            callableStatement.setString(4, v1.getTipo());
+            callableStatement.setInt(5, v1.getValor());
+            callableStatement.setInt(6, v1.getIdpersona());
+
+            // Ejecutar la llamada al procedimiento almacenado
+            callableStatement.execute();
+        }
+    } catch (SQLException e) {
+    }
+}
+
+
+
 }

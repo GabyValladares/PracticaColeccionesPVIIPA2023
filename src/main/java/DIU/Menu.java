@@ -8,7 +8,7 @@ import DIU.vistas.GestionPersona;
 import DIU.vistas.LDTable;
 import DIU.vistas.ListasDinamicas;
 import DIU.vistas.PersonaView;
-import java.awt.Component;
+
 
 /**
  *
