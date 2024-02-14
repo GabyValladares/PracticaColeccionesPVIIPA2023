@@ -50,6 +50,7 @@ public class principal extends javax.swing.JFrame {
         menuFicha = new javax.swing.JMenu();
         opFicha = new javax.swing.JMenuItem();
         opreporte = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -149,6 +150,14 @@ public class principal extends javax.swing.JFrame {
         });
         menuFicha.add(opreporte);
 
+        jMenuItem5.setText("Ficha Vehicular");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        menuFicha.add(jMenuItem5);
+
         jMenuBar1.add(menuFicha);
 
         setJMenuBar(jMenuBar1);
@@ -180,16 +189,15 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_opLEstaticoActionPerformed
 
     private void menuFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFichaActionPerformed
-     
+    IngresoPersona ip = new IngresoPersona();
+     escritorio.add(ip);
+     ip.show(); 
     }//GEN-LAST:event_menuFichaActionPerformed
 
     private void opFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opFichaActionPerformed
-        nuevoForm ficha = new nuevoForm();
-     escritorio.add(ficha);
-     ficha.show();
-     
-     
-     
+        IngresoPersona reporte = new IngresoPersona();
+     escritorio.add(reporte);
+     reporte.show();
     }//GEN-LAST:event_opFichaActionPerformed
 
     private void opreporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opreporteActionPerformed
@@ -221,6 +229,12 @@ public class principal extends javax.swing.JFrame {
      escritorio.add(cad);
      cad.show();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+     FichaVehicular cad = new FichaVehicular();
+     escritorio.add(cad);
+     cad.show();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -267,6 +281,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenu menuFicha;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenuItem opDinamica;

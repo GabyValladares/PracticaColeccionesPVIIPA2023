@@ -4,7 +4,7 @@
  */
 package view.controlador;
 
-import DIU.controlador.ConexionBDD;
+import view.controlador.ConexionBDD;
 
 /**
  *

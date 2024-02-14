@@ -10,12 +10,26 @@ import view.vistas.TablaV;
 import view.vistas.reporte;
 import view.vistas.principal;
 
+import static java.lang.Runtime.version;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Types;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Andy Moya
  */
 public class FichaVehicular extends javax.swing.JInternalFrame {
-
+private static final String DB_URL = "jdbc:mysql://localhost:3306/ficha";
+    private static final String DB_USER = "root";
+    private static final String DB_PASS = "";
+     String cedula;
+     String nombre;
+     String apellido;
     /**
      * Creates new form FichaVehicular
      */
@@ -63,6 +77,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         cmbno = new javax.swing.JCheckBox();
         cmbColores = new javax.swing.JComboBox<>();
         btm_tabla = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -114,6 +129,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Multas:");
 
+        txtnombre.setEnabled(false);
+
         txtplaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtplacaActionPerformed(evt);
@@ -138,6 +155,13 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         btm_tabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btm_tablaActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Buscar usuario");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -198,14 +222,20 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                                                 .addComponent(rbtvitara))
                                             .addComponent(txtanioehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnVer)
-                                .addGap(107, 107, 107))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(btm_tabla)
-                                .addGap(79, 79, 79))))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnVer)
+                                        .addGap(107, 107, 107))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btm_tabla)
+                                        .addGap(79, 79, 79))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(jButton1)
+                                .addGap(0, 0, Short.MAX_VALUE))))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(244, 244, 244)
                 .addComponent(jLabel1)
@@ -219,7 +249,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -262,7 +293,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                         .addComponent(btnVer)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btm_tabla)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -307,30 +338,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
          principal.escritorio.add(reporte1);
          reporte1.setVisible(true);
     
-//    private void verFichaActionPerformed(java.awt.event.ActionEvent evt) {
-//    // Cerrar el InternalFrame actual (FichaVehicular)
-//    this.dispose();
-//    // Crear y mostrar el InternalFrame del Reporte
-//    reporte reporte = new reporte();
-//    principal.escritorio.add(reporte);
-//    reporte.show();
-    
-     //    TODO add your handling code here:
-//        FichaVehicular f=new FichaVehicular();
-//        f.setVisible(true);
-//        this.dispose();
-    
-    
-       
-//        String cedula = txtcedula.getText();
-//        String nombre = txtnombre.getText();
-//        String placa = txtplaca.getText();
-//        String anio= txtanioehiculo.getText();
-//        String marca= txtmarca.getText();
-//        String color = txtcolor.getText();
-//        String tipo = txttipo.getText();
-//        String valor = txtvalor.getText();
-//        String multas = txtmultas.getText();
+
 
     
 
@@ -420,6 +428,32 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     }
     }//GEN-LAST:event_btm_tablaActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    cedula = txtcedula.getText();
+     
+     try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
+    // Llamar al procedimiento almacenado
+    String sql = "CALL ObtenerUsu_por_cedula(?)";
+    CallableStatement pstmt = conn.prepareCall(sql);
+     pstmt.setString(1, cedula);
+    ResultSet rs = pstmt.executeQuery();
+        // Obtener los resultados
+        while (rs.next()) {
+        nombre = rs.getString("nombres");
+        apellido = rs.getString("apellidos");
+        }
+        // Mostrar los resultados
+        txtnombre.setText(nombre+" "+apellido);
+    rs.close();
+    pstmt.close();
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btm_tabla;
@@ -428,6 +462,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cmbMarcas;
     private javax.swing.JCheckBox cmbno;
     private javax.swing.JCheckBox cmbsi;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
