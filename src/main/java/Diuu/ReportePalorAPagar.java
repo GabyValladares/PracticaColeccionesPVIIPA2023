@@ -4,6 +4,10 @@
  */
 package Diuu;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import modelo.Persona;
 import modelo.Vehiculo;
@@ -114,6 +118,8 @@ public class ReportePalorAPagar extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    
     public void mostrarDatos(Vehiculo auto, Persona persona) {
         DefaultTableModel modelo = (DefaultTableModel) jtablaRep.getModel();
         Object[] fila = new Object[10];
@@ -131,6 +137,8 @@ public class ReportePalorAPagar extends javax.swing.JInternalFrame {
 
         modelo.addRow(fila);
     }
+    
+
     private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
         
         
