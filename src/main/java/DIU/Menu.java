@@ -4,9 +4,11 @@
  */
 package DIU;
 
-import DIU.EjerciciosFichaVehicular.FichaVehicular;
-import DIU.vista.LDTable;
-import DIU.vista.ListasDinamicas;
+import DIU.vistas.GestionPersona;
+import DIU.vistas.LDTable;
+import DIU.vistas.ListasDinamicas;
+import DIU.vistas.PersonaView;
+import java.awt.Component;
 
 /**
  *
@@ -19,6 +21,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        
     }
 
     /**
@@ -39,9 +42,12 @@ public class Menu extends javax.swing.JFrame {
         menuPilas = new javax.swing.JMenu();
         menuArboles = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        opFichaVehicular = new javax.swing.JMenuItem();
+        opLPersonas = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,11 +55,11 @@ public class Menu extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1387, Short.MAX_VALUE)
+            .addGap(0, 1438, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 564, Short.MAX_VALUE)
+            .addGap(0, 829, Short.MAX_VALUE)
         );
 
         menuListas.setText("Listas");
@@ -76,7 +82,7 @@ public class Menu extends javax.swing.JFrame {
         });
         menuListas.add(opLDinamicas);
 
-        opDTable.setText("Listas / Table");
+        opDTable.setText("Listas /Table");
         opDTable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 opDTableActionPerformed(evt);
@@ -93,23 +99,49 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(menuArboles);
 
         jMenu1.setText("Colas");
-
-        jMenuItem1.setText("jMenuItem1");
-        jMenu1.add(jMenuItem1);
-
         jMenuBar1.add(jMenu1);
 
-        jMenu3.setText("Ficha Vehicular");
-
-        opFichaVehicular.setText("FichaVehicular");
-        opFichaVehicular.addActionListener(new java.awt.event.ActionListener() {
+        jMenu2.setText("Matriculación");
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opFichaVehicularActionPerformed(evt);
+                jMenu2ActionPerformed(evt);
             }
         });
-        jMenu3.add(opFichaVehicular);
+
+        jMenuItem1.setText("Ficha Vehicular");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Gestión");
+
+        opLPersonas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        opLPersonas.setText("Personas");
+        opLPersonas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opLPersonasActionPerformed(evt);
+            }
+        });
+        jMenu3.add(opLPersonas);
 
         jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Administración");
+
+        jMenuItem2.setText("Usuario");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
 
@@ -134,16 +166,29 @@ public class Menu extends javax.swing.JFrame {
 
     private void opLEstaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLEstaticoActionPerformed
         // TODO add your handling code here:
-
-    }//GEN-LAST:event_opLEstaticoActionPerformed
-
-    private void opFichaVehicularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opFichaVehicularActionPerformed
-        FichaVehicular ventanaLE=new FichaVehicular();
+        ListasEstaticas ventanaLE=new ListasEstaticas();
         escritorio.add(ventanaLE);
         ventanaLE.show();
-    }//GEN-LAST:event_opFichaVehicularActionPerformed
+    }//GEN-LAST:event_opLEstaticoActionPerformed
+
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+        // TODO add your handling code here:
+        FichaVehicular ventana=new FichaVehicular();
+        escritorio.add(ventana);
+        ventana.show();
+    }//GEN-LAST:event_jMenu2ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+       
+         FichaVehicular ventana=new FichaVehicular();
+        escritorio.add(ventana);
+        ventana.show();
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void opLDinamicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicasActionPerformed
+        // TODO add your handling code here:
         ListasDinamicas ld=new ListasDinamicas();
         escritorio.add(ld);
         ld.show();
@@ -155,6 +200,22 @@ public class Menu extends javax.swing.JFrame {
         ldtable.show();
     }//GEN-LAST:event_opDTableActionPerformed
 
+    private void opLPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLPersonasActionPerformed
+        GestionPersona gp=new GestionPersona();
+        escritorio.add(gp);
+        gp.show();
+    }//GEN-LAST:event_opLPersonasActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        PersonaView pV=new PersonaView();
+        escritorio.add(pV);
+        pV.show();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    public void ejecutarReporte(ReporteValorPagar reporte){
+       escritorio.add(reporte);
+        reporte.show();
+    }
     /**
      * @param args the command line arguments
      */
@@ -193,15 +254,18 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu menuArboles;
     private javax.swing.JMenu menuListas;
     private javax.swing.JMenu menuPilas;
     private javax.swing.JMenuItem opDTable;
-    private javax.swing.JMenuItem opFichaVehicular;
     private javax.swing.JMenuItem opLDinamicas;
     private javax.swing.JMenuItem opLEstatico;
+    private javax.swing.JMenuItem opLPersonas;
     // End of variables declaration//GEN-END:variables
 }

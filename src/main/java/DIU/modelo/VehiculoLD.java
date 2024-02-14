@@ -1,25 +1,28 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package DIU.modelo;
 
 /**
  *
- * @author Criss
+ * @author Usuario
  */
-public class Vehiculo {
-
-    private String placa, marca, color, tipo, multas, añoFabricacion;
+public class VehiculoLD {
+     private String placa,marca,color,tipo,multas,anio;
     private double valor;
 
-    public Vehiculo() {
+    public VehiculoLD() {
     }
 
-    public Vehiculo(String placa, String marca, String color, String tipo, String multas, String añoFabricacion, double valor) {
+    public VehiculoLD(String placa, String marca, String color, String tipo, String multas,String anio, double valor) {
         this.placa = placa;
         this.marca = marca;
         this.color = color;
         this.tipo = tipo;
         this.multas = multas;
         this.valor = valor;
-        this.añoFabricacion = añoFabricacion;
+        this.anio=anio;
     }
 
     public String getPlaca() {
@@ -70,11 +73,15 @@ public class Vehiculo {
         this.valor = valor;
     }
 
-    public String getAñoFabricacion() {
-        return añoFabricacion;
+    public String getAnio() {
+        return anio;
     }
 
-    public void setAñoFabricacion(String añoFabricacion) {
-        this.añoFabricacion = añoFabricacion;
+    public void setAnio(String anio) {
+        this.anio = anio;
     }
+    
+    
+    
+    
 }
