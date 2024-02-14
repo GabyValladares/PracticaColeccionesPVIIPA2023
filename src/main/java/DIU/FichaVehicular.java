@@ -12,6 +12,7 @@ import DIU.controlador.ConexionBDD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -100,6 +101,11 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             }
         });
 
+        txtCedula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtCedulaMouseClicked(evt);
+            }
+        });
         txtCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCedulaActionPerformed(evt);
@@ -110,6 +116,11 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
         lblTitulo.setText("REGISTRO DE DATOS PARA CONOCER EL PAGO A REALIZAR");
 
+        txtNombres.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNombresMouseClicked(evt);
+            }
+        });
         txtNombres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombresActionPerformed(evt);
@@ -433,9 +444,33 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         }
         return true;
     }//GEN-LAST:event_btnVerActionPerformed
-
+private String buscarNombre(String cedula) {
+    String nombres = "";
+    try {
+        // Preparar la consulta SQL para buscar los nombres del propietario por su cédula
+        String sql = "SELECT nombres FROM persona WHERE cedula = ?";
+        PreparedStatement statement = conectado.prepareStatement(sql);
+        statement.setString(1, cedula);
+        
+        // Ejecutar la consulta y obtener el resultado
+        ResultSet resultSet = statement.executeQuery();
+        
+        // Si se encuentra un resultado, obtener los nombres del propietario
+        if (resultSet.next()) {
+            nombres = resultSet.getString("nombres");
+        }
+        
+        // Cerrar los recursos
+        resultSet.close();
+        statement.close();
+    } catch (SQLException e) {
+        // Manejar cualquier excepción de SQL
+        JOptionPane.showMessageDialog(null, "Error al buscar el propietario.");
+    }
+    return nombres;
+}
     private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtCedulaActionPerformed
 
     private void txtNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresActionPerformed
@@ -485,6 +520,29 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         btnGRUPO.add(btnVitara);
         btnGRUPO.add(btnCamioneta);
     }//GEN-LAST:event_formInternalFrameActivated
+
+    private void txtNombresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombresMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtNombresMouseClicked
+
+    private void txtCedulaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaMouseClicked
+        // TODO add your handling code here:
+         // TODO add your handling code here:
+        String cedula = txtCedula.getText();
+    
+    // Verificar que la cédula tenga 10 dígitos numéricos
+    if (cedula.matches("^\\d{10}$")) {
+        // Realizar la búsqueda en la base de datos para obtener los nombres del propietario
+        String nombres = buscarNombre(cedula);
+        
+        // Actualizar el campo de nombres con los nombres del propietario encontrados
+        txtNombres.setText(nombres);
+    } else {
+        // Si la cédula no tiene 10 dígitos numéricos, mostrar un mensaje de error
+        JOptionPane.showMessageDialog(null, "Ingrese una cédula válida con 10 dígitos numéricos.");
+    }
+    }//GEN-LAST:event_txtCedulaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
