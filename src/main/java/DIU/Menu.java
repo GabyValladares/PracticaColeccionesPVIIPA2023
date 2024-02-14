@@ -15,7 +15,7 @@ import DIU.Ejercicio8.Ejercicio8;
 import DIU.EjerciciosFichaVehicular.FichaVehicular;
 import DIU.vista.LDTable;
 import DIU.vista.ListasDinamicas;
-import DIU.vista.PersonaView;
+//import DIU.vista.PersonaView;
 
 /**
  *
@@ -321,10 +321,10 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_opEjercicio8ActionPerformed
 
     private void opGestionUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opGestionUsuarioActionPerformed
-        // TODO add your handling code here:
-        PersonaView pv=new PersonaView();
-        escritorio.add(pv);
-        pv.show();
+//        // TODO add your handling code here:
+//        PersonaView pv=new PersonaView();
+//        escritorio.add(pv);
+//        pv.show();
     }//GEN-LAST:event_opGestionUsuarioActionPerformed
 
     /**
