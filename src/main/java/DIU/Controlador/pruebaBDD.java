@@ -8,11 +8,10 @@ package DIU.controlador;
  *
  * @author Usuario
  */
-public class Main {
-
+public class pruebaBDD {
     public static void main(String[] args) {
-        ConexionBDD bdd = new ConexionBDD();
-        bdd.conectar();
+        ConexionBDD conectar=new ConexionBDD();
+        conectar.conectar();
     }
-
+    
 }

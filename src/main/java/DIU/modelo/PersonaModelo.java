@@ -8,32 +8,22 @@ package DIU.modelo;
  *
  * @author Usuario
  */
-public class PersonaModel {
-    private int idPersona;
+public class PersonaModelo {
     private String nombres;
     private String apellidos;
     private int cedula;
     private String usuario;
     private String clave;
 
-    public PersonaModel() {
+    public PersonaModelo() {
     }
 
-    public PersonaModel(int idPersona, String nombres, String apellidos, int cedula, String usuario, String clave) {
-        this.idPersona = idPersona;
+    public PersonaModelo(String nombres, String apellidos, int cedula, String usuario, String clave) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.cedula = cedula;
         this.usuario = usuario;
         this.clave = clave;
-    }
-
-    public int getIdPersona() {
-        return idPersona;
-    }
-
-    public void setIdPersona(int idPersona) {
-        this.idPersona = idPersona;
     }
 
     public String getNombres() {
@@ -76,9 +66,7 @@ public class PersonaModel {
         this.clave = clave;
     }
 
-    @Override
-    public String toString() {
-        return "DATOS DE PERSONA";}
+    
     
     
     
