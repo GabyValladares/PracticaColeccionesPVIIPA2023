@@ -14,7 +14,7 @@ import java.util.Date;
  * @author tutut
  */
 public class Reporte extends javax.swing.JInternalFrame {
-    public String nombre,cedula,placa,marca,color,valor,multas,tipo;
+    public String nombre,cedula,placa,marca,color,valor,multas,tipo,añofabricacion;
     
     /**
      * Creates new form Reporte

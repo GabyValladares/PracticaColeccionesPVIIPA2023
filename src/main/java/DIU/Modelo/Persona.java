@@ -4,6 +4,8 @@
  */
 package DIU.Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author tutut
@@ -15,6 +17,7 @@ public class Persona {
     private String apellidos;
     private String usuario;
     private String clave;
+    private  ArrayList<Auto> listaVehiculos;
  
     
     
@@ -30,9 +33,10 @@ public class Persona {
         this.clave = clave;
     }
     
-    public Persona(String Nombre, int cedula) {
+    public Persona(String Nombre, int cedula,ArrayList<Auto> listaVehiculos) {
         this.Nombres = Nombre;
         this.cedula = cedula;
+        this.listaVehiculos = listaVehiculos;
     }
 
     public int getCedula() {

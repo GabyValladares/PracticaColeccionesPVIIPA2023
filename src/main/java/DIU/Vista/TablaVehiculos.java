@@ -4,6 +4,7 @@
  */
 package DIU.Vista;
 
+import DIU.Controlador.VehiculoControlador;
 import DIU.Modelo.Auto;
 import DIU.Modelo.Persona;
 import java.util.ArrayList;
@@ -32,8 +33,10 @@ public class TablaVehiculos extends javax.swing.JInternalFrame {
     }
     public void llenarArray(){
         Auto vehiculo =new Auto(placa, color, año, tipo, Double.parseDouble(valor), multas, marca);
-        Persona persona = new Persona(nombre, WIDTH);
+         VehiculoControlador vhc=new VehiculoControlador();
+        Persona persona = new Persona(nombre, Integer.parseInt(cedula),listaVehiculos);
         listaVehiculos.add(vehiculo);
+        vhc.crearAuto(vehiculo);
     }
     public void setDatos(){
     Object[]filas=new Object[modelo.getColumnCount()];

@@ -4,6 +4,7 @@
  */
 package DIU;
 
+import DIU.Controlador.VehiculoControlador;
 import DIU.Modelo.Auto;
 import DIU.Modelo.Persona;
 import DIU.Vista.TablaVehiculos;
@@ -53,7 +54,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         rbtAutomovil = new javax.swing.JRadioButton();
         rbtVitara = new javax.swing.JRadioButton();
         rbtCamioneta = new javax.swing.JRadioButton();
-        txtVaDeVe = new javax.swing.JTextField();
+        txtValor = new javax.swing.JTextField();
         ckbSi = new javax.swing.JCheckBox();
         ckbNo = new javax.swing.JCheckBox();
         btnFicha = new javax.swing.JButton();
@@ -170,7 +171,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                                     .addComponent(lblMul, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtVaDeVe, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ckbSi)
                                     .addComponent(ckbNo)
                                     .addGroup(layout.createSequentialGroup()
@@ -236,7 +237,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblValorVehic)
-                    .addComponent(txtVaDeVe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMul)
@@ -263,33 +264,36 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
 
     private void btnFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFichaActionPerformed
         // TODO add your handling code here:
-        Reporte reporte1 = new Reporte();
-        //Auto auto1 = new Auto();
-        //Persona pers1 = new Persona();        
-       // reporte1.nombre(txtNombre.getText());
-        //reporte1.cedula(txtCedula.getText());
-        //reporte1.placa(txtNumPl.getText());
-        //reporte1.color(txtColor.getText());
-        //reporte1.valor(txtVaDeVe.getText());
-       reporte1.marca=(String) cbxMarca.getSelectedItem();
+        Reporte reportes=new Reporte();
+        Menu.escritorio.add(reportes);
+        reportes.show();
+        Reporte reporte=new Reporte();
+        reporte.cedula=txtCedula.getText();
+        reporte.nombre=txtNombre.getText();
+        reporte.placa=txtNumPl.getText();
+        reporte.color=txtColor.getText();
+        reporte.añofabricacion=txtFabric.getText();
+        reporte.valor=txtValor.getText();
+        reporte.marca=(String)cbxMarca.getSelectedItem();
         if(rbtAutomovil.isSelected()){
-            //reporte1.tipo("Automovil");
-        }else if(rbtCamioneta.isSelected()){
-            //reporte1.tipo("Camioneta");
-        }else if(rbtVitara.isSelected()){
-            //reporte1.tipo("Vitara");
+            reporte.tipo="Automovil";
         }else if(rbtJeep.isSelected()){
-          //  reporte1.tipo("Jeep");
+            reporte.tipo="Jeep";
+        }else if(rbtCamioneta.isSelected()){
+            reporte.tipo="Camioneta";
+        }else if(rbtVitara.isSelected()){
+            reporte.tipo="Vitara";
         }
-        if(ckbSi.isSelected()==true){
-        //    reporte1.multas("Si");
+        
+        if(ckbSi.isSelected()){
+            reporte.multas="Si";
         }else{
-        //    reporte1.multas("No");
+            reporte.multas="No";
         }
-        //reporte1.indicarDatos(auto1, pers1);
-        this.dispose();
-        Menu.escritorio.add(reporte1);
-        reporte1.setVisible(true);
+      
+        Menu.escritorio.add(reporte);
+        reporte.setVisible(true);
+        reporte.show();
         this.dispose();
     }//GEN-LAST:event_btnFichaActionPerformed
 
@@ -300,7 +304,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         reporte1.cedula=txtCedula.getText();
         reporte1.placa=txtNumPl.getText();
         reporte1.color=txtColor.getText();
-        reporte1.valor=txtVaDeVe.getText();
+        reporte1.valor=txtValor.getText();
        reporte1.marca=(String) cbxMarca.getSelectedItem();
         if(rbtAutomovil.isSelected()){
             reporte1.tipo=("Automovil");
@@ -353,6 +357,6 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtFabric;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumPl;
-    private javax.swing.JTextField txtVaDeVe;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }

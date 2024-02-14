@@ -7,6 +7,7 @@ package DIU.Controlador;
 import DIU.Modelo.Persona;
 import DIU.controlador.ConexionBDD;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class PersonaControlador {
                     +p.getUsuario()+"',"
                     + "'"+p.getClave()+"')";
             ejecutar = (PreparateStament)conectado.prepareCall(SQL);
-            res= ejecutar.executeUpdate();
+            resultado= ejecutar.executeQuery();
             if(res>0){
                 JOptionPane.showMessageDialog(null, "Persona creada con exito");
             }else{
@@ -65,14 +66,14 @@ public class PersonaControlador {
           //next() lee cada linea  y salta de fila por fila  
         ArrayList< Object[]>listaTotalRegistros=new ArrayList<>();
         try {
-            String SQL=" Call Lista_personas()";
+            String SQL="Call Lista_personas()";
             ejecutar=(PreparateStament) conectado.prepareCall(SQL);
             int cont=1;
-            ResultSet res= ejecutar.executeQuery();
-            while(res.next()){
+            ResultSet ress= ejecutar.executeQuery();
+            while(ress.next()){
                Object[] fila=new Object[6];
                for (int i = 0; i < 6; i++) {
-                fila[1]=res.getObject(i+1);
+                fila[1]=ress.getObject(i+1);
                 
             }
                fila[0]=cont;               
@@ -81,27 +82,49 @@ public class PersonaControlador {
             }
             ejecutar.close(); 
             return listaTotalRegistros;
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Comuniquese con el Administrador");
         }
         return null;
     }
     
+    public ArrayList<Object[]> buscarPersona(int cedula){
+        ArrayList<Object[]> listaTotalRegistros=new ArrayList<>();
+        try {
+            String sql = "call sp_BuscarPersona('" +cedula+ "');";
+            ejecutar = (PreparateStament) conectado.prepareCall(sql);
+            ResultSet resultado=ejecutar.executeQuery();
+            int cont=1;
+            while(resultado.next()){ 
+                Object[]fila=new Object[6];
+                for (int i = 0; i < 6; i++) {
+                    fila[i]=resultado.getObject(i+1);
+               }
+                fila[0]=cont;
+                listaTotalRegistros.add(fila);
+                cont++;
+            }
+            ejecutar.close();
+            return listaTotalRegistros;         
             
+                 
+            } catch (SQLException e) {
+                System.out.println("COMUNICARSE CON EL ADMINISTRADOR DEL SISTEMA");
+        }
+            return null;
+    }
+    
+        
     private static class PreparateStament {
 
         public PreparateStament() {
         }
 
-        private int executeUpdate() {
+        private void close() {
             throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
 
         private ResultSet executeQuery() {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
-
-        private void close() {
             throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
     }
