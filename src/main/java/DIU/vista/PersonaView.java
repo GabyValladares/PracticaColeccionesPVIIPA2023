@@ -20,33 +20,35 @@ public class PersonaView extends javax.swing.JInternalFrame {
      */
     ArrayList<PersonaModelo> ListaPersonaModelo = new ArrayList<>();
     DefaultTableModel modelo = new DefaultTableModel();
+
     public PersonaView() {
         initComponents();
         setModelo();
     }
-    
-    public void setModelo() {
-    String[] cabecera = {"Nro.","Nombres","Apellidos","Cédula","Usuario","Clave"};
-    modelo.setColumnIdentifiers(cabecera);
-    tblPersonas.setModel(modelo);
-}
-    private void setDatos() {
-    // ESTRUCTURA INFORMACIÓN TABLA
-    Object[] datosFila = new Object[modelo.getColumnCount()];
-    int contador = 1;
-    for (PersonaModelo datos : ListaPersonaModelo) {
-        datosFila[0] = contador;
-        datosFila[1] = datos.getNombres();
-        datosFila[2] = datos.getApellidos();
-        datosFila[3] = datos.getCedula();
-        datosFila[4] = datos.getUsuario();
-        datosFila[5] = datos.getClave();
-        modelo.addRow(datosFila);
 
-        contador++;
+    public void setModelo() {
+        String[] cabecera = {"Nro.", "Nombres", "Apellidos", "Cédula", "Usuario", "Clave"};
+        modelo.setColumnIdentifiers(cabecera);
+        tblPersonas.setModel(modelo);
     }
-    tblPersonas.setModel(modelo);
-}
+
+    private void setDatos() {
+        // ESTRUCTURA INFORMACIÓN TABLA
+        Object[] datosFila = new Object[modelo.getColumnCount()];
+        int contador = 1;
+        for (PersonaModelo datos : ListaPersonaModelo) {
+            datosFila[0] = contador;
+            datosFila[1] = datos.getNombres();
+            datosFila[2] = datos.getApellidos();
+            datosFila[3] = datos.getCedula();
+            datosFila[4] = datos.getUsuario();
+            datosFila[5] = datos.getClave();
+            modelo.addRow(datosFila);
+
+            contador++;
+        }
+        tblPersonas.setModel(modelo);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -72,6 +74,10 @@ public class PersonaView extends javax.swing.JInternalFrame {
         tblPersonas = new javax.swing.JTable();
         btnCrear = new javax.swing.JButton();
         pswClave = new javax.swing.JPasswordField();
+        btnLimpiar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -108,7 +114,14 @@ public class PersonaView extends javax.swing.JInternalFrame {
 
         lblClave.setText("Clave:");
 
-        lblTitulo.setText("GESTÓN DE USUARIO");
+        txtCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedulaActionPerformed(evt);
+            }
+        });
+
+        lblTitulo.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        lblTitulo.setText("GESTIÓN DE USUARIO");
 
         tblPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,6 +143,24 @@ public class PersonaView extends javax.swing.JInternalFrame {
             }
         });
 
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        btnActualizar.setText("Actualizar");
+
+        btnEliminar.setText("Eliminar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -137,100 +168,181 @@ public class PersonaView extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(71, 71, 71)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblNombre)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtNombres))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblApellidos)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblSubtitulo))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblNombre)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblUsuario)
+                                    .addComponent(lblClave))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblSubtitulo)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblApellidos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtApellidos))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblClave)
-                                .addGap(18, 18, 18)
-                                .addComponent(pswClave))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblUsuario)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtUsuario))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCedula)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtCedula)))
-                        .addGap(179, 179, 179)
-                        .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(pswClave, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                    .addComponent(txtUsuario)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(329, 329, 329)
+                        .addGap(70, 70, 70)
+                        .addComponent(lblCedula)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCrear, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLimpiar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(242, 242, 242))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(276, 276, 276)
                         .addComponent(lblTitulo))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(202, Short.MAX_VALUE))
+                        .addGap(52, 52, 52)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(lblTitulo)
-                .addGap(37, 37, 37)
-                .addComponent(lblSubtitulo)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre)
-                    .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblApellidos)
-                    .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCedula)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUsuario)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblClave)
-                    .addComponent(btnCrear)
-                    .addComponent(pswClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(lblSubtitulo)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCedula)
+                            .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNombre)
+                            .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblApellidos)
+                            .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnBuscar)
+                                .addGap(8, 8, 8)
+                                .addComponent(btnCrear)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnLimpiar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnActualizar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnEliminar)
+                                .addGap(1, 1, 1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblTitulo)
+                                .addGap(171, 171, 171)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblUsuario))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblClave)
+                                    .addComponent(pswClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        PersonaModelo pM = new PersonaModelo(0, txtNombres.getText(),
-                txtApellidos.getText(), Integer.parseInt(txtCedula.getText()), 
-                txtUsuario.getText(), 
-                pswClave.getText());
-        PersonaControlador pC = new PersonaControlador();
-        pC.crearPersona(pM);
-        ListaPersonaModelo.add(pM);
-        setDatos();
-        tblPersonas.setModel(modelo);
+       // Crear un nuevo objeto PersonaModelo con los datos ingresados por el usuario
+    PersonaModelo pM = new PersonaModelo(0, txtNombres.getText(),
+            txtApellidos.getText(), txtCedula.getText(),
+            txtUsuario.getText(), pswClave.getText());
+
+    // Crear un nuevo objeto PersonaControlador
+    PersonaControlador pC = new PersonaControlador();
+
+    // Llamar al método crearPersona para insertar la nueva persona en la base de datos
+    pC.crearPersona(pM);
+
+    // Agregar el nuevo objeto PersonaModelo a la lista ListaPersonaModelo
+    ListaPersonaModelo.add(pM);
+
+    // Actualizar algunos datos (supongo que eso es lo que hace setDatos)
+    setDatos();
+
+    // Actualizar el modelo de la tabla tblPersonas
+    tblPersonas.setModel(modelo);
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         PersonaControlador pC = new PersonaControlador();
         pC.datosPersona();
-        ArrayList<Object[]>  lista = pC.datosPersona();
+        ArrayList<Object[]> lista = pC.datosPersona();
         for (Object[] filas : lista) {
             modelo.addRow(filas);
         }
         tblPersonas.setModel(modelo);
+        this.limpiarTabla();
+        this.cargarTabla();
     }//GEN-LAST:event_formInternalFrameActivated
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        txtNombres.setText("");
+        txtApellidos.setText("");
+        txtCedula.setText("");
+        txtUsuario.setText("");
+        txtNombres.setText("");
+        
+        
+        
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaActionPerformed
+
+    private void limpiarTabla() {
+        int a = modelo.getRowCount() - 1;  // Índices van de 0 a n-1
+        // System.out.println("Tabla " + a);   // Para mostrar por consola el resultado
+        for (int i = a; i >= 0; i--) {
+            // System.out.println("i " + i);    // Para mostrar por consola el resultado
+            modelo.removeRow(i);
+        }
+    }
+
+    private void cargarTabla() {
+    PersonaControlador pC = new PersonaControlador();
+    ArrayList<Object[]> lista = pC.datosPersona();
+    
+    for (Object[] filas : lista) {
+        modelo.addRow(filas);
+    }
+
+    tblPersonas.setModel(modelo);
+}
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCrear;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblApellidos;
     private javax.swing.JLabel lblCedula;

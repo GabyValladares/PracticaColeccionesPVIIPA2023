@@ -8,6 +8,7 @@ import DIU.modelo.PersonaModelo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -32,7 +33,7 @@ public class PersonaControlador {
     }
 
     public void setPersona(PersonaModelo persona) {
-
+        this.persona = persona;
     }
 
     //TRANSACCIONABILIDAD
@@ -56,28 +57,50 @@ public class PersonaControlador {
     }
 
     public ArrayList<Object[]> datosPersona() {
-    ArrayList<Object[]> listaTotalregistros = new ArrayList<>();
-    int cont = 0; // Declarar e inicializar el contador
-    try {
-        String SQL = "call sp_BuscarPersonas();";
-        ejecutar = (PreparedStatement) conectado.prepareCall(SQL);
+        ArrayList<Object[]> listaObject = new ArrayList<>();
 
-        ResultSet res = ejecutar.executeQuery();
-        while (res.next()) {
-            Object[] fila = new Object[7]; // Aumentar el tamaño del arreglo para incluir el nuevo valor
-            for (int i = 0; i < 6; i++) {
-                fila[i] = res.getObject(i + 1);
+        try {
+            String sql = "call sp_listaPersonas();";
+            ejecutar = (PreparedStatement) conectado.prepareCall(sql);
+            resultado = ejecutar.executeQuery();
+            int cont = 1;
+            while (resultado.next()) {
+                Object[] obpersona = new Object[6];
+                for (int i = 1; i < 6; i++) {
+                    obpersona[i] = resultado.getObject(i + 1);
+                }
+                obpersona[0] = cont;
+                listaObject.add(obpersona);
+                cont++;
             }
-            fila[0] = cont; 
-            listaTotalregistros.add(fila);
-            cont++;
+            ejecutar.close();
+            return listaObject;
+
+        } catch (SQLException e) {
+            System.out.println("ERROR SQL CARGA PERSONAS");
         }
-        ejecutar.close();
-        return listaTotalregistros; 
-    } catch (Exception e) {
-        e.printStackTrace(); 
+
+        return null;
     }
-    return null; 
+
+    
+    public void recuperarDatosPersona(PersonaModelo c) {
+    try {
+        String sql = "call sp_RecuperarNombrePersona(?)";
+        ejecutar = (PreparedStatement) conectado.prepareCall(sql);
+        ejecutar.setInt(1, Integer.parseInt(c.getCedula()));
+        resultado = ejecutar.executeQuery();
+
+        // Comprobar si hay resultados
+        if (resultado.next()) {
+            // Asignar los valores recuperados al objeto PersonaModelo
+            c.setNombres(resultado.getString(1));
+        } else {
+            System.out.println("No se encontraron datos para la cédula proporcionada.");
+        }
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "COMUNICARSE CON EL ADMINISTRADOR DEL SISTEMA");
+    }
 }
 
 

@@ -9,19 +9,20 @@ package DIU.modelo;
  * @author Usuario
  */
 public class PersonaModelo {
-   private int idpersona;
+
+    private int idpersona;
     private String nombres;
     private String apellidos;
-    private int cedula;
+    private String cedula;
     private String usuario;
     private String clave;
 
     // Constructor
     public PersonaModelo() {
-        
+
     }
 
-    public PersonaModelo(int idpersona, String nombres, String apellidos, int cedula, String usuario, String clave) {
+    public PersonaModelo(int idpersona, String nombres, String apellidos, String cedula, String usuario, String clave) {
         this.idpersona = idpersona;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -29,8 +30,6 @@ public class PersonaModelo {
         this.usuario = usuario;
         this.clave = clave;
     }
-
-    
 
     // Getters y Setters
     public int getIdpersona() {
@@ -57,11 +56,11 @@ public class PersonaModelo {
         this.apellidos = apellidos;
     }
 
-    public int getCedula() {
+    public String getCedula() {
         return cedula;
     }
 
-    public void setCedula(int cedula) {
+    public void setCedula(String cedula) {
         this.cedula = cedula;
     }
 
@@ -79,10 +78,6 @@ public class PersonaModelo {
 
     public void setClave(String clave) {
         this.clave = clave;
-    } 
-
-    @Override
-    public String toString(){
-        return "DATOS DE PERSONA";
     }
+
 }
