@@ -4,12 +4,11 @@
  */
 package DIU;
 
-import DIUmodelo.PersonaLD;
-import DIUmodelo.VehiculoLD;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
+import DIU.controlador.VehiculoController;
+import DIUmodelo.VehiculoM;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,8 +20,8 @@ public String nombre,cedula,placa,marca,color,valor,multas,tipo,añoFabricacion;
     /**
      * Creates new form ReporteValorPagar
      */
-    ArrayList<Vehiculo> listaVehiculos=new ArrayList<>();
-    DefaultTableModel modelo=new DefaultTableModel();
+ ArrayList<VehiculoM> lista=new ArrayList<>();
+       DefaultTableModel modelo=new DefaultTableModel();
      
     public ReporteValorPagar() {
         initComponents();
@@ -35,26 +34,20 @@ public String nombre,cedula,placa,marca,color,valor,multas,tipo,añoFabricacion;
     tblFichaVehicular.setModel(modelo);
     }
     
-    public void llenarDatos(){
-    Vehiculo v1=new Vehiculo(placa, marca, color, tipo, Double.parseDouble(valor),multas, new Date(añoFabricacion));
-     double multaContaminacion = v1.calcularMultaContaminacion();
-    v1.setMultas(multas + multaContaminacion);
-    Persona p1=new Persona(nombre, Integer.parseInt(cedula), listaVehiculos);
-   listaVehiculos.add(v1);}
     
     private void setDatos(){
         Object[]datos=new Object[modelo.getColumnCount()];
         int i=1;
         modelo.setRowCount(0);
-        for (Vehiculo vehiculo :listaVehiculos) {
+        for (VehiculoM vehiculo :lista) {
             datos[0]=i;
             datos[1]=vehiculo.getPlaca();
             datos[2]=vehiculo.getMarca();
             datos[3]=vehiculo.getColor();
             datos[4]=vehiculo.getTipo();
             datos[5]=vehiculo.getValor();
-            datos[6]=vehiculo.getMultas();
-            datos[7]=vehiculo.getAñoFabricacion();
+            datos[6]=vehiculo.getPersona();
+            datos[7]=vehiculo.getAnio();
             modelo.addRow(datos);
                         i++;
         }
@@ -62,28 +55,7 @@ public String nombre,cedula,placa,marca,color,valor,multas,tipo,añoFabricacion;
     
     
        
-public double calcularDescuentoMultas() {
-    double sueldoBasico = 460; 
 
-    // Calcular el 25% del sueldo básico si hay multas
-    double descuentoMultas = 0.25 * sueldoBasico;
-
-    return descuentoMultas;
-}
-
-public double calcularMontoTotal() {
-    double montoMatriculacion = 0;
-
-    for (Vehiculo vehiculo : listaVehiculos) {
-        montoMatriculacion += vehiculo.calcularValorMatriculacion();
-    }
-
-    double descuentoMultas = calcularDescuentoMultas();
-    double montoTotal = montoMatriculacion - descuentoMultas;
-
-    return montoTotal;
-}
-    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -116,6 +88,11 @@ public double calcularMontoTotal() {
             public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
             }
         });
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         txtADatos.setColumns(20);
         txtADatos.setRows(5);
@@ -132,6 +109,14 @@ public double calcularMontoTotal() {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblFichaVehicular.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblFichaVehicularMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tblFichaVehicularMouseEntered(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblFichaVehicular);
 
         jLabel1.setText("RESUMEN DE PAGO FICHA VEHICULAR");
@@ -174,9 +159,70 @@ public double calcularMontoTotal() {
         // TODO add your handling code here:
         String datos="Nombre:"+nombre+"\n"+"Cédula:"+cedula;
         txtADatos.setText(datos);
-        llenarDatos();
+      
         setDatos();
+        
+        
+           VehiculoController rc=new VehiculoController();
+        
+       ArrayList<Object[]>listas= rc.ObtenerVehiculos();
+       
+        for (Object[] filas : listas) {
+            modelo.addRow(filas);
+          }
+     tblFichaVehicular.setModel(modelo);
+        
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_formInternalFrameActivated
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        
+        
+        DefaultTableModel dtm = (DefaultTableModel) tblFichaVehicular.getModel();
+
+        int filaSeleccionada = tblFichaVehicular.getSelectedRow();
+        if (filaSeleccionada != -1) {
+
+            txtADatos.setText(dtm.getValueAt(filaSeleccionada, 0).toString());
+           
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Seleccione una fila antes de editar.");
+        }
+        
+        
+        
+    }//GEN-LAST:event_formMouseClicked
+
+    private void tblFichaVehicularMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFichaVehicularMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblFichaVehicularMouseEntered
+
+    private void tblFichaVehicularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFichaVehicularMouseClicked
+        // TODO add your handling code here:
+        
+        DefaultTableModel dtm = (DefaultTableModel) tblFichaVehicular.getModel();
+
+        int filaSeleccionada = tblFichaVehicular.getSelectedRow();
+        if (filaSeleccionada != -1) {
+
+            txtADatos.setText(dtm.getValueAt(filaSeleccionada, 0).toString());
+            
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Seleccione una fila antes de editar.");
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_tblFichaVehicularMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -187,7 +233,5 @@ public double calcularMontoTotal() {
     private javax.swing.JTextArea txtADatos;
     // End of variables declaration//GEN-END:variables
 
-    void isVisible(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
 }
