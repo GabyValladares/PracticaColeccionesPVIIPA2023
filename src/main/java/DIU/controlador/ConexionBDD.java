@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DIU.controlador;
 
 import java.sql.DriverManager;
@@ -16,8 +12,7 @@ public class ConexionBDD {
             //Manera de Conexión a la Base de Datos
             Class.forName("com.mysql.jdbc.Driver");
             //Parámetros de conexión url/usuario/clave en mysql
-            conexion=DriverManager.getConnection("jdbc:mysql://localhost/bddprovis?autoReconnect=true&useSSL=false","CarlosGordillo","Carlosd14");
-            System.out.println("CONECTADO"); 
+            conexion=DriverManager.getConnection("jdbc:mysql://localhost/bddpruebavisual?autoReconnect=true&useSSL=false","CarlosGordillo","Carlosd14");
         } catch (ClassNotFoundException | SQLException e)//CAPTURAR ERRORES 
         {
              System.out.println("ERROR DE CONEXION A LA BASE DE DATOS");

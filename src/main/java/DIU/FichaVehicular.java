@@ -4,8 +4,11 @@
  */
 package DIU;
 
-import DIU.Modelo.Automovil;
-import DIU.Modelo.Persona;
+import DIU.Modelo.Modelo_Automovil;
+import DIU.Modelo.Modelo_Persona;
+import DIU.controlador.Controlador_Automovil;
+import DIU.controlador.Controlador_Persona;
+import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
  * @author carlo
  */
 public class FichaVehicular extends javax.swing.JInternalFrame{
-    private Persona personaL;
+    private Modelo_Persona personaL;
     private ReporteA reporte;
     public FichaVehicular() {
         initComponents();
@@ -140,9 +143,21 @@ public class FichaVehicular extends javax.swing.JInternalFrame{
             }
         });
 
+        txtCedula.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+                txtCedulaCaretPositionChanged(evt);
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
         txtCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCedulaActionPerformed(evt);
+            }
+        });
+        txtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCedulaKeyPressed(evt);
             }
         });
 
@@ -340,11 +355,13 @@ public class FichaVehicular extends javax.swing.JInternalFrame{
     private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtValorActionPerformed
-    public static ArrayList<Automovil> ListaVe;
+    public static ArrayList<Modelo_Automovil> ListaVe;
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
         ReporteA ventana = new ReporteA();
-        Automovil auto = new Automovil();
-        Persona per = new Persona();
+        Modelo_Automovil auto = new Modelo_Automovil();
+        Modelo_Persona per = new Modelo_Persona();
+        Controlador_Automovil conAuto = new Controlador_Automovil();
+        Controlador_Persona conPer = new Controlador_Persona();
 
         String cedula = txtCedula.getText().trim();
         if (cedula.matches("\\d{10}")) {
@@ -356,7 +373,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame{
 
         String nombres = txtNombres.getText().trim();
 
-        if (nombres.matches("[a-zA-Z]+")) {
+        if (nombres.matches("[a-zA-Z ]+")) {
             per.setNombre(nombres);
         } else {
             JOptionPane.showMessageDialog(this, "Los nombres solo deben contener letras", "Error", JOptionPane.ERROR_MESSAGE);
@@ -400,7 +417,8 @@ public class FichaVehicular extends javax.swing.JInternalFrame{
         auto.setMarca(cmbMarca.getSelectedItem().toString());
         String valorTexto = txtValor.getText().trim();
         if (valorTexto.matches("\\d+(\\.\\d+)?")) {
-            auto.setValor(valorTexto);
+            double valor = Double.parseDouble(valorTexto);
+            auto.setValor(valor);
         } else {
             JOptionPane.showMessageDialog(this, "El valor del vehículo debe contener solo números y puede ser decimal", "Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -421,16 +439,17 @@ public class FichaVehicular extends javax.swing.JInternalFrame{
         } else {
             auto.setMultas("NO");
         }
-        
-        ventana.mostrarDatos(auto, per);
+        // Aqui va el agregado a la persona y automovil con los sp´s
+        conPer.agregarPersona(per);
+        conAuto.agregarAutomovil(auto,per);
         ventana.agregarResult(calcular(auto, per));
+        ventana.mostrarDatos(auto, per);
         ventana.setVentanaAnterior(this);
         this.setVisible(false);
         MENU.Escritorio.add(ventana);
         ventana.setVisible(true);
-        
     }//GEN-LAST:event_btnVerActionPerformed
-    public String[] calcular(Automovil auto, Persona persona) {
+    public String[] calcular(Modelo_Automovil auto, Modelo_Persona persona) {
         String[] resultados = new String[5];
 
         String cedulaUsuario = persona.getCedula();
@@ -472,7 +491,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame{
             }
         }
 
-        valorMatriculacion = Double.parseDouble(auto.getValor()) * porcentajeMatriculacion;
+        valorMatriculacion = auto.getValor()* porcentajeMatriculacion;
 
         String multas = auto.getMultas();
         if (multas == "SI") {
@@ -534,6 +553,19 @@ public class FichaVehicular extends javax.swing.JInternalFrame{
         chxMultasSi.setSelected(false);
         
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void txtCedulaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyPressed
+        Controlador_Persona conPer = new Controlador_Persona();
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String cedula = txtCedula.getText();
+            String nombre = conPer.obtenerNombrePorCedula(cedula);
+            txtNombres.setText(nombre);
+        }
+    }//GEN-LAST:event_txtCedulaKeyPressed
+
+    private void txtCedulaCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtCedulaCaretPositionChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaCaretPositionChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

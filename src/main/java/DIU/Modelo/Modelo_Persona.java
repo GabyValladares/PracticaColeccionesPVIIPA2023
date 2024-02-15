@@ -6,31 +6,28 @@ package DIU.Modelo;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author carlo
- */
-public class Persona {
+
+public class Modelo_Persona {
     private String nombre;
     private String cedula;
-    private ArrayList<Automovil> listaVehiculos;
+    private ArrayList<Modelo_Automovil> listaVehiculos;
 
-    public Persona() {
+    public Modelo_Persona() {
     }
 
-    public Persona(String nombre, String cedula, ArrayList<Automovil> listaVehiculos) {
+    public Modelo_Persona(String nombre, String cedula, ArrayList<Modelo_Automovil> listaVehiculos) {
         this.nombre = nombre;
         this.cedula = cedula;
         this.listaVehiculos = listaVehiculos;
     }
-    public void agregarAutomovil(Automovil automovil) {
+    public void agregarAutomovil(Modelo_Automovil automovil) {
         listaVehiculos.add(automovil);
     }
-    public ArrayList<Automovil> getListaVehiculos() {
+    public ArrayList<Modelo_Automovil> getListaVehiculos() {
         return listaVehiculos;
     }
 
-    public void setListaVehiculos(ArrayList<Automovil> listaVehiculos) {
+    public void setListaVehiculos(ArrayList<Modelo_Automovil> listaVehiculos) {
         this.listaVehiculos = listaVehiculos;
     }
     

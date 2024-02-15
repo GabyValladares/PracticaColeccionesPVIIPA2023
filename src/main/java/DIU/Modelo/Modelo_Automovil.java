@@ -2,19 +2,19 @@ package DIU.Modelo;
 
 import java.util.Date;
 
-public class Automovil {
+public class Modelo_Automovil {
     private String placa;
     private Date anoFabricacion;
     private String marca;
     private String color;
     private String tipo;
-    private String valor;
+    private double valor;
     private String multas;
 
-    public Automovil() {
+    public Modelo_Automovil() {
     }
 
-    public Automovil(String placa, Date anoFabricacion, String marca, String color, String tipo, String valor, String multas) {
+    public Modelo_Automovil(String placa, Date anoFabricacion, String marca, String color, String tipo, double valor, String multas) {
         this.placa = placa;
         this.anoFabricacion = anoFabricacion;
         this.marca = marca;
@@ -23,6 +23,25 @@ public class Automovil {
         this.valor = valor;
         this.multas = multas;
     }
+
+    public Date getAnoFabricacion() {
+        return anoFabricacion;
+    }
+
+    public void setAnoFabricacion(Date anoFabricacion) {
+        this.anoFabricacion = anoFabricacion;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    
+    
     
    
 
@@ -34,13 +53,6 @@ public class Automovil {
         this.placa = placa;
     }
 
-    public Date getAnoFabricacion() {
-        return anoFabricacion;
-    }
-
-    public void setAnoFabricacion(Date anoFabricacion) {
-        this.anoFabricacion = anoFabricacion;
-    }
 
 
     public String getMarca() {
@@ -65,14 +77,6 @@ public class Automovil {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    public String getValor() {
-        return valor;
-    }
-
-    public void setValor(String valor) {
-        this.valor = valor;
     }
 
     public String getMultas() {
