@@ -4,11 +4,9 @@
  */
 package DIU;
 
-
 import DIU.vistas.LDTable;
 import DIU.vistas.ListasDinamicas;
 import DIU.vistas.PersonaView;
-
 
 /**
  *
@@ -164,52 +162,53 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void opLEstaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLEstaticoActionPerformed
-        
+
     }//GEN-LAST:event_opLEstaticoActionPerformed
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
         // TODO add your handling code here:
-        FichaVehicular ventana=new FichaVehicular();
+        FichaVehicular ventana = new FichaVehicular();
         escritorio.add(ventana);
         ventana.show();
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-       
-         FichaVehicular ventana=new FichaVehicular();
+
+        FichaVehicular ventana = new FichaVehicular();
         escritorio.add(ventana);
         ventana.show();
-        
+
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void opLDinamicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLDinamicasActionPerformed
         // TODO add your handling code here:
-        ListasDinamicas ld=new ListasDinamicas();
+        ListasDinamicas ld = new ListasDinamicas();
         escritorio.add(ld);
         ld.show();
     }//GEN-LAST:event_opLDinamicasActionPerformed
 
     private void opDTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDTableActionPerformed
-        LDTable ldtable=new LDTable();
+        LDTable ldtable = new LDTable();
         escritorio.add(ldtable);
         ldtable.show();
     }//GEN-LAST:event_opDTableActionPerformed
 
     private void opLPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLPersonasActionPerformed
-       
+
     }//GEN-LAST:event_opLPersonasActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        PersonaView pV=new PersonaView();
+        PersonaView pV = new PersonaView();
         escritorio.add(pV);
         pV.show();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    public void ejecutarReporte(ReporteValorPagar reporte){
-       escritorio.add(reporte);
+    public void ejecutarReporte(ReporteValorPagar reporte) {
+        escritorio.add(reporte);
         reporte.show();
     }
+
     /**
      * @param args the command line arguments
      */
