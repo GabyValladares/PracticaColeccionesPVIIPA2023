@@ -4,7 +4,7 @@
  */
 package DIU;
 
-import DIU.vistas.GestionPersona;
+
 import DIU.vistas.LDTable;
 import DIU.vistas.ListasDinamicas;
 import DIU.vistas.PersonaView;
@@ -100,7 +100,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu1.setText("Colas");
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Matriculación");
+        jMenu2.setText("Ficha Vehicular");
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu2ActionPerformed(evt);
@@ -164,10 +164,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void opLEstaticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLEstaticoActionPerformed
-        // TODO add your handling code here:
-        ListasEstaticas ventanaLE=new ListasEstaticas();
-        escritorio.add(ventanaLE);
-        ventanaLE.show();
+        
     }//GEN-LAST:event_opLEstaticoActionPerformed
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
@@ -200,9 +197,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_opDTableActionPerformed
 
     private void opLPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opLPersonasActionPerformed
-        GestionPersona gp=new GestionPersona();
-        escritorio.add(gp);
-        gp.show();
+       
     }//GEN-LAST:event_opLPersonasActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed

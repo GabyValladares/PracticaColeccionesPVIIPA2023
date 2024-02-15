@@ -4,6 +4,8 @@
  */
 package DIU;
 
+import DIU.modelo.Persona;
+import DIU.modelo.Vehiculo;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -12,10 +14,10 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Usuario
+ * @author DilanLara
  */
 public class ReporteValorPagar extends javax.swing.JInternalFrame {
-public String nombre,cedula,placa,marca,color,valor,multas,tipo,añoFabricacion;
+public String nombre,cedula,placa,marca,color,valor,multas,tipo,año;
     /**
      * Creates new form ReporteValorPagar
      */
@@ -34,7 +36,7 @@ public String nombre,cedula,placa,marca,color,valor,multas,tipo,añoFabricacion;
     }
     
     public void llenarDatos(){
-    Vehiculo v1=new Vehiculo(placa, marca, color, tipo, Double.parseDouble(valor),multas, new Date(añoFabricacion));
+    Vehiculo v1 = new Vehiculo(placa, marca, color, tipo, multas, año, Double.parseDouble(valor));
     Persona p1=new Persona(nombre, Integer.parseInt(cedula), listaVehiculos);
    listaVehiculos.add(v1);}
     
