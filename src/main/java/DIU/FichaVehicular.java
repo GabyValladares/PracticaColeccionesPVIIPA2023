@@ -6,6 +6,7 @@ package DIU;
 import DIU.controlador.CarroControlador;
 import DIU.controlador.PersonaControlador;
 import DIU.modelo.PersonaReport;
+import DIU.vista.LDTable;
 
 /**
  *
@@ -314,6 +315,10 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         
         CarroControlador carc=new CarroControlador();
         carc.insertarCarro(carro1, person);
+        LDTable tabla=new LDTable();
+        tabla.id(person.getIdpersona(),person.getNombre());
+        Menu.escritorio.add(tabla);
+        tabla.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVerActionPerformed
 

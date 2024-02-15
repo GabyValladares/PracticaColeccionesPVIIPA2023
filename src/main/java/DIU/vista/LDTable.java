@@ -4,7 +4,10 @@
  */
 package DIU.vista;
 
+import DIU.Carro;
+import DIU.controlador.CarroControlador;
 import DIU.modelo.Persona;
+import DIU.modelo.PersonaReport;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -13,13 +16,16 @@ import javax.swing.table.DefaultTableModel;
  * @author oli
  */
 public class LDTable extends javax.swing.JInternalFrame {
-    ArrayList<Persona> listasNombres=new ArrayList();
+    ArrayList<Carro> listasNombres=new ArrayList();
     DefaultTableModel modelo=new DefaultTableModel();
+    private String idpersona;
+    private String nombre;
     /**
      * Creates new form LDTable
      */
     public LDTable() {
         initComponents();
+        setDatos();
         setModelo();
     }
 
@@ -32,8 +38,6 @@ public class LDTable extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVehiculos = new javax.swing.JTable();
 
@@ -41,19 +45,6 @@ public class LDTable extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-
-        jLabel1.setText("jLabel1");
-
-        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtNombreMouseClicked(evt);
-            }
-        });
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
-            }
-        });
 
         tblVehiculos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -73,71 +64,62 @@ public class LDTable extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(203, 203, 203)
-                        .addComponent(jLabel1)
-                        .addGap(73, 73, 73)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 811, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(82, 82, 82)
+                .addGap(119, 119, 119)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        llenarArray();
-        setDatos();
-    }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void txtNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseClicked
-        
-    }//GEN-LAST:event_txtNombreMouseClicked
     
     public void setModelo(){
-        String[] cabecera={"Nombre",""};
+        String[] cabecera={"Nombre","Placa","Año","Marca","Color","Valor","Multas"};
         modelo.setColumnIdentifiers(cabecera);
         tblVehiculos.setModel(modelo);
     }
     
-    public void llenarArray(){
-        String nombre=txtNombre.getText();
-        Persona person=new Persona(nombre);
-        listasNombres.add(person);
-    }
+    
     
     public void setDatos(){
-        Object[] informacion=new Object[modelo.getColumnCount()];
+        CarroControlador cr=new CarroControlador();
+        ArrayList<Carro> vehiculos=new ArrayList<>();
+        System.out.println(idpersona+"id");
+        vehiculos=cr.listarVehiculo(idpersona);
+        
         int cont=1;
         modelo.setRowCount(0);
-        for (Persona nom : listasNombres) {
-            informacion[0]=cont;
-            informacion[1]=nom.getNombre();
-            cont++;
+        for (Carro car : vehiculos) {
+            Object[] informacion=new Object[7];
+            informacion[0]=nombre;
+            informacion[1]=car.getPlaca();
+            informacion[2]=car.getAnioFab();
+            informacion[3]=car.getMarca();
+            informacion[4]=car.getColor();
+            informacion[5]=car.getValor();
+            if (car.getMulta().equals("0")) {
+                informacion[6]="No";
+            }else{
+                informacion[6]="Si";
+            }
             modelo.addRow(informacion);
         }
         tblVehiculos.setModel(modelo);
-        txtNombre.setText("");
+    }
+    
+    public void id(String idPersona, String nombre){
+        this.idpersona=idPersona;
+        this.nombre=nombre;
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblVehiculos;
-    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
