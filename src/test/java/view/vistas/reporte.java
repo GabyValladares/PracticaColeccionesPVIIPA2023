@@ -174,11 +174,11 @@ public class reporte extends javax.swing.JInternalFrame {
             // Llamar al procedimiento almacenado
             try (CallableStatement statement = conn.prepareCall("{call sp_guardar_vehiculo(?, ?, ?, ?, ?)}")) {
                 // Establecer los parámetros del procedimiento
-                statement.setString(1, placa);
-                statement.setString(2, Apellido);
-                statement.setString(3, Cedula);
-                statement.setString(4, Usuario);
-                statement.setString(5, Clave);
+//                statement.setString(1, placa);
+//                statement.setString(2, Apellido);
+//                statement.setString(3, Cedula);
+//                statement.setString(4, Usuario);
+//                statement.setString(5, Clave);
 
                 // Ejecutar el procedimiento almacenado
                 statement.execute();
