@@ -253,9 +253,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void opDinamicaTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opDinamicaTableActionPerformed
-        LDTable ventanaDTable=new LDTable();
-        escritorio.add(ventanaDTable);
-        ventanaDTable.show();
+
     }//GEN-LAST:event_opDinamicaTableActionPerformed
 
     private void menuPilas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPilas2ActionPerformed

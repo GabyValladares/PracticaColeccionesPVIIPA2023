@@ -137,6 +137,7 @@ public class PersonaControlador {
             resultado = ejecutar.executeQuery();
             if (resultado.next()) {
                 person.setIdpersona(resultado.getString(1));
+                System.out.println(person.getIdpersona()+" id base");
                 person.setNombre(resultado.getString(2));
                 person.setCédula(cedula);
 

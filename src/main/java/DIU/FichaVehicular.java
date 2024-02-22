@@ -284,6 +284,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
     Reporte ventana = new Reporte();
     Carro carro1;
     
+    
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
         carro1 = new Carro();
         ventana.transicionCarro(carro1);
@@ -312,11 +313,9 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             carro1.setMulta("false");
         }
         
-        
         CarroControlador carc=new CarroControlador();
         carc.insertarCarro(carro1, person);
-        LDTable tabla=new LDTable();
-        tabla.id(person.getIdpersona(),person.getNombre());
+        LDTable tabla=new LDTable(person);
         Menu.escritorio.add(tabla);
         tabla.setVisible(true);
         this.dispose();
@@ -341,6 +340,7 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
         PersonaControlador pc=new PersonaControlador();
         if (!txtCedula.getText().isEmpty()) {
             person=pc.buscarNombrePersonaCedula(txtCedula.getText());
+            
             txtNombres.setText(person.getNombre());
         }
     }//GEN-LAST:event_txtCedulaActionPerformed

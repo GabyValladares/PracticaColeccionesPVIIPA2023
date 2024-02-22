@@ -63,6 +63,7 @@ public class CarroControlador {
             resultado = ejecutar.executeQuery();
             if (resultado.next()) {
                 while (resultado.next()) {
+                    vehiculo=new Carro();
                     vehiculo.setPlaca(resultado.getString(2));
                     vehiculo.setAnioFab(resultado.getString(3));
                     vehiculo.setMarca(resultado.getString(4));
@@ -71,7 +72,6 @@ public class CarroControlador {
                     vehiculo.setValor(resultado.getString(7));
                     vehiculo.setMulta(resultado.getString(8));
                     vehiculos.add(vehiculo);
-                    System.out.println(vehiculo.getColor()+"base");
                 }
             }
             return vehiculos;

@@ -19,11 +19,11 @@ public class PersonaReport {
     public PersonaReport() {
     }
 
-    public PersonaReport(String Cédula, String Nombre,ArrayList listaVehiculo,String idpersona) {
-        this.idpersona=idpersona;
+    public PersonaReport(String idpersona, String Cédula, String Nombre, ArrayList<String> listaVehiculos) {
+        this.idpersona = idpersona;
         this.Cédula = Cédula;
         this.Nombre = Nombre;
-        this.listaVehiculos=listaVehiculo;
+        this.listaVehiculos = listaVehiculos;
     }
 
     public String getCédula() {
@@ -48,6 +48,14 @@ public class PersonaReport {
 
     public void setIdpersona(String idpersona) {
         this.idpersona = idpersona;
+    }
+
+    public ArrayList<String> getListaVehiculos() {
+        return listaVehiculos;
+    }
+
+    public void setListaVehiculos(ArrayList<String> listaVehiculos) {
+        this.listaVehiculos = listaVehiculos;
     }
     
     
