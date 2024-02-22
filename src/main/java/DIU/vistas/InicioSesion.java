@@ -4,7 +4,6 @@
  */
 package DIU.vistas;
 
-import DIU.Menu;
 import DIU.controlador.PersonaController;
 import javax.swing.JOptionPane;
 

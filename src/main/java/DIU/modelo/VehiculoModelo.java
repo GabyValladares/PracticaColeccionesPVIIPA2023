@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package DIU;
+package DIU.modelo;
 
 import java.util.Date;
 
@@ -10,16 +10,23 @@ import java.util.Date;
  *
  * @author Usuario
  */
-public class Vehiculo {
+public class VehiculoModelo {
     private String placa,marca,color,tipo,multas;
     private double valor;
     
     private Date añoFabricacion;
 
-    public Vehiculo() {
+    public VehiculoModelo() {
     }
-
-    public Vehiculo(String placa, String marca, String color, String tipo, double valor, String multas, Date añoFabricacion) {
+    public VehiculoModelo(String placa, String marca, String color, String tipo, double valor) {
+        this.placa = placa;
+        this.marca = marca;
+        this.color = color;
+        this.tipo = tipo;
+        this.valor = valor;
+        
+    }
+    public VehiculoModelo(String placa, String marca, String color, String tipo, double valor, String multas, Date añoFabricacion) {
         this.placa = placa;
         this.marca = marca;
         this.color = color;

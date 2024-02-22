@@ -4,7 +4,6 @@
  */
 package DIU.vistas;
 
-import DIU.Menu;
 import DIU.controlador.PersonaControlador;
 import DIU.modelo.PersonaModelo;
 import DIU.modelo.VehiculoLD;

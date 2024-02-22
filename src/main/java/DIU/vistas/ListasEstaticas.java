@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package DIU;
+package DIU.vistas;
 
+import DIU.Cadenas;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 

@@ -34,16 +34,12 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="lblCedula" min="-2" pref="151" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblPlaca" min="-2" pref="160" max="-2" attributes="0"/>
                                   <Component id="lblNombres" min="-2" pref="160" max="-2" attributes="0"/>
@@ -52,22 +48,21 @@
                                   <Component id="lblColor" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                                   <Component id="lblTipo" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="lblCedula" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtCedula" alignment="1" min="-2" pref="205" max="-2" attributes="0"/>
-                              <Component id="txtNombres" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="txtPlaca" min="-2" pref="205" max="-2" attributes="0"/>
-                          <Component id="txtAnioFab" min="-2" pref="205" max="-2" attributes="0"/>
-                          <Component id="cmbMarcas" min="-2" pref="205" max="-2" attributes="0"/>
-                          <Component id="txtColor" min="-2" pref="205" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtCedula" pref="205" max="32767" attributes="0"/>
+                          <Component id="txtPlaca" pref="205" max="32767" attributes="0"/>
+                          <Component id="txtAnioFab" pref="205" max="32767" attributes="0"/>
+                          <Component id="cmbMarcas" pref="205" max="32767" attributes="0"/>
+                          <Component id="txtColor" pref="205" max="32767" attributes="0"/>
+                          <Component id="txtNombres" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -128,9 +123,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblNombres" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="txtNombres" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblNombres" pref="36" max="32767" attributes="0"/>
+                          <Component id="txtNombres" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -212,6 +207,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtCedula">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCedulaFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCedulaActionPerformed"/>
       </Events>
       <AuxValues>
@@ -227,14 +223,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="REGISTRO DE DATOS PARA CONOCER EL PAGO A REALIZAR"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtNombres">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombresActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombres">
       <Properties>
@@ -363,6 +351,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTablaVehiculosActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="txtNombres">
     </Component>
   </SubComponents>
 </Form>

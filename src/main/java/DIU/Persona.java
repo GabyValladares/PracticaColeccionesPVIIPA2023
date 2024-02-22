@@ -4,6 +4,7 @@
  */
 package DIU;
 
+import DIU.modelo.VehiculoModelo;
 import java.util.ArrayList;
 
 /**
@@ -13,11 +14,11 @@ import java.util.ArrayList;
 public class Persona {
     private String nombre;
     private int cedula;
-    private ArrayList<Vehiculo> listaVehiculos;
+    private ArrayList<VehiculoModelo> listaVehiculos;
     public Persona() {
     }
 
-    public Persona(String nombre, int cedula, ArrayList<Vehiculo> listaVehiculos) {
+    public Persona(String nombre, int cedula, ArrayList<VehiculoModelo> listaVehiculos) {
         this.nombre = nombre;
         this.cedula = cedula;
         this.listaVehiculos = listaVehiculos;
@@ -39,11 +40,11 @@ public class Persona {
         this.cedula = cedula;
     }
 
-    public ArrayList<Vehiculo> getListaVehiculos() {
+    public ArrayList<VehiculoModelo> getListaVehiculos() {
         return listaVehiculos;
     }
 
-    public void setListaVehiculos(ArrayList<Vehiculo> listaVehiculos) {
+    public void setListaVehiculos(ArrayList<VehiculoModelo> listaVehiculos) {
         this.listaVehiculos = listaVehiculos;
     }
     
