@@ -493,7 +493,9 @@ public class FichaVehicular extends javax.swing.JInternalFrame {
             }
 
     }//GEN-LAST:event_btnCrearActionPerformed
-private void buscarCedula(int cedula){
+
+        
+        private void buscarCedula(int cedula){
        try {
     PersonaControlador controlador = new PersonaControlador();
        controlador.buscarCedula(cedula);
