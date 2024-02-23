@@ -20,6 +20,7 @@ public class PersonaView extends javax.swing.JInternalFrame {
     public PersonaView() {
         initComponents();
         setModelo();
+        ListaPersona = new ArrayList<>();
     }
     public void setModelo(){
         String[] cabecera={"Nro", "Nombres","Apellidos","Cédula","Usuario","Contraseña"};
